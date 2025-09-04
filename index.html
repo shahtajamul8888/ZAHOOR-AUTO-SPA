@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zahoor Auto Spa</title>
   <style>
     :root{
@@ -12,49 +12,56 @@
     *{box-sizing:border-box}
     body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:#333;scroll-behavior:smooth}
 
-    header{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#0f172a;overflow:hidden}
-    header::before{content:"";position:absolute;inset:0;
-      background:radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.08),transparent 60%),
-                 radial-gradient(ellipse at 80% 90%,rgba(255,255,255,.06),transparent 60%);
-      z-index:0}
-    header::after{content:"";position:absolute;inset:0;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320"><g fill="none" stroke="%23ffffff" stroke-opacity=".15" stroke-width="8"><rect x="70" y="90" width="500" height="120" rx="16" ry="16" fill="%23ffffff" fill-opacity=".04"/><rect x="110" y="110" width="70" height="40" fill="%23ffffff" fill-opacity=".12"/><rect x="200" y="110" width="70" height="40" fill="%23ffffff" fill-opacity=".12"/><rect x="290" y="110" width="70" height="40" fill="%23ffffff" fill-opacity=".12"/><rect x="380" y="110" width="70" height="40" fill="%23ffffff" fill-opacity=".12"/><rect x="470" y="110" width="70" height="40" fill="%23ffffff" fill-opacity=".12"/><circle cx="180" cy="230" r="30" fill="%23ffffff" fill-opacity=".12"/><circle cx="460" cy="230" r="30" fill="%23ffffff" fill-opacity=".12"/></g></svg>');
-      background-position:center;background-repeat:no-repeat;background-size:min(60vmin,800px);z-index:0}
-    .hero{position:relative;z-index:1;padding:36px 20px;text-shadow:0 4px 24px rgba(0,0,0,.45)}
-    .hero h1{margin:0 0 10px;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;letter-spacing:1px}
-    .hero p{margin:0;opacity:.9}
+    /* Hero with 4K/HD car-wash background */
+    header{
+      position:relative; min-height:68vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; color:#fff; overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)),
+        url('https://source.unsplash.com/3840x2160/?car,car-wash,cleaning') center/cover no-repeat;
+    }
+    .hero{position:relative; z-index:1; padding:40px 20px; text-shadow:0 4px 24px rgba(0,0,0,.45)}
+    .hero h1{margin:0 0 12px; font-size:clamp(2.2rem,5vw,3.6rem); letter-spacing:1px; font-weight:800}
+    .hero p{margin:0; font-size:clamp(.9rem,1.8vw,1.1rem); opacity:.95; letter-spacing:.3px}
 
-    nav{background:#111;color:#fff;text-align:center;position:sticky;top:0;z-index:10;padding:10px}
-    nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:700}
-    section{padding:40px 18px;text-align:center}
+    nav{background:#111; padding:10px; text-align:center; position:sticky; top:0; z-index:10}
+    nav a{color:#fff; text-decoration:none; margin:0 15px; font-weight:700; transition:.25s}
+    nav a:hover{color:var(--brand); transform:scale(1.06)}
+
+    section{padding:48px 20px; text-align:center}
     h2{margin:0 0 16px}
 
     /* Services (logos) */
-    .services{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
-    .service{width:260px;background:var(--card);border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.12);padding:18px}
-    .service button{all:unset;display:block;width:100%;cursor:pointer;text-align:center}
-    .logo-wrap{width:160px;height:160px;margin:0 auto 12px;border-radius:14px;background:linear-gradient(135deg,#fafafa,#efefef);display:grid;place-items:center;border:1px solid #e9e9e9}
+    .services{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; max-width:1000px; margin:0 auto}
+    .service{width:260px; background:var(--card); border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.12); padding:18px; transition:transform .25s, box-shadow .25s}
+    .service:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.16)}
+    .service button{all:unset; display:block; width:100%; cursor:pointer; text-align:center}
+    .logo-wrap{width:160px; height:160px; margin:0 auto 12px; border-radius:14px; background:linear-gradient(135deg,#fafafa,#efefef); display:grid; place-items:center; border:1px solid #e9e9e9}
     .service h3{margin:8px 0 6px}
+    .service small{color:#666}
 
-    /* Booking + Payment */
-    .booking-form{max-width:520px;margin:24px auto;background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.14);text-align:left}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
+    /* Booking form (kept simple) */
+    .booking-form{max-width:520px; margin:24px auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.14); text-align:left}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
     .row .col{flex:1 1 200px}
-    input,select,button{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;margin:8px 0}
-    .help{color:#555;font-size:.9rem;margin-top:-6px}
-    .payment-options{text-align:center;margin-top:12px}
-    .payment-btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 20px;margin:8px;border-radius:8px;font-weight:700}
-    .mini{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#111;margin:6px;cursor:pointer}
+    input,button{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin:8px 0}
+    button[type="submit"]{background:var(--brand); color:#fff; font-weight:700; cursor:pointer}
+    .whatsapp-btn{background:var(--success); color:#fff; display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:8px; text-decoration:none}
 
-    dialog{border:none;border-radius:16px;padding:0;max-width:460px;width:92%;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+    .payment-options{text-align:center; margin-top:10px}
+    .payment-btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:12px 20px; margin:8px; border-radius:8px; font-weight:700}
+    .mini{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #ddd; border-radius:8px; background:#fff; color:#111; margin:6px; cursor:pointer}
+
+    /* Dialogs */
+    dialog{border:none; border-radius:16px; padding:0; max-width:460px; width:92%; box-shadow:0 24px 60px rgba(0,0,0,.35)}
     dialog::backdrop{background:rgba(0,0,0,.5)}
-    .dlg-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:#111;color:#fff}
-    .dlg-body{padding:16px;background:#fff}
-    .dlg-actions{display:flex;gap:10px;justify-content:flex-end;padding:12px 16px;background:#fafafa;border-top:1px solid #eee}
-    .btn{border:none;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer}
-    .btn.primary{background:var(--brand);color:#fff}
-    .btn.ghost{background:#f1f1f1;color:#333}
-    .qr-img{max-width:100%;height:auto;border-radius:10px;border:1px solid #eee}
+    .dlg-head{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:#111; color:#fff}
+    .dlg-body{padding:16px; background:#fff}
+    .dlg-actions{display:flex; gap:10px; justify-content:flex-end; padding:12px 16px; background:#fafafa; border-top:1px solid #eee}
+    .btn{border:none; border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer}
+    .btn.primary{background:var(--brand); color:#fff}
+    .btn.ghost{background:#f1f1f1; color:#333}
+    .qr-img{max-width:100%; height:auto; border-radius:10px; border:1px solid #eee}
   </style>
 </head>
 <body>
@@ -118,9 +125,9 @@
     </div>
   </section>
 
-  <!-- Simple rates dialog for logos -->
+  <!-- Rates Dialog for logos -->
   <dialog id="ratesDialog" aria-labelledby="ratesTitle">
-    <div class="dlg-head"><h3 id="ratesTitle">Service Rates</h3><button class="btn ghost" data-close>Close</button></div>
+    <div class="dlg-head"><h3 id="ratesTitle">Service Rates</h3><button class="btn ghost" data-close aria-label="Close">Close</button></div>
     <div class="dlg-body"><p id="ratesText" style="margin:0"></p></div>
     <div class="dlg-actions"><button class="btn primary" data-close>OK</button></div>
   </dialog>
@@ -129,27 +136,16 @@
     <h2>Online Booking & Payments</h2>
     <form class="booking-form" id="bookingForm" onsubmit="return false;">
       <div class="row">
-        <div class="col">
-          <input id="custName" type="text" placeholder="Your Name" required>
-        </div>
-        <div class="col">
-          <input id="custPhone" type="tel" placeholder="Contact Number" required>
-        </div>
+        <div class="col"><input id="custName" type="text" placeholder="Your Name" required></div>
+        <div class="col"><input id="custPhone" type="tel" placeholder="Contact Number" required></div>
       </div>
       <div class="row">
         <div class="col"><input id="custDate" type="date" required></div>
         <div class="col"><input id="custTime" type="time" required></div>
       </div>
 
-      <h3 style="text-align:center;margin-top:10px">Pay Now</h3>
-      <div class="row">
-        <div class="col">
-          <input id="payAmount" type="number" min="1" max="100000" step="1" placeholder="Enter amount (₹1–100000)" required>
-          <div class="help">Amount must be between ₹1 and ₹100000; app limits may still apply at bank/PSP level.</div>
-        </div>
-      </div>
-
       <div class="payment-options">
+        <h3>Pay Now</h3>
         <a id="anyUpiBtn" href="#" class="payment-btn">Pay via Any UPI App</a>
         <a id="gpayBtn" href="#" class="payment-btn">Google Pay</a>
         <a id="phonepeBtn" href="#" class="payment-btn">PhonePe</a>
@@ -163,16 +159,12 @@
     </form>
   </section>
 
-  <!-- Optional QR modal (user can upload their QR or set image URL) -->
+  <!-- Optional QR modal -->
   <dialog id="qrDialog" aria-labelledby="qrTitle">
     <div class="dlg-head"><h3 id="qrTitle">Scan to Pay (UPI)</h3><button class="btn ghost" data-close>Close</button></div>
     <div class="dlg-body">
       <img id="qrImage" class="qr-img" alt="UPI QR"/>
-      <div class="help">Use your UPI app’s “Scan & Pay” if a provider suggests scanning or paying to mobile number.</div>
-      <div class="row">
-        <div class="col"><input id="qrUrl" type="url" placeholder="Paste QR image URL and press Set"></div>
-        <div class="col"><button id="setQrUrl" class="btn primary" type="button">Set</button></div>
-      </div>
+      <div class="row"><div class="col"><input id="qrUrl" type="url" placeholder="Paste your QR image URL"></div><div class="col"><button id="setQrUrl" class="btn primary" type="button">Set</button></div></div>
       <div class="row"><div class="col"><input id="qrFile" type="file" accept="image/*"></div></div>
     </div>
     <div class="dlg-actions"><button class="btn primary" data-close>Done</button></div>
@@ -189,7 +181,7 @@
   </footer>
 
   <script>
-    // Show simple rates when clicking logos
+    // Simple rates popup for service logos
     (function(){
       const dlg = document.getElementById('ratesDialog');
       const text = document.getElementById('ratesText');
@@ -206,46 +198,32 @@
       dlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>dlg.close()));
     })();
 
-    // Payment deep links with amount and Android Intents + fallback
+    // UPI deep links (no amount passed; payer enters inside app)
     (function(){
       const VPA = 'shahtajamul88-2@okicici';
       const PNAME = 'Zahoor Auto Spa';
-      const ANY  = document.getElementById('anyUpiBtn');
-      const GPAY = document.getElementById('gpayBtn');
-      const PP   = document.getElementById('phonepeBtn');
-      const PTM  = document.getElementById('paytmBtn');
-      const amtEl= document.getElementById('payAmount');
 
-      function validAmount(){
-        const v = parseFloat(amtEl.value);
-        return Number.isFinite(v) && v>=1 && v<=100000;
-      }
-      function buildParams(note, amount){
+      function upiParams(note){
         const p = new URLSearchParams();
         p.set('pa', VPA);
         p.set('pn', PNAME);
         p.set('tn', note || 'Service Payment');
         p.set('cu', 'INR');
-        p.set('am', String(amount));               // explicit amount to prevent ₹1 defaults in some apps
-        p.set('tr', 'ZAS-' + Date.now());          // optional reference
+        p.set('tr', 'ZAS-' + Date.now()); // optional reference
         return p.toString();
       }
-      function genericUPI(amount){
-        return 'upi://pay?' + buildParams('Service Payment', amount);
-      }
-      function intentUPI(pkg, amount){
-        return 'intent://upi/pay?' + buildParams('Service Payment', amount) + '#Intent;scheme=upi;package=' + pkg + ';end';
-      }
-      function openFlow(target){
-        if(!validAmount()){ alert('Enter a valid amount between ₹1 and ₹100000'); return; }
-        const amount = Number(amtEl.value).toFixed(0);
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const fallback = genericUPI(amount);
+      function genericUPI(note){ return 'upi://pay?' + upiParams(note); }
+      function intentUPI(pkg, note){ return 'intent://upi/pay?' + upiParams(note) + '#Intent;scheme=upi;package=' + pkg + ';end'; }
+
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      function openPay(target){
+        const note = 'Service Payment';
+        const fallback = genericUPI(note);
         let url = fallback;
         if(isAndroid){
-          if(target==='gpay')   url = intentUPI('com.google.android.apps.nbu.paisa.user', amount);
-          if(target==='phonepe')url = intentUPI('com.phonepe.app', amount);
-          if(target==='paytm')  url = intentUPI('net.one97.paytm', amount);
+          if(target==='gpay')   url = intentUPI('com.google.android.apps.nbu.paisa.user', note);
+          if(target==='phonepe')url = intentUPI('com.phonepe.app', note);
+          if(target==='paytm')  url = intentUPI('net.one97.paytm', note);
         }
         const start = Date.now();
         const t = setTimeout(()=>{ if(Date.now()-start<1600) window.location.href = fallback; }, 800);
@@ -253,33 +231,36 @@
         document.addEventListener('visibilitychange', ()=>{ if(document.hidden) clearTimeout(t); }, {once:true});
       }
 
-      ANY.addEventListener('click', e=>{ e.preventDefault(); openFlow('any'); });
-      GPAY.addEventListener('click',e=>{ e.preventDefault(); openFlow('gpay'); });
-      PP.addEventListener('click',  e=>{ e.preventDefault(); openFlow('phonepe'); });
-      PTM.addEventListener('click', e=>{ e.preventDefault(); openFlow('paytm'); });
+      document.getElementById('anyUpiBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('any'); });
+      document.getElementById('gpayBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('gpay'); });
+      document.getElementById('phonepeBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('phonepe'); });
+      document.getElementById('paytmBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('paytm'); });
 
       // Copy helpers
       const copy = async (t)=>{ try{ await navigator.clipboard.writeText(t); alert('Copied'); } catch{ prompt('Copy value:', t); } };
       document.getElementById('copyVpa').addEventListener('click', ()=>copy(VPA));
       document.getElementById('copyPhone').addEventListener('click', ()=>copy('9797472650'));
+    })();
 
-      // QR modal (upload or set image URL)
-      const qrDlg = document.getElementById('qrDialog');
-      document.getElementById('showQr').addEventListener('click', ()=> qrDlg.showModal());
-      qrDlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>qrDlg.close()));
-      qrDlg.addEventListener('click', e=>{
-        const r = qrDlg.getBoundingClientRect();
-        if(!(e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom)) qrDlg.close();
+    // QR helper (optional)
+    (function(){
+      const dlg = document.getElementById('qrDialog');
+      const img = document.getElementById('qrImage');
+      document.getElementById('showQr').addEventListener('click', ()=> dlg.showModal());
+      dlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>dlg.close()));
+      dlg.addEventListener('click', e=>{
+        const r = dlg.getBoundingClientRect();
+        if(!(e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom)) dlg.close();
       });
       document.getElementById('setQrUrl').addEventListener('click', ()=>{
         const u = (document.getElementById('qrUrl').value || '').trim();
-        if(u) document.getElementById('qrImage').src = u;
+        if(u) img.src = u;
       });
       document.getElementById('qrFile').addEventListener('change', (e)=>{
         const f = e.target.files && e.target.files;
         if(!f) return;
         const r = new FileReader();
-        r.onload = ()=> document.getElementById('qrImage').src = r.result;
+        r.onload = ()=> img.src = r.result;
         r.readAsDataURL(f);
       });
     })();
