@@ -1,96 +1,72 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-  <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333;}
-    header {background:#0077cc; color:#fff; padding:20px; text-align:center;}
-    nav {background:#005fa3; padding:10px; text-align:center;}
-    nav a {color:#fff; margin:0 15px; text-decoration:none;}
-    section {padding:40px 20px; max-width:1200px; margin:auto;}
-    h2 {color:#0077cc; margin-bottom:20px;}
-    .packages, .reviews, .gallery, .offers, .loyalty, .payments {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
-    .card {background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-    .gallery img {width:100%; border-radius:10px;}
-    footer {background:#222; color:#fff; text-align:center; padding:20px;}
-    .whatsapp {position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff; padding:15px 20px; border-radius:50%; font-size:24px; text-decoration:none;}
-    form input, form select, form button {width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;}
-    form button {background:#0077cc; color:#fff; cursor:pointer;}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Hero -->
   <header>
-    <h1>🚘 Zahoor Auto Spa</h1>
-    <p>Professional Car Washing & Detailing Services</p>
-  </header>  <nav>
-    <a href="#services">Services</a>
-    <a href="#booking">Booking</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#offers">Offers</a>
-    <a href="#location">Location</a>
-  </nav>  <!-- 1. Service Menu -->  <section id="services">
-    <h2>Our Wash Packages</h2>
-    <div class="packages">
-      <div class="card"><h3>Basic Wash</h3><p>Exterior cleaning, water wash</p><p><b>₹300 - Cars</b></p></div>
-      <div class="card"><h3>Premium Wash</h3><p>Exterior + Interior + Wax</p><p><b>₹700 - SUVs</b></p></div>
-      <div class="card"><h3>Full Detailing</h3><p>Engine wash, polish, deep interior</p><p><b>₹1500 - Luxury Cars</b></p></div>
-      <div class="card"><h3>Heavy Vehicles</h3><p>Bus, Truck, Van full wash</p><p><b>₹2000 - Trucks</b></p></div>
+    <h1>Zahoor Auto Spa</h1>
+  </header>
+
+  <!-- Services -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" alt="Car">
+      <p>Car Wash</p>
     </div>
-  </section>  <!-- 2. Online Booking -->  <section id="booking">
-    <h2>Book Your Slot</h2>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Bus">
+      <p>Bus Wash</p>
+    </div>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995564.png" alt="Truck">
+      <p>Truck Wash</p>
+    </div>
+  </section>
+
+  <!-- Before & After -->
+  <section>
+    <h2>Before & After</h2>
+    <div class="before-after">
+      <img src="https://images.unsplash.com/photo-1549921296-3b4a4b7c22f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100" alt="Before">
+      <img src="https://images.unsplash.com/photo-1607863680090-51f072a8a228?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100" alt="After">
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section>
+    <h2>Book Your Wash</h2>
     <form>
       <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <select required>
-        <option value="">Select Vehicle Type</option>
-        <option>Car</option>
-        <option>SUV</option>
-        <option>Bus</option>
-        <option>Truck</option>
-      </select>
+      <input type="text" placeholder="Contact Number" required>
       <input type="date" required>
       <input type="time" required>
-      <button type="submit">Confirm Booking</button>
+      <button type="submit">Book Now</button>
     </form>
-  </section>  <!-- 3. Reviews -->  <section id="reviews">
-    <h2>Customer Reviews</h2>
-    <div class="reviews">
-      <div class="card">⭐⭐⭐⭐⭐<p>“Excellent service, my car looks brand new!” – Aadil</p></div>
-      <div class="card">⭐⭐⭐⭐<p>“Affordable and fast, loved it.” – Sameer</p></div>
-      <div class="card">⭐⭐⭐⭐⭐<p>“Best wash in town, highly recommended.” – Bilal</p></div>
-    </div>
-  </section>  <!-- 4. Before & After Gallery -->  <section id="gallery">
-    <h2>Before & After</h2>
-    <div class="gallery">
-      <div><img src="https://via.placeholder.com/400x250?text=Before+Wash" alt="Before"></div>
-      <div><img src="https://via.placeholder.com/400x250?text=After+Wash" alt="After"></div>
-    </div>
-  </section>  <!-- 5. Offers -->  <section id="offers">
-    <h2>Special Offers</h2>
-    <div class="offers">
-      <div class="card"><h3>Sunday Special</h3><p>20% Off on SUVs</p></div>
-      <div class="card"><h3>Festival Discount</h3><p>Flat 15% off during Eid</p></div>
-    </div>
-  </section>  <!-- 6. Loyalty Program -->  <section id="loyalty">
-    <h2>Loyalty Rewards</h2>
-    <div class="loyalty">
-      <div class="card"><h3>Wash 5 Times</h3><p>Get 6th Wash Free!</p></div>
-      <div class="card"><h3>Refer a Friend</h3><p>Earn ₹100 off on next wash.</p></div>
-    </div>
-  </section>  <!-- 7. Payments -->  <section id="payments">
-    <h2>Payment Options</h2>
-    <div class="payments">
-      <div class="card"><p>Pay via UPI / QR</p><img src="https://via.placeholder.com/200x200?text=QR+Code" alt="QR"></div>
-      <div class="card"><p>We accept Google Pay, PhonePe, Paytm, Cash</p></div>
-    </div>
-  </section>  <!-- 8. Location -->  <section id="location">
-    <h2>Find Us</h2>
-    <p><a href="https://maps.google.com" target="_blank">📍 Get Directions on Google Maps</a></p>
-  </section>  <!-- 9. Developer Credit -->  <footer>
-    <p>&copy; 2025 Zahoor Auto Spa | Developed by <b>Tajamul Farooq</b></p>
-  </footer>  <!-- 10. WhatsApp Floating Button --><a href="https://wa.me/919797472650" class="whatsapp">💬</a>
+  </section>
 
+  <!-- Payment QR -->
+  <section>
+    <h2>Pay Online</h2>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=zahoorautospa@upi&pn=ZahoorAutoSpa&am=500&cu=INR" alt="Payment QR" width="200">
+    <p>Scan & Pay easily</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>WhatsApp us: <a href="https://wa.me/919797472650" style="color:#00ff99;">9797472650</a></p>
+    <p>Visit our short link: <a href="https://tinyurl.com/ZahoorAutoSpa" target="_blank" style="color:#00ff99;">tinyurl.com/ZahoorAutoSpa</a></p>
+    <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+    <div id="toast" class="toast">Copied!</div>
+    <p>Website developed by <b>Tajamul Farooq</b></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
