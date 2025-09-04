@@ -12,7 +12,7 @@
     *{box-sizing:border-box}
     body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:#333;scroll-behavior:smooth}
 
-    /* Hero with HD car-wash background */
+    /* Hero with 4K/HD car-wash background */
     header{
       position:relative; min-height:68vh; display:flex; align-items:center; justify-content:center;
       text-align:center; color:#fff; overflow:hidden;
@@ -81,7 +81,7 @@
     <h2>Our Services</h2>
     <div class="services">
       <div class="service">
-        <button class="service-btn" data-service="Bike" data-range="₹150–200">
+        <button class="service-btn" data-service="Bike" data-range="₹150–200" aria-label="View Bike rates">
           <div class="logo-wrap" aria-hidden="true">
             <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
               <g fill="none" stroke="#222" stroke-width="3">
@@ -94,7 +94,7 @@
         </button>
       </div>
       <div class="service">
-        <button class="service-btn" data-service="Car" data-range="₹350–450">
+        <button class="service-btn" data-service="Car" data-range="₹350–450" aria-label="View Car rates">
           <div class="logo-wrap" aria-hidden="true">
             <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
               <g fill="none" stroke="#222" stroke-width="3">
@@ -108,7 +108,7 @@
         </button>
       </div>
       <div class="service">
-        <button class="service-btn" data-service="Bus" data-range="₹800–1000">
+        <button class="service-btn" data-service="Bus" data-range="₹800–1000" aria-label="View Bus rates">
           <div class="logo-wrap" aria-hidden="true">
             <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
               <g fill="none" stroke="#222" stroke-width="3">
@@ -145,10 +145,13 @@
 
       <div class="payment-options">
         <h3>Pay Now</h3>
+        <!-- Existing UPI options -->
         <a id="anyUpiBtn" href="#" class="payment-btn">Pay via Any UPI App</a>
         <a id="gpayBtn" href="#" class="payment-btn">Google Pay</a>
         <a id="phonepeBtn" href="#" class="payment-btn">PhonePe</a>
         <a id="paytmBtn" href="#" class="payment-btn">Paytm</a>
+        <!-- New Cashfree Payment Link button -->
+        <a id="cashfreeBtn" href="https://payments-test.cashfree.com/links?code=o94dhs95fm1g" class="payment-btn" target="_blank" rel="noopener">Pay via Cashfree</a>
         <div style="margin-top:10px">
           <button type="button" class="mini" id="copyVpa">Copy UPI ID: 9797472650@okbizaxis</button>
           <button type="button" class="mini" id="copyPhone">Copy Mobile: 9797472650</button>
@@ -197,7 +200,7 @@
       dlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>dlg.close()));
     })();
 
-    // UPI deep links (merchant VPA with Android Intents + fallback)
+    // UPI deep links (merchant VPA) with Android Intents + fallback
     (function(){
       const VPA   = '9797472650@okbizaxis';      // Merchant UPI ID
       const PNAME = 'Tajamul Pvt Ltd';           // Merchant display name
