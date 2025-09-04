@@ -170,6 +170,7 @@
             <option value="bus">Bus (700-1000)</option>
         </select>
         <br>
+        <button onclick="book('upi')">Pay with UPI</button>
         <button onclick="book('text')">Send Text on My Number</button>
         <button onclick="book('whatsapp')">Online Book on WhatsApp</button>
     </section>
@@ -194,15 +195,26 @@
             var vehicle = document.getElementById('vehicle').value;
             var rate = prompt('Enter the exact rate for ' + vehicle + ' (within the range):');
             if (rate) {
-                // Simulate redirect to payment (in real, integrate payment gateway)
-                alert('Redirecting to payment for ' + vehicle + ' at ' + rate + '. Assuming payment successful.');
-                recordPayment();
-                // Proceed to booking
-                var message = 'Booking for ' + vehicle + ' at ' + rate;
-                if (method === 'text') {
-                    window.location.href = 'sms:+1234567890?body=' + encodeURIComponent(message); // Replace with actual owner number
-                } else if (method === 'whatsapp') {
-                    window.location.href = 'https://api.whatsapp.com/send?phone=1234567890&text=' + encodeURIComponent(message); // Replace with actual owner number
+                if (method === 'upi') {
+                    // Redirect to Cashfree UPI payment link
+                    alert('Redirecting to UPI payment for ' + vehicle + ' at ' + rate + '.');
+                    // Note: The Cashfree link is static. For dynamic amounts, use Cashfree API with backend integration.
+                    window.location.href = 'https://payments.cashfree.com/links?code=N94dqli98oog';
+                    // Record payment (assuming success for now, as no backend is integrated)
+                    recordPayment();
+                } else {
+                    // Redirect to Cashfree UPI payment link first
+                    alert('Redirecting to UPI payment for ' + vehicle + ' at ' + rate + '.');
+                    window.location.href = 'https://payments.cashfree.com/links?code=N94dqli98oog';
+                    // Assuming payment is successful (simulated, replace with actual confirmation via Cashfree webhook/redirect)
+                    recordPayment();
+                    // Proceed to booking confirmation via SMS or WhatsApp
+                    var message = 'Booking for ' + vehicle + ' at ' + rate + ' (Payment completed)';
+                    if (method === 'text') {
+                        window.location.href = 'sms:+1234567890?body=' + encodeURIComponent(message); // Replace with actual owner number
+                    } else if (method === 'whatsapp') {
+                        window.location.href = 'https://api.whatsapp.com/send?phone=1234567890&text=' + encodeURIComponent(message); // Replace with actual owner number
+                    }
                 }
             }
         }
@@ -216,7 +228,7 @@
 
         function showRecord() {
             var password = prompt('Enter admin password:');
-            if (password === 'zahoor123') { // Placeholder password - change as needed
+            if (password === 'zahoor123') { // Placeholder password - change for production
                 document.getElementById('payment-record').style.display = 'block';
                 var list = document.getElementById('record-list');
                 list.innerHTML = '';
