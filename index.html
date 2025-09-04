@@ -1,257 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      min-height: 100vh;
-      color: #fff;
-      position: relative;
-      overflow-x: hidden;
-    }
-    header {
-      background: transparent;
-      color: white;
-      padding: 60px 0 40px 0;
-      text-align: center;
-      position: relative;
-    }
-    /* Floating Logo Animation */
-    .logo-svg {
-      display: block;
-      margin: 0 auto 20px auto;
-      height: 90px;
-      width: 90px;
-      animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0px 0px 12px #25D366);
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
-    /* Glowing Floating Title */
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
-      color: #25D366;
-      text-shadow: 0 0 15px #25D366, 0 0 30px #1a73e8, 0 0 45px #25D366;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #25D366, 0 0 20px #1a73e8; }
-      to { text-shadow: 0 0 25px #1a73e8, 0 0 50px #25D366; }
-    }
-    header p {
-      font-size: 1.4em;
-      font-weight: 500;
-      color: #ddd;
-    }
-    nav {
-      background: rgba(255,255,255,0.1);
-      padding: 15px 0;
-      backdrop-filter: blur(8px);
-      text-align: center;
-    }
-    nav a {
-      color: #25D366;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1em;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: #1a73e8;
-    }
-    .container {
-      max-width: 1050px;
-      margin: 30px auto 0 auto;
-      padding: 0 20px;
-    }
-    .card {
-      background: rgba(255,255,255,0.08);
-      margin: 30px 0;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(26,115,232,0.2), 0 1.5px 8px rgba(37,211,102,0.2);
-      backdrop-filter: blur(6px);
-    }
-    h2 {
-      color: #25D366;
-      margin-bottom: 14px;
-      letter-spacing: 1px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1.08em;
-    }
-    li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-left: 12px;
-    }
-    li:last-child {
-      border-bottom: none;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 19px;
-      background: linear-gradient(90deg, #25D366 60%, #1a73e8 100%);
-      color: white;
-      border-radius: 7px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 12px;
-      font-size: 1.07em;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 10px rgba(26,115,232,0.3);
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      background: linear-gradient(90deg, #128C7E 60%, #0d47a1 100%);
-    }
-    .contact-details {
-      font-size: 1.07em;
-      margin-top: 10px;
-      line-height: 1.7;
-    }
-    footer {
-      text-align: center;
-      padding: 22px 0;
-      background: linear-gradient(90deg,#1a73e8 60%, #25D366 100%);
-      color: white;
-      margin-top: 45px;
-      font-size: 1.1em;
-      letter-spacing: 1px;
-      box-shadow: 0 -2px 12px rgba(26,115,232,0.4);
-    }
-    iframe {
-      border: none;
-      width: 100%;
-      height: 300px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
-    @media (max-width:700px){
-      header h1 { font-size:2em; }
-      .container { padding:0 7px; }
-      .card { padding:18px; }
-      .logo-svg { height:60px; width:60px; }
-    }
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333;}
+    header {background:#0077cc; color:#fff; padding:20px; text-align:center;}
+    nav {background:#005fa3; padding:10px; text-align:center;}
+    nav a {color:#fff; margin:0 15px; text-decoration:none;}
+    section {padding:40px 20px; max-width:1200px; margin:auto;}
+    h2 {color:#0077cc; margin-bottom:20px;}
+    .packages, .reviews, .gallery, .offers, .loyalty, .payments {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
+    .card {background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .gallery img {width:100%; border-radius:10px;}
+    footer {background:#222; color:#fff; text-align:center; padding:20px;}
+    .whatsapp {position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff; padding:15px 20px; border-radius:50%; font-size:24px; text-decoration:none;}
+    form input, form select, form button {width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:5px;}
+    form button {background:#0077cc; color:#fff; cursor:pointer;}
   </style>
 </head>
 <body>
   <header>
-    <svg class="logo-svg" viewBox="0 0 64 64" fill="none">
-      <circle cx="32" cy="32" r="31" fill="#fff" stroke="#1a73e8" stroke-width="2"/>
-      <rect x="19" y="38" width="26" height="10" rx="5" fill="#1a73e8"/>
-      <ellipse cx="32" cy="34" rx="13" ry="7" fill="#25D366"/>
-      <rect x="14" y="28" width="36" height="12" rx="6" fill="#cfdef3" stroke="#1a73e8" stroke-width="1.5"/>
-      <circle cx="22" cy="44" r="3" fill="#fff" stroke="#222" stroke-width="1"/>
-      <circle cx="42" cy="44" r="3" fill="#fff" stroke="#222" stroke-width="1"/>
-      <rect x="35" y="22" width="7" height="10" rx="3.5" fill="#1a73e8"/>
-      <circle cx="38.5" cy="20.5" r="2.5" fill="#222"/>
-      <rect x="41" y="17" width="2" height="8" rx="1" fill="#25D366"/>
-    </svg>
-    <h1>Zahoor Auto Spa</h1>
-    <p>Your trusted service pump for Cars, Trucks, and Buses – Jammu & Kashmir</p>
-  </header>
-
-  <nav>
+    <h1>🚘 Zahoor Auto Spa</h1>
+    <p>Professional Car Washing & Detailing Services</p>
+  </header>  <nav>
     <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
     <a href="#booking">Booking</a>
-    <a href="#contact">Contact</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#offers">Offers</a>
     <a href="#location">Location</a>
-  </nav>
+  </nav>  <!-- 1. Service Menu -->  <section id="services">
+    <h2>Our Wash Packages</h2>
+    <div class="packages">
+      <div class="card"><h3>Basic Wash</h3><p>Exterior cleaning, water wash</p><p><b>₹300 - Cars</b></p></div>
+      <div class="card"><h3>Premium Wash</h3><p>Exterior + Interior + Wax</p><p><b>₹700 - SUVs</b></p></div>
+      <div class="card"><h3>Full Detailing</h3><p>Engine wash, polish, deep interior</p><p><b>₹1500 - Luxury Cars</b></p></div>
+      <div class="card"><h3>Heavy Vehicles</h3><p>Bus, Truck, Van full wash</p><p><b>₹2000 - Trucks</b></p></div>
+    </div>
+  </section>  <!-- 2. Online Booking -->  <section id="booking">
+    <h2>Book Your Slot</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
+        <option value="">Select Vehicle Type</option>
+        <option>Car</option>
+        <option>SUV</option>
+        <option>Bus</option>
+        <option>Truck</option>
+      </select>
+      <input type="date" required>
+      <input type="time" required>
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </section>  <!-- 3. Reviews -->  <section id="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="reviews">
+      <div class="card">⭐⭐⭐⭐⭐<p>“Excellent service, my car looks brand new!” – Aadil</p></div>
+      <div class="card">⭐⭐⭐⭐<p>“Affordable and fast, loved it.” – Sameer</p></div>
+      <div class="card">⭐⭐⭐⭐⭐<p>“Best wash in town, highly recommended.” – Bilal</p></div>
+    </div>
+  </section>  <!-- 4. Before & After Gallery -->  <section id="gallery">
+    <h2>Before & After</h2>
+    <div class="gallery">
+      <div><img src="https://via.placeholder.com/400x250?text=Before+Wash" alt="Before"></div>
+      <div><img src="https://via.placeholder.com/400x250?text=After+Wash" alt="After"></div>
+    </div>
+  </section>  <!-- 5. Offers -->  <section id="offers">
+    <h2>Special Offers</h2>
+    <div class="offers">
+      <div class="card"><h3>Sunday Special</h3><p>20% Off on SUVs</p></div>
+      <div class="card"><h3>Festival Discount</h3><p>Flat 15% off during Eid</p></div>
+    </div>
+  </section>  <!-- 6. Loyalty Program -->  <section id="loyalty">
+    <h2>Loyalty Rewards</h2>
+    <div class="loyalty">
+      <div class="card"><h3>Wash 5 Times</h3><p>Get 6th Wash Free!</p></div>
+      <div class="card"><h3>Refer a Friend</h3><p>Earn ₹100 off on next wash.</p></div>
+    </div>
+  </section>  <!-- 7. Payments -->  <section id="payments">
+    <h2>Payment Options</h2>
+    <div class="payments">
+      <div class="card"><p>Pay via UPI / QR</p><img src="https://via.placeholder.com/200x200?text=QR+Code" alt="QR"></div>
+      <div class="card"><p>We accept Google Pay, PhonePe, Paytm, Cash</p></div>
+    </div>
+  </section>  <!-- 8. Location -->  <section id="location">
+    <h2>Find Us</h2>
+    <p><a href="https://maps.google.com" target="_blank">📍 Get Directions on Google Maps</a></p>
+  </section>  <!-- 9. Developer Credit -->  <footer>
+    <p>&copy; 2025 Zahoor Auto Spa | Developed by <b>Tajamul Farooq</b></p>
+  </footer>  <!-- 10. WhatsApp Floating Button --><a href="https://wa.me/919876543210" class="whatsapp">💬</a>
 
-  <div class="container">
-    <section id="services" class="card">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Car Wash with foam, polish (interior and exterior)</li>
-        <li>Truck Wash – Full body cleaning</li>
-        <li>Bus Wash – Deep cleaning and polishing</li>
-        <li>Bike Wash – Quick and affordable</li>
-        <li>Polishing & Detailing</li>
-      </ul>
-    </section>
-
-    <section id="pricing" class="card">
-      <h2>Pricing</h2>
-      <ul>
-        <li><strong>Car Wash with foam, polish (interior & exterior):</strong> ₹350 – ₹500</li>
-        <li><strong>Truck Wash:</strong> ₹800 – ₹1000</li>
-        <li><strong>Bus Wash:</strong> ₹800 – ₹1000</li>
-        <li><strong>Bike Wash:</strong> ₹100 – ₹200</li>
-        <li><strong>Polishing & Detailing:</strong> ₹500 onwards</li>
-      </ul>
-    </section>
-
-    <section id="booking" class="card">
-      <h2>Online Booking</h2>
-      <p>Choose your vehicle type and book your slot via WhatsApp.</p>
-      <form onsubmit="return bookingMessage()">
-        <label for="vehicle">Select Vehicle:</label><br>
-        <select id="vehicle" name="vehicle" required>
-          <option value="">--Choose--</option>
-          <option value="Car">Car (₹350 – ₹500)</option>
-          <option value="Truck">Truck (₹800 – ₹1000)</option>
-          <option value="Bus">Bus (₹800 – ₹1000)</option>
-          <option value="Bike">Bike (₹100 – ₹200)</option>
-          <option value="Polishing">Polishing & Detailing (₹500+)</option>
-        </select><br><br>
-        <button type="submit" class="btn">Book on WhatsApp</button>
-      </form>
-
-      <h3 style="margin-top:25px;">Pay Online via UPI</h3>
-      <p>Scan the QR code to pay:</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=shahtajamul88-2@okicici&pn=ZahoorAutoSpa" alt="UPI QR" />
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact Us</h2>
-      <div class="contact-details">
-        <strong>Location:</strong> Baroosa towards the Mansbal road, Jammu & Kashmir<br>
-        <strong>Phone:</strong> +91-9797472650<br>
-        <strong>Email:</strong> contact@zahoorautospa.com
-      </div>
-    </section>
-
-    <section id="location" class="card">
-      <h2>Find Us on Google Maps</h2>
-      <iframe 
-        src="https://www.google.com/maps?q=34.244078,74.711850&hl=es;z=14&output=embed"
-        allowfullscreen>
-      </iframe>
-    </section>
-  </div>
-
-  <footer>
-    &copy; 2025 Zahoor Auto Spa | Designed for quality service <br>
-    Website Developer: <strong>TAJAMUL FAROOQ</strong>
-  </footer>
-
-  <script>
-    function bookingMessage() {
-      const vehicle = document.getElementById("vehicle").value;
-      if(vehicle) {
-        const message = `Hello Zahoor Auto Spa, I want to book a ${vehicle} wash.`;
-        const url = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
-        window.open(url, "_blank");
-        return false;
-      }
-    }
-  </script>
 </body>
 </html>
