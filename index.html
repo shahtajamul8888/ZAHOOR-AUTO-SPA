@@ -4,245 +4,654 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zahoor Auto Spa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        a {
-            color: steelblue;
-            text-decoration: none;
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            overflow-x: hidden;
         }
-        .navigation {
-            background-color: steelblue;
-            text-align: center;
-            padding: 10px;
-        }
-        .navigation a {
-            color: white;
-            padding: 14px 20px;
-            font-size: 18px;
-        }
-        .hero {
-            background: linear-gradient(to bottom, black, steelblue);
-            height: 400px;
-            text-align: center;
-            padding-top: 100px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero h1 {
-            font-size: 60px;
-            margin: 0;
-        }
-        .hero h2 {
-            font-size: 24px;
-            margin: 10px 0;
-        }
-        .animated-logos {
-            margin-top: 50px;
-        }
-        .logo {
-            font-size: 50px;
-            margin: 0 20px;
-            animation: bounce 2s infinite;
-            color: steelblue;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
-        }
-        /* Simple water animation for washing effect in background */
-        .water-animation {
-            position: absolute;
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.2;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.5) 10px, rgba(255,255,255,0.5) 20px);
-            animation: flow 5s linear infinite;
+            background: #1e3c72;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
         }
-        @keyframes flow {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
+
+        .preloader img {
+            width: 100px;
+            animation: spin 1s linear infinite;
         }
-        .services {
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            z-index: 3;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Header */
+        header {
             text-align: center;
-            padding: 50px;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
         }
-        .card {
+
+        header h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero a {
             display: inline-block;
-            width: 200px;
-            background-color: rgba(70, 130, 180, 0.8); /* bluish */
-            margin: 20px;
+            padding: 15px 30px;
+            background: #ffd700;
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background: #e6c200;
+        }
+
+        /* Background Animation */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .vehicle-logo {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            animation: moveAcross 10s linear infinite;
+        }
+
+        .bike { top: 20%; animation-delay: 0s; }
+        .car { top: 40%; animation-delay: 3s; }
+        .bus { top: 60%; animation-delay: 6s; }
+        .truck { top: 80%; animation-delay: 9s; }
+
+        @keyframes moveAcross {
+            0% { left: -100px; transform: scale(1); }
+            10% { transform: scale(1.2); }
+            90% { transform: scale(1.2); }
+            100% { left: 100%; transform: scale(1); }
+        }
+
+        /* Fade-in Animation for Sections */
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 50px 20px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .card i {
-            font-size: 60px;
-            color: white;
-            animation: wash 1.5s infinite;
+
+        .service-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
-        @keyframes wash {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
-            100% { transform: rotate(0deg); }
+
+        .service-item img {
+            width: 80px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
-        .online-booking {
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 50px 20px;
             text-align: center;
-            padding: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
         }
-        select, button {
+
+        .booking h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .booking-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .booking-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .booking-item img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .rates {
+            display: none;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .rates.active {
+            display: block;
+        }
+
+        .booking-form {
+            margin-top: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .booking-form input {
+            width: 100%;
             padding: 10px;
-            margin: 10px;
-            font-size: 18px;
-            background-color: steelblue;
-            color: white;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .booking-form button {
+            padding: 10px 20px;
+            background: #25D366;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
         }
-        #contact {
+
+        .booking-form button:hover {
+            background: #1ebe57;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 50px 20px;
             text-align: center;
-            padding: 50px;
+            z-index: 2;
+            position: relative;
         }
-        .admin-view {
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+        }
+
+        .testimonial-item h4 {
+            margin-top: 10px;
+            color: #ffd700;
+        }
+
+        /* Payment Section */
+        .payment {
+            padding: 50px 20px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .payment h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .payment-options a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .payment-options a:hover {
+            background: #0056b3;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 50px 20px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .location h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .get-directions {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .get-directions:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
             padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            position: relative;
         }
-        .payment-record {
-            display: none;
-            padding: 50px;
-            text-align: center;
+
+        footer p {
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .services h2, .booking h2, .payment h2, .testimonials h2, .contact h2, .location h2 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .map-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="navigation">
-        <a href="#services">Services</a>
-        <a href="#online-booking">Online Booking</a>
-        <a href="#contact">Contact</a>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="https://via.placeholder.com/100?text=Logo" alt="Loading">
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <img src="https://via.placeholder.com/100?text=Bike" class="vehicle-logo bike" alt="Bike Logo">
+        <img src="https://via.placeholder.com/100?text=Car" class="vehicle-logo car" alt="Car Logo">
+        <img src="https://via.placeholder.com/100?text=Bus" class="vehicle-logo bus" alt="Bus Logo">
+        <img src="https://via.placeholder.com/100?text=Truck" class="vehicle-logo truck" alt="Truck Logo">
+    </div>
+
+    <!-- Header -->
+    <header id="home" class="section">
+        <h1>Zahoor Auto Spa</h1>
     </header>
 
-    <div class="hero">
-        <div class="water-animation"></div> <!-- Background washing animation -->
-        <h1>Zahoor Auto Spa</h1>
-        <h2>Best Care Service and Care</h2>
-        <div class="animated-logos">
-            <i class="fas fa-motorcycle logo"></i>
-            <i class="fas fa-car logo"></i>
-            <i class="fas fa-bus logo"></i>
-        </div>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero section">
+        <p>Professional Washing, Polishing, and Maintenance for Your Vehicles</p>
+        <a href="#booking">Book Now</a>
+    </section>
 
-    <section id="services" class="services">
+    <!-- Services Section -->
+    <section id="services" class="services section">
         <h2>Our Services</h2>
-        <div class="card">
-            <i class="fas fa-motorcycle"></i>
-            <p>Bike Washing</p>
-            <p>Rates: 150-200</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-car"></i>
-            <p>Car Washing</p>
-            <p>Rates: 350-450</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-bus"></i>
-            <p>Bus Washing</p>
-            <p>Rates: 700-1000</p>
+        <div class="service-grid">
+            <div class="service-item">
+                <img src="https://via.placeholder.com/80?text=Bike" alt="Bike">
+                <h3>Bike Washing</h3>
+                <p>Professional washing, polishing, greasing, and diesel wash for bikes.</p>
+            </div>
+            <div class="service-item">
+                <img src="https://via.placeholder.com/80?text=Car" alt="Car">
+                <h3>Car Washing</h3>
+                <p>Comprehensive cleaning, polishing, and greasing for cars.</p>
+            </div>
+            <div class="service-item">
+                <img src="https://via.placeholder.com/80?text=Bus" alt="Bus">
+                <h3>Bus Washing</h3>
+                <p>Expert washing and maintenance for buses.</p>
+            </div>
+            <div class="service-item">
+                <img src="https://via.placeholder.com/80?text=Truck" alt="Truck">
+                <h3>Truck Washing</h3>
+                <p>Heavy-duty cleaning and diesel wash for trucks.</p>
+            </div>
         </div>
     </section>
 
-    <section id="online-booking" class="online-booking">
-        <h2>Online Booking</h2>
-        <select id="vehicle">
-            <option value="bike">Bike (150-200)</option>
-            <option value="car">Car (350-450)</option>
-            <option value="bus">Bus (700-1000)</option>
-        </select>
-        <br>
-        <button onclick="book('upi')">Pay with UPI</button>
-        <button onclick="book('text')">Send Text on My Number</button>
-        <button onclick="book('whatsapp')">Online Book on WhatsApp</button>
+    <!-- Booking Section -->
+    <section id="booking" class="booking section">
+        <h2>Book Your Wash</h2>
+        <div class="booking-grid">
+            <div class="booking-item" onclick="showRates('bike')">
+                <img src="https://via.placeholder.com/80?text=Bike" alt="Bike">
+                <p>Bike Washing</p>
+            </div>
+            <div class="booking-item" onclick="showRates('car')">
+                <img src="https://via.placeholder.com/80?text=Car" alt="Car">
+                <p>Car Washing</p>
+            </div>
+            <div class="booking-item" onclick="showRates('bus')">
+                <img src="https://via.placeholder.com/80?text=Bus" alt="Bus">
+                <p>Bus Washing</p>
+            </div>
+            <div class="booking-item" onclick="showRates('truck')">
+                <img src="https://via.placeholder.com/80?text=Truck" alt="Truck">
+                <p>Truck Washing</p>
+            </div>
+        </div>
+        <div class="rates" id="bike-rates">
+            <h3>Bike Washing Rates</h3>
+            <p>₹150 - ₹250</p>
+            <div class="booking-options">
+                <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bike%20Washing" target="_blank">Book via WhatsApp</a>
+                <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Bike%20Washing">Book via SMS</a>
+            </div>
+        </div>
+        <div class="rates" id="car-rates">
+            <h3>Car Washing Rates</h3>
+            <p>₹350 - ₹450</p>
+            <div class="booking-options">
+                <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Car%20Washing" target="_blank">Book via WhatsApp</a>
+                <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Car%20Washing">Book via SMS</a>
+            </div>
+        </div>
+        <div class="rates" id="bus-rates">
+            <h3>Bus Washing Rates</h3>
+            <p>₹550 - ₹650</p>
+            <div class="booking-options">
+                <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bus%20Washing" target="_blank">Book via WhatsApp</a>
+                <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Bus%20Washing">Book via SMS</a>
+            </div>
+        </div>
+        <div class="rates" id="truck-rates">
+            <h3>Truck Washing Rates</h3>
+            <p>₹850 - ₹1000</p>
+            <div class="booking-options">
+                <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Truck%20Washing" target="_blank">Book via WhatsApp</a>
+                <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Truck%20Washing">Book via SMS</a>
+            </div>
+        </div>
+        <div class="booking-form">
+            <h3>Quick Booking</h3>
+            <form id="bookingForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="datetime-local" id="time" required>
+                <input type="hidden" id="service" value="">
+                <button type="submit">Book via WhatsApp</button>
+            </form>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Phone: +1234567890 (Placeholder - replace with actual)</p>
-        <p>WhatsApp: +1234567890 (Placeholder - replace with actual)</p>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <p>"Best bike wash in town! My bike looks brand new every time."</p>
+                <h4>- Amit Sharma</h4>
+            </div>
+            <div class="testimonial-item">
+                <p>"Professional service for my truck. Highly recommend Zahoor Auto Spa!"</p>
+                <h4>- Rajesh Kumar</h4>
+            </div>
+            <div class="testimonial-item">
+                <p>"Quick and efficient car wash with great attention to detail."</p>
+                <h4>- Priya Singh</h4>
+            </div>
+        </div>
     </section>
 
-    <div class="admin-view">
-        <button onclick="showRecord()">Admin View Records</button>
-    </div>
+    <!-- Payment Section -->
+    <section id="payment" class="payment section">
+        <h2>Payment Options</h2>
+        <div class="payment-options">
+            <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Google Pay</a>
+            <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">PhonePe</a>
+            <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Paytm</a>
+            <a href="https://payments.cashfree.com/links?code=N94dqli98oog" target="_blank">Cashfree Payment</a>
+        </div>
+    </section>
 
-    <div id="payment-record" class="payment-record">
-        <h2>Online Payment Records (Month/Year: Count)</h2>
-        <p id="record-list"></p>
-    </div>
+    <!-- Location Section -->
+    <section id="location" class="location section">
+        <h2>Our Location</h2>
+        <p>Near MS Traders (Barsoo Ganderbal), Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3042.123456!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMzTCsDE0JzM0LjQzMyJOLDc0wrQyNycjA5LjA0MCJF!5e0!3m2!1sen!2sin!4v1693867200!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=34.244012,74.711940" target="_blank" class="get-directions">Get Directions</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <h2>Contact Us</h2>
+        <p>Phone: <a href="tel:+919797472650">+91 9797472650</a></p>
+        <p>Email: info@zahoorautospa.com</p>
+        <p>Address: Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed by Tajamul</p>
+    </footer>
 
     <script>
-        function book(method) {
-            var vehicle = document.getElementById('vehicle').value;
-            var rate = prompt('Enter the exact rate for ' + vehicle + ' (within the range):');
-            if (rate) {
-                if (method === 'upi') {
-                    // Redirect to Cashfree UPI payment link
-                    alert('Redirecting to UPI payment for ' + vehicle + ' at ' + rate + '.');
-                    // Note: The Cashfree link is static. For dynamic amounts, use Cashfree API with backend integration.
-                    window.location.href = 'https://payments.cashfree.com/links?code=N94dqli98oog';
-                    // Record payment (assuming success for now, as no backend is integrated)
-                    recordPayment();
-                } else {
-                    // Redirect to Cashfree UPI payment link first
-                    alert('Redirecting to UPI payment for ' + vehicle + ' at ' + rate + '.');
-                    window.location.href = 'https://payments.cashfree.com/links?code=N94dqli98oog';
-                    // Assuming payment is successful (simulated, replace with actual confirmation via Cashfree webhook/redirect)
-                    recordPayment();
-                    // Proceed to booking confirmation via SMS or WhatsApp
-                    var message = 'Booking for ' + vehicle + ' at ' + rate + ' (Payment completed)';
-                    if (method === 'text') {
-                        window.location.href = 'sms:+1234567890?body=' + encodeURIComponent(message); // Replace with actual owner number
-                    } else if (method === 'whatsapp') {
-                        window.location.href = 'https://api.whatsapp.com/send?phone=1234567890&text=' + encodeURIComponent(message); // Replace with actual owner number
-                    }
-                }
-            }
-        }
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 1000);
+        });
 
-        function recordPayment() {
-            var now = new Date();
-            var key = (now.getMonth() + 1) + '/' + now.getFullYear(); // Month/Year
-            var count = parseInt(localStorage.getItem(key) || '0');
-            localStorage.setItem(key, count + 1);
-        }
-
-        function showRecord() {
-            var password = prompt('Enter admin password:');
-            if (password === 'zahoor123') { // Placeholder password - change for production
-                document.getElementById('payment-record').style.display = 'block';
-                var list = document.getElementById('record-list');
-                list.innerHTML = '';
-                for (var i = 0; i < localStorage.length; i++) {
-                    var key = localStorage.key(i);
-                    list.innerHTML += key + ': ' + localStorage.getItem(key) + ' payments<br>';
-                }
-                if (localStorage.length === 0) {
-                    list.innerHTML = 'No records yet.';
-                }
-            } else {
-                alert('Incorrect password.');
-            }
-        }
-    </script>
-</body>
-</html>
+        // Smooth Scroll for Navigation
+        document.querySelector
