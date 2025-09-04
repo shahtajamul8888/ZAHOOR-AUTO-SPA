@@ -4,69 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; scroll-behavior: smooth; }
+    header { background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); animation: fadeIn 2s ease-in-out; }
+    header h1 { font-size: 3em; }
+    nav { background: #111; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #ff9800; transform: scale(1.1); }
+    section { padding: 50px 20px; text-align: center; }
+    h2 { margin-bottom: 20px; }
+
+    .services { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+    .service { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.4s; width: 250px; }
+    .service img { width: 100%; border-radius: 10px; height: 160px; object-fit: cover; }
+    .service:hover { transform: scale(1.05); }
+
+    .before-after { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .before-after img { width: 400px; border-radius: 10px; transition: transform 0.5s; }
+    .before-after img:hover { transform: scale(1.08); }
+
+    .booking-form { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    input, button { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+    button { background: #ff9800; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #e68900; }
+
+    .whatsapp-btn { background: #25d366; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; margin-top: 15px; text-decoration: none; padding: 12px; border-radius: 8px; transition: 0.3s; }
+    .whatsapp-btn:hover { background: #1ebe5b; }
+
+    .payment-options { margin-top: 20px; }
+    .payment-btn { display: inline-block; background: #2196f3; color: white; text-decoration: none; padding: 12px 20px; margin: 8px; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+    .payment-btn:hover { background: #0b7dda; }
+
+    iframe { width: 100%; height: 400px; border: none; border-radius: 10px; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  </style>
 </head>
 <body>
 
-  <!-- Hero -->
   <header>
     <h1>Zahoor Auto Spa</h1>
+    <p>Premium Car, Bus & Truck Washing Service</p>
   </header>
 
-  <!-- Services -->
-  <section class="services">
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#beforeafter">Before & After</a>
+    <a href="#booking">Online Booking</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services">
     <h2>Our Services</h2>
-    <div>
-      <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" alt="Car">
-      <p>Car Wash</p>
-    </div>
-    <div>
-      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Bus">
-      <p>Bus Wash</p>
-    </div>
-    <div>
-      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995564.png" alt="Truck">
-      <p>Truck Wash</p>
+    <div class="services">
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Car Wash">
+        <h3>Car Wash</h3>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Bus Wash">
+        <h3>Bus Wash</h3>
+      </div>
+      <div class="service">
+        <img src="https://images.unsplash.com/photo-1602867742289-68e3ef08c3a3?auto=format&fit=crop&w=800&q=80" alt="Truck Wash">
+        <h3>Truck Wash</h3>
+      </div>
     </div>
   </section>
 
-  <!-- Before & After -->
-  <section>
+  <section id="beforeafter">
     <h2>Before & After</h2>
     <div class="before-after">
-      <img src="https://images.unsplash.com/photo-1549921296-3b4a4b7c22f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100" alt="Before">
-      <img src="https://images.unsplash.com/photo-1607863680090-51f072a8a228?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100" alt="After">
+      <img src="https://images.unsplash.com/photo-1601933471679-2fbb4c8c6b91?auto=format&fit=crop&w=800&q=80" alt="Before Wash">
+      <img src="https://images.unsplash.com/photo-1602867742337-5dc2621c4ceb?auto=format&fit=crop&w=800&q=80" alt="After Wash">
     </div>
   </section>
 
-  <!-- Booking -->
-  <section>
-    <h2>Book Your Wash</h2>
-    <form>
+  <section id="booking">
+    <h2>Online Booking</h2>
+    <form class="booking-form">
       <input type="text" placeholder="Your Name" required>
-      <input type="text" placeholder="Contact Number" required>
+      <input type="tel" placeholder="Contact Number" required>
       <input type="date" required>
       <input type="time" required>
       <button type="submit">Book Now</button>
+      <a href="https://wa.me/919797472650" target="_blank" class="whatsapp-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20"> Book via WhatsApp
+      </a>
+
+      <div class="payment-options">
+        <h3>Pay Now</h3>
+        <a href="https://pay.google.com" target="_blank" class="payment-btn">Google Pay</a>
+        <a href="https://www.phonepe.com" target="_blank" class="payment-btn">PhonePe</a>
+        <a href="https://paytm.com" target="_blank" class="payment-btn">Paytm</a>
+      </div>
     </form>
   </section>
 
-  <!-- Payment QR -->
-  <section>
-    <h2>Pay Online</h2>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=zahoorautospa@upi&pn=ZahoorAutoSpa&am=500&cu=INR" alt="Payment QR" width="200">
-    <p>Scan & Pay easily</p>
+  <section id="contact">
+    <h2>Find Us</h2>
+    <p>Zahoor Auto Spa, Jammu & Kashmir</p>
+    <iframe src="https://www.google.com/maps?q=34.1605,74.3513&hl=es;z=14&output=embed"></iframe>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>WhatsApp us: <a href="https://wa.me/919797472650" style="color:#00ff99;">9797472650</a></p>
-    <p>Visit our short link: <a href="https://tinyurl.com/ZahoorAutoSpa" target="_blank" style="color:#00ff99;">tinyurl.com/ZahoorAutoSpa</a></p>
-    <button class="copy-btn" onclick="copyLink()">Copy Link</button>
-    <div id="toast" class="toast">Copied!</div>
-    <p>Website developed by <b>Tajamul Farooq</b></p>
+  <footer style="background:#111;color:white;padding:15px;text-align:center;">
+    <p>Developed by <b>Tajamul Farooq</b> | © 2025 Zahoor Auto Spa</p>
+    <p><a href="https://tinyurl.com/ZahoorAutoSpa" style="color:#ff9800;">Visit Short URL</a></p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
