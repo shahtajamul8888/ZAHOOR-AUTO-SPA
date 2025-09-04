@@ -5,62 +5,225 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zahoor Auto Spa</title>
   <style>
-    :root{
-      --brand:#ff9800; --ink:#111; --bg:#f5f5f5; --card:#ffffff;
-      --accent:#2196f3; --success:#25d366;
+    :root {
+      --brand: #1e88e5; /* Blue for buttons and accents */
+      --ink: #ffffff; /* White for text */
+      --bg: #f5f5f5; /* Light background */
+      --card: #ffffff; /* Card background */
+      --accent: #1565c0; /* Darker blue for hover effects */
+      --success: #25d366; /* Kept for WhatsApp button, if needed */
     }
-    *{box-sizing:border-box}
-    body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:#333;scroll-behavior:smooth}
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', Arial, system-ui, -apple-system, Segoe UI, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
 
     /* Hero with 4K/HD car-wash background */
-    header{
-      position:relative; min-height:68vh; display:flex; align-items:center; justify-content:center;
-      text-align:center; color:#fff; overflow:hidden;
+    header {
+      position: relative;
+      min-height: 68vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--ink);
+      overflow: hidden;
       background:
         linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)),
-        url('https://source.unsplash.com/3840x2160/?car-wash,car,cleaning') center/cover no-repeat;
+        url('https://source.unsplash.com/3840x2160/?car-wash,car,cleaning,detailing') center/cover no-repeat;
     }
-    .hero{position:relative; z-index:1; padding:40px 20px; text-shadow:0 4px 24px rgba(0,0,0,.45)}
-    .hero h1{margin:0 0 12px; font-size:clamp(2.2rem,5vw,3.6rem); letter-spacing:1px; font-weight:800}
-    .hero p{margin:0; font-size:clamp(.9rem,1.8vw,1.1rem); opacity:.95; letter-spacing:.3px}
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      text-shadow: 0 4px 24px rgba(0,0,0,.45);
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      letter-spacing: 1px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin: 0;
+      font-size: clamp(.9rem, 1.8vw, 1.1rem);
+      opacity: .95;
+      letter-spacing: .3px;
+    }
 
-    nav{background:#111; padding:10px; text-align:center; position:sticky; top:0; z-index:10}
-    nav a{color:#fff; text-decoration:none; margin:0 15px; font-weight:700; transition:.25s}
-    nav a:hover{color:var(--brand); transform:scale(1.06)}
+    nav {
+      background: #111;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 700;
+      transition: .25s;
+    }
+    nav a:hover {
+      color: var(--brand);
+      transform: scale(1.06);
+    }
 
-    section{padding:48px 20px; text-align:center}
-    h2{margin:0 0 16px}
+    section {
+      padding: 48px 20px;
+      text-align: center;
+    }
+    h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
 
-    /* Services (logos) */
-    .services{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; max-width:1000px; margin:0 auto}
-    .service{width:260px; background:var(--card); border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.12); padding:18px; transition:transform .25s, box-shadow .25s}
-    .service:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.16)}
-    .service button{all:unset; display:block; width:100%; cursor:pointer; text-align:center}
-    .logo-wrap{width:160px; height:160px; margin:0 auto 12px; border-radius:14px; background:linear-gradient(135deg,#fafafa,#efefef); display:grid; place-items:center; border:1px solid #e9e9e9}
-    .service h3{margin:8px 0 6px}
-    .service small{color:#666}
+    /* Services (professional logos) */
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service {
+      width: 260px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      padding: 18px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .service:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.16);
+    }
+    .service button {
+      all: unset;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+    }
+    .logo-wrap {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #fafafa, #efefef);
+      display: grid;
+      place-items: center;
+      border: 1px solid #e9e9e9;
+    }
+    .service h3 {
+      margin: 8px 0 6px;
+      color: var(--ink);
+    }
+    .service small {
+      color: #666;
+    }
 
-    /* Booking form (kept simple) */
-    .booking-form{max-width:520px; margin:24px auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.14); text-align:left}
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    .row .col{flex:1 1 200px}
-    input,button{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; margin:8px 0}
-    button[type="submit"]{background:var(--brand); color:#fff; font-weight:700; cursor:pointer}
-    .whatsapp-btn{background:var(--success); color:#fff; display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:8px; text-decoration:none}
-
-    .payment-options{text-align:center; margin-top:10px}
-    .payment-btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:12px 20px; margin:8px; border-radius:8px; font-weight:700}
-    .mini{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #ddd; border-radius:8px; background:#fff; color:#111; margin:6px; cursor:pointer}
+    /* Booking form */
+    .booking-form {
+      max-width: 520px;
+      margin: 24px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.14);
+      text-align: left;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .row .col {
+      flex: 1 1 200px;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 8px 0;
+      color: var(--ink);
+    }
+    button[type="submit"] {
+      background: var(--brand);
+      color: var(--ink);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .payment-options {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .payment-btn {
+      display: inline-block;
+      background: var(--brand);
+      color: var(--ink);
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 8px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
 
     /* Dialogs */
-    dialog{border:none; border-radius:16px; padding:0; max-width:460px; width:92%; box-shadow:0 24px 60px rgba(0,0,0,.35)}
-    dialog::backdrop{background:rgba(0,0,0,.5)}
-    .dlg-head{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:#111; color:#fff}
-    .dlg-body{padding:16px; background:#fff}
-    .dlg-actions{display:flex; gap:10px; justify-content:flex-end; padding:12px 16px; background:#fafafa; border-top:1px solid #eee}
-    .btn{border:none; border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer}
-    .btn.primary{background:var(--brand); color:#fff}
-    .btn.ghost{background:#f1f1f1; color:#333}
+    dialog {
+      border: none;
+      border-radius: 16px;
+      padding: 0;
+      max-width: 460px;
+      width: 92%;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+    dialog::backdrop {
+      background: rgba(0,0,0,.5);
+    }
+    .dlg-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: #111;
+      color: var(--ink);
+    }
+    .dlg-body {
+      padding: 16px;
+      background: #fff;
+    }
+    .dlg-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      padding: 12px 16px;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+    }
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: var(--brand);
+      color: var(--ink);
+    }
+    .btn.ghost {
+      background: #f1f1f1;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -83,11 +246,8 @@
       <div class="service">
         <button class="service-btn" data-service="Bike" data-range="₹150–200" aria-label="View Bike rates">
           <div class="logo-wrap" aria-hidden="true">
-            <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
-              <g fill="none" stroke="#222" stroke-width="3">
-                <circle cx="35" cy="75" r="18" fill="#fff"/><circle cx="90" cy="75" r="18" fill="#fff"/>
-                <path d="M35 75 L55 55 L75 75 L60 75"/><path d="M55 55 L65 45 L80 45"/><circle cx="65" cy="45" r="3" fill="#222"/>
-              </g>
+            <svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+              <path fill="#1e88e5" d="M19.5 12c0-1.4-1.1-2.5-2.5-2.5H7c-1.4 0-2.5 1.1-2.5 2.5S5.6 14.5 7 14.5h1.5l1.3-3.3c.2-.5.7-.8 1.2-.6.5.2.8.7.6 1.2L10.3 15H17c1.4 0 2.5-1.1 2.5-2.5zM7 15c-.8 0-1.5-.7-1.5-1.5S6.2 12 7 12s1.5.7 1.5 1.5S7.8 15 7 15zm10 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5S17.8 15 17 15z"/>
             </svg>
           </div>
           <h3>Bike</h3><small>Tap to view rates</small>
@@ -96,12 +256,8 @@
       <div class="service">
         <button class="service-btn" data-service="Car" data-range="₹350–450" aria-label="View Car rates">
           <div class="logo-wrap" aria-hidden="true">
-            <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
-              <g fill="none" stroke="#222" stroke-width="3">
-                <rect x="25" y="55" width="70" height="20" rx="6" fill="#fff"/>
-                <path d="M40 55 L55 45 L80 45 L95 55" fill="#fff"/>
-                <circle cx="40" cy="78" r="8" fill="#fff"/><circle cx="80" cy="78" r="8" fill="#fff"/>
-              </g>
+            <svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+              <path fill="#1e88e5" d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v7.5c0 .83.67 1.5 1.5 1.5S6 20.33 6 19.5V19h12v.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V12l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5S18.33 16 17.5 16zM5 11l1.5-4.5h11L19 11H5z"/>
             </svg>
           </div>
           <h3>Car</h3><small>Tap to view rates</small>
@@ -110,12 +266,8 @@
       <div class="service">
         <button class="service-btn" data-service="Bus" data-range="₹800–1000" aria-label="View Bus rates">
           <div class="logo-wrap" aria-hidden="true">
-            <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img">
-              <g fill="none" stroke="#222" stroke-width="3">
-                <rect x="20" y="45" width="80" height="28" rx="6" fill="#fff"/>
-                <rect x="28" y="49" width="20" height="16" fill="#fff"/><rect x="52" y="49" width="20" height="16" fill="#fff"/><rect x="76" y="49" width="16" height="16" fill="#fff"/>
-                <circle cx="42" cy="78" r="8" fill="#fff"/><circle cx="78" cy="78" r="8" fill="#fff"/>
-              </g>
+            <svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+              <path fill="#1e88e5" d="M18 4h-2V3c0-.55-.45-1-1-1H9c-.55 0-1 .45-1 1v1H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm9 14H6V8h12v10zm-2-2c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zm-8 0c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1z"/>
             </svg>
           </div>
           <h3>Bus</h3><small>Tap to view rates</small>
@@ -142,40 +294,17 @@
         <div class="col"><input id="custDate" type="date" required></div>
         <div class="col"><input id="custTime" type="time" required></div>
       </div>
-
       <div class="payment-options">
         <h3>Pay Now</h3>
-        <!-- Existing UPI options -->
-        <a id="anyUpiBtn" href="#" class="payment-btn">Pay via Any UPI App</a>
-        <a id="gpayBtn" href="#" class="payment-btn">Google Pay</a>
-        <a id="phonepeBtn" href="#" class="payment-btn">PhonePe</a>
-        <a id="paytmBtn" href="#" class="payment-btn">Paytm</a>
-        <!-- New Cashfree Payment Link button -->
-        <a id="cashfreeBtn" href="https://payments-test.cashfree.com/links?code=o94dhs95fm1g" class="payment-btn" target="_blank" rel="noopener">Pay via Cashfree</a>
-        <div style="margin-top:10px">
-          <button type="button" class="mini" id="copyVpa">Copy UPI ID: 9797472650@okbizaxis</button>
-          <button type="button" class="mini" id="copyPhone">Copy Mobile: 9797472650</button>
-          <button type="button" class="mini" id="showQr">Show QR (upload/set)</button>
-        </div>
+        <a id="upiBtn" href="#" class="payment-btn">Pay with UPI</a>
       </div>
     </form>
   </section>
 
-  <!-- Optional QR modal -->
-  <dialog id="qrDialog" aria-labelledby="qrTitle">
-    <div class="dlg-head"><h3 id="qrTitle">Scan to Pay (UPI)</h3><button class="btn ghost" data-close>Close</button></div>
-    <div class="dlg-body">
-      <img id="qrImage" class="qr-img" alt="UPI QR"/>
-      <div class="row"><div class="col"><input id="qrUrl" type="url" placeholder="Paste your QR image URL"></div><div class="col"><button id="setQrUrl" class="btn primary" type="button">Set</button></div></div>
-      <div class="row"><div class="col"><input id="qrFile" type="file" accept="image/*"></div></div>
-    </div>
-    <div class="dlg-actions"><button class="btn primary" data-close>Done</button></div>
-  </dialog>
-
   <section id="contact">
     <h2>Find Us</h2>
     <p>Zahoor Auto Spa, Jammu & Kashmir</p>
-    <iframe src="https://www.google.com/maps?q=34.1605,74.3513&hl=es;z=14&output=embed" title="Map to Zahoor Auto Spa"></iframe>
+    <iframe src="https://www.google.com/maps?q=34.244006,74.711948&hl=en;z=14&output=embed" title="Map to Zahoor Auto Spa"></iframe>
   </section>
 
   <footer style="background:#111;color:white;padding:15px;text-align:center;">
@@ -200,10 +329,10 @@
       dlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>dlg.close()));
     })();
 
-    // UPI deep links (merchant VPA) with Android Intents + fallback
+    // UPI payment with single button
     (function(){
-      const VPA   = '9797472650@okbizaxis';      // Merchant UPI ID
-      const PNAME = 'Tajamul Pvt Ltd';           // Merchant display name
+      const VPA = 'shahtajamul88-2@okicici'; // Updated UPI ID
+      const PNAME = 'Tajamul Pvt Ltd'; // Merchant display name
 
       function upiParams(note){
         const p = new URLSearchParams();
@@ -211,59 +340,15 @@
         p.set('pn', PNAME);
         p.set('tn', note || 'Service Payment');
         p.set('cu', 'INR');
-        p.set('tr', 'ZAS-' + Date.now()); // reference id
+        p.set('tr', 'ZAS-' + Date.now()); // Reference ID
         return p.toString();
       }
       function genericUPI(note){ return 'upi://pay?' + upiParams(note); }
-      function intentUPI(pkg, note){ return 'intent://upi/pay?' + upiParams(note) + '#Intent;scheme=upi;package=' + pkg + ';end'; }
 
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      function openPay(target){
+      document.getElementById('upiBtn').addEventListener('click', e=>{
+        e.preventDefault();
         const note = 'Service Payment';
-        const fallback = genericUPI(note);
-        let url = fallback;
-        if(isAndroid){
-          if(target==='gpay')   url = intentUPI('com.google.android.apps.nbu.paisa.user', note);
-          if(target==='phonepe')url = intentUPI('com.phonepe.app', note);
-          if(target==='paytm')  url = intentUPI('net.one97.paytm', note);
-        }
-        const start = Date.now();
-        const t = setTimeout(()=>{ if(Date.now()-start<1600) window.location.href = fallback; }, 800);
-        window.location.href = url;
-        document.addEventListener('visibilitychange', ()=>{ if(document.hidden) clearTimeout(t); }, {once:true});
-      }
-
-      document.getElementById('anyUpiBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('any'); });
-      document.getElementById('gpayBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('gpay'); });
-      document.getElementById('phonepeBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('phonepe'); });
-      document.getElementById('paytmBtn').addEventListener('click', e=>{ e.preventDefault(); openPay('paytm'); });
-
-      // Copy helpers
-      const copy = async (t)=>{ try{ await navigator.clipboard.writeText(t); alert('Copied'); } catch{ prompt('Copy value:', t); } };
-      document.getElementById('copyVpa').addEventListener('click', ()=>copy(VPA));
-      document.getElementById('copyPhone').addEventListener('click', ()=>copy('9797472650'));
-    })();
-
-    // QR helper (optional)
-    (function(){
-      const dlg = document.getElementById('qrDialog');
-      const img = document.getElementById('qrImage');
-      document.getElementById('showQr').addEventListener('click', ()=> dlg.showModal());
-      dlg.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click', ()=>dlg.close()));
-      dlg.addEventListener('click', e=>{
-        const r = dlg.getBoundingClientRect();
-        if(!(e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom)) dlg.close();
-      });
-      document.getElementById('setQrUrl').addEventListener('click', ()=>{
-        const u = (document.getElementById('qrUrl').value || '').trim();
-        if(u) img.src = u;
-      });
-      document.getElementById('qrFile').addEventListener('change', (e)=>{
-        const f = e.target.files && e.target.files;
-        if(!f) return;
-        const r = new FileReader();
-        r.onload = ()=> img.src = r.result;
-        r.readAsDataURL(f);
+        window.location.href = genericUPI(note);
       });
     })();
   </script>
