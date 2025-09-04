@@ -10,11 +10,41 @@
       font-family: 'Montserrat', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      background: radial-gradient(circle at top left, #e0f7fa, #f9fbff);
       min-height: 100vh;
       color: #222;
       position: relative;
+      overflow-x: hidden;
     }
+
+    /* Glow Animation */
+    .glow {
+      animation: glowAnim 2s infinite alternate;
+    }
+    @keyframes glowAnim {
+      from { text-shadow: 0 0 5px #25D366, 0 0 10px #1a73e8; }
+      to { text-shadow: 0 0 15px #25D366, 0 0 25px #1a73e8; }
+    }
+
+    /* Floating Background Logos */
+    .bg-logo {
+      position: absolute;
+      opacity: 0.08;
+      z-index: 0;
+      animation: float 12s infinite ease-in-out;
+    }
+    .bg-logo img {
+      width: 110px;
+      height: auto;
+    }
+    .bg1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .bg2 { top: 70%; left: 75%; animation-delay: 3s; }
+    .bg3 { top: 35%; left: 45%; animation-delay: 6s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+
     header {
       background: linear-gradient(90deg,#1a73e8 60%, #25D366 100%);
       color: white;
@@ -22,6 +52,7 @@
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       position: relative;
+      z-index: 1;
     }
     .logo-svg {
       display: block;
@@ -38,11 +69,14 @@
       font-size: 1.35em;
       font-weight: 500;
     }
+
     nav {
       background: #ffffffee;
       padding: 15px 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       text-align: center;
+      z-index: 1;
+      position: relative;
     }
     nav a {
       color: #1a73e8;
@@ -55,18 +89,27 @@
     nav a:hover {
       color: #25D366;
     }
+
     .container {
       max-width: 1050px;
       margin: 30px auto 0 auto;
       padding: 0 20px;
+      z-index: 1;
+      position: relative;
     }
     .card {
       background: #fff;
       margin: 30px 0;
       padding: 30px;
       border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(26,115,232,0.09), 0 1.5px 8px rgba(37,211,102,0.06);
+      box-shadow: 0 8px 24px rgba(26,115,232,0.12), 0 1.5px 8px rgba(37,211,102,0.09);
+      animation: fadeIn 1s ease-in-out;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     h2 {
       color: #1a73e8;
       margin-bottom: 14px;
@@ -85,6 +128,7 @@
     li:last-child {
       border-bottom: none;
     }
+
     .btn {
       display: inline-block;
       padding: 12px 19px;
@@ -96,17 +140,19 @@
       margin-top: 12px;
       font-size: 1.07em;
       letter-spacing: 1px;
-      box-shadow: 0 2px 10px rgba(26,115,232,0.09);
+      box-shadow: 0 2px 10px rgba(26,115,232,0.12);
       transition: background 0.2s;
     }
     .btn:hover {
       background: linear-gradient(90deg, #128C7E 60%, #0d47a1 100%);
     }
+
     .contact-details {
       font-size: 1.07em;
       margin-top: 10px;
       line-height: 1.7;
     }
+
     footer {
       text-align: center;
       padding: 22px 0;
@@ -117,51 +163,43 @@
       letter-spacing: 1px;
       box-shadow: 0 -2px 12px rgba(26,115,232,0.07);
     }
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
+
+    /* Booking Form */
+    .booking-form input, .booking-form select, .booking-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 7px 0;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 1em;
     }
-    .bubble1 { width:120px; height:120px; top:40px; left:60px; background:#1a73e8; }
-    .bubble2 { width:80px; height:80px; bottom:120px; right:55px; background:#25D366; }
-    .bubble3 { width:70px; height:70px; top:450px; left:120px; background:#cfdef3; }
-    .bubble4 { width:100px; height:100px; bottom:20px; left:200px; background:#fff;}
-    @media (max-width:700px){
-      header h1 { font-size:2em; }
-      .container { padding:0 7px; }
-      .card { padding:18px; }
-      .logo-svg { height:50px; width:50px; }
+    .rate-box {
+      margin-top: 12px;
+      font-weight: bold;
+      color: #128C7E;
     }
   </style>
 </head>
 <body>
-  <div class="bubble bubble1"></div>
-  <div class="bubble bubble2"></div>
-  <div class="bubble bubble3"></div>
-  <div class="bubble bubble4"></div>
+
+  <!-- Floating background logos -->
+  <div class="bg-logo bg1"><img src="https://cdn-icons-png.flaticon.com/512/809/809957.png" alt="wash"></div>
+  <div class="bg-logo bg2"><img src="https://cdn-icons-png.flaticon.com/512/483/483361.png" alt="clean"></div>
+  <div class="bg-logo bg3"><img src="https://cdn-icons-png.flaticon.com/512/1048/1048313.png" alt="car"></div>
+
   <header>
-    <svg class="logo-svg" viewBox="0 0 64 64" fill="none">
-      <circle cx="32" cy="32" r="31" fill="#fff" stroke="#1a73e8" stroke-width="2"/>
-      <rect x="19" y="38" width="26" height="10" rx="5" fill="#1a73e8"/>
-      <ellipse cx="32" cy="34" rx="13" ry="7" fill="#25D366"/>
-      <rect x="14" y="28" width="36" height="12" rx="6" fill="#cfdef3" stroke="#1a73e8" stroke-width="1.5"/>
-      <circle cx="22" cy="44" r="3" fill="#fff" stroke="#222" stroke-width="1"/>
-      <circle cx="42" cy="44" r="3" fill="#fff" stroke="#222" stroke-width="1"/>
-      <rect x="35" y="22" width="7" height="10" rx="3.5" fill="#1a73e8"/>
-      <circle cx="38.5" cy="20.5" r="2.5" fill="#222"/>
-      <rect x="41" y="17" width="2" height="8" rx="1" fill="#25D366"/>
-    </svg>
-    <h1>Zahoor Auto Spa</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/4812/4812738.png" alt="logo" class="logo-svg">
+    <h1 class="glow">Zahoor Auto Spa</h1>
     <p>Your trusted service pump for Cars, Trucks, and Buses – Jammu & Kashmir</p>
   </header>
+
   <nav>
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
     <a href="#booking">Booking</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <div class="container">
     <section id="services" class="card">
       <h2>Our Services</h2>
@@ -173,32 +211,91 @@
         <li>Polishing & Detailing</li>
       </ul>
     </section>
+
     <section id="pricing" class="card">
       <h2>Pricing</h2>
       <ul>
-        <li><strong>Car Wash with foam, polish (interior & exterior):</strong> ₹350 – ₹500</li>
+        <li><strong>Car Wash:</strong> ₹350 – ₹500</li>
         <li><strong>Truck Wash:</strong> ₹800 – ₹1000</li>
         <li><strong>Bus Wash:</strong> ₹800 – ₹1000</li>
         <li><strong>Bike Wash:</strong> ₹100 – ₹200</li>
         <li><strong>Polishing & Detailing:</strong> ₹500 onwards</li>
       </ul>
     </section>
+
     <section id="booking" class="card">
       <h2>Online Booking</h2>
-      <p>Book your slot now via WhatsApp and skip the waiting line.</p>
-      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa,%20I%20want%20to%20book%20a%20service." class="btn" target="_blank">Book on WhatsApp</a>
+      <p>Fill your details below and confirm booking:</p>
+
+      <form class="booking-form" onsubmit="return sendToWhatsApp()">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <select id="vehicle" required onchange="showRate()">
+          <option value="">Select Vehicle</option>
+          <option value="Car">Car</option>
+          <option value="Truck">Truck</option>
+          <option value="Bus">Bus</option>
+          <option value="Bike">Bike</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea id="message" placeholder="Preferred Date & Time"></textarea>
+        <div class="rate-box" id="rateBox"></div>
+        <button type="submit" class="btn">Book Now</button>
+      </form>
     </section>
+
+    <!-- QR Code Payment Section -->
+    <section id="payment" class="card">
+      <h2>Pay Online</h2>
+      <p>Scan this QR code to pay via UPI:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&am=500&cu=INR&size=200x200" alt="UPI QR Code">
+      <p><strong>UPI ID:</strong> shahtajamul88-2@okicici</p>
+    </section>
+
     <section id="contact" class="card">
       <h2>Contact Us</h2>
       <div class="contact-details">
-        <strong>Location:</strong> Zahoor Auto Spa Service Pump, Jammu & Kashmir<br>
+        <strong>Location:</strong> Zahoor Auto Spa Service Pump, Baroosa towards Mansbal Road, Jammu & Kashmir<br>
         <strong>Phone:</strong> +91-9797472650<br>
         <strong>Email:</strong> contact@zahoorautospa.com
       </div>
+      <div style="margin-top:15px;">
+        <iframe 
+          src="https://www.google.com/maps?q=34.244078,74.711850&hl=es;z=14&output=embed" 
+          width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+      </div>
     </section>
   </div>
+
   <footer>
-    &copy; 2025 Zahoor Auto Spa | Designed for quality service
+    &copy; 2025 Zahoor Auto Spa | Designed for quality service <br>
+    Website Developed by <strong>Tajamul Farooq</strong>
   </footer>
+
+  <script>
+    function showRate(){
+      let vehicle = document.getElementById("vehicle").value;
+      let rateBox = document.getElementById("rateBox");
+      let rates = {
+        "Car": "₹350 – ₹500",
+        "Truck": "₹800 – ₹1000",
+        "Bus": "₹800 – ₹1000",
+        "Bike": "₹100 – ₹200",
+        "Other": "₹500 onwards"
+      };
+      rateBox.innerHTML = vehicle ? "Rate: " + rates[vehicle] : "";
+    }
+
+    function sendToWhatsApp(){
+      let name = document.getElementById("name").value;
+      let vehicle = document.getElementById("vehicle").value;
+      let message = document.getElementById("message").value;
+      let url = "https://wa.me/919797472650?text=" 
+        + "Hello, my name is " + name + 
+        ". I want to book a " + vehicle + 
+        ". Preferred time: " + message;
+      window.open(url, "_blank");
+      return false;
+    }
+  </script>
 </body>
 </html>
