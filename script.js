@@ -22,6 +22,19 @@ function handleBooking(e) {
   }, 1000);
 }
 
+// Manual Pay button
+function openPayment() {
+  window.location.href = `upi://pay?pa=9797472650@okbizaxis&pn=ZahoorAutoSpa&cu=INR`;
+}
+
+// About Us Popup
+function openAbout() {
+  document.getElementById("about-popup").style.display = "flex";
+}
+function closeAbout() {
+  document.getElementById("about-popup").style.display = "none";
+}
+
 // Contact Popup
 function openContact() {
   document.getElementById("contact-popup").style.display = "flex";
