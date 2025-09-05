@@ -1,182 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zahoor Auto Spa</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Poppins',sans-serif;
-  background:#000;
-  color:#fff;
-}
-
-/* HEADER / HERO */
-header{
-  background:url('YOUR_IMAGE_LINK_HERE') center/cover no-repeat;
-  height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 20px;
-}
-header h1{
-  font-size:3rem;
-  color:#00bfff;
-  text-shadow:0 2px 6px rgba(0,0,0,0.6);
-}
-header p{
-  font-size:1.2rem;
-  margin-top:10px;
-  color:#f1f1f1;
-  text-shadow:0 2px 6px rgba(0,0,0,0.6);
-}
-header a{
-  margin-top:20px;
-  padding:14px 32px;
-  background:#00bfff;
-  color:#000;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-  transition:0.3s;
-}
-header a:hover{background:#0099cc}
-
-/* SECTION */
-section{
-  background:linear-gradient(180deg,#000814,#001d3d);
-  padding:50px 20px;
-  margin:0;
-}
-h2{
-  text-align:center;
-  color:#00bfff;
-  margin-bottom:40px;
-  font-size:2rem;
-}
-
-/* SERVICES */
-.services{
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  flex-wrap:wrap;
-}
-.service-logo{
-  text-align:center;
-}
-.service-logo img{
-  width:180px; /* 3x size */
-  cursor:pointer;
-  transition:transform 0.3s, filter 0.3s;
-}
-.service-logo img:hover{
-  transform:scale(1.1);
-  filter:drop-shadow(0 0 15px #00bfff);
-}
-.booking-note{
-  text-align:center;
-  margin-top:30px;
-  font-size:1.1rem;
-  color:#ffd700;
-}
-
-/* MAP */
-.map iframe{
-  width:100%;
-  height:400px;
-  border:none;
-  border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.4);
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  background:#000814;
-  font-size:0.9rem;
-  color:#ccc;
-}
-footer span.dev{
-  display:block;
-  margin-top:5px;
-  color:#00bfff;
-  font-weight:600;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  header h1{font-size:2.2rem}
-  .services{gap:20px}
-  .service-logo img{width:140px}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahoor Auto Spa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000814;
+      color: #fff;
+    }
+    nav {
+      background: #001d3d;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1 {
+      color: #00bfff;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00bfff;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 32px;
+      left: 0;
+      background: #001d3d;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    nav ul li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: block;
+      margin: 6px 0;
+    }
+    header {
+      background: url('YOUR_IMAGE_LINK_HERE') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    header h2 {
+      font-size: 3rem;
+      color: #00bfff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #f1f1f1;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    header a {
+      margin-top: 20px;
+      padding: 14px 32px;
+      background: #00bfff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    header a:hover {
+      background: #0099cc;
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header>
+<nav>
   <h1>Zahoor Auto Spa</h1>
-  <p>Premium Car & Bike Wash in Baroosa Towards the Mansbal Road</p>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li>
+      <a href="#services">Services</a>
+      <div class="dropdown">
+        <a href="#services">Car Washing</a>
+        <a href="#services">Polishing</a>
+        <a href="#services">Diesel Wash</a>
+        <a href="#services">Foam Wash</a>
+        <a href="#services">Greasing</a>
+        <a href="#services">Others</a>
+      </div>
+    </li>
+    <li><a href="#booking">Booking</a></li>
+    <li><a href="#about">About Us</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <h2>Premium Car & Bike Wash</h2>
+  <p>Baroosa Towards the Mansbal Road</p>
   <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Pay via UPI</a>
 </header>
-
-<!-- SERVICES -->
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="service-logo">
-      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Bike%20Wash" target="_blank">
-        <img src="https://img.icons8.com/color/480/motorcycle.png" alt="Bike Wash">
-      </a>
-    </div>
-    <div class="service-logo">
-      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Car%20Wash" target="_blank">
-        <img src="https://img.icons8.com/color/480/car.png" alt="Car Wash">
-      </a>
-    </div>
-    <div class="service-logo">
-      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Bus%20Wash" target="_blank">
-        <img src="https://img.icons8.com/color/480/bus.png" alt="Bus Wash">
-      </a>
-    </div>
-    <div class="service-logo">
-      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Truck%20Wash" target="_blank">
-        <img src="https://img.icons8.com/color/480/truck.png" alt="Truck Wash">
-      </a>
-    </div>
-  </div>
-  <div class="booking-note">📲 Online real‑time booking on WhatsApp</div>
-</section>
-
-<!-- LOCATION -->
-<section>
-  <h2>Find Us</h2>
-  <p style="text-align:center;margin-bottom:20px;">
-    📍 Coordinates: <strong>34.244012, 74.711940</strong><br>
-    <a href="https://www.google.com/maps?q=34.244012,74.711940" target="_blank" style="color:#00bfff;">View on Google Maps</a>
-  </p>
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.123456789!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1f123456789ab%3AZahoor%20Auto%20Spa!5e0!3m2!1sen!2sin!4v0000000000000"></iframe>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  © <span id="year"></span> Zahoor Auto Spa • Baroosa Towards the Mansbal Road
-  <span class="dev">Developed by Tajamul</span>
-</footer>
-
-<script>
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-
-</body>
-</html>
