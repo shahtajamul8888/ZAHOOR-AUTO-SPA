@@ -12,29 +12,32 @@ body{
   font-family:'Poppins',sans-serif;
   background:#000;
   color:#fff;
-  background:url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
-  min-height:100vh;
 }
 
-/* HEADER */
+/* HEADER / HERO */
 header{
-  background:rgba(0,0,0,0.65);
+  background:url('YOUR_IMAGE_LINK_HERE') center/cover no-repeat;
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:50px 20px;
+  padding:0 20px;
 }
 header h1{
   font-size:3rem;
   color:#00bfff;
-  letter-spacing:1px;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
 }
 header p{
-  margin-top:10px;
   font-size:1.2rem;
-  color:#ccc;
+  margin-top:10px;
+  color:#f1f1f1;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
 }
 header a{
-  display:inline-block;
-  margin-top:25px;
+  margin-top:20px;
   padding:14px 32px;
   background:#00bfff;
   color:#000;
@@ -47,11 +50,9 @@ header a:hover{background:#0099cc}
 
 /* SECTION */
 section{
-  background:rgba(0,0,0,0.75);
+  background:linear-gradient(180deg,#000814,#001d3d);
   padding:50px 20px;
-  margin:20px;
-  border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  margin:0;
 }
 h2{
   text-align:center;
@@ -64,28 +65,26 @@ h2{
 .services{
   display:flex;
   justify-content:center;
-  gap:40px;
+  gap:50px;
   flex-wrap:wrap;
 }
 .service-logo{
   text-align:center;
-  cursor:pointer;
 }
 .service-logo img{
-  width:90px;
+  width:180px; /* 3x size */
+  cursor:pointer;
   transition:transform 0.3s, filter 0.3s;
 }
-.service-logo:hover img{
-  transform:scale(1.15);
-  filter:drop-shadow(0 0 10px #00bfff);
+.service-logo img:hover{
+  transform:scale(1.1);
+  filter:drop-shadow(0 0 15px #00bfff);
 }
-.rate{
-  margin-top:12px;
+.booking-note{
+  text-align:center;
+  margin-top:30px;
   font-size:1.1rem;
   color:#ffd700;
-  display:none;
-  opacity:0;
-  transition:opacity 0.5s ease;
 }
 
 /* MAP */
@@ -101,7 +100,7 @@ h2{
 footer{
   text-align:center;
   padding:20px;
-  background:rgba(0,0,0,0.85);
+  background:#000814;
   font-size:0.9rem;
   color:#ccc;
 }
@@ -116,16 +115,16 @@ footer span.dev{
 @media(max-width:768px){
   header h1{font-size:2.2rem}
   .services{gap:20px}
+  .service-logo img{width:140px}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HERO -->
 <header>
   <h1>Zahoor Auto Spa</h1>
-  <p>Premium Car & Bike Wash in Barsoo Ganderbal</p>
-  <!-- Fixed UPI Payment Button -->
+  <p>Premium Car & Bike Wash in Baroosa Towards the Mansbal Road</p>
   <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Pay via UPI</a>
 </header>
 
@@ -133,23 +132,28 @@ footer span.dev{
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="service-logo" onclick="showRate(this)">
-      <img src="https://img.icons8.com/color/96/motorcycle.png" alt="Bike Wash">
-      <div class="rate">Bike Wash: ₹150 – ₹200</div>
+    <div class="service-logo">
+      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Bike%20Wash" target="_blank">
+        <img src="https://img.icons8.com/color/480/motorcycle.png" alt="Bike Wash">
+      </a>
     </div>
-    <div class="service-logo" onclick="showRate(this)">
-      <img src="https://img.icons8.com/color/96/car.png" alt="Car Wash">
-      <div class="rate">Car Wash: ₹350 – ₹450</div>
+    <div class="service-logo">
+      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Car%20Wash" target="_blank">
+        <img src="https://img.icons8.com/color/480/car.png" alt="Car Wash">
+      </a>
     </div>
-    <div class="service-logo" onclick="showRate(this)">
-      <img src="https://img.icons8.com/color/96/bus.png" alt="Bus Wash">
-      <div class="rate">Bus Wash: ₹600 – ₹700</div>
+    <div class="service-logo">
+      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Bus%20Wash" target="_blank">
+        <img src="https://img.icons8.com/color/480/bus.png" alt="Bus Wash">
+      </a>
     </div>
-    <div class="service-logo" onclick="showRate(this)">
-      <img src="https://img.icons8.com/color/96/truck.png" alt="Truck Wash">
-      <div class="rate">Truck Wash: ₹800 – ₹1000</div>
+    <div class="service-logo">
+      <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20Truck%20Wash" target="_blank">
+        <img src="https://img.icons8.com/color/480/truck.png" alt="Truck Wash">
+      </a>
     </div>
   </div>
+  <div class="booking-note">📲 Online real‑time booking on WhatsApp</div>
 </section>
 
 <!-- LOCATION -->
@@ -166,20 +170,12 @@ footer span.dev{
 
 <!-- FOOTER -->
 <footer>
-  © <span id="year"></span> Zahoor Auto Spa • Barsoo Ganderbal
+  © <span id="year"></span> Zahoor Auto Spa • Baroosa Towards the Mansbal Road
   <span class="dev">Developed by Tajamul</span>
 </footer>
 
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
-
-function showRate(el){
-  const rateBox = el.querySelector('.rate');
-  const allRates = document.querySelectorAll('.rate');
-  allRates.forEach(r => {r.style.display='none'; r.style.opacity=0;});
-  rateBox.style.display='block';
-  setTimeout(()=>{rateBox.style.opacity=1;},50);
-}
 </script>
 
 </body>
