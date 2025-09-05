@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   font-family:'Poppins',sans-serif;
   background:#000;
@@ -14,17 +15,27 @@ body{
   background:url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
   min-height:100vh;
 }
+
+/* HEADER */
 header{
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.65);
   text-align:center;
-  padding:40px 20px;
+  padding:50px 20px;
 }
-header h1{font-size:2.5rem;color:#00bfff}
-header p{margin-top:10px;font-size:1.1rem;color:#ccc}
+header h1{
+  font-size:3rem;
+  color:#00bfff;
+  letter-spacing:1px;
+}
+header p{
+  margin-top:10px;
+  font-size:1.2rem;
+  color:#ccc;
+}
 header a{
   display:inline-block;
-  margin-top:20px;
-  padding:12px 28px;
+  margin-top:25px;
+  padding:14px 32px;
   background:#00bfff;
   color:#000;
   text-decoration:none;
@@ -34,18 +45,26 @@ header a{
 }
 header a:hover{background:#0099cc}
 
+/* SECTION */
 section{
-  background:rgba(0,0,0,0.7);
-  padding:40px 20px;
+  background:rgba(0,0,0,0.75);
+  padding:50px 20px;
   margin:20px;
-  border-radius:10px;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
 }
-h2{text-align:center;color:#00bfff;margin-bottom:30px}
+h2{
+  text-align:center;
+  color:#00bfff;
+  margin-bottom:40px;
+  font-size:2rem;
+}
 
+/* SERVICES */
 .services{
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:40px;
   flex-wrap:wrap;
 }
 .service-logo{
@@ -53,35 +72,64 @@ h2{text-align:center;color:#00bfff;margin-bottom:30px}
   cursor:pointer;
 }
 .service-logo img{
-  width:80px;
-  transition:transform 0.3s;
+  width:90px;
+  transition:transform 0.3s, filter 0.3s;
 }
-.service-logo img:hover{transform:scale(1.1)}
+.service-logo:hover img{
+  transform:scale(1.15);
+  filter:drop-shadow(0 0 10px #00bfff);
+}
 .rate{
-  margin-top:10px;
+  margin-top:12px;
   font-size:1.1rem;
   color:#ffd700;
   display:none;
+  opacity:0;
+  transition:opacity 0.5s ease;
 }
 
+/* MAP */
+.map iframe{
+  width:100%;
+  height:400px;
+  border:none;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   font-size:0.9rem;
   color:#ccc;
+}
+footer span.dev{
+  display:block;
+  margin-top:5px;
+  color:#00bfff;
+  font-weight:600;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header h1{font-size:2.2rem}
+  .services{gap:20px}
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <h1>Zahoor Auto Spa</h1>
   <p>Premium Car & Bike Wash in Barsoo Ganderbal</p>
-  <!-- UPI Payment Button -->
+  <!-- Fixed UPI Payment Button -->
   <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Pay via UPI</a>
 </header>
 
+<!-- SERVICES -->
 <section>
   <h2>Our Services</h2>
   <div class="services">
@@ -104,19 +152,22 @@ footer{
   </div>
 </section>
 
+<!-- LOCATION -->
 <section>
   <h2>Find Us</h2>
   <p style="text-align:center;margin-bottom:20px;">
     📍 Coordinates: <strong>34.244012, 74.711940</strong><br>
     <a href="https://www.google.com/maps?q=34.244012,74.711940" target="_blank" style="color:#00bfff;">View on Google Maps</a>
   </p>
-  <div style="display:flex;justify-content:center;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.123456789!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1f123456789ab%3AZahoor%20Auto%20Spa!5e0!3m2!1sen!2sin!4v0000000000000" width="600" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.123456789!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1f123456789ab%3AZahoor%20Auto%20Spa!5e0!3m2!1sen!2sin!4v0000000000000"></iframe>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © <span id="year"></span> Zahoor Auto Spa • Barsoo Ganderbal
+  <span class="dev">Developed by Tajamul</span>
 </footer>
 
 <script>
@@ -125,8 +176,9 @@ document.getElementById('year').textContent=new Date().getFullYear();
 function showRate(el){
   const rateBox = el.querySelector('.rate');
   const allRates = document.querySelectorAll('.rate');
-  allRates.forEach(r => r.style.display = 'none');
-  rateBox.style.display = 'block';
+  allRates.forEach(r => {r.style.display='none'; r.style.opacity=0;});
+  rateBox.style.display='block';
+  setTimeout(()=>{rateBox.style.opacity=1;},50);
 }
 </script>
 
