@@ -5,18 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <!-- Offer Banner -->
   <div class="offer-banner">
-    🔥 20% OFF on Bike & Car Washing 🔥
+    🎉 20% OFF on Bike & Car Washing 🎉
   </div>
 
   <!-- Header -->
   <header class="header">
     <h1>Zahoor Auto Spa</h1>
     <p class="tagline">Professional Washing Services</p>
+    <nav>
+      <button onclick="openAbout()">About Us</button>
+    </nav>
   </header>
+
+  <!-- Services Logos -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card bike">
+        <i class="fa-solid fa-motorcycle"></i>
+        <p>Bike Washing</p>
+      </div>
+      <div class="service-card car">
+        <i class="fa-solid fa-car"></i>
+        <p>Car Washing</p>
+      </div>
+      <div class="service-card bus">
+        <i class="fa-solid fa-bus"></i>
+        <p>Bus/Truck Washing</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Booking -->
   <section class="booking">
@@ -33,6 +56,9 @@
       </select>
       <button type="submit">Book Now</button>
     </form>
+
+    <!-- Payment Button -->
+    <button class="pay-btn" onclick="openPayment()">💳 Pay via UPI</button>
   </section>
 
   <!-- Location -->
@@ -48,17 +74,33 @@
   <!-- Footer -->
   <footer>
     <button onclick="openContact()">📞 Contact Us</button>
-    <div id="contact-popup" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closeContact()">&times;</span>
-        <h2>Contact Us</h2>
-        <p>📞 9596516880 / 9797472650</p>
-        <p>📧 shahtajamul88@gmail.com</p>
-        
-      </div>
-    </div>
     <p>Developed by Tajamul</p>
   </footer>
+
+  <!-- About Us Popup -->
+  <div id="about-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeAbout()">&times;</span>
+      <h2>About Us</h2>
+      <p>
+        At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
+        to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
+        Whether it’s a brand-new ride or one that needs a refresh, 
+        our expert care ensures it looks and feels showroom-ready.
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact Popup -->
+  <div id="contact-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeContact()">&times;</span>
+      <h2>Contact Us</h2>
+      <p>📞 9596516880 / 9797472650</p>
+      <p>📧 shahtajamul88@gmail.com</p>
+      <p>🔵 Facebook | 📸 Instagram (coming soon)</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
