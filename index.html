@@ -3,222 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zahoor Auto Spa - Full Code Showcase</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #0d0d0d;
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(90deg, #00ffcc, #ff00ff);
-      font-size: 24px;
-      font-weight: bold;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #1a1a1a;
-    }
-    nav button {
-      padding: 12px 20px;
-      margin: 5px;
-      background: #00ffcc;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.2s, background 0.3s;
-    }
-    nav button:hover {
-      background: #ff00ff;
-      transform: scale(1.1);
-    }
-    section {
-      display: none;
-      padding: 20px;
-    }
-    section.active {
-      display: block;
-    }
-    pre {
-      background: #1a1a1a;
-      color: #00ffcc;
-      padding: 15px;
-      border-radius: 10px;
-      overflow-x: auto;
-      box-shadow: 0 0 15px rgba(0,255,200,0.4);
-    }
-  </style>
+  <title>Zahoor Auto Spa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>💻 Zahoor Auto Spa - All Code in One File</header>
+  <header>
+    <h1>Zahoor Auto Spa</h1>
+    <p>Near Ms Traders Yangoora Ganderbal</p>
+  </header>
 
-  <nav>
-    <button onclick="showTab('frontend')">Frontend (HTML/CSS/JS)</button>
-    <button onclick="showTab('python')">Python Backend</button>
-    <button onclick="showTab('php')">PHP Backend</button>
-    <button onclick="showTab('java')">Java Backend</button>
-    <button onclick="showTab('kotlin')">Kotlin Backend</button>
-    <button onclick="showTab('sql')">SQL Schema</button>
-    <button onclick="showTab('docker')">Docker Setup</button>
-  </nav>
+  <main>
+    <h2>Services</h2>
+    <ul>
+      <li>Bike 🚲</li>
+      <li>Car 🚗</li>
+      <li>Bus 🚌</li>
+      <li>Truck 🚚</li>
+    </ul>
 
-  <!-- FRONTEND -->
-  <section id="frontend" class="active">
-    <h2>🌐 Frontend (index.html)</h2>
-    <pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Zahoor Auto Spa&lt;/title&gt;
-  &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome to Zahoor Auto Spa&lt;/h1&gt;
-  &lt;p&gt;Services: Bike 🚲 | Car 🚗 | Bus 🚌 | Truck 🚚&lt;/p&gt;
-  &lt;button onclick="bookNow()"&gt;Book Now&lt;/button&gt;
-  &lt;script src="script.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-    </code></pre>
-  </section>
+    <button onclick="bookNow()">Book Now</button>
+  </main>
 
-  <!-- PYTHON -->
-  <section id="python">
-    <h2>🐍 Python Backend (Flask)</h2>
-    <pre><code>
-from flask import Flask, request, jsonify
-import mysql.connector
-
-app = Flask(__name__)
-
-@app.route('/book', methods=['POST'])
-def book():
-    data = request.json
-    return jsonify({"status": "success", "message": "Booking confirmed!"})
-
-@app.route('/pay', methods=['POST'])
-def pay():
-    return jsonify({"status": "success", "message": "Payment updated!"})
-
-@app.route('/bookings', methods=['GET'])
-def bookings():
-    return jsonify([])
-    </code></pre>
-  </section>
-
-  <!-- PHP -->
-  <section id="php">
-    <h2>🐘 PHP Backend</h2>
-    <pre><code>
-&lt;?php
-header("Content-Type: application/json");
-$method = $_SERVER['REQUEST_METHOD'];
-
-if ($method === 'POST' &amp;&amp; strpos($_SERVER['REQUEST_URI'], '/book') !== false) {
-    echo json_encode(["status" =&gt; "success", "message" =&gt; "Booking confirmed!"]);
-} elseif ($method === 'POST' &amp;&amp; strpos($_SERVER['REQUEST_URI'], '/pay') !== false) {
-    echo json_encode(["status" =&gt; "success", "message" =&gt; "Payment updated!"]);
-} elseif ($method === 'GET' &amp;&amp; strpos($_SERVER['REQUEST_URI'], '/bookings') !== false) {
-    echo json_encode([]);
-} else {
-    echo json_encode(["message" =&gt; "Zahoor Auto Spa API (PHP)"]);
-}
-?&gt;
-    </code></pre>
-  </section>
-
-  <!-- JAVA -->
-  <section id="java">
-    <h2>☕ Java Backend (Spring Boot)</h2>
-    <pre><code>
-@RestController
-public class BookingController {
-    @PostMapping("/book")
-    public String book(@RequestBody Booking booking) {
-        return "{\"status\":\"success\",\"message\":\"Booking confirmed!\"}";
-    }
-
-    @PostMapping("/pay")
-    public String pay(@RequestBody Booking booking) {
-        return "{\"status\":\"success\",\"message\":\"Payment updated!\"}";
-    }
-
-    @GetMapping("/bookings")
-    public List&lt;Booking&gt; bookings() {
-        return List.of();
-    }
-}
-    </code></pre>
-  </section>
-
-  <!-- KOTLIN -->
-  <section id="kotlin">
-    <h2>🟣 Kotlin Backend</h2>
-    <pre><code>
-@RestController
-class BookingController(private val repo: BookingRepository) {
-    @PostMapping("/book")
-    fun book(@RequestBody booking: Booking) =
-        mapOf("status" to "success", "message" to "Booking confirmed!")
-
-    @PostMapping("/pay")
-    fun pay(@RequestBody booking: Booking) =
-        mapOf("status" to "success", "message" to "Payment updated!")
-
-    @GetMapping("/bookings")
-    fun bookings() = listOf&lt;Booking&gt;()
-}
-    </code></pre>
-  </section>
-
-  <!-- SQL -->
-  <section id="sql">
-    <h2>🗄 SQL Schema</h2>
-    <pre><code>
-CREATE DATABASE IF NOT EXISTS autospa;
-USE autospa;
-
-CREATE TABLE IF NOT EXISTS bookings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    service VARCHAR(50) NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    status VARCHAR(20) DEFAULT 'Pending'
-);
-    </code></pre>
-  </section>
-
-  <!-- DOCKER -->
-  <section id="docker">
-    <h2>🐳 Docker Compose</h2>
-    <pre><code>
-version: "3.8"
-services:
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: autospa
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    </code></pre>
-  </section>
-
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(tabId).classList.add("active");
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
