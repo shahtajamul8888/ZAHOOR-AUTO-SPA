@@ -7,22 +7,86 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header class="header">
     <h1>Zahoor Auto Spa</h1>
-    <p>Near Ms Traders Yangoora Ganderbal</p>
+    <p class="tagline">Professional Washing Services</p>
   </header>
 
-  <main>
-    <h2>Services</h2>
-    <ul>
-      <li>Bike 🚲</li>
-      <li>Car 🚗</li>
-      <li>Bus 🚌</li>
-      <li>Truck 🚚</li>
-    </ul>
+  <!-- Our Services -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service" onclick="showRate('Bike',200)">
+        🏍️ <p>Bike Washing</p>
+      </div>
+      <div class="service" onclick="showRate('Car',450)">
+        🚗 <p>Car Washing</p>
+      </div>
+      <div class="service" onclick="showRate('Bus',800)">
+        🚌 <p>Bus Washing</p>
+      </div>
+      <div class="service" onclick="showRate('Truck',800)">
+        🚚 <p>Truck Washing</p>
+      </div>
+    </div>
+    <p id="rate-display" class="rate"></p>
+  </section>
 
-    <button onclick="bookNow()">Book Now</button>
-  </main>
+  <!-- Booking Form -->
+  <section class="booking">
+    <h2>Book Online</h2>
+    <form id="booking-form" onsubmit="handleBooking(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="contact" placeholder="Contact Number" required>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option value="Bike">Bike Washing</option>
+        <option value="Car">Car Washing</option>
+        <option value="Bus">Bus Washing</option>
+        <option value="Truck">Truck Washing</option>
+      </select>
+      <button type="submit">Book via WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- QR Payment Popup -->
+  <div id="qr-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeQR()">&times;</span>
+      <h2>Scan & Pay</h2>
+      <img src="qr.png" alt="QR Code" class="qr-img">
+      <p>UPI ID: 9797472650@okbizaxis</p>
+      <p>Supports GPay, Paytm, PhonePe, BHIM</p>
+    </div>
+  </div>
+
+  <!-- Location -->
+  <section class="location">
+    <h2>Find Us</h2>
+    <p>Near Ms Traders Yangoora Ganderbal</p>
+    <iframe 
+      src="https://www.google.com/maps?q=34.2651,74.7743&hl=en&z=14&output=embed"
+      allowfullscreen=""
+      loading="lazy"></iframe>
+  </section>
+
+  <!-- Contact Us -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 9596516880 / 9797472650</p>
+    <p>📧 shahtajamul88@gmail.com</p>
+    <div class="social">
+      <span>🔵 Facebook (coming soon)</span> | <span>📸 Instagram (coming soon)</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Developed by Tajamul</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
