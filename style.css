@@ -6,56 +6,36 @@ body {
   text-align: center;
 }
 
+/* Offer Banner */
+.offer-banner {
+  background: #ff0040;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  animation: scroll 10s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 /* Header */
 .header {
   background: linear-gradient(to right, #ff4b2b, #1e90ff);
   padding: 20px;
 }
-.header h1 {
-  margin: 0;
-}
-.tagline {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* Services */
-.services {
-  padding: 30px 20px;
-}
-.service-grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-.service {
-  background: #1b263b;
-  padding: 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 40px;
-  transition: transform 0.2s;
-}
-.service:hover {
-  transform: scale(1.1);
-  background: #415a77;
-}
-.rate {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #00ffcc;
-}
+.header h1 { margin: 0; }
+.tagline { font-size: 14px; opacity: 0.9; }
 
 /* Booking */
-.booking {
-  padding: 30px 20px;
-}
+.booking { padding: 30px 20px; }
 .booking form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 300px;
+  max-width: 280px;
   margin: auto;
 }
 .booking input, .booking select, .booking button {
@@ -68,11 +48,24 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
-.booking button:hover {
-  background: #00ccaa;
+.booking button:hover { background: #00ccaa; }
+
+/* Location */
+.location { padding: 30px 20px; }
+.location iframe {
+  width: 90%;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
 }
 
-/* QR Popup */
+/* Footer */
+footer {
+  background: #f0f0f0;
+  color: black;
+  padding: 20px;
+}
 .popup {
   display: none;
   position: fixed;
@@ -87,48 +80,13 @@ body {
   color: black;
   padding: 20px;
   border-radius: 12px;
-  width: 300px;
+  width: 280px;
   text-align: center;
+  position: relative;
 }
 .close {
   position: absolute;
   top: 10px; right: 20px;
   cursor: pointer;
-  font-size: 24px;
-}
-.qr-img {
-  width: 200px;
-  height: auto;
-  margin: 15px 0;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-}
-
-/* Location */
-.location {
-  padding: 30px 20px;
-}
-.location iframe {
-  width: 90%;
-  height: 300px;
-  border: none;
-  border-radius: 12px;
-  margin-top: 10px;
-}
-
-/* Contact */
-.contact {
-  background: #f5f5f5;
-  color: black;
-  padding: 30px 20px;
-}
-.social {
-  margin-top: 10px;
-}
-
-/* Footer */
-footer {
-  background: #0d1b2a;
-  padding: 15px;
-  color: #ccc;
+  font-size: 20px;
 }
