@@ -1,107 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zahoor Auto Spa</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#f8f9fa;color:#222}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+  min-height:100vh;
+}
 header{
-  position:relative;
-  background:#0f172a;
-  height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;overflow:hidden;
+  background:rgba(0,0,0,0.6);
+  text-align:center;
+  padding:40px 20px;
 }
-header img.logo{width:120px;height:120px;margin-bottom:20px;animation:spin 6s linear infinite;z-index:2;position:relative}
-@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-header h1{font-size:3rem;font-weight:700;color:#ffd700;z-index:2;position:relative}
-header p{font-size:1.2rem;margin-top:10px;color:#f1f1f1;z-index:2;position:relative}
-header a{margin-top:20px;padding:12px 28px;background:#22c55e;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;transition:0.3s;z-index:2;position:relative}
-header a:hover{background:#16a34a}
-
-/* Supercar animation */
-.supercar{
-  position:absolute;
-  bottom:20px;
-  left:-300px;
-  width:250px;
-  animation:drive 12s linear infinite;
-  opacity:0.9;
+header h1{font-size:2.5rem;color:#00bfff}
+header p{margin-top:10px;font-size:1.1rem;color:#ccc}
+header a{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 28px;
+  background:#00bfff;
+  color:#000;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:600;
+  transition:0.3s;
 }
-@keyframes drive{
-  0%{left:-300px}
-  50%{left:calc(100% + 300px)}
-  100%{left:-300px}
+header a:hover{background:#0099cc}
+
+section{
+  background:rgba(0,0,0,0.7);
+  padding:40px 20px;
+  margin:20px;
+  border-radius:10px;
+}
+h2{text-align:center;color:#00bfff;margin-bottom:30px}
+
+.services{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+.service-logo{
+  text-align:center;
+  cursor:pointer;
+}
+.service-logo img{
+  width:80px;
+  transition:transform 0.3s;
+}
+.service-logo img:hover{transform:scale(1.1)}
+.rate{
+  margin-top:10px;
+  font-size:1.1rem;
+  color:#ffd700;
+  display:none;
 }
 
-section{padding:60px 20px;max-width:1200px;margin:auto}
-h2{text-align:center;font-size:2rem;margin-bottom:40px;color:#222}
-
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.service-card{
-  background:#fff;padding:20px;border-radius:10px;text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform 0.3s
+footer{
+  text-align:center;
+  padding:20px;
+  background:rgba(0,0,0,0.8);
+  font-size:0.9rem;
+  color:#ccc;
 }
-.service-card:hover{transform:translateY(-5px)}
-.service-card img{width:80px;margin-bottom:15px;animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.service-card h3{margin-bottom:10px;font-size:1.2rem}
-
-.map iframe{width:100%;height:400px;border:none;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-
-footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:0.9rem;margin-top:40px}
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Animated supercar in background -->
-  <img src="https://i.ibb.co/3mVtZyB/supercar.png" alt="Supercar" class="supercar">
-  
-  <!-- Professional animated logo -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Car_wash_icon_animated.gif" alt="Zahoor Auto Spa Logo" class="logo">
   <h1>Zahoor Auto Spa</h1>
   <p>Premium Car & Bike Wash in Barsoo Ganderbal</p>
-  <!-- WhatsApp booking with your number -->
-  <a href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%2C%20I%20want%20to%20book%20a%20wash%20service." target="_blank">Book on WhatsApp</a>
+  <!-- UPI Payment Button -->
+  <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa&cu=INR" target="_blank">Pay via UPI</a>
 </header>
 
-<section id="services">
+<section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="service-card">
+    <div class="service-logo" onclick="showRate(this)">
       <img src="https://img.icons8.com/color/96/motorcycle.png" alt="Bike Wash">
-      <h3>Bike Wash</h3>
-      <p>₹150 – ₹200<br>Proper care & detailed wash</p>
+      <div class="rate">Bike Wash: ₹150 – ₹200</div>
     </div>
-    <div class="service-card">
+    <div class="service-logo" onclick="showRate(this)">
       <img src="https://img.icons8.com/color/96/car.png" alt="Car Wash">
-      <h3>Car Wash</h3>
-      <p>₹350 – ₹450<br>Proper care & detailed wash</p>
+      <div class="rate">Car Wash: ₹350 – ₹450</div>
     </div>
-    <div class="service-card">
+    <div class="service-logo" onclick="showRate(this)">
       <img src="https://img.icons8.com/color/96/bus.png" alt="Bus Wash">
-      <h3>Bus Wash</h3>
-      <p>₹600 – ₹700<br>Proper care & detailed wash</p>
+      <div class="rate">Bus Wash: ₹600 – ₹700</div>
     </div>
-    <div class="service-card">
+    <div class="service-logo" onclick="showRate(this)">
       <img src="https://img.icons8.com/color/96/truck.png" alt="Truck Wash">
-      <h3>Truck Wash</h3>
-      <p>₹800 – ₹1000<br>Proper care & detailed wash</p>
+      <div class="rate">Truck Wash: ₹800 – ₹1000</div>
     </div>
   </div>
 </section>
 
-<section id="location">
+<section>
   <h2>Find Us</h2>
   <p style="text-align:center;margin-bottom:20px;">
     📍 Coordinates: <strong>34.244012, 74.711940</strong><br>
-    <a href="https://www.google.com/maps?q=34.244012,74.711940" target="_blank">View on Google Maps</a>
+    <a href="https://www.google.com/maps?q=34.244012,74.711940" target="_blank" style="color:#00bfff;">View on Google Maps</a>
   </p>
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.123456789!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1f123456789ab%3AZahoor%20Auto%20Spa!5e0!3m2!1sen!2sin!4v0000000000000"></iframe>
+  <div style="display:flex;justify-content:center;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.123456789!2d74.711940!3d34.244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1f123456789ab%3AZahoor%20Auto%20Spa!5e0!3m2!1sen!2sin!4v0000000000000" width="600" height="300" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
@@ -111,6 +121,13 @@ footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:0.9re
 
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
+
+function showRate(el){
+  const rateBox = el.querySelector('.rate');
+  const allRates = document.querySelectorAll('.rate');
+  allRates.forEach(r => r.style.display = 'none');
+  rateBox.style.display = 'block';
+}
 </script>
 
 </body>
