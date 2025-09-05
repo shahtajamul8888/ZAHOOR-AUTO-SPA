@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS autospa;
+USE autospa;
+
+CREATE TABLE IF NOT EXISTS bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    service VARCHAR(50) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Pending'
+);
