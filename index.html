@@ -5,151 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Offer Banner -->
-  <div class="offer-banner">
-    🎉 20% OFF on Bike & Car Washing 🎉
-  </div>
 
   <!-- Header -->
-  <header class="header">
-    <h1 class="logo">Zahoor Auto Spa</h1>
-    <p class="tagline">Professional Washing Services</p>
+  <header>
+    <h1 class="logo">🚗 Zahoor Auto Spa</h1>
     <nav>
-      <button onclick="openAbout()">About Us</button>
+      <a href="#services">Services</a>
+      <a href="#payment">Payment</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Find Us</a>
     </nav>
   </header>
 
-  <!-- Colourful Background Section -->
-  <div class="colourful-section">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Premium Vehicle Washing</h2>
+    <p>We treat every vehicle like a masterpiece 🚘✨</p>
+    <a href="https://wa.me/919797472650?text=Hello%20I%20want%20to%20book%20a%20wash"
+       class="btn">Book via WhatsApp</a>
+  </section>
 
-    <!-- Services Logos -->
-    <section class="services">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card bike">
-          <i class="fa-solid fa-motorcycle"></i>
-          <p>Bike Washing</p>
-        </div>
-        <div class="service-card car">
-          <i class="fa-solid fa-car"></i>
-          <p>Car Washing</p>
-        </div>
-        <div class="service-card bus">
-          <i class="fa-solid fa-bus"></i>
-          <p>Bus/Truck Washing</p>
-        </div>
-      </div>
-    </section>
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">Bike Wash - ₹100</div>
+      <div class="card">Car Wash - ₹300</div>
+      <div class="card">Bus Wash - ₹700</div>
+      <div class="card">Truck Wash - ₹1000</div>
+    </div>
+  </section>
 
-    <!-- Booking -->
-    <section class="booking">
-      <h2>Book via WhatsApp</h2>
-      <form id="booking-form" onsubmit="handleBooking(event)">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="text" id="contact" placeholder="Contact Number" required>
-        <select id="service" required>
-          <option value="">Select Service</option>
-          <option value="Bike">Bike Washing - ₹160</option>
-          <option value="Car">Car Washing - ₹360</option>
-          <option value="Bus">Bus Washing - ₹800</option>
-          <option value="Truck">Truck Washing - ₹800</option>
-        </select>
-        <button type="submit">Book Now</button>
-      </form>
+  <!-- Payment -->
+  <section id="payment" class="section">
+    <h2>Pay via UPI</h2>
+    <p>UPI ID: <strong>9797472650@okbizaxis</strong></p>
+    <p>Or use number: <strong>9797472650</strong></p>
+    <div class="qr-box">
+      <img src="images/upi-qr.png" alt="UPI QR Code">
+      <p>Click the QR to Pay</p>
+    </div>
+  </section>
 
-      <!-- Payment Button -->
-      <div class="payment">
-        <h3>Pay via UPI</h3>
-        <img src="upi-qr.png" alt="UPI QR Code" class="qr">
-        <p>Click the QR to pay</p>
-        <a href="upi://pay?pa=9797472650@upi&pn=ZahoorAutoSpa&cu=INR" class="upi-btn">Pay Now</a>
-        <p><strong>UPI ID:</strong> 9797472650@upi</p>
-      </div>
-    </section>
+  <!-- About Us -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece.  
+      From high-foam and chemical washes to deep cleaning, we ensure  
+      your ride shines like brand new!
+    </p>
+  </section>
 
-    <!-- Location -->
-    <section class="location">
-      <h2>Find Us</h2>
-      <p>Near Ms Traders Yangoora Ganderbal</p>
-      <iframe 
-        src="https://www.google.com/maps?q=34.2442932,74.7115119&hl=en&z=15&output=embed"
-        allowfullscreen
-        loading="lazy"></iframe>
-    </section>
-
-    <!-- Opening Hours -->
-    <section class="hours">
-      <h2>Opening Hours</h2>
-      <ul>
-        <li>Monday – Saturday: <strong>9:00 AM – 7:00 PM</strong></li>
-        <li>Sunday: <strong>Closed</strong></li>
-      </ul>
-    </section>
-
-  </div>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Find Us</h2>
+    <p>📍 Location: Srinagar, Kashmir</p>
+    <p>📞 Contact: +91 9797472650</p>
+  </section>
 
   <!-- Footer -->
-  <footer>
-    <button onclick="openContact()">📞 Contact Us</button>
-    <p>Developed by Tajamul</p>
+  <footer class="footer">
+    <div class="developer">
+      <img src="images/developer.jpg" alt="Developer Tajamul">
+      <span>Developed by Tajamul</span>
+    </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/919796472650" class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Dark Mode Toggle -->
-  <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-
-  <!-- About Us Popup -->
-  <div id="about-popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeAbout()">&times;</span>
-      <h2>About Us</h2>
-      <p>
-        At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
-        to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
-        Whether it’s a brand-new ride or one that needs a refresh, 
-        our expert care ensures it looks and feels showroom-ready.
-      </p>
-    </div>
-  </div>
-
-  <!-- Contact Popup -->
-  <div id="contact-popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeContact()">&times;</span>
-      <h2>Contact Us</h2>
-      <p>📞 9596516880 / 9797472650</p>
-      <p>📧 shahtajamul88@gmail.com</p>
-    </div>
-  </div>
-
-  <script>
-    // Booking Form → WhatsApp redirect
-    function handleBooking(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const contact = document.getElementById("contact").value;
-      const service = document.getElementById("service").value;
-      const msg = `Hello, I am ${name}. My contact is ${contact}. I want to book: ${service}`;
-      window.open(`https://wa.me/919796472650?text=${encodeURIComponent(msg)}`, "_blank");
-    }
-
-    // Popups
-    function openAbout(){document.getElementById("about-popup").style.display="flex";}
-    function closeAbout(){document.getElementById("about-popup").style.display="none";}
-    function openContact(){document.getElementById("contact-popup").style.display="flex";}
-    function closeContact(){document.getElementById("contact-popup").style.display="none";}
-
-    // Dark Mode
-    function toggleDarkMode(){
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
 </body>
 </html>
