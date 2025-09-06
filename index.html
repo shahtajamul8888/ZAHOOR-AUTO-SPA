@@ -5,82 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 </head>
 <body>
+  <!-- Offer Banner -->
+  <div class="offer-banner">
+    🎉 10% / 20% OFF on First Booking – Use Coupon <strong>TAJAMUL</strong> 🎉
+    <div class="coupon-box">
+      <input type="text" id="coupon" placeholder="Enter Coupon Code">
+      <button onclick="applyCoupon()">Apply</button>
+    </div>
+    <p id="coupon-result"></p>
+  </div>
 
   <!-- Header -->
-  <header>
-    <h1 class="logo">Zahoor Auto Spa</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#booking">Book Now</a>
-      <a href="#payment">Pay via UPI</a>
-      <a href="#location">Find Us</a>
-    </nav>
+  <header class="header">
+    <h1>ZAHOOR AUTO SPA</h1>
+    <p class="tagline">"We treat every vehicle like a masterpiece"</p>
   </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Premium Vehicle Care</h2>
-    <p>We treat every vehicle like a masterpiece 🚘✨</p>
-  </section>
 
   <!-- Services -->
   <section id="services" class="services">
-    <h2>Our Services</h2>
+    <h2>OUR SERVICES</h2>
     <div class="service-list">
-      <div class="service">Bike Washing</div>
-      <div class="service">Car Washing</div>
-      <div class="service">Bus/Truck Washing</div>
+      <div class="service" onclick="bookService('Bike', '100 - 150')">
+        <lord-icon src="https://cdn.lordicon.com/rslnizbt.json" trigger="hover" style="width:70px;height:70px"></lord-icon>
+        <p>Bike</p>
+      </div>
+      <div class="service" onclick="bookService('Car', '350 - 440')">
+        <lord-icon src="https://cdn.lordicon.com/zzcjjxew.json" trigger="hover" style="width:70px;height:70px"></lord-icon>
+        <p>Car</p>
+      </div>
+      <div class="service" onclick="bookService('Bus/Truck', '500 - 700')">
+        <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover" style="width:70px;height:70px"></lord-icon>
+        <p>Bus/Truck</p>
+      </div>
     </div>
   </section>
 
   <!-- Booking -->
-  <section id="booking" class="booking">
+  <section class="booking">
     <h2>Book via WhatsApp</h2>
-    <p>Select your service and confirm directly on WhatsApp.</p>
-    <a href="https://wa.me/919797472650?text=Hi%20I%20want%20to%20book%20a%20service" 
-       class="btn">Book on WhatsApp</a>
+    <form id="booking-form" onsubmit="handleBooking(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="contact" placeholder="Contact Number" required>
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option value="Bike">Bike Washing - ₹100–150</option>
+        <option value="Car">Car Washing - ₹350–440</option>
+        <option value="Bus/Truck">Bus/Truck Washing - ₹500–700</option>
+      </select>
+      <button type="submit">Book Now</button>
+    </form>
   </section>
 
   <!-- Payment -->
-  <section id="payment" class="payment">
-    <h2>Pay via UPI</h2>
-    <div class="upi-option">
-      <span>UPI ID: <b>shahtajamul88-2@okicici</b></span>
-      <button onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
+  <section class="payment">
+    <h2>💳 Pay via UPI / Bank Transfer</h2>
+    <div class="upi-options">
+      <p>UPI ID: <strong id="upi1">shahtajamul88-2@okicici</strong> <button onclick="copyText('upi1')">Copy</button></p>
+      <p>Mobile No: <strong id="upi2">9797472650</strong> <button onclick="copyText('upi2')">Copy</button></p>
     </div>
-    <div class="upi-option">
-      <span>Number: <b>9797472650</b></span>
-      <button onclick="copyText('9797472650')">Copy</button>
-    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
+      to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
+      Whether it’s a brand-new ride or one that needs a refresh, 
+      our expert care ensures it looks and feels showroom-ready.
+    </p>
   </section>
 
   <!-- Location -->
-  <section id="location" class="location">
+  <section class="location">
     <h2>Find Us</h2>
-    <p>Near MS Traders (Barsoo Ganderbal), Yangoora, Srinagar</p>
+    <p>Near Ms Traders Yangoora Ganderbal</p>
     <iframe 
-      src="https://www.google.com/maps?q=34.244012,74.711940&hl=es;z=14&output=embed" 
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-    <p><a href="https://maps.google.com/?q=34.244012,74.711940" target="_blank">📍 View on Google Maps</a></p>
+      src="https://www.google.com/maps?q=34.2442932,74.7115119&hl=en&z=15&output=embed"
+      allowfullscreen
+      loading="lazy"></iframe>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <img src="images/tajamul.jpg" alt="Developer Tajamul">
-      <p>Developed by Tajamul</p>
+  <!-- Photo at Bottom -->
+  <div class="profile-photo">
+    <img src="images/your-photo.jpg" alt="Developer Tajamul">
+  </div>
+
+  <!-- Developer Badge in Footer -->
+  <footer class="footer">
+    <div class="dev-badge">
+      🚀 Developed by <strong>Tajamul</strong>
     </div>
   </footer>
 
   <script>
-    function copyText(text) {
+    function handleBooking(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contact").value;
+      const service = document.getElementById("service").value;
+      const whatsappNumber = "9797472650"; 
+      const message = `Hello, I am ${name}. I want to book ${service}. Contact: ${contact}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    }
+
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text);
       alert("Copied: " + text);
     }
-  </script>
 
+    function applyCoupon() {
+      const code = document.getElementById("coupon").value.trim();
+      const result = document.getElementById("coupon-result");
+      if (code.toUpperCase() === "TAJAMUL") {
+        const discount = Math.random() > 0.5 ? 20 : 10;
+        result.innerHTML = `🎉 Congratulations! You got <strong>${discount}%</strong> OFF on your booking.`;
+      } else {
+        result.innerHTML = "❌ Invalid Coupon Code.";
+      }
+    }
+  </script>
 </body>
 </html>
