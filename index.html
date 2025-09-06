@@ -16,33 +16,30 @@
   <!-- Header -->
   <header class="header">
     <h1>Zahoor Auto Spa</h1>
-    <p class="tagline">Professional Washing Services</p>
-    <nav>
-      <button onclick="openAbout()">About Us</button>
-    </nav>
+    <p class="tagline">Premium Vehicle Washing Services</p>
   </header>
 
   <!-- Services Logos -->
-  <section class="services">
+  <section class="services reveal">
     <h2>Our Services</h2>
     <div class="services-grid">
       <div class="service-card bike">
-        <i class="fa-solid fa-motorcycle"></i>
+        <i class="fa-solid fa-motorcycle animated-icon"></i>
         <p>Bike Washing</p>
       </div>
       <div class="service-card car">
-        <i class="fa-solid fa-car"></i>
+        <i class="fa-solid fa-car animated-icon"></i>
         <p>Car Washing</p>
       </div>
       <div class="service-card bus">
-        <i class="fa-solid fa-bus"></i>
+        <i class="fa-solid fa-bus animated-icon"></i>
         <p>Bus/Truck Washing</p>
       </div>
     </div>
   </section>
 
   <!-- Booking -->
-  <section class="booking">
+  <section class="booking reveal">
     <h2>Book via WhatsApp</h2>
     <form id="booking-form" onsubmit="handleBooking(event)">
       <input type="text" id="name" placeholder="Your Name" required>
@@ -58,11 +55,23 @@
     </form>
 
     <!-- Payment Button -->
-    <button class="pay-btn" onclick="openPayment()">💳 Pay via UPI</button>
+    <button class="pay-btn" onclick="openPayment()">💳 Pay via UPI / Bank</button>
   </section>
 
+  <!-- Payment Section -->
+  <div id="payment-popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePayment()">&times;</span>
+      <h2>Pay via UPI / Bank Transfer</h2>
+      <p>Scan the QR Code below or pay using UPI ID:</p>
+      <img src="upi-qr.png" alt="UPI QR Code" class="qr-code">
+      <p><strong>UPI ID:</strong> <span id="upi-id">9797472650@okbizaxis</span></p>
+      <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
+    </div>
+  </div>
+
   <!-- Location -->
-  <section class="location">
+  <section class="location reveal">
     <h2>Find Us</h2>
     <p>Near Ms Traders Yangoora Ganderbal</p>
     <iframe 
@@ -71,37 +80,82 @@
       loading="lazy"></iframe>
   </section>
 
+  <!-- About Us -->
+  <section class="about reveal">
+    <h2>About Us</h2>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
+      to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
+      Whether it’s a brand-new ride or one that needs a refresh, 
+      our expert care ensures it looks and feels showroom-ready.
+    </p>
+  </section>
+
+  <!-- Contact Us -->
+  <section class="contact reveal">
+    <h2>Contact Us</h2>
+    <p>📞 9596516880 / 9797472650</p>
+    <p>📧 shahtajamul88@gmail.com</p>
+  </section>
+
   <!-- Footer -->
   <footer>
-    <button onclick="openContact()">📞 Contact Us</button>
     <p>Developed by Tajamul</p>
   </footer>
 
-  <!-- About Us Popup -->
-  <div id="about-popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeAbout()">&times;</span>
-      <h2>About Us</h2>
-      <p>
-        At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
-        to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
-        Whether it’s a brand-new ride or one that needs a refresh, 
-        our expert care ensures it looks and feels showroom-ready.
-      </p>
-    </div>
-  </div>
+  <script>
+    // Page Load Fade-in
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
 
-  <!-- Contact Popup -->
-  <div id="contact-popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeContact()">&times;</span>
-      <h2>Contact Us</h2>
-      <p>📞 9596516880 / 9797472650</p>
-      <p>📧 shahtajamul88@gmail.com</p>
-     
-    </div>
-  </div>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        }
+      }
+    });
 
-  <script src="script.js"></script>
+    // Icon Bounce
+    document.querySelectorAll('.animated-icon').forEach(icon => {
+      setInterval(() => {
+        icon.classList.toggle('bounce');
+      }, 3000);
+    });
+
+    // WhatsApp Booking
+    function handleBooking(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contact").value;
+      const service = document.getElementById("service").value;
+      const whatsappNumber = "919796472650"; 
+      const message = `Hello, I would like to book a ${service}.\nName: ${name}\nContact: ${contact}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    // Payment Popup
+    function openPayment() {
+      document.getElementById("payment-popup").style.display = "flex";
+    }
+    function closePayment() {
+      document.getElementById("payment-popup").style.display = "none";
+    }
+
+    // Copy UPI
+    function copyUPI() {
+      const upi = document.getElementById("upi-id").innerText;
+      navigator.clipboard.writeText(upi).then(() => {
+        alert("✅ UPI ID copied: " + upi);
+      });
+    }
+  </script>
 </body>
 </html>
