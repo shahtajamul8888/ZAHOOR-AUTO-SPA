@@ -1,180 +1,142 @@
-body {
+/* Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: #fff;
-  color: #333;
 }
 
-/* Offer Banner */
-.offer-banner {
-  background: #ff4e50;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
+body {
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* Header */
-.header {
-  text-align: center;
-  padding: 20px;
+header {
+  background: #003366;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff4e50, #f9d423, #24c6dc, #5433ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 6s infinite linear;
-}
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-.tagline { margin-top: -10px; }
 
-/* Colourful background (Our Services to Hours) */
-.colourful-section {
-  background: linear-gradient(-45deg, #1e3c72, #2a5298, #ff6a00, #ee0979);
-  background-size: 400% 400%;
-  animation: bgMove 12s infinite;
-  padding: 20px;
+header .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: #004080;
   color: white;
 }
-@keyframes bgMove {
-  0% {background-position:0% 50%}
-  50% {background-position:100% 50%}
-  100% {background-position:0% 50%}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero .btn:hover {
+  background: #e68900;
+}
+
+/* Sections */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+  animation: bgchange 100s infinite;
+}
+
+@keyframes bgchange {
+  0%   { background: #ffcccc; }
+  10%  { background: #ccffcc; }
+  20%  { background: #ccccff; }
+  30%  { background: #ffffcc; }
+  40%  { background: #ffccff; }
+  50%  { background: #ccffff; }
+  60%  { background: #ffd9b3; }
+  70%  { background: #e6ccff; }
+  80%  { background: #b3ffe6; }
+  90%  { background: #ffb3b3; }
+  100% { background: #ffcccc; }
 }
 
 /* Services */
-.services-grid {
+.services {
   display: flex;
   justify-content: center;
-  gap: 20px;
-}
-.service-card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  flex: 1;
-}
-
-/* Booking */
-.booking form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 300px;
-  margin: auto;
-}
-.booking button {
-  padding: 10px;
-  background: #5433ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.payment {
-  text-align: center;
+  gap: 15px;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
-.qr {
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   width: 150px;
-  cursor: pointer;
-}
-.upi-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #1e3c72;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+  font-weight: bold;
 }
 
-/* Location */
-.location iframe {
-  width: 100%;
-  height: 250px;
-  border: none;
+/* Payment */
+.qr-box {
+  margin-top: 20px;
+}
+
+.qr-box img {
+  width: 200px;
+  cursor: pointer;
+  border: 3px solid #333;
   border-radius: 10px;
 }
 
-/* Hours */
-.hours {
-  text-align: center;
-  margin: 30px 0;
-}
-.hours ul {
-  list-style: none;
-  padding: 0;
+.qr-box p {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 /* Footer */
-footer {
-  background: #1e3c72;
-  color: white;
-  text-align: center;
+.footer {
+  background: #111;
+  color: #fff;
   padding: 15px;
-}
-
-/* Popups */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right:0; bottom:0;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
-.popup-content {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-}
-.close { float: right; cursor: pointer; }
 
-/* WhatsApp floating */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 2rem;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  z-index: 1000;
+.footer .developer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
 
-/* Dark Mode */
-.dark-mode {
-  background: #121212;
-  color: #f5f5f5;
-}
-.dark-mode footer {
-  background: #000428;
-}
-.dark-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #1e3c72;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1000;
+.footer .developer img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
 }
