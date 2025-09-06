@@ -61,7 +61,13 @@
       </form>
 
       <!-- Payment Button -->
-      <button class="pay-btn" onclick="openPayment()">💳 Pay via UPI</button>
+      <div class="payment">
+        <h3>Pay via UPI</h3>
+        <img src="upi-qr.png" alt="UPI QR Code" class="qr">
+        <p>Click the QR to pay</p>
+        <a href="upi://pay?pa=9797472650@upi&pn=ZahoorAutoSpa&cu=INR" class="upi-btn">Pay Now</a>
+        <p><strong>UPI ID:</strong> 9797472650@upi</p>
+      </div>
     </section>
 
     <!-- Location -->
@@ -82,6 +88,7 @@
         <li>Sunday: <strong>Closed</strong></li>
       </ul>
     </section>
+
   </div>
 
   <!-- Footer -->
@@ -90,6 +97,14 @@
     <p>Developed by Tajamul</p>
   </footer>
 
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919796472650" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
   <!-- About Us Popup -->
   <div id="about-popup" class="popup">
     <div class="popup-content">
@@ -97,7 +112,7 @@
       <h2>About Us</h2>
       <p>
         At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
-        to diesel cleaning, polishing, and greasing — we bring out the best in your vehicle. 
+        to diesel cleaning, polishing, and greasing—we bring out the best in your car. 
         Whether it’s a brand-new ride or one that needs a refresh, 
         our expert care ensures it looks and feels showroom-ready.
       </p>
@@ -114,54 +129,24 @@
     </div>
   </div>
 
-  <!-- Payment Popup -->
-  <div id="payment-popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePayment()">&times;</span>
-      <h2>Pay via UPI / Bank Transfer</h2>
-      <p>Scan the QR Code below or click it to pay instantly:</p>
-      
-      <!-- Clickable QR -->
-      <a href="upi://pay?pa=9797472650@okbizaxis&pn=Zahoor%20Auto%20Spa&mc=0000&mode=02&purpose=00" target="_blank">
-        <img src="upi-qr.png" alt="UPI QR Code" class="qr-code">
-      </a>
-      
-      <p><strong>UPI ID:</strong> 9797472650@okbizaxis</p>
-      <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
-    </div>
-  </div>
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/919796472650" class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Dark Mode Toggle -->
-  <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-
   <script>
-    function openAbout(){document.getElementById('about-popup').style.display='block';}
-    function closeAbout(){document.getElementById('about-popup').style.display='none';}
-    function openContact(){document.getElementById('contact-popup').style.display='block';}
-    function closeContact(){document.getElementById('contact-popup').style.display='none';}
-    function openPayment(){document.getElementById('payment-popup').style.display='block';}
-    function closePayment(){document.getElementById('payment-popup').style.display='none';}
-
-    function copyUPI() {
-      navigator.clipboard.writeText("9797472650@okbizaxis");
-      alert("UPI ID copied!");
+    // Booking Form → WhatsApp redirect
+    function handleBooking(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contact").value;
+      const service = document.getElementById("service").value;
+      const msg = `Hello, I am ${name}. My contact is ${contact}. I want to book: ${service}`;
+      window.open(`https://wa.me/919796472650?text=${encodeURIComponent(msg)}`, "_blank");
     }
 
-    function handleBooking(e){
-      e.preventDefault();
-      const name=document.getElementById("name").value;
-      const contact=document.getElementById("contact").value;
-      const service=document.getElementById("service").value;
-      const message=`Hello, I am ${name}. I want to book ${service}. Contact: ${contact}`;
-      window.open(`https://wa.me/919796472650?text=${encodeURIComponent(message)}`,"_blank");
-    }
+    // Popups
+    function openAbout(){document.getElementById("about-popup").style.display="flex";}
+    function closeAbout(){document.getElementById("about-popup").style.display="none";}
+    function openContact(){document.getElementById("contact-popup").style.display="flex";}
+    function closeContact(){document.getElementById("contact-popup").style.display="none";}
 
-    // Dark Mode Toggle
+    // Dark Mode
     function toggleDarkMode(){
       document.body.classList.toggle("dark-mode");
     }
