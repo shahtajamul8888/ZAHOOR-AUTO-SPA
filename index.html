@@ -2,151 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: #0077ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 50px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #005ecc;
+    }
+
+    /* Popup styling */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 15px;
+    }
+
+    .coupon {
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+      margin-top: 15px;
+    }
+
+    .options {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .options button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .yes-btn {
+      background: #28a745;
+      color: #fff;
+    }
+
+    .no-btn {
+      background: #dc3545;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
 </head>
 <body>
-  <!-- Offer Banner -->
-  <div class="offer-banner">
-    🎉 10% / 20% OFF on First Booking! Use Coupon <b>TAJAMUL</b>
+
+  <button class="btn" onclick="startBooking()">Book Now</button>
+
+  <!-- First Popup -->
+  <div class="popup" id="offerPopup">
+    <div class="popup-content">
+      <h2>🎉 Congratulations!</h2>
+      <p>You get <b>10–20% OFF</b> on your first booking.</p>
+      <button class="btn" onclick="askCoupon()">Continue</button>
+    </div>
   </div>
 
-  <!-- Header -->
-  <header class="header">
-    <h1>ZAHOOR AUTO SPA</h1>
-    <p class="tagline">"We Treat Every Vehicle Like a Masterpiece"</p>
-  </header>
-
-  <!-- Services -->
-  <section class="services">
-    <h2>OUR SERVICES</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fa-solid fa-motorcycle"></i>
-        <p>Bike Washing</p>
+  <!-- Coupon Popup -->
+  <div class="popup" id="couponPopup">
+    <div class="popup-content">
+      <h2>Do you want a coupon?</h2>
+      <div class="options">
+        <button class="yes-btn" onclick="showCoupon()">Yes</button>
+        <button class="no-btn" onclick="closePopup('couponPopup')">No</button>
       </div>
-      <div class="service-card">
-        <i class="fa-solid fa-car"></i>
-        <p>Car Washing</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-bus"></i>
-        <p>Bus/Truck Washing</p>
+      <div class="coupon" id="couponCode" style="display:none;">
+        Your Coupon Code: <br> <span>Tajamul8</span> 🎉
       </div>
     </div>
-  </section>
-
-  <!-- Booking -->
-  <section class="booking">
-    <h2>BOOK NOW</h2>
-    <form id="booking-form" onsubmit="handleBooking(event)">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="text" id="contact" placeholder="Contact Number" required>
-      <select id="service" required>
-        <option value="">Select Service</option>
-        <option value="Bike">Bike Washing - ₹160</option>
-        <option value="Car">Car Washing - ₹360</option>
-        <option value="Bus">Bus Washing - ₹800</option>
-        <option value="Truck">Truck Washing - ₹800</option>
-      </select>
-      <button type="submit">Book Now</button>
-    </form>
-    <div id="coupon-message" class="hidden"></div>
-    <div class="coupon-box">
-      <input type="text" id="coupon" placeholder="Enter Coupon Code">
-      <button onclick="applyCoupon()">Apply</button>
-    </div>
-  </section>
-
-  <!-- Payment -->
-  <section class="payment">
-    <h2>PAY VIA UPI / BANK TRANSFER</h2>
-    <div class="upi-option">
-      <p><b>shahtajamul88-2@okicici</b></p>
-      <button onclick="copyText('shahtajamul88-2@okicici')">📋 Copy</button>
-    </div>
-    <div class="upi-option">
-      <p><b>9797472650</b></p>
-      <button onclick="copyText('9797472650')">📋 Copy</button>
-    </div>
-  </section>
-
-  <!-- About Us -->
-  <section class="about">
-    <h2>ABOUT US</h2>
-    <p>
-      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
-      to diesel cleaning, polishing, and greasing — we bring out the best in your car or bike. 
-      Whether it’s a brand-new ride or one that needs a refresh, 
-      our expert care ensures it looks and feels showroom-ready.
-    </p>
-  </section>
-
-  <!-- Location -->
-  <section class="location">
-    <h2>FIND US</h2>
-    <p>Near Ms Traders Yangoora Ganderbal</p>
-    <iframe 
-      src="https://www.google.com/maps?q=34.2442932,74.7115119&hl=en&z=15&output=embed"
-      allowfullscreen
-      loading="lazy"></iframe>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="dev-badge">
-      🚀 Developed by <strong>Tajamul</strong>
-    </div>
-  </footer>
-
-  <!-- Celebration Sound -->
-  <audio id="celebration-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-bonus-earned-in-video-game-2058.mp3"></audio>
+  </div>
 
   <script>
-    // Welcome Popup with sound
-    window.onload = function() {
-      alert("🎉 Welcome to Zahoor Auto Spa 🚗✨");
-      document.getElementById("celebration-sound").play();
+    function startBooking() {
+      document.getElementById('offerPopup').style.display = 'flex';
     }
 
-    // Booking form handler
-    function handleBooking(event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const service = document.getElementById("service").value;
-      let message = `Hello, I want to book ${service} service. My name is ${name}.`;
-      
-      // Show coupon message
-      const couponBox = document.getElementById("coupon-message");
-      couponBox.innerHTML = "🎉 Congratulations! Use coupon <b>TAJAMUL</b> to get discount on Bike & Car wash.";
-      couponBox.classList.remove("hidden");
-
-      // Add coupon in message automatically
-      message += " 🎟️ Coupon Code: TAJAMUL";
-
-      // Redirect to WhatsApp
-      window.open(`https://wa.me/919797472650?text=${encodeURIComponent(message)}`, "_blank");
+    function askCoupon() {
+      document.getElementById('offerPopup').style.display = 'none';
+      document.getElementById('couponPopup').style.display = 'flex';
     }
 
-    // Copy text function
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied: " + text);
-      });
+    function showCoupon() {
+      document.getElementById('couponCode').style.display = 'block';
     }
 
-    // Apply coupon
-    function applyCoupon() {
-      const code = document.getElementById("coupon").value.trim();
-      if (code.toUpperCase() === "TAJAMUL") {
-        document.getElementById("celebration-sound").play();
-        alert("🎉 Congratulations! You got 10% or 20% OFF!");
-      } else {
-        alert("❌ Invalid Coupon Code");
-      }
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
     }
   </script>
+
 </body>
 </html>
