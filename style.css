@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,137 +6,138 @@
   font-family: Arial, sans-serif;
 }
 
-body {
-  background: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-}
-
 /* Header */
 header {
-  background: #003366;
+  background: #0d47a1;
   color: #fff;
-  padding: 15px;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 header .logo {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 nav a {
   color: #fff;
-  margin: 0 10px;
+  margin-left: 20px;
   text-decoration: none;
   font-weight: bold;
 }
-
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e88e5, #0d47a1);
+  color: #fff;
   text-align: center;
-  background: #004080;
-  color: white;
+  padding: 80px 20px;
 }
-
-.hero .btn {
-  display: inline-block;
-  margin-top: 15px;
-  background: #ff9800;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.hero h2 {
+  font-size: 36px;
 }
-
-.hero .btn:hover {
-  background: #e68900;
-}
-
-/* Sections */
-.section {
-  padding: 50px 20px;
-  text-align: center;
-  animation: bgchange 100s infinite;
-}
-
-@keyframes bgchange {
-  0%   { background: #ffcccc; }
-  10%  { background: #ccffcc; }
-  20%  { background: #ccccff; }
-  30%  { background: #ffffcc; }
-  40%  { background: #ffccff; }
-  50%  { background: #ccffff; }
-  60%  { background: #ffd9b3; }
-  70%  { background: #e6ccff; }
-  80%  { background: #b3ffe6; }
-  90%  { background: #ffb3b3; }
-  100% { background: #ffcccc; }
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 /* Services */
 .services {
+  padding: 50px 20px;
+  text-align: center;
+}
+.services h2 {
+  margin-bottom: 20px;
+}
+.service-list {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
-
-.card {
-  background: white;
+.service {
+  background: #f0f0f0;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  width: 150px;
   font-weight: bold;
+}
+
+/* Booking */
+.booking {
+  padding: 50px 20px;
+  text-align: center;
+  background: #e3f2fd;
+}
+.booking .btn {
+  background: #0d47a1;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+.booking .btn:hover {
+  background: #1565c0;
 }
 
 /* Payment */
-.qr-box {
-  margin-top: 20px;
+.payment {
+  padding: 50px 20px;
+  text-align: center;
 }
-
-.qr-box img {
-  width: 200px;
+.upi-option {
+  margin: 15px 0;
+}
+.upi-option span {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.upi-option button {
+  background: #0d47a1;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  border: 3px solid #333;
-  border-radius: 10px;
+}
+.upi-option button:hover {
+  background: #1565c0;
 }
 
-.qr-box p {
-  margin-top: 10px;
-  font-weight: bold;
+/* Location */
+.location {
+  padding: 50px 20px;
+  text-align: center;
+}
+.location iframe {
+  border-radius: 10px;
+  margin: 20px 0;
 }
 
 /* Footer */
-.footer {
-  background: #111;
+footer {
+  background: #0d47a1;
   color: #fff;
-  padding: 15px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
-
-.footer .developer {
+.footer-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
 }
-
-.footer .developer img {
-  width: 40px;
-  height: 40px;
+.footer-content img {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  object-fit: cover;
+  object-fit: contain;   /* pura face dikhne ke liye */
+  background: #fff;
+  padding: 3px;
 }
