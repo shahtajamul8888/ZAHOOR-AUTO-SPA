@@ -1,152 +1,32 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #0d1b2a 75%, #f5f5f5 25%);
+/* Running Logos Section */
+.running-logos {
+  width: 100%;
+  overflow: hidden;
+  background: #111;
   color: white;
-  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  border-top: 2px solid #333;
 }
 
-/* Offer Banner */
-.offer-banner {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-  animation: scroll 10s linear infinite;
+.logos-track {
+  display: flex;
+  gap: 50px;
+  animation: scroll-left 20s linear infinite;
   white-space: nowrap;
-  overflow: hidden;
 }
-@keyframes scroll {
+
+.logos-track a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.logos-track a:hover {
+  color: #00ffcc;
+}
+
+@keyframes scroll-left {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
-}
-
-/* Header */
-.header {
-  background: linear-gradient(to right, #1e90ff, #ff1493);
-  padding: 20px;
-  position: relative;
-}
-.header h1 { margin: 0; font-size: 28px; }
-.tagline { font-size: 14px; opacity: 0.9; }
-.header nav {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-.header nav button {
-  background: none;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* Services */
-.services { padding: 30px 20px; }
-.services h2 { margin-bottom: 20px; }
-.services-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.service-card {
-  background: #1b263b;
-  border-radius: 12px;
-  padding: 20px;
-  width: 120px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.service-card i {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-.service-card:hover {
-  transform: scale(1.1);
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-}
-
-/* Booking */
-.booking { padding: 30px 20px; }
-.booking form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 280px;
-  margin: auto;
-}
-.booking input, .booking select, .booking button {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 14px;
-}
-.booking button {
-  background: #00ffcc;
-  cursor: pointer;
-  font-weight: bold;
-}
-.booking button:hover { background: #00ccaa; }
-
-/* Payment Button */
-.pay-btn {
-  margin-top: 15px;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  border: none;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.pay-btn:hover {
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
-}
-
-/* Location */
-.location { padding: 30px 20px; }
-.location iframe {
-  width: 90%;
-  height: 220px;
-  border: none;
-  border-radius: 12px;
-  margin-top: 10px;
-}
-
-/* Footer */
-footer {
-  background: #f0f0f0;
-  color: black;
-  padding: 20px;
-}
-
-/* Popups */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
-.popup-content {
-  background: #fff;
-  color: black;
-  padding: 20px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
-  position: relative;
-}
-.close {
-  position: absolute;
-  top: 10px; right: 20px;
-  cursor: pointer;
-  font-size: 20px;
 }
