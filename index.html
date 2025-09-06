@@ -10,69 +10,77 @@
 
   <!-- Header -->
   <header>
-    <h1 class="logo">🚗 Zahoor Auto Spa</h1>
+    <h1 class="logo">Zahoor Auto Spa</h1>
     <nav>
       <a href="#services">Services</a>
-      <a href="#payment">Payment</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Find Us</a>
+      <a href="#booking">Book Now</a>
+      <a href="#payment">Pay via UPI</a>
+      <a href="#location">Find Us</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Premium Vehicle Washing</h2>
+    <h2>Premium Vehicle Care</h2>
     <p>We treat every vehicle like a masterpiece 🚘✨</p>
-    <a href="https://wa.me/919797472650?text=Hello%20I%20want%20to%20book%20a%20wash"
-       class="btn">Book via WhatsApp</a>
   </section>
 
   <!-- Services -->
-  <section id="services" class="section">
+  <section id="services" class="services">
     <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">Bike Wash - ₹100</div>
-      <div class="card">Car Wash - ₹300</div>
-      <div class="card">Bus Wash - ₹700</div>
-      <div class="card">Truck Wash - ₹1000</div>
+    <div class="service-list">
+      <div class="service">Bike Washing</div>
+      <div class="service">Car Washing</div>
+      <div class="service">Bus/Truck Washing</div>
     </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="booking">
+    <h2>Book via WhatsApp</h2>
+    <p>Select your service and confirm directly on WhatsApp.</p>
+    <a href="https://wa.me/919797472650?text=Hi%20I%20want%20to%20book%20a%20service" 
+       class="btn">Book on WhatsApp</a>
   </section>
 
   <!-- Payment -->
-  <section id="payment" class="section">
+  <section id="payment" class="payment">
     <h2>Pay via UPI</h2>
-    <p>UPI ID: <strong>9797472650@okbizaxis</strong></p>
-    <p>Or use number: <strong>9797472650</strong></p>
-    <div class="qr-box">
-      <img src="images/upi-qr.png" alt="UPI QR Code">
-      <p>Click the QR to Pay</p>
+    <div class="upi-option">
+      <span>UPI ID: <b>shahtajamul88-2@okicici</b></span>
+      <button onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
+    </div>
+    <div class="upi-option">
+      <span>Number: <b>9797472650</b></span>
+      <button onclick="copyText('9797472650')">Copy</button>
     </div>
   </section>
 
-  <!-- About Us -->
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>
-      At Zahoor Auto Spa, we treat every vehicle like a masterpiece.  
-      From high-foam and chemical washes to deep cleaning, we ensure  
-      your ride shines like brand new!
-    </p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
+  <!-- Location -->
+  <section id="location" class="location">
     <h2>Find Us</h2>
-    <p>📍 Location: Srinagar, Kashmir</p>
-    <p>📞 Contact: +91 9797472650</p>
+    <p>Near MS Traders (Barsoo Ganderbal), Yangoora, Srinagar</p>
+    <iframe 
+      src="https://www.google.com/maps?q=34.244012,74.711940&hl=es;z=14&output=embed" 
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+    <p><a href="https://maps.google.com/?q=34.244012,74.711940" target="_blank">📍 View on Google Maps</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="developer">
-      <img src="images/developer.jpg" alt="Developer Tajamul">
-      <span>Developed by Tajamul</span>
+  <footer>
+    <div class="footer-content">
+      <img src="images/tajamul.jpg" alt="Developer Tajamul">
+      <p>Developed by Tajamul</p>
     </div>
   </footer>
+
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
+    }
+  </script>
 
 </body>
 </html>
