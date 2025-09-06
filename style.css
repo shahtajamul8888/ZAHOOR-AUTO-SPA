@@ -1,143 +1,184 @@
 /* General Reset */
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+/* Offer Banner */
+.offer-banner {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  animation: flash 1.5s infinite alternate;
+}
+
+@keyframes flash {
+  from { opacity: 1; }
+  to { opacity: 0.7; }
 }
 
 /* Header */
-header {
-  background: #0d47a1;
+.header {
+  padding: 20px;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
   color: #fff;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-
-header .logo {
-  font-size: 24px;
-  font-weight: bold;
+.header h1 {
+  margin: 0;
+  font-size: 32px;
 }
-
-nav a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #1e88e5, #0d47a1);
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-}
-.hero h2 {
-  font-size: 36px;
-}
-.hero p {
-  margin-top: 10px;
+.header .tagline {
+  margin: 5px 0 0;
   font-size: 18px;
+  font-style: italic;
 }
 
 /* Services */
 .services {
-  padding: 50px 20px;
-  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
 }
-.services h2 {
-  margin-bottom: 20px;
-}
-.service-list {
+.services-grid {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  margin-top: 15px;
 }
-.service {
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: bold;
+.service-card {
+  background: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 12px;
+  width: 120px;
+  transition: transform 0.3s;
+}
+.service-card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.service-card:hover {
+  transform: scale(1.1);
 }
 
 /* Booking */
 .booking {
-  padding: 50px 20px;
-  text-align: center;
-  background: #e3f2fd;
+  padding: 20px;
 }
-.booking .btn {
-  background: #0d47a1;
+.booking form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.booking input, .booking select, .booking button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.booking button {
+  background: #2a5298;
   color: #fff;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+.coupon-box {
   margin-top: 15px;
 }
-.booking .btn:hover {
-  background: #1565c0;
+.coupon-box input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
+.coupon-box button {
+  padding: 8px 12px;
+  border: none;
+  background: #1e3c72;
+  color: #fff;
+  border-radius: 6px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+#coupon-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+.hidden { display: none; }
 
 /* Payment */
 .payment {
-  padding: 50px 20px;
-  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
 }
 .upi-option {
-  margin: 15px 0;
-}
-.upi-option span {
-  font-size: 18px;
-  margin-right: 10px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .upi-option button {
-  background: #0d47a1;
+  background: #2a5298;
   color: #fff;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
 }
-.upi-option button:hover {
-  background: #1565c0;
+
+/* About */
+.about {
+  padding: 20px;
+  background: linear-gradient(90deg, #00b09b, #96c93d);
+  color: #fff;
 }
 
 /* Location */
 .location {
-  padding: 50px 20px;
-  text-align: center;
+  padding: 20px;
 }
 .location iframe {
-  border-radius: 10px;
-  margin: 20px 0;
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
 }
 
 /* Footer */
-footer {
-  background: #0d47a1;
-  color: #fff;
-  text-align: center;
+.footer {
   padding: 20px;
+  background: rgba(0,0,0,0.3);
+  margin-top: 30px;
+  overflow: hidden;
+  position: relative;
 }
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+
+/* Developer Badge with marquee */
+.dev-badge {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  background: linear-gradient(45deg, #1e3c72, #2a5298);
+  animation: marquee 12s linear infinite, glow 2s infinite alternate;
 }
-.footer-content img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: contain;   /* pura face dikhne ke liye */
-  background: #fff;
-  padding: 3px;
+
+@keyframes marquee {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 8px #2a5298, 0 0 15px #1e3c72; }
+  to { box-shadow: 0 0 15px #4facfe, 0 0 25px #00f2fe; }
 }
