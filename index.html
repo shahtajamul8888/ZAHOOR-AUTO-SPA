@@ -51,15 +51,16 @@
     }
     .services { margin: 30px 0; }
     .service-btn {
-      display: inline-block;
-      margin: 10px;
+      display: block;
+      margin: 15px auto;
       padding: 15px 25px;
       border-radius: 20px;
       background: linear-gradient(to right, #ff416c, #ff4b2b);
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       border: none;
+      width: 250px;
     }
     .coupon { margin: 20px 0; font-size: 18px; color: #fff; }
     .pay-box {
@@ -104,9 +105,9 @@
       launchConfetti();
     }
 
-    function redirectToWhatsApp(service = "") {
+    function redirectToWhatsApp(service = "", rate = "") {
       playSuccess();
-      let message = "Hello, I want to book a " + (service ? service + " service " : "") + "at Zahoor Auto Spa.";
+      let message = "Hello, I want to book a " + (service ? service + " wash " : "") + "at Zahoor Auto Spa. Rate: " + rate;
       window.location.href = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
     }
 
@@ -149,11 +150,11 @@
   </header>
 
   <div class="services">
-    <h2>Select Service:</h2>
-    <button class="service-btn" onclick="redirectToWhatsApp('Bike')">🏍 Bike</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Car')">🚗 Car</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Bus')">🚌 Bus</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Truck')">🚚 Truck</button>
+    <h2>💦 Select Service with Rates:</h2>
+    <button class="service-btn" onclick="redirectToWhatsApp('Bike', '₹150')">🏍 Bike Wash – ₹150</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Car', '₹300')">🚗 Car Wash – ₹300</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Bus', '₹600')">🚌 Bus Wash – ₹600</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Truck', '₹800')">🚚 Truck Wash – ₹800</button>
   </div>
 
   <div class="coupon">
@@ -174,7 +175,7 @@
   </div>
 
   <h2>📍 Find Us</h2>
-  <iframe src="https://www.google.com/maps?q=34.2441102,-74.7117415&hl=es;z=14&amp;output=embed"></iframe>
+  <iframe src="https://www.google.com/maps?q=34.2439597,74.7120004&hl=es;z=14&amp;output=embed"></iframe>
 
   <footer>
     <h2>About Us</h2>
