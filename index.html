@@ -94,71 +94,8 @@
       pointer-events: none;
       z-index: 9999;
     }
-
-    /* Spinner overlay */
-    #spinner-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      display: none;
-      gap: 20px;
-    }
-    .wheels {
-      display: flex;
-      gap: 40px;
-    }
-    .wheel {
-      width: 60px;
-      height: 60px;
-      border: 8px solid #333;
-      border-radius: 50%;
-      position: relative;
-      animation: spin 1s linear infinite;
-      background: radial-gradient(circle, #555 20%, #000 80%);
-      box-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(255,0,255,0.8);
-    }
-    .wheel::before, .wheel::after {
-      content: "";
-      position: absolute;
-      width: 6px;
-      height: 20px;
-      background: #fff;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    .wheel::after { transform: translate(-50%, -50%) rotate(90deg); }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Neon Road Effect */
-    .road {
-      width: 220px;
-      height: 8px;
-      background: repeating-linear-gradient(
-        to right,
-        #0ff,
-        #0ff 20px,
-        #f0f 20px,
-        #f0f 40px
-      );
-      animation: roadMove 0.5s linear infinite;
-      box-shadow: 0 0 15px #0ff, 0 0 25px #f0f;
-      border-radius: 5px;
-    }
-    @keyframes roadMove {
-      0% { background-position: 0 0; }
-      100% { background-position: -40px 0; }
-    }
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script>
     function playSuccess() {
@@ -169,11 +106,8 @@
 
     function redirectToWhatsApp(service = "") {
       playSuccess();
-      document.getElementById("spinner-overlay").style.display = "flex";
       let message = "Hello, I want to book a " + (service ? service + " service " : "") + "at Zahoor Auto Spa.";
-      setTimeout(() => {
-        window.location.href = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
-      }, 1500);
+      window.location.href = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
     }
 
     function copyText(text) {
@@ -184,27 +118,21 @@
 
     function confirmPayment() {
       playSuccess();
-      setTimeout(() => {
-        alert("✅ Payment Successful!\nThank you for booking with Zahoor Auto Spa.");
-      }, 500);
+      alert("✅ Payment Successful!\nThank you for booking with Zahoor Auto Spa.");
     }
 
     function confirmCoupon() {
       playSuccess();
-      setTimeout(() => {
-        alert("🎉 Coupon Applied!\nYour code is: Tajamul8\nUse it to get 10–20% OFF on your booking.");
-      }, 500);
+      alert("🎉 Coupon Applied!\nYour code is: Tajamul8\nUse it to get 10–20% OFF on your booking.");
     }
 
     function noCoupon() {
       playSuccess();
-      setTimeout(() => {
-        alert("ℹ️ Okay, maybe next time!\nYou can still book and enjoy our premium service.");
-      }, 500);
+      alert("ℹ️ Okay, maybe next time!\nYou can still book and enjoy our premium service.");
     }
 
     function launchConfetti() {
-      var duration = 1.5 * 1000;
+      var duration = 1 * 1000;
       var end = Date.now() + duration;
       (function frame() {
         confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
@@ -256,14 +184,5 @@
   </footer>
 
   <canvas id="confetti"></canvas>
-
-  <!-- Wheel Spinner with Neon Road -->
-  <div id="spinner-overlay">
-    <div class="wheels">
-      <div class="wheel"></div>
-      <div class="wheel"></div>
-    </div>
-    <div class="road"></div>
-  </div>
 </body>
 </html>
