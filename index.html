@@ -2,139 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      background: #0077ff;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 50px;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #005ecc;
-    }
-
-    /* Popup styling */
-    .popup {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-content {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      animation: fadeIn 0.4s ease-in-out;
-    }
-
-    .popup-content h2 {
-      margin-bottom: 15px;
-    }
-
-    .coupon {
-      font-size: 18px;
-      font-weight: bold;
-      color: green;
-      margin-top: 15px;
-    }
-
-    .options {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .options button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .yes-btn {
-      background: #28a745;
-      color: #fff;
-    }
-
-    .no-btn {
-      background: #dc3545;
-      color: #fff;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.9);}
-      to {opacity: 1; transform: scale(1);}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <button class="btn" onclick="startBooking()">Book Now</button>
-
-  <!-- First Popup -->
-  <div class="popup" id="offerPopup">
+  <!-- Welcome Popup -->
+  <div id="welcomePopup" class="popup">
     <div class="popup-content">
-      <h2>🎉 Congratulations!</h2>
-      <p>You get <b>10–20% OFF</b> on your first booking.</p>
-      <button class="btn" onclick="askCoupon()">Continue</button>
+      <h2>🎉 Welcome to Zahoor Auto Spa 🎉</h2>
+      <p>Your vehicle deserves the best care!</p>
+      <button onclick="closePopup()">OK</button>
     </div>
   </div>
+  <audio id="celebrationSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 
-  <!-- Coupon Popup -->
-  <div class="popup" id="couponPopup">
-    <div class="popup-content">
-      <h2>Do you want a coupon?</h2>
-      <div class="options">
-        <button class="yes-btn" onclick="showCoupon()">Yes</button>
-        <button class="no-btn" onclick="closePopup('couponPopup')">No</button>
-      </div>
-      <div class="coupon" id="couponCode" style="display:none;">
-        Your Coupon Code: <br> <span>Tajamul8</span> 🎉
-      </div>
+  <!-- Header -->
+  <header>
+    <h1>Zahoor Auto Spa</h1>
+    <nav>
+      <a href="#about">About Us</a>
+    </nav>
+  </header>
+
+  <!-- Book Now Section -->
+  <section class="booking">
+    <button id="bookNowBtn">Book Now</button>
+    <div id="options" class="hidden">
+      <h3>Select Service:</h3>
+      <button onclick="bookWhatsApp('Bike')">🏍 Bike</button>
+      <button onclick="bookWhatsApp('Car')">🚗 Car</button>
+      <button onclick="bookWhatsApp('Bus')">🚌 Bus</button>
+      <button onclick="bookWhatsApp('Truck')">🚛 Truck</button>
     </div>
-  </div>
+
+    <div id="couponSection" class="hidden">
+      <p>Do you want a coupon for 10-20% OFF? (First booking)</p>
+      <button onclick="revealCoupon(true)">Yes</button>
+      <button onclick="revealCoupon(false)">No</button>
+      <p id="couponCode" class="hidden">Your Coupon Code: <b>Tajamul8</b></p>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section class="payment">
+    <h2>Complete Your Payment</h2>
+    <p>Scan the QR code below or click the link:</p>
+    <img src="your-qr-code.png" alt="UPI QR Code" class="qr">
+    <p>
+      <a href="upi://pay?pa=9797472650@upi&pn=ZahoorAutoSpa&am=0&cu=INR">Pay via UPI (Google Pay, Paytm, etc.)</a>
+    </p>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to 
+      premium detailing, we bring the shine back to your ride!
+    </p>
+  </section>
 
   <script>
-    function startBooking() {
-      document.getElementById('offerPopup').style.display = 'flex';
+    // Welcome popup
+    window.onload = function() {
+      document.getElementById("welcomePopup").style.display = "flex";
+      document.getElementById("celebrationSound").play();
+    };
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
     }
 
-    function askCoupon() {
-      document.getElementById('offerPopup').style.display = 'none';
-      document.getElementById('couponPopup').style.display = 'flex';
+    // Book Now flow
+    document.getElementById("bookNowBtn").onclick = function() {
+      document.getElementById("options").classList.remove("hidden");
+      document.getElementById("couponSection").classList.remove("hidden");
+    };
+
+    function bookWhatsApp(service) {
+      let message = `Hello, I want to book a ${service} wash. My name is (Your Name)`;
+      let url = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
+      window.open(url, "_blank");
     }
 
-    function showCoupon() {
-      document.getElementById('couponCode').style.display = 'block';
-    }
-
-    function closePopup(id) {
-      document.getElementById(id).style.display = 'none';
+    function revealCoupon(choice) {
+      if (choice) {
+        document.getElementById("couponCode").classList.remove("hidden");
+        document.getElementById("celebrationSound").play();
+      } else {
+        alert("No problem, you can continue without a coupon.");
+      }
     }
   </script>
-
 </body>
 </html>
