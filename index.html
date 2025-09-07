@@ -70,6 +70,19 @@
       border: none;
       width: 250px;
     }
+
+    /* Animated tagline */
+    .tagline {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 5px;
+      animation: fadeInOut 3s infinite;
+    }
+    @keyframes fadeInOut {
+      0%,100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
     .coupon { margin: 20px 0; font-size: 18px; color: #fff; }
     .pay-box {
       background: #fff;
@@ -155,11 +168,12 @@
   <!-- Header -->
   <div class="section">
     <h1>Zahoor Auto Spa</h1>
-    <button class="btn pulse" onclick="redirectToWhatsApp()">Book Now</button>
+    <div class="tagline">✨ We wash with love and care ✨</div>
   </div>
 
   <!-- Services -->
   <div class="section">
+    <button class="btn pulse" onclick="redirectToWhatsApp()">Book Now</button>
     <h2>🌟 Select Service with Rates</h2>
     <button class="service-btn" onclick="redirectToWhatsApp('Bike', '₹150')">🏍 Bike Wash – ₹150</button>
     <button class="service-btn" onclick="redirectToWhatsApp('Car', '₹350')">🚗 Car Wash – ₹350</button>
