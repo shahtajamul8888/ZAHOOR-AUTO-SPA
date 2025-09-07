@@ -21,8 +21,17 @@
       100% { background-position: 0% 50%; }
     }
 
-    header { padding: 20px; }
-    h1 { margin: 0; font-size: 28px; }
+    h1, h2 { margin: 10px 0; }
+
+    .section {
+      margin: 20px auto;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
     .btn, .service-btn, .copy-btn { transition: all 0.3s ease; }
     .btn:hover, .service-btn:hover, .copy-btn:hover {
@@ -49,10 +58,9 @@
       cursor: pointer;
       text-decoration: none;
     }
-    .services { margin: 30px 0; }
     .service-btn {
       display: block;
-      margin: 15px auto;
+      margin: 12px auto;
       padding: 15px 25px;
       border-radius: 20px;
       background: linear-gradient(to right, #ff416c, #ff4b2b);
@@ -66,7 +74,6 @@
     .pay-box {
       background: #fff;
       color: #000;
-      margin: 20px;
       padding: 20px;
       border-radius: 15px;
     }
@@ -79,14 +86,14 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    footer { margin: 30px 0; font-size: 14px; color: #fff; }
     iframe {
       border: 0;
       border-radius: 15px;
-      margin-top: 20px;
-      width: 90%;
+      margin-top: 10px;
+      width: 100%;
       height: 250px;
     }
+    footer { font-size: 14px; color: #fff; }
 
     #confetti {
       position: fixed;
@@ -144,45 +151,60 @@
   </script>
 </head>
 <body>
-  <header>
+
+  <!-- Header -->
+  <div class="section">
     <h1>Zahoor Auto Spa</h1>
     <button class="btn pulse" onclick="redirectToWhatsApp()">Book Now</button>
-  </header>
+  </div>
 
-  <div class="services">
-    <h2>💦 Select Service with Rates:</h2>
+  <!-- Services -->
+  <div class="section">
+    <h2>🌟 Select Service with Rates</h2>
     <button class="service-btn" onclick="redirectToWhatsApp('Bike', '₹150')">🏍 Bike Wash – ₹150</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Car', '₹300')">🚗 Car Wash – ₹300</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Bus', '₹600')">🚌 Bus Wash – ₹600</button>
-    <button class="service-btn" onclick="redirectToWhatsApp('Truck', '₹800')">🚚 Truck Wash – ₹800</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Car', '₹350')">🚗 Car Wash – ₹350</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Bus', '₹650')">🚌 Bus Wash – ₹650</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Truck', '₹850')">🚚 Truck Wash – ₹850</button>
   </div>
 
-  <div class="coupon">
-    <p>Do you want a coupon for <b>10–20% OFF?</b> (First booking)</p>
-    <button class="service-btn" onclick="confirmCoupon()">Yes</button>
-    <button class="service-btn" onclick="noCoupon()">No</button>
+  <!-- Coupon -->
+  <div class="section">
+    <div class="coupon">
+      <p>Do you want a coupon for <b>10–20% OFF?</b> (First booking)</p>
+      <button class="service-btn" onclick="confirmCoupon()">Yes</button>
+      <button class="service-btn" onclick="noCoupon()">No</button>
+    </div>
   </div>
 
-  <div class="pay-box">
-    <h2>💳 Complete Your Payment</h2>
-    <p><b>UPI ID:</b> shahtajamul88-2@okicici 
-      <button class="copy-btn" onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
-    </p>
-    <p><b>Mpay Number:</b> 9797472650 
-      <button class="copy-btn" onclick="copyText('9797472650')">Copy</button>
-    </p>
-    <a class="btn" href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa" onclick="confirmPayment()">Pay via UPI Apps</a>
+  <!-- Payment -->
+  <div class="section">
+    <div class="pay-box">
+      <h2>💳 Complete Your Payment</h2>
+      <p><b>UPI ID:</b> shahtajamul88-2@okicici 
+        <button class="copy-btn" onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
+      </p>
+      <p><b>Mpay Number:</b> 9797472650 
+        <button class="copy-btn" onclick="copyText('9797472650')">Copy</button>
+      </p>
+      <a class="btn" href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa" onclick="confirmPayment()">Pay via UPI Apps</a>
+    </div>
   </div>
 
-  <h2>📍 Find Us</h2>
-  <iframe src="https://www.google.com/maps?q=34.2439597,74.7120004&hl=es;z=14&amp;output=embed"></iframe>
+  <!-- Location -->
+  <div class="section">
+    <h2>📍 Find Us</h2>
+    <iframe src="https://www.google.com/maps?q=34.2439597,74.7120004&hl=es;z=14&amp;output=embed"></iframe>
+  </div>
 
-  <footer>
-    <h2>About Us</h2>
-    <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to 
-    detailed interior cleaning, we bring the shine back to your ride.</p>
-    <p>Developed by Tajamul</p>
-  </footer>
+  <!-- Footer -->
+  <div class="section">
+    <footer>
+      <h2>About Us</h2>
+      <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to 
+      detailed interior cleaning, we bring the shine back to your ride.</p>
+      <p>Developed by Tajamul</p>
+    </footer>
+  </div>
 
   <canvas id="confetti"></canvas>
 </body>
