@@ -1,212 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zahoor Auto Spa</title>
-<style>
-  /* ---------- THEME VARIABLES (animated via JS) ---------- */
-  :root{
-    --bg1:#74ebd5; --bg2:#ACB6E5;            /* page background */
-    --pri1:#ff512f; --pri2:#dd2476;          /* header + primary */
-    --btn1:#36d1dc; --btn2:#5b86e5;          /* main button */
-    --svc1:#ff6a00; --svc2:#ee0979;          /* service buttons */
-    --svcH1:#00b09b; --svcH2:#96c93d;        /* service hover */
-    --ok1:#11998e;  --ok2:#38ef7d;           /* yes button */
-    --pay1:#4776E6; --pay2:#8E54E9;          /* payment link */
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahoor Auto Spa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(-45deg, #ff416c, #ff4b2b, #36d1dc, #5b86e5);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  /* Smooth transitions when theme variables change */
-  *{ transition: background 800ms ease, color 400ms ease, border-color 400ms ease, box-shadow 400ms ease; }
+    header { padding: 20px; }
+    h1 { margin: 0; font-size: 28px; }
 
-  body{
-    margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:#222; text-align:center;
-    background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
-    min-height:100vh;
-  }
+    .btn, .service-btn, .copy-btn { transition: all 0.3s ease; }
+    .btn:hover, .service-btn:hover, .copy-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.7);
+    }
 
-  /* Header */
-  header{
-    background: linear-gradient(90deg, var(--pri1), var(--pri2));
-    color:#fff; padding:22px 16px; font-size:28px; font-weight:800;
-    box-shadow:0 4px 14px rgba(0,0,0,.25);
-  }
-  header small{ display:block; font-size:14px; font-weight:500; opacity:.95; margin-top:4px; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+      50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+    }
 
-  /* Primary button */
-  .btn{
-    background: linear-gradient(45deg, var(--btn1), var(--btn2));
-    color:#fff; padding:12px 26px; margin:18px 10px 6px; border:0; border-radius:30px;
-    font-size:16px; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,.18);
-  }
-  .btn:hover{ transform: translateY(-1px) scale(1.03); box-shadow:0 10px 22px rgba(0,0,0,.22); }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .services { margin: 30px 0; }
+    .service-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 20px;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+    .coupon { margin: 20px 0; font-size: 18px; color: #fff; }
+    .pay-box {
+      background: #fff;
+      color: #000;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    .copy-btn {
+      background: #5b86e5;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer { margin: 30px 0; font-size: 14px; color: #fff; }
+    iframe {
+      border: 0;
+      border-radius: 15px;
+      margin-top: 20px;
+      width: 90%;
+      height: 250px;
+    }
 
-  /* Service buttons */
-  .service-btns{ margin:18px 0 10px; }
-  .service-btns button{
-    background: linear-gradient(45deg, var(--svc1), var(--svc2));
-    color:#fff; padding:14px 22px; margin:10px; border:0; border-radius:14px;
-    font-weight:700; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,.18);
-  }
-  .service-btns button:hover{ background: linear-gradient(45deg, var(--svcH1), var(--svcH2)); }
+    #confetti {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-  /* Coupon section */
-  .coupon{ margin:10px 0 2px; font-size:18px; }
-  .coupon button{
-    background: linear-gradient(45deg, var(--ok1), var(--ok2));
-    color:#fff; border:0; padding:10px 20px; margin:6px; border-radius:10px; font-size:15px; cursor:pointer;
-  }
-  .coupon button:hover{ filter:brightness(1.06); }
+    /* Spinner overlay */
+    #spinner-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      display: none;
+      gap: 20px;
+    }
+    .wheels {
+      display: flex;
+      gap: 40px;
+    }
+    .wheel {
+      width: 60px;
+      height: 60px;
+      border: 8px solid #333;
+      border-radius: 50%;
+      position: relative;
+      animation: spin 1s linear infinite;
+      background: radial-gradient(circle, #555 20%, #000 80%);
+      box-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(255,0,255,0.8);
+    }
+    .wheel::before, .wheel::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 20px;
+      background: #fff;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    .wheel::after { transform: translate(-50%, -50%) rotate(90deg); }
 
-  /* Card */
-  .payment{
-    margin:28px auto; padding:22px; max-width:640px; background:#fff; border-radius:16px;
-    box-shadow:0 10px 28px rgba(0,0,0,.22);
-  }
-  .payment h2{ margin:0 0 12px; color:var(--pri1); font-size:22px; }
-  .payment a{
-    display:inline-block; margin:10px; text-decoration:none;
-    background: linear-gradient(45deg, var(--pay1), var(--pay2)); color:#fff;
-    padding:12px 24px; border-radius:28px;
-  }
-  .payment a:hover{ filter:brightness(1.06); }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-  /* ---------- POPUP + OVERLAY ---------- */
-  .overlay{
-    position:fixed; inset:0; background:rgba(0,0,0,.45);
-    opacity:0; visibility:hidden; transition:opacity .25s ease;
-    z-index:900;
-  }
-  .overlay.show{ opacity:1; visibility:visible; }
+    /* Neon Road Effect */
+    .road {
+      width: 220px;
+      height: 8px;
+      background: repeating-linear-gradient(
+        to right,
+        #0ff,
+        #0ff 20px,
+        #f0f 20px,
+        #f0f 40px
+      );
+      animation: roadMove 0.5s linear infinite;
+      box-shadow: 0 0 15px #0ff, 0 0 25px #f0f;
+      border-radius: 5px;
+    }
+    @keyframes roadMove {
+      0% { background-position: 0 0; }
+      100% { background-position: -40px 0; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script>
+    function playSuccess() {
+      let audio = new Audio("https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3");
+      audio.play();
+      launchConfetti();
+    }
 
-  .popup{
-    position:fixed; top:50%; left:50%; transform:translate(-50%,-44%);
-    background:#fff; padding:26px 34px; border-radius:16px;
-    box-shadow:0 16px 40px rgba(0,0,0,.35); font-size:20px; font-weight:800; color:#333;
-    z-index:1000; opacity:0; visibility:hidden; transition:opacity .25s ease, transform .25s ease;
-    max-width:90vw;
-  }
-  .popup.show{ opacity:1; visibility:visible; transform:translate(-50%,-50%); }
-  .popup button{
-    margin-top:14px; background: linear-gradient(45deg, var(--pri1), var(--pri2));
-    color:#fff; border:0; padding:10px 20px; border-radius:10px; cursor:pointer;
-  }
-  body.modal-open{ overflow:hidden; } /* prevent scroll jump when popup shown */
+    function redirectToWhatsApp(service = "") {
+      playSuccess();
+      document.getElementById("spinner-overlay").style.display = "flex";
+      let message = "Hello, I want to book a " + (service ? service + " service " : "") + "at Zahoor Auto Spa.";
+      setTimeout(() => {
+        window.location.href = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
+      }, 1500);
+    }
 
-  /* Respect prefers-reduced-motion */
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; }
-  }
-</style>
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied: " + text);
+      });
+    }
+
+    function confirmPayment() {
+      playSuccess();
+      setTimeout(() => {
+        alert("✅ Payment Successful!\nThank you for booking with Zahoor Auto Spa.");
+      }, 500);
+    }
+
+    function confirmCoupon() {
+      playSuccess();
+      setTimeout(() => {
+        alert("🎉 Coupon Applied!\nYour code is: Tajamul8\nUse it to get 10–20% OFF on your booking.");
+      }, 500);
+    }
+
+    function noCoupon() {
+      playSuccess();
+      setTimeout(() => {
+        alert("ℹ️ Okay, maybe next time!\nYou can still book and enjoy our premium service.");
+      }, 500);
+    }
+
+    function launchConfetti() {
+      var duration = 1.5 * 1000;
+      var end = Date.now() + duration;
+      (function frame() {
+        confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Zahoor Auto Spa</h1>
+    <button class="btn pulse" onclick="redirectToWhatsApp()">Book Now</button>
+  </header>
 
-<header>
-  Zahoor Auto Spa
-  <small>About Us</small>
-</header>
-
-<main>
-  <button class="btn" id="bookNowBtn">Book Now</button>
-
-  <h2>Select Service:</h2>
-  <div class="service-btns">
-    <button>🏍 Bike</button>
-    <button>🚗 Car</button>
-    <button>🚌 Bus</button>
-    <button>🚚 Truck</button>
+  <div class="services">
+    <h2>Select Service:</h2>
+    <button class="service-btn" onclick="redirectToWhatsApp('Bike')">🏍 Bike</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Car')">🚗 Car</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Bus')">🚌 Bus</button>
+    <button class="service-btn" onclick="redirectToWhatsApp('Truck')">🚚 Truck</button>
   </div>
 
   <div class="coupon">
-    <p>Do you want a coupon for <strong>10–20% OFF</strong>? (First booking)</p>
-    <button id="yesCoupon">Yes</button>
-    <button>No</button>
+    <p>Do you want a coupon for <b>10–20% OFF?</b> (First booking)</p>
+    <button class="service-btn" onclick="confirmCoupon()">Yes</button>
+    <button class="service-btn" onclick="noCoupon()">No</button>
   </div>
 
-  <div class="payment">
-    <h2>Complete Your Payment</h2>
-    <p>Scan the QR code below or click the link:</p>
-    <p>📷 UPI QR Code</p>
-    <a href="#">Pay via UPI (Google Pay, Paytm, etc.)</a>
+  <div class="pay-box">
+    <h2>💳 Complete Your Payment</h2>
+    <p><b>UPI ID:</b> shahtajamul88-2@okicici 
+      <button class="copy-btn" onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
+    </p>
+    <p><b>Mpay Number:</b> 9797472650 
+      <button class="copy-btn" onclick="copyText('9797472650')">Copy</button>
+    </p>
+    <a class="btn" href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa" onclick="confirmPayment()">Pay via UPI Apps</a>
   </div>
-</main>
 
-<!-- Overlay -->
-<div id="overlay" class="overlay"></div>
+  <h2>📍 Find Us</h2>
+  <iframe src="https://www.google.com/maps?q=34.165,-74.835&hl=es;z=14&amp;output=embed"></iframe>
 
-<!-- Booking Popup -->
-<div id="popupBooking" class="popup">
-  🎉 Congratulations! Your booking is confirmed!
-  <br/>
-  <button onclick="closePopup('popupBooking')">OK</button>
-</div>
+  <footer>
+    <h2>About Us</h2>
+    <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to 
+    detailed interior cleaning, we bring the shine back to your ride.</p>
+    <p>Developed by Tajamul</p>
+  </footer>
 
-<!-- Coupon Popup -->
-<div id="popupCoupon" class="popup">
-  🎁 Your coupon code is: <strong>Tajamul8</strong>
-  <br/>
-  <button onclick="closePopup('popupCoupon')">OK</button>
-</div>
+  <canvas id="confetti"></canvas>
 
-<!-- Confetti & Sound -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<audio id="celebrationSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" preload="auto"></audio>
-
-<script>
-  // ===== POPUPS + OVERLAY =====
-  const bookBtn = document.getElementById('bookNowBtn');
-  const couponBtn = document.getElementById('yesCoupon');
-  const sound = document.getElementById('celebrationSound');
-  const overlay = document.getElementById('overlay');
-
-  function celebrate(popupId){
-    // light confetti for smoothness
-    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
-    sound.currentTime = 0; sound.play();
-    // show overlay + popup
-    document.body.classList.add('modal-open');
-    overlay.classList.add('show');
-    document.getElementById(popupId).classList.add('show');
-  }
-  function closePopup(popupId){
-    document.getElementById(popupId).classList.remove('show');
-    overlay.classList.remove('show');
-    document.body.classList.remove('modal-open');
-  }
-  bookBtn.addEventListener('click', ()=>celebrate('popupBooking'));
-  couponBtn.addEventListener('click', ()=>celebrate('popupCoupon'));
-  overlay.addEventListener('click', ()=>{  // click outside to close
-    document.querySelectorAll('.popup.show').forEach(p=>p.classList.remove('show'));
-    overlay.classList.remove('show');
-    document.body.classList.remove('modal-open');
-  });
-
-  // ===== SMOOTH COLOR CYCLER (changes every few seconds) =====
-  const palettes = [
-    {bg:["#74ebd5","#ACB6E5"], pri:["#ff512f","#dd2476"], btn:["#36d1dc","#5b86e5"], svc:["#ff6a00","#ee0979"], svcH:["#00b09b","#96c93d"], ok:["#11998e","#38ef7d"], pay:["#4776E6","#8E54E9"]},
-    {bg:["#f6d365","#fda085"], pri:["#7F00FF","#E100FF"], btn:["#00c6ff","#0072ff"],  svc:["#f7971e","#ffd200"], svcH:["#56ab2f","#a8e063"], ok:["#02aab0","#00cdac"], pay:["#36D1DC","#5B86E5"]},
-    {bg:["#a1c4fd","#c2e9fb"], pri:["#fc466b","#3f5efb"], btn:["#f77062","#fe5196"],  svc:["#00c3ff","#ffff1c"], svcH:["#2193b0","#6dd5ed"], ok:["#42e695","#3bb2b8"], pay:["#8E2DE2","#4A00E0"]},
-    {bg:["#fad0c4","#ffd1ff"], pri:["#00b09b","#96c93d"], btn:["#00F260","#0575E6"],  svc:["#ff5858","#f09819"], svcH:["#2af598","#009efd"], ok:["#6a11cb","#2575fc"], pay:["#02AAB0","#00CDAC"]},
-  ];
-  let idx = 0;
-  function applyPalette(p){
-    const r = document.documentElement.style;
-    r.setProperty('--bg1', p.bg[0]);   r.setProperty('--bg2', p.bg[1]);
-    r.setProperty('--pri1',p.pri[0]);  r.setProperty('--pri2',p.pri[1]);
-    r.setProperty('--btn1',p.btn[0]);  r.setProperty('--btn2',p.btn[1]);
-    r.setProperty('--svc1',p.svc[0]);  r.setProperty('--svc2',p.svc[1]);
-    r.setProperty('--svcH1',p.svcH[0]);r.setProperty('--svcH2',p.svcH[1]);
-    r.setProperty('--ok1',p.ok[0]);    r.setProperty('--ok2',p.ok[1]);
-    r.setProperty('--pay1',p.pay[0]);  r.setProperty('--pay2',p.pay[1]);
-  }
-  applyPalette(palettes[idx]); // initial
-
-  // change colors every 6 seconds (smooth)
-  setInterval(()=>{
-    idx = (idx + 1) % palettes.length;
-    applyPalette(palettes[idx]);
-  }, 6000);
-</script>
+  <!-- Wheel Spinner with Neon Road -->
+  <div id="spinner-overlay">
+    <div class="wheels">
+      <div class="wheel"></div>
+      <div class="wheel"></div>
+    </div>
+    <div class="road"></div>
+  </div>
 </body>
 </html>
