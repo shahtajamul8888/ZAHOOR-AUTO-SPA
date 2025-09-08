@@ -8,101 +8,72 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <h1>Zahoor Auto Spa</h1>
-    <p>We wash, care and love</p>
+    <p>We wash,with love and care ❤️</p>
     <nav>
+      <a href="#booking">Book Now</a>
+      <a href="#services">Our Services</a>
       <a href="#about">About Us</a>
     </nav>
   </header>
 
   <!-- Booking Section -->
-  <section class="booking">
+  <section class="booking" id="booking">
     <h2>Book Your Wash</h2>
-    <button onclick="showPopup()">Book via WhatsApp</button>
+    <div class="vehicles-grid">
+      <div class="service-item">
+        <img src="https://media.giphy.com/media/hTzIjF9g8hCw9bqfVn/giphy.gif" alt="Bike">
+        <p>Bike</p>
+      </div>
+      <div class="service-item">
+        <img src="https://media.giphy.com/media/26gR1jP8p3XQnX26s/giphy.gif" alt="Car">
+        <p>Car</p>
+      </div>
+      <div class="service-item">
+        <img src="https://media.giphy.com/media/3ohzdHkTDfL1zyYgCk/giphy.gif" alt="Bus">
+        <p>Bus</p>
+      </div>
+      <div class="service-item">
+        <img src="https://media.giphy.com/media/13UZisxBxkjPwI/giphy.gif" alt="Truck">
+        <p>Truck</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Popup for Vehicle Options -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <h3>Select Your Vehicle</h3>
-      <div class="vehicles-grid">
-        <div class="service-item" onclick="bookService('Bike')">
-          <img src="https://media.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif" alt="Bike">
-          <p>Bike</p>
-        </div>
-        <div class="service-item" onclick="bookService('Car')">
-          <img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif" alt="Car">
-          <p>Car</p>
-        </div>
-        <div class="service-item" onclick="bookService('Bus')">
-          <img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" alt="Bus">
-          <p>Bus</p>
-        </div>
-        <div class="service-item" onclick="bookService('Truck')">
-          <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Truck">
-          <p>Truck</p>
-        </div>
-      </div>
-      <button onclick="closePopup()">Cancel</button>
-    </div>
-  </div>
-
   <!-- Services Section -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/5xaOcLT3w6n73qjRzI4/giphy.gif" alt="Engine Wash">
-        <p>Engine Wash</p>
-      </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Body Wash">
-        <p>Body Wash</p>
-      </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/xT8qBuhwq0Oy31aZ3G/giphy.gif" alt="Frame Wash">
-        <p>Frame Wash</p>
-      </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/26xBukh9Ek5Wc6lzi/giphy.gif" alt="Others">
-        <p>Others</p>
-      </div>
+  <section class="services-grid" id="services">
+    <div class="service-item">
+      <img src="https://media.giphy.com/media/3o6fJbnxM6Xw9LZ7YA/giphy.gif" alt="Engine Wash">
+      <p>Engine Wash</p>
+    </div>
+    <div class="service-item">
+      <img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif" alt="Body Wash">
+      <p>Body Wash</p>
+    </div>
+    <div class="service-item">
+      <img src="https://media.giphy.com/media/xT1XGYy9N3ZK6jO7HG/giphy.gif" alt="Frame Wash">
+      <p>Frame Wash</p>
+    </div>
+    <div class="service-item">
+      <img src="https://media.giphy.com/media/5xtDarzq3TpY7dmU3jq/giphy.gif" alt="Others">
+      <p>Others</p>
     </div>
   </section>
 
   <!-- Payment Section -->
   <section class="payment">
-    <h2>Pay Securely</h2>
-    <p>Scan the QR to pay via Google Pay / Paytm / UPI</p>
-    <img src="your-qr-code.png" alt="QR Code" class="qr">
-    <p>UPI ID: <b>shahtajamul88-2@okicici</b></p>
+    <h3>Pay Securely via UPI</h3>
+    <p>Scan the QR to pay</p>
+    <img src="your-qr-code.png" alt="UPI QR Code" class="qr">
+    <p>Or pay directly to UPI ID: <b>shahtajamul88-2@okicici</b></p>
   </section>
 
-  <!-- About Us -->
+  <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
-    <p>
-      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
-      to detailed engine cleaning, we provide premium services to make your ride shine like new.
-    </p>
+    <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to expert detailing, your vehicle gets the best care with love ❤️</p>
   </section>
-
-  <script>
-    function showPopup() {
-      document.getElementById('popup').style.display = 'flex';
-    }
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-    function bookService(service) {
-      let userName = "Customer";
-      let message = `Hello, I would like to book a ${service} wash. My name is ${userName}.`;
-      let whatsappUrl = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
-      window.open(whatsappUrl, "_blank");
-    }
-  </script>
 
 </body>
 </html>
