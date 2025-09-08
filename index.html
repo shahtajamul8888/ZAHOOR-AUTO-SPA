@@ -4,233 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      text-align: center;
-      color: #333;
-    }
-
-    /* Global smooth transitions */
-    * {
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(90deg, #222, #007bff);
-      color: #fff;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      margin: 0;
-    }
-
-    /* Booking Section */
-    .booking {
-      margin: 30px 0;
-    }
-    .booking button {
-      background: linear-gradient(45deg, #007bff, #00d4ff);
-      color: #fff;
-      border: none;
-      margin: 5px;
-      padding: 15px 35px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold;
-      position: relative;
-      overflow: hidden;
-    }
-    .booking button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0,123,255,0.6);
-    }
-
-    /* 🚗 Grids */
-    .vehicles-grid, .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .service-item {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .service-item:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-    .service-item img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .service-item p {
-      margin: 0;
-      font-weight: bold;
-      color: #000;
-    }
-
-    /* Payment Section */
-    .payment {
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 400px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .payment img.qr {
-      width: 200px;
-      margin: 15px 0;
-    }
-
-    /* About Section */
-    #about {
-      background: #fff;
-      padding: 30px;
-      margin: 40px auto;
-      max-width: 700px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      line-height: 1.6;
-    }
-  </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script>
-    function playSuccess() {
-      let audio = new Audio("https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3");
-      audio.play();
-      launchConfetti();
-    }
-
-    function redirectToWhatsApp(service = "", rate = "") {
-      playSuccess();
-      let message = "Hello, I want to book a " + (service ? service + " wash " : "") + "at Zahoor Auto Spa. Rate: " + rate;
-      window.location.href = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
-    }
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied: " + text);
-      });
-    }
-
-    function confirmPayment() {
-      playSuccess();
-      alert("✅ Payment Successful!\nThank you for booking with Zahoor Auto Spa.");
-    }
-
-    function launchConfetti() {
-      var duration = 1 * 1000;
-      var end = Date.now() + duration;
-      (function frame() {
-        confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
-        confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 } });
-        if (Date.now() < end) requestAnimationFrame(frame);
-      })();
-    }
-  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Header -->
   <header>
     <h1>Zahoor Auto Spa</h1>
+    <p>We wash, care and love</p>
+    <nav>
+      <a href="#about">About Us</a>
+    </nav>
   </header>
 
-  <!-- Booking -->
+  <!-- Booking Section -->
   <section class="booking">
-    <h2>🌟 Select Vehicle with Rates</h2>
-    <div class="vehicles-grid">
-      <div class="service-item" onclick="redirectToWhatsApp('Bike', '₹150')">
-        <img src="https://media.tenor.com/BikeAnimation.gif" alt="Bike">
-        <p>Bike – ₹150</p>
-      </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Car', '₹350')">
-        <img src="https://media.tenor.com/CarAnimation.gif" alt="Car">
-        <p>Car – ₹350</p>
-      </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Bus', '₹650')">
-        <img src="https://media.tenor.com/BusAnimation.gif" alt="Bus">
-        <p>Bus – ₹650</p>
-      </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Truck', '₹850')">
-        <img src="https://media.tenor.com/TruckAnimation.gif" alt="Truck">
-        <p>Truck – ₹850</p>
-      </div>
-    </div>
-
-    <br>
-    <button onclick="redirectToWhatsApp()">Book Now</button>
+    <h2>Book Your Wash</h2>
+    <button onclick="showPopup()">Book via WhatsApp</button>
   </section>
 
-  <!-- Our Services -->
-  <section>
-    <h2>🛠 Our Services</h2>
+  <!-- Popup for Vehicle Options -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>Select Your Vehicle</h3>
+      <div class="vehicles-grid">
+        <div class="service-item" onclick="bookService('Bike')">
+          <img src="https://media.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif" alt="Bike">
+          <p>Bike</p>
+        </div>
+        <div class="service-item" onclick="bookService('Car')">
+          <img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif" alt="Car">
+          <p>Car</p>
+        </div>
+        <div class="service-item" onclick="bookService('Bus')">
+          <img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" alt="Bus">
+          <p>Bus</p>
+        </div>
+        <div class="service-item" onclick="bookService('Truck')">
+          <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Truck">
+          <p>Truck</p>
+        </div>
+      </div>
+      <button onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
     <div class="services-grid">
       <div class="service-item">
-        <img src="https://media.tenor.com/EngineWash.gif" alt="Engine Wash">
+        <img src="https://media.giphy.com/media/5xaOcLT3w6n73qjRzI4/giphy.gif" alt="Engine Wash">
         <p>Engine Wash</p>
       </div>
       <div class="service-item">
-        <img src="https://media.tenor.com/BodyWash.gif" alt="Body Wash">
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Body Wash">
         <p>Body Wash</p>
       </div>
       <div class="service-item">
-        <img src="https://media.tenor.com/FrameWash.gif" alt="Frame Wash">
+        <img src="https://media.giphy.com/media/xT8qBuhwq0Oy31aZ3G/giphy.gif" alt="Frame Wash">
         <p>Frame Wash</p>
       </div>
       <div class="service-item">
-        <img src="https://media.tenor.com/OthersWash.gif" alt="Others">
+        <img src="https://media.giphy.com/media/26xBukh9Ek5Wc6lzi/giphy.gif" alt="Others">
         <p>Others</p>
       </div>
     </div>
   </section>
 
-  <!-- Payment -->
+  <!-- Payment Section -->
   <section class="payment">
-    <h2>💳 Complete Your Payment</h2>
-    <p><b>UPI ID:</b> shahtajamul88-2@okicici 
-      <button onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
-    </p>
-    <p><b>Mpay Number:</b> 9797472650 
-      <button onclick="copyText('9797472650')">Copy</button>
-    </p>
-    <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Zahoor%20Auto%20Spa" onclick="confirmPayment()">Pay via UPI Apps</a>
+    <h2>Pay Securely</h2>
+    <p>Scan the QR to pay via Google Pay / Paytm / UPI</p>
+    <img src="your-qr-code.png" alt="QR Code" class="qr">
+    <p>UPI ID: <b>shahtajamul88-2@okicici</b></p>
   </section>
 
-  <!-- Location -->
-  <section>
-    <h2>📍 Find Us</h2>
-    <iframe src="https://www.google.com/maps?q=34.2439597,74.7120004&hl=es;z=14&amp;output=embed" width="100%" height="300" style="border:0;" allowfullscreen=""></iframe>
-  </section>
-
-  <!-- About -->
+  <!-- About Us -->
   <section id="about">
     <h2>About Us</h2>
-    <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to 
-    detailed interior cleaning, we bring the shine back to your ride.</p>
-    <p>Developed by Tajamul</p>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes 
+      to detailed engine cleaning, we provide premium services to make your ride shine like new.
+    </p>
   </section>
 
-  <canvas id="confetti"></canvas>
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+    function bookService(service) {
+      let userName = "Customer";
+      let message = `Hello, I would like to book a ${service} wash. My name is ${userName}.`;
+      let whatsappUrl = "https://wa.me/919797472650?text=" + encodeURIComponent(message);
+      window.open(whatsappUrl, "_blank");
+    }
+  </script>
+
 </body>
 </html>
