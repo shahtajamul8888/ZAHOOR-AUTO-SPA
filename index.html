@@ -8,72 +8,106 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <h1>Zahoor Auto Spa</h1>
-    <p>We wash,with love and care ❤️</p>
+    <p>We wash, with love and care ❤️</p>
     <nav>
-      <a href="#booking">Book Now</a>
       <a href="#services">Our Services</a>
-      <a href="#about">About Us</a>
+      <a href="#booking">Book Now</a>
+      <a href="#payment">Payment</a>
+      <a href="#about"><b>About Us</b></a>
     </nav>
   </header>
+
+  <!-- Services Section -->
+  <section class="services-grid" id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="service-item">
+        <div class="logo engine"></div>
+        <p>Engine Wash</p>
+      </div>
+      <div class="service-item">
+        <div class="logo body"></div>
+        <p>Body Wash</p>
+      </div>
+      <div class="service-item">
+        <div class="logo frame"></div>
+        <p>Frame Wash</p>
+      </div>
+      <div class="service-item">
+        <div class="logo foam"></div>
+        <p>Foam Wash</p>
+      </div>
+      <div class="service-item">
+        <div class="logo diesel"></div>
+        <p>Diesel Wash</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Booking Section -->
   <section class="booking" id="booking">
     <h2>Book Your Wash</h2>
     <div class="vehicles-grid">
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/hTzIjF9g8hCw9bqfVn/giphy.gif" alt="Bike">
-        <p>Bike</p>
+      <div class="service-item" onclick="redirectWhatsApp('Bike', '₹100')">
+        <div class="logo bike"></div>
+        <p>Bike - ₹100</p>
       </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/26gR1jP8p3XQnX26s/giphy.gif" alt="Car">
-        <p>Car</p>
+      <div class="service-item" onclick="redirectWhatsApp('Car', '₹250')">
+        <div class="logo car"></div>
+        <p>Car - ₹250</p>
       </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/3ohzdHkTDfL1zyYgCk/giphy.gif" alt="Bus">
-        <p>Bus</p>
+      <div class="service-item" onclick="redirectWhatsApp('Bus', '₹500')">
+        <div class="logo bus"></div>
+        <p>Bus - ₹500</p>
       </div>
-      <div class="service-item">
-        <img src="https://media.giphy.com/media/13UZisxBxkjPwI/giphy.gif" alt="Truck">
-        <p>Truck</p>
+      <div class="service-item" onclick="redirectWhatsApp('Truck', '₹700')">
+        <div class="logo truck"></div>
+        <p>Truck - ₹700</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="services-grid" id="services">
-    <div class="service-item">
-      <img src="https://media.giphy.com/media/3o6fJbnxM6Xw9LZ7YA/giphy.gif" alt="Engine Wash">
-      <p>Engine Wash</p>
-    </div>
-    <div class="service-item">
-      <img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif" alt="Body Wash">
-      <p>Body Wash</p>
-    </div>
-    <div class="service-item">
-      <img src="https://media.giphy.com/media/xT1XGYy9N3ZK6jO7HG/giphy.gif" alt="Frame Wash">
-      <p>Frame Wash</p>
-    </div>
-    <div class="service-item">
-      <img src="https://media.giphy.com/media/5xtDarzq3TpY7dmU3jq/giphy.gif" alt="Others">
-      <p>Others</p>
     </div>
   </section>
 
   <!-- Payment Section -->
-  <section class="payment">
+  <section class="payment" id="payment">
     <h3>Pay Securely via UPI</h3>
     <p>Scan the QR to pay</p>
     <img src="your-qr-code.png" alt="UPI QR Code" class="qr">
-    <p>Or pay directly to UPI ID: <b>shahtajamul88-2@okicici</b></p>
+    <p>Or pay directly to:</p>
+    <p><b>UPI ID:</b> shahtajamul88-2@okicici</p>
+    <p><b>Number:</b> 9797472650</p>
   </section>
 
   <!-- About Section -->
   <section id="about">
-    <h2>About Us</h2>
+    <h2><b>About Us</b></h2>
     <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to expert detailing, your vehicle gets the best care with love ❤️</p>
   </section>
 
+  <!-- Pop Sound -->
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5b5e53c7bb.mp3?filename=pop-94319.mp3" preload="auto"></audio>
+
+  <script>
+    // Play sound
+    function playClickSound() {
+      const sound = document.getElementById("clickSound");
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    // WhatsApp redirect
+    function redirectWhatsApp(vehicle, price) {
+      playClickSound();
+      const url = `https://wa.me/919797472650?text=I want to book a ${vehicle} wash. Price: ${price}`;
+      window.location.href = url;
+    }
+
+    // Add sound to all service items
+    document.querySelectorAll(".service-item").forEach(item => {
+      item.addEventListener("click", playClickSound);
+    });
+  </script>
 </body>
 </html>
