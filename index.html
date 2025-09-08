@@ -34,12 +34,12 @@
     .btn, .service-btn, .copy-btn { transition: all 0.3s ease; }
     .btn:hover, .service-btn:hover, .copy-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255,255,255,0.7);
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
     }
     .pulse { animation: pulse 2s infinite; }
     @keyframes pulse {
       0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
-      50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+      50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(255,255,255,0.9); }
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
     }
     .btn {
@@ -48,11 +48,25 @@
       margin: 10px;
       border: none;
       border-radius: 25px;
-      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      background: linear-gradient(90deg, #ff416c, #ff4b2b, #36d1dc, #5b86e5);
+      background-size: 300% 300%;
+      animation: gradientShift 6s ease infinite;
       color: white;
       font-size: 16px;
       cursor: pointer;
       text-decoration: none;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .big-btn {
+      font-size: 22px;
+      padding: 18px 40px;
+      border-radius: 35px;
+      margin-top: 25px;
+      font-weight: bold;
     }
     .tagline {
       font-size: 18px;
@@ -75,6 +89,11 @@
       padding: 15px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover {
+      transform: scale(1.08);
     }
     .service-item img {
       width: 80px;
@@ -133,7 +152,6 @@
 
   <!-- Booking -->
   <div class="section">
-    <button class="btn pulse" onclick="redirectToWhatsApp()">Book Now</button>
     <h2>🌟 Select Vehicle with Rates</h2>
     <div class="vehicles-grid">
       <div class="service-item" onclick="redirectToWhatsApp('Bike', '₹150')">
@@ -153,6 +171,9 @@
         <p>Truck – ₹850</p>
       </div>
     </div>
+
+    <!-- Book Now Button -->
+    <button class="btn pulse big-btn" onclick="redirectToWhatsApp()">🚀 Book Now</button>
   </div>
 
   <!-- Our Services -->
