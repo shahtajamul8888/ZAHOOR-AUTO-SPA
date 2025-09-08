@@ -1,115 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zahoor Auto Spa</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZAHOOR AUTO SPA</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <h1>Zahoor Auto Spa</h1>
-    <p>We wash, with love and care ❤️</p>
+    <h1>ZAHOOR AUTO SPA</h1>
+    <p>We wash with love and care</p>
     <nav>
       <a href="#services">Our Services</a>
       <a href="#booking">Book Now</a>
       <a href="#payment">Payment</a>
+      <a href="#map">Locate Us</a>
       <a href="#about"><b>About Us</b></a>
     </nav>
   </header>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services">
     <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <div class="icon 🚿"></div>
+    <div class="grid">
+      <div class="card">
+        <span class="icon spin">🚿</span>
         <p>Engine Wash</p>
       </div>
-      <div class="service-item">
-        <div class="icon 🚗"></div>
-        <p>Body Wash</p>
-      </div>
-      <div class="service-item">
-        <div class="icon 🛠️"></div>
+      <div class="card">
+        <span class="icon float">🛞</span>
         <p>Frame Wash</p>
       </div>
-      <div class="service-item">
-        <div class="icon 🧴"></div>
+      <div class="card">
+        <span class="icon bounce">🧼</span>
         <p>Foam Wash</p>
       </div>
-      <div class="service-item">
-        <div class="icon 🚌"></div>
+      <div class="card">
+        <span class="icon pulse">🧽</span>
         <p>Interior Wash</p>
+      </div>
+      <div class="card">
+        <span class="icon swing">🚘</span>
+        <p>Exterior Wash</p>
       </div>
     </div>
   </section>
 
-  <!-- Booking Section -->
+  <!-- Booking -->
   <section id="booking">
     <h2>Book Your Wash</h2>
-    <div class="vehicles-grid">
-      <div class="service-item" onclick="redirectToWhatsApp('Bike',150)">
-        <div class="icon 🏍️"></div>
+    <div class="grid">
+      <div class="card click" onclick="bookWhatsApp('Bike',150)">
+        <span class="icon bounce">🏍️</span>
         <p>Bike - ₹150</p>
       </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Car',350)">
-        <div class="icon 🚗"></div>
+      <div class="card click" onclick="bookWhatsApp('Car',350)">
+        <span class="icon pulse">🚗</span>
         <p>Car - ₹350</p>
       </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Bus',600)">
-        <div class="icon 🚌"></div>
+      <div class="card click" onclick="bookWhatsApp('Bus',600)">
+        <span class="icon swing">🚌</span>
         <p>Bus - ₹600</p>
       </div>
-      <div class="service-item" onclick="redirectToWhatsApp('Truck',800)">
-        <div class="icon 🚛"></div>
+      <div class="card click" onclick="bookWhatsApp('Truck',800)">
+        <span class="icon float">🚛</span>
         <p>Truck - ₹800</p>
       </div>
     </div>
   </section>
 
-  <!-- Payment Section -->
+  <!-- Payment (no scanner, UPI deep link) -->
   <section id="payment" class="payment">
     <h2>Pay Securely via UPI</h2>
-    <p>Scan the QR or copy details below:</p>
-    <img src="your-qr-code.png" alt="UPI QR Code" class="qr">
+    <p>Via UPI — tap the button to open the UPI app and pay. No scanner needed.</p>
 
-    <div class="copy-box">
-      <p><b>UPI ID:</b> shahtajamul88-2@okicici</p>
-      <button class="copy-btn upi" onclick="copyText('shahtajamul88-2@okicici')">Copy UPI</button>
+    <div class="copy-row">
+      <span><b>UPI ID:</b> <code>shahtajamul88-2@okicici</code></span>
+      <button class="btn blue" onclick="copyText('shahtajamul88-2@okicici')">Copy</button>
     </div>
 
-    <div class="copy-box">
-      <p><b>Mpay Number:</b> 9797472650</p>
-      <button class="copy-btn mpay" onclick="copyText('9797472650')">Copy Number</button>
+    <div class="copy-row">
+      <span><b>Mpay:</b> <code>9797472650</code></span>
+      <button class="btn blue" onclick="copyText('9797472650')">Copy</button>
+    </div>
+
+    <button class="btn upi" onclick="openUPI()">Pay via UPI</button>
+    <small class="hint">The UPI button uses the standard deep link format: upi://pay with pa, pn, am, tn, cu.</small>
+  </section>
+
+  <!-- Map -->
+  <section id="map">
+    <h2>Find Us on Map</h2>
+    <div class="map-wrap">
+      <iframe
+        title="Zahoor Auto Spa Location"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=34.2439742,74.7119933&z=16&output=embed">
+      </iframe>
     </div>
   </section>
 
-  <!-- About Us Section -->
+  <!-- About -->
   <section id="about">
     <h2><b>About Us</b></h2>
     <p>
-      At Zahoor Auto Spa, we treat every vehicle like a masterpiece.  
-      From high-foam and chemical washes to expert detailing,  
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece.
+      From high-foam and chemical washes to expert detailing,
       your vehicle gets the best care with love ❤️
     </p>
   </section>
 
+  <!-- Footer with Co‑powered by -->
+  <footer class="site-footer">
+    <div class="footer-left" aria-label="Co-powered credits">
+      <span class="co-label">Co‑powered by</span>
+
+      <!-- ChatGPT badge (brand‑style, non‑official) -->
+      <span class="brand-badge" role="img" aria-labelledby="cgptTitle">
+        <svg class="badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <title id="cgptTitle">ChatGPT</title>
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 20 7v10l-8 5-8-5V7z"/>
+            <path d="M8 9c2 1 6 1 8 0M8 13c2 1 6 1 8 0M12 5v14"/>
+          </g>
+        </svg>
+        <span class="brand-text">ChatGPT</span>
+      </span>
+
+      <!-- Perplexity badge (brand‑style, non‑official) -->
+      <span class="brand-badge" role="img" aria-labelledby="pxTitle">
+        <svg class="badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <title id="pxTitle">Perplexity</title>
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M8 17V7h6a4 4 0 0 1 0 8H8z"/>
+          </g>
+        </svg>
+        <span class="brand-text">Perplexity</span>
+      </span>
+    </div>
+
+    <div class="footer-right">
+      <p>Developed by <b>Tajamul</b></p>
+    </div>
+  </footer>
+
   <script>
-    function redirectToWhatsApp(vehicle, rate) {
-      let message = `Hello, I want to book a ${vehicle} wash for ₹${rate}.`;
-      let url = `https://wa.me/919797472650?text=${encodeURIComponent(message)}`;
+    // Real-time WhatsApp booking
+    function bookWhatsApp(vehicle, rate) {
+      const msg = `Hello, I want to book a ${vehicle} wash for ₹${rate}.`;
+      const url = `https://wa.me/919797472650?text=${encodeURIComponent(msg)}`;
       window.open(url, "_blank");
     }
 
+    // Copy helper
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
         alert("Copied: " + text);
       });
     }
-  </script>
 
+    // UPI deep link opener (no scanner)
+    function openUPI() {
+      const pa = "shahtajamul88-2@okicici";        // VPA
+      const pn = "Zahoor Auto Spa";                // Payee
+      const amount = prompt("Enter amount in ₹ (optional):", "");
+      const note = prompt("Payment note (optional):", "Vehicle wash");
+
+      let link = `upi://pay?pa=${encodeURIComponent(pa)}&pn=${encodeURIComponent(pn)}&cu=INR`;
+      if (amount && amount.trim() !== "") link += `&am=${encodeURIComponent(amount)}`;
+      if (note && note.trim() !== "") link += `&tn=${encodeURIComponent(note)}`;
+
+      window.location.href = link; // open any installed UPI app
+    }
+  </script>
 </body>
 </html>
