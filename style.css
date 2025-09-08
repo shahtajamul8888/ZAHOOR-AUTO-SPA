@@ -1,62 +1,43 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #0d0d0d, #001f3f);
-  background-size: 400% 400%;
-  animation: gradientShift 5s infinite;
-  text-align: center;
   color: #fff;
+  text-align: center;
+  animation: bgchange 0.5s infinite alternate;
 }
 
-/* Animated Background */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-* {
-  transition: all 0.3s ease-in-out;
+/* Background animation */
+@keyframes bgchange {
+  0% { background: #0d1b2a; }
+  50% { background: #1b263b; }
+  100% { background: #415a77; }
 }
 
 /* Header */
 header {
-  background: linear-gradient(90deg, #222, #007bff);
-  color: #fff;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #111, #007bff);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-header h1 {
-  margin: 0;
-}
-header p {
-  margin: 5px 0 10px;
-}
+header h1 { margin: 0; }
+header p { margin: 5px 0; }
 header nav a {
-  color: #fff;
   margin: 0 15px;
   text-decoration: none;
+  color: #fff;
   font-weight: bold;
 }
-header nav a:hover {
-  text-decoration: underline;
-}
 
-/* Grid Layout */
-.vehicles-grid, .services-grid .grid {
+/* Services & Vehicles */
+.services-grid, .vehicles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  margin: 20px;
+  margin: 30px;
 }
-
-/* Service Items */
 .service-item {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   cursor: pointer;
@@ -64,71 +45,62 @@ header nav a:hover {
 }
 .service-item:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
-.service-item p {
-  margin: 0;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Logos */
-.logo {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  background: #00d4ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+  display: inline-block;
   animation: zoomRotate 2s infinite alternate;
 }
-
-/* Specific Colors */
-.logo.bike { background: #ff4b2b; }
-.logo.car { background: #007bff; }
-.logo.bus { background: #28a745; }
-.logo.truck { background: #ffc107; }
-
-.logo.engine { background: #6f42c1; }
-.logo.body { background: #e83e8c; }
-.logo.frame { background: #20c997; }
-.logo.foam { background: #17a2b8; }
-.logo.diesel { background: #fd7e14; }
-
-/* Logo Animation */
 @keyframes zoomRotate {
-  0% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.2) rotate(15deg); }
-  100% { transform: scale(1) rotate(-15deg); }
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1.2) rotate(10deg); }
 }
 
-/* Payment Section */
+/* Payment */
 .payment {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
+  padding: 25px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 450px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
 }
 .payment img.qr {
   width: 200px;
   margin: 15px 0;
 }
-
-/* About Section */
-#about {
-  background: #fff;
-  color: #000;
-  padding: 30px;
-  margin: 40px auto 0;
-  max-width: 700px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  line-height: 1.6;
+.copy-box {
+  margin: 15px 0;
 }
-#about h2 {
+.copy-btn {
+  border: none;
+  padding: 10px 20px;
   font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+.copy-btn.upi {
+  background: #28a745;
+  box-shadow: 0 0 12px #28a745;
+}
+.copy-btn.mpay {
+  background: #007bff;
+  box-shadow: 0 0 12px #007bff;
+}
+.copy-btn:hover {
+  transform: scale(1.1);
+}
+
+/* About Us */
+#about {
+  background: rgba(255,255,255,0.15);
+  padding: 30px;
+  margin: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  line-height: 1.6;
 }
