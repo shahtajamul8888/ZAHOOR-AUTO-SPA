@@ -21,93 +21,95 @@
   </header>
 
   <!-- Services Section -->
-  <section class="services-grid" id="services">
+  <section id="services">
     <h2>Our Services</h2>
-    <div class="grid">
+    <div class="services-grid">
       <div class="service-item">
-        <div class="logo engine"></div>
+        <div class="icon 🚿"></div>
         <p>Engine Wash</p>
       </div>
       <div class="service-item">
-        <div class="logo body"></div>
+        <div class="icon 🚗"></div>
         <p>Body Wash</p>
       </div>
       <div class="service-item">
-        <div class="logo frame"></div>
+        <div class="icon 🛠️"></div>
         <p>Frame Wash</p>
       </div>
       <div class="service-item">
-        <div class="logo foam"></div>
+        <div class="icon 🧴"></div>
         <p>Foam Wash</p>
       </div>
       <div class="service-item">
-        <div class="logo diesel"></div>
-        <p>Diesel Wash</p>
+        <div class="icon 🚌"></div>
+        <p>Interior Wash</p>
       </div>
     </div>
   </section>
 
   <!-- Booking Section -->
-  <section class="booking" id="booking">
+  <section id="booking">
     <h2>Book Your Wash</h2>
     <div class="vehicles-grid">
-      <div class="service-item" onclick="redirectWhatsApp('Bike', '₹100')">
-        <div class="logo bike"></div>
-        <p>Bike - ₹100</p>
+      <div class="service-item" onclick="redirectToWhatsApp('Bike',150)">
+        <div class="icon 🏍️"></div>
+        <p>Bike - ₹150</p>
       </div>
-      <div class="service-item" onclick="redirectWhatsApp('Car', '₹250')">
-        <div class="logo car"></div>
-        <p>Car - ₹250</p>
+      <div class="service-item" onclick="redirectToWhatsApp('Car',350)">
+        <div class="icon 🚗"></div>
+        <p>Car - ₹350</p>
       </div>
-      <div class="service-item" onclick="redirectWhatsApp('Bus', '₹500')">
-        <div class="logo bus"></div>
-        <p>Bus - ₹500</p>
+      <div class="service-item" onclick="redirectToWhatsApp('Bus',600)">
+        <div class="icon 🚌"></div>
+        <p>Bus - ₹600</p>
       </div>
-      <div class="service-item" onclick="redirectWhatsApp('Truck', '₹700')">
-        <div class="logo truck"></div>
-        <p>Truck - ₹700</p>
+      <div class="service-item" onclick="redirectToWhatsApp('Truck',800)">
+        <div class="icon 🚛"></div>
+        <p>Truck - ₹800</p>
       </div>
     </div>
   </section>
 
   <!-- Payment Section -->
-  <section class="payment" id="payment">
-    <h3>Pay Securely via UPI</h3>
-    <p>Scan the QR to pay</p>
+  <section id="payment" class="payment">
+    <h2>Pay Securely via UPI</h2>
+    <p>Scan the QR or copy details below:</p>
     <img src="your-qr-code.png" alt="UPI QR Code" class="qr">
-    <p>Or pay directly to:</p>
-    <p><b>UPI ID:</b> shahtajamul88-2@okicici</p>
-    <p><b>Number:</b> 9797472650</p>
+
+    <div class="copy-box">
+      <p><b>UPI ID:</b> shahtajamul88-2@okicici</p>
+      <button class="copy-btn upi" onclick="copyText('shahtajamul88-2@okicici')">Copy UPI</button>
+    </div>
+
+    <div class="copy-box">
+      <p><b>Mpay Number:</b> 9797472650</p>
+      <button class="copy-btn mpay" onclick="copyText('9797472650')">Copy Number</button>
+    </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About Us Section -->
   <section id="about">
     <h2><b>About Us</b></h2>
-    <p>At Zahoor Auto Spa, we treat every vehicle like a masterpiece. From high-foam and chemical washes to expert detailing, your vehicle gets the best care with love ❤️</p>
+    <p>
+      At Zahoor Auto Spa, we treat every vehicle like a masterpiece.  
+      From high-foam and chemical washes to expert detailing,  
+      your vehicle gets the best care with love ❤️
+    </p>
   </section>
 
-  <!-- Pop Sound -->
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5b5e53c7bb.mp3?filename=pop-94319.mp3" preload="auto"></audio>
-
   <script>
-    // Play sound
-    function playClickSound() {
-      const sound = document.getElementById("clickSound");
-      sound.currentTime = 0;
-      sound.play();
+    function redirectToWhatsApp(vehicle, rate) {
+      let message = `Hello, I want to book a ${vehicle} wash for ₹${rate}.`;
+      let url = `https://wa.me/919797472650?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
     }
 
-    // WhatsApp redirect
-    function redirectWhatsApp(vehicle, price) {
-      playClickSound();
-      const url = `https://wa.me/919797472650?text=I want to book a ${vehicle} wash. Price: ${price}`;
-      window.location.href = url;
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied: " + text);
+      });
     }
-
-    // Add sound to all service items
-    document.querySelectorAll(".service-item").forEach(item => {
-      item.addEventListener("click", playClickSound);
-    });
   </script>
+
 </body>
 </html>
