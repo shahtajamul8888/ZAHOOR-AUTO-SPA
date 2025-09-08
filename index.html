@@ -74,16 +74,13 @@
   <!-- Payment -->
   <section id="payment" class="payment">
     <h2 class="glow">VIA UPI OPTION</h2>
-    <button class="btn upi" onclick="openUPI()">Pay via UPI</button>
 
-    <div class="copy-row">
-      <span><b>UPI ID:</b> <code>shahtajamul88-2@okicici</code></span>
-      <button class="btn blue" onclick="copyText('shahtajamul88-2@okicici')">🔵 Copy</button>
-    </div>
-
-    <div class="copy-row">
-      <span><b>Number:</b> <code>9797472650</code></span>
-      <button class="btn blue" onclick="copyText('9797472650')">🔵 Copy</button>
+    <!-- Business QR Code -->
+    <div class="qr-wrap">
+      <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Tajamul%20YT&cu=INR" target="_blank">
+        <img src="qr.png" alt="Pay via UPI QR" class="upi-qr"/>
+      </a>
+      <p>Click or Scan the QR to Pay</p>
     </div>
   </section>
 
@@ -148,17 +145,6 @@
       const msg = `Hello, I want to book a ${vehicle} wash for ₹${rate}.`;
       const url = `https://wa.me/919797472650?text=${encodeURIComponent(msg)}`;
       window.open(url, "_blank");
-    }
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied: " + text);
-      });
-    }
-    function openUPI() {
-      const pa = "shahtajamul88-2@okicici";
-      const pn = "Zahoor Auto Spa";
-      let link = `upi://pay?pa=${encodeURIComponent(pa)}&pn=${encodeURIComponent(pn)}&cu=INR`;
-      window.location.href = link;
     }
   </script>
 </body>
