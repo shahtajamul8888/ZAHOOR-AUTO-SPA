@@ -1,146 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zahoor Auto Spa</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      text-align: center;
-    }
-    header {
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-    .rates {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-8px); }
-    .card h3 { margin-bottom: 10px; }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #ff9800;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn:hover { background: #e68900; }
-    .payments {
-      padding: 30px;
-      background: rgba(0,0,0,0.6);
-      margin: 30px;
-      border-radius: 12px;
-    }
-    .payments img {
-      margin-top: 15px;
-      max-width: 220px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.5);
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background: rgba(0,0,0,0.8);
-    }
-    .glow {
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-      font-weight: bold;
-    }
-    .logos img {
-      height: 30px;
-      margin: 0 5px;
-      vertical-align: middle;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Zahoor Auto Spa</h1>
-    <p><strong>Location:</strong> Your Original Location</p>
-  </header>
-
-  <section class="rates">
-    <div class="card">
-      <h3>Bike</h3>
-      <p>₹150</p>
-      <a class="btn" href="https://wa.me/9797472650?text=Hi%20I%20want%20to%20book%20a%20Bike%20service">Book via WhatsApp</a>
-    </div>
-    <div class="card">
-      <h3>Car</h3>
-      <p>₹350</p>
-      <a class="btn" href="https://wa.me/9797472650?text=Hi%20I%20want%20to%20book%20a%20Car%20service">Book via WhatsApp</a>
-    </div>
-    <div class="card">
-      <h3>Bus</h3>
-      <p>₹600</p>
-      <a class="btn" href="https://wa.me/9797472650?text=Hi%20I%20want%20to%20book%20a%20Bus%20service">Book via WhatsApp</a>
-    </div>
-    <div class="card">
-      <h3>Truck</h3>
-      <p>₹700</p>
-      <a class="btn" href="https://wa.me/9797472650?text=Hi%20I%20want%20to%20book%20a%20Truck%20service">Book via WhatsApp</a>
-    </div>
-  </section>
-
-  <section class="payments">
-    <h2>Pay Online</h2>
-    <p>UPI ID: <strong>shahtajamul88-2@okicici</strong></p>
-    <!-- QR Code -->
-    <img src="your-qr-code.png" alt="UPI QR Code">
-    <!-- Cashfree Payment Button -->
-    <div>
-      <button class="btn" onclick="initiateCashfree()">Pay via Cashfree</button>
-    </div>
-  </section>
-
-  <footer>
-    <p class="glow">Powered by 
-      <span class="logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT Logo">
-        ChatGPT & 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Perplexity_AI_logo.png" alt="Perplexity Logo">
-        Perplexity
-      </span>
-    </p>
-    <p class="glow">Developed by Tajamul</p>
-  </footer>
-
-  <!-- Cashfree SDK -->
-  <script src="https://sdk.cashfree.com/js/ui/2.0.0/cashfree.js"></script>
-  <script>
-    function initiateCashfree() {
-      const cashfree = new Cashfree({ mode: "sandbox" }); 
-      // Replace with your Cashfree order token
-      cashfree.checkout({
-        paymentSessionId: "YOUR_ORDER_TOKEN",
-        redirectTarget: "_self"
-      });
-    }
-  </script>
-</body>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8"/>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Zahoor Auto Spa</title>  
+  <style>  
+    body {  
+      font-family: 'Poppins', sans-serif;  
+      margin: 0;  
+      color: #edf6fc;  
+      background: linear-gradient(120deg, #122043 0%, #1557b6 100%);  
+      background-size: 400% 400%;  
+      animation: gradientBG 16s ease-in-out infinite;  
+      min-height: 100vh;  
+      box-sizing: border-box;  
+      width: 100vw;  
+    }  
+    @keyframes gradientBG {  
+      0%,100% {background-position: 0% 50%;}  
+      50% {background-position: 100% 50%;}  
+    }  
+    .container {  
+      width: 100vw;  
+      max-width: 100%;  
+      min-height: 100vh;  
+      padding-bottom: 10px;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: stretch;  
+      gap: 14px;  
+    }  
+    .box {  
+      margin: 0 auto;  
+      width: 96vw;  
+      max-width: 420px;  
+      padding: 9px 2vw 9px 2vw;  
+      border-radius: 17px;  
+      text-align: center;  
+      background: rgba(24,37,68,0.94);  
+      box-shadow: 0 2px 16px 1px #15305399,0 0 32px 2px #11223950;  
+      animation: floatBox 6s cubic-bezier(.4,.53,.59,1.02) infinite;  
+      margin-bottom: 0;  
+    }  
+    @keyframes floatBox {  
+      0%,100% { transform: translateY(0);}  
+      50% { transform: translateY(-7px);}  
+    }  
+    .header {  
+      background: linear-gradient(90deg, #122043 70%, #1557b6 100%);  
+      font-size: 1.17em;  
+      font-weight: bold;  
+      letter-spacing: 2px;  
+      text-shadow: 0 0 8px #2055b6;  
+      border-bottom: 2px solid #1557b6;  
+      animation: headerGlow 3.3s ease-in-out infinite;  
+      color: #edf6fc;  
+      margin-top: 8px;  
+      padding: 5px 0 5px 0;  
+      border-radius: 9px;  
+      min-width: 120px;  
+      max-width: 200px;  
+      display: inline-block;  
+      margin-left: auto;  
+      margin-right: auto;  
+    }  
+    @keyframes headerGlow {  
+      0%,100% { box-shadow: 0 0 12px #1557b6;}  
+      50% { box-shadow: 0 0 22px #122043;}  
+    }  
+    .header marquee {  
+      font-size: 1.23em;  
+      font-weight: bold;  
+      opacity: 0;  
+      animation: textFadeIn 2.1s cubic-bezier(.18,.52,.51,.96) forwards;  
+    }  
+    @keyframes textFadeIn {  
+      0% {opacity:0; transform: scale(0.95) translateY(-22px);}  
+      80% {opacity:1; transform: scale(1.05) translateY(4px);}  
+      100% {opacity:1; transform: scale(1);}  
+    }  
+    .about-box {  
+      background: rgba(21, 47, 82, 0.93);  
+      border-radius: 13px;  
+      padding: 8px 2vw;  
+      margin: 0 auto 7px auto;  
+      width: 94vw;  
+      max-width: 370px;  
+      box-shadow: 0 1px 13px #185cb650;  
+    }  
+    .about-title {  
+      font-size: 1em;  
+      font-weight: 700;  
+      color: #85cdfa;  
+      margin-bottom: 5px;  
+      letter-spacing: .3px;  
+    }  
+    .about-quote {  
+      font-size: .92em;  
+      color: #c5e4ff;  
+      font-style: italic;  
+      margin-bottom: 5px;  
+    }  
+    .select-service {  
+      display: flex;  
+      flex-direction: column;  
+      gap: 9px;  
+      align-items: center;  
+      justify-content: center;  
+      margin-top: 8px;  
+    }  
+    .service-choice {  
+      border-radius: 13px;  
+      background: linear-gradient(145deg,#19336a 60%, #1557b6 100%);  
+      box-shadow: 0 0 8px #1557b666, 0 2px 4px #000A;  
+      margin: 0 auto 3px auto;  
+      width: 66vw;  
+      max-width: 160px;  
+      padding: 8px 2vw 3px 2vw;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      cursor: pointer;  
+      transition: box-shadow .2s, transform .18s;  
+      position: relative;  
+    }  
+    .service-choice.selected, .service-choice:hover {  
+      box-shadow: 0 0 18px 5px #8bf2ffcc, 0 1px 10px #1557b6e3;  
+      transform: scale(1.07);  
+      border: 2px solid #d9f7ff;  
+      z-index:2;  
+      animation: optionGlow 2.2s infinite alternate;  
+    }  
+    @keyframes optionGlow {  
+      0%   { box-shadow: 0 0 18px 6px #8bf2ffcc, 0 1px 10px #1557b6e3;}  
+      100% { box-shadow: 0 0 28px 8px #37b5ff80, 0 1px 16px #1557b6d0;}  
+    }  
+    .service-title {  
+      font-size: .92em;  
+      font-weight: 700;  
+      letter-spacing: .5px;  
+      color: #85cdfa;  
+      margin-bottom: 3px;  
+      text-shadow: 0 0 14px #89dfff, 0 0 6px #1557b6a0;  
+      text-transform: uppercase;  
+      transition: text-shadow .17s;  
+    }  
+    .service-choice.selected .service-title, .service-choice:hover .service-title {  
+      text-shadow: 0 0 18px #caffff, 0 0 8px #45b9ff;  
+      color: #dfffff;  
+    }  
+    .service-icon-img {  
+      width: 24px;  
+      height: 24px;  
+      display: flex;  
+      margin: 0 auto;  
+      justify-content: center;  
+      align-items: center;  
+    }  
+    .actions {  
+      margin-top: 10px;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 7px;  
+      align-items: center;  
+      justify-content: center;  
+    }  
+    .action-btn, .pay-btn {  
+      margin: 0;  
+      width: 38vw;  
+      max-width: 80px;  
+      padding: 6px 0;  
+      border-radius: 8px;  
+      background: #1557b6;  
+      color: #f9fafc;  
+      font-weight: 700;  
+      font-size: .83em;  
+      text-decoration: none;  
+      box-shadow: 0 0 7px #1557b6a9;  
+      border: none;  
+      transition: box-shadow 0.21s, transform 0.13s, background .14s;  
+      display: block;  
+      cursor: pointer;  
+    }  
+    .action-btn:hover, .pay-btn:hover {  
+      background: #122337;  
+      color: #aedffd;  
+      box-shadow: 0 0 10px #1557b6;  
+      transform: scale(1.03);  
+    }  
+    .map {  
+      background: linear-gradient(90deg,#18365a 90%,#1557b6 100%);  
+      border-bottom: 2px solid #153053;  
+      box-shadow: 0 2px 16px 2px #15305344;  
+      margin-top: 6px;  
+    }  
+    .map h2 {  
+      text-shadow: 0 0 12px #1557b6, 0 0 18px #153053;  
+      color: #b9d4fc;  
+      font-size: 1em;  
+      font-weight: 700;  
+      margin-bottom: 5px;  
+    }  
+    .footer {  
+      text-align: center;  
+      font-size: .93em;  
+      margin-top: 13px;  
+      text-shadow: 0 0 8px #1557b6, 0 0 14px #122043;  
+      color: #bbe6ff;  
+      margin-bottom: 4px;  
+    }  
+    .developed {  
+      text-align: center;  
+      margin: 0 auto;  
+      font-size: 1em;  
+      color: #fff;  
+      font-weight: bold;  
+      text-shadow: 0 0 16px #1557b6, 0 0 22px #153053, 0 0 4px #1557b6, 0 0 2px #18365a;  
+      background: none;  
+      margin-top: 2px;  
+    }  
+    @media (max-width: 600px) {  
+      .box, .map, .about-box {padding: 4px 3vw;}  
+      .service-icon-img { width:18px; height:18px;}  
+      .action-btn, .pay-btn { padding: 5px 0; font-size: .78em; max-width: 66px;}  
+      .about-title { font-size: .92em;}  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="container">  
+    <div class="box header">  
+      <marquee>Zahoor Auto Spa</marquee>  
+    </div>  
+    <div class="box">  
+      <h2 style="margin-bottom: 6px; font-size:.99em; padding:4px 0;">Choose What You Want to Wash</h2>  
+      <div class="select-service">  
+        <div class="service-choice" onclick="selectService('bike')" id="bike-choice">  
+          <div class="service-title">Bike</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><circle cx="9" cy="24" r="5" fill="#87eafd"/><circle cx="24" cy="24" r="5" fill="#74afd2"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#1557b6"/><path d="M9 19 L16 11 L20 19" stroke="#1557b6" stroke-width="2" fill="none"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('car')" id="car-choice">  
+          <div class="service-title">Car</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="7" y="17" width="18" height="6" rx="3" fill="#cbeffd"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#1557b6"/><circle cx="11" cy="27" r="2" fill="#1557b6"/><circle cx="21" cy="27" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('bus')" id="bus-choice">  
+          <div class="service-title">Bus</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="10" rx="3" fill="#cbeffd"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#1557b6"/><circle cx="11" cy="25" r="2" fill="#1557b6"/><circle cx="21" cy="25" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('truck')" id="truck-choice">  
+          <div class="service-title">Truck</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="3" y="17" width="12" height="7" rx="2" fill="#cbeffd"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#1557b6"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#1557b6"/><circle cx="8" cy="27" r="2" fill="#1557b6"/><circle cx="22" cy="27" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+      </div>  
+      <div class="actions" id="action-buttons"></div>  
+    </div>  
+    <div class="box map">  
+      <h2>Find Us</h2>  
+      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>  
+    </div>  
+    <div class="about-box">  
+      <div class="about-title">About Us</div>  
+      <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>  
+    </div>  
+    <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>  
+    <div class="developed">Developed By Tajamul</div>  
+  </div>  
+<script>  
+const serviceData = {  
+  bike: {  
+    name: "Bike Wash",  
+    price: "₹150",  
+    payUrl: "https://payments.cashfree.com/links?code=b95kmt7h58ug",  
+    whatsappMsg: "I want to book a Bike Wash",  
+    smsMsg: "I want to book a Bike Wash"  
+  },  
+  car: {  
+    name: "Car Wash",  
+    price: "₹350",  
+    payUrl: "https://payments.cashfree.com/links?code=I95kn0apt8ug",  
+    whatsappMsg: "I want to book a Car Wash",  
+    smsMsg: "I want to book a Car Wash"  
+  },  
+  bus: {  
+    name: "Bus Wash",  
+    price: "₹650",  
+    payUrl: "https://payments.cashfree.com/links?code=N95kn1vcd8ug",  
+    whatsappMsg: "I want to book a Bus Wash",  
+    smsMsg: "I want to book a Bus Wash"  
+  },  
+  truck: {  
+    name: "Truck Wash",  
+    price: "₹850",  
+    payUrl: "https://payments.cashfree.com/links?code=p95kn4tfv8ug",  
+    whatsappMsg: "I want to book a Truck Wash",  
+    smsMsg: "I want to book a Truck Wash"  
+  }  
+};  
+function selectService(type) {  
+  for (const s of ['bike','car','bus','truck']) {  
+    document.getElementById(s+'-choice').classList.remove('selected');  
+  }  
+  document.getElementById(type+'-choice').classList.add('selected');  
+  const d = serviceData[type];  
+  document.getElementById('action-buttons').innerHTML = `  
+    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank">WhatsApp</a>  
+    <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">SMS</a>  
+    <button class="pay-btn" onclick="window.location='${d.payUrl}'">Pay ₹${d.price.substr(1)}</button>  
+  `;  
+}  
+</script>  
+</body>  
 </html>
