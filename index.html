@@ -8,10 +8,10 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      color: #ece7e1;
-      background: linear-gradient(-45deg, #C9B98F, #1e3c72, #474747, #B89D62);
+      color: #edefee;
+      background: linear-gradient(125deg, #152738 0%, #185cb6 75%, #1d263a 100%);
       background-size: 400% 400%;
-      animation: gradientBG 14s ease-in-out infinite;
+      animation: gradientBG 13s ease-in-out infinite;
     }
     @keyframes gradientBG {
       0%,100% {background-position: 0% 50%;}
@@ -32,9 +32,8 @@
       padding: 25px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 2px 18px 2px #b89d6255,
-                  0 0 40px 3px #47474750;
-      /* premium floating animation */
+      box-shadow: 0 2px 18px 2px #185cb690, 0 0 40px 3px #0005;
+      background: rgba(18,34,60,0.85);
       animation: floatBox 5s cubic-bezier(.4,.53,.59,1.02) infinite;
     }
     @keyframes floatBox {
@@ -42,26 +41,25 @@
       50% { transform: translateY(-8px);}
     }
 
-    /* Header */
     .header {
-      background: linear-gradient(90deg,#B89D62 70%,#1e3c72 100%);
+      background: linear-gradient(90deg, #1d263a 72%, #185cb6 100%);
       font-size: 2em;
       font-weight: bold;
       letter-spacing: 2px;
-      text-shadow: 0 0 12px #b89d62, 0 0 22px #444;
-      border-bottom: 2px solid #C9B98F;
+      text-shadow: 0 0 12px #185cb6, 0 0 22px #222;
+      border-bottom: 2px solid #185cb6;
       animation: headerGlow 3.3s ease-in-out infinite;
+      color: #f9fafc;
     }
     @keyframes headerGlow {
-      0%,100% { box-shadow: 0 0 18px #C9B98F; }
-      50% { box-shadow: 0 0 40px #B89D62; }
+      0%,100% { box-shadow: 0 0 18px #185cb6; }
+      50% { box-shadow: 0 0 40px #1d263a; }
     }
     .header marquee {
       font-size: 2.4em;
       font-weight: bold;
       opacity: 0;
       animation: textFadeIn 2.5s cubic-bezier(.18,.52,.51,.96) forwards;
-      color: #C9B98F;
     }
     @keyframes textFadeIn {
       0% {opacity:0; transform: scale(0.95) translateY(-30px);}
@@ -69,16 +67,16 @@
       100% {opacity:1; transform: scale(1);}
     }
 
-    /* Services (now Foam Wash etc.) */
     .services {
-      background: rgba(71, 71, 71, 0.72);
+      background: rgba(17, 45, 86, 0.85);
     }
     .services h2 {
-      text-shadow: 0 0 12px #ffda7a, 0 0 25px #B89D62;
-      color: #fff;
+      text-shadow: 0 0 14px #86b5ff, 0 0 25px #152738;
+      color: #b9d4fc;
     }
     .services p {
       font-size: 1.22em;
+      color: #bbe6ff;
     }
     .service-icons {
       display: flex;
@@ -91,71 +89,78 @@
       width: 88px;
       height: 88px;
       border-radius: 18px;
-      background: linear-gradient(135deg,#fff6 30%, #B89D62 90%);
+      background: linear-gradient(145deg,#18365a 60%, #185cb6 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 23px #C9B98F33, 0 2px 9px #47474755;
+      box-shadow: 0 0 18px #185cb690, 0 2px 9px #0009;
       animation: iconBounce 2.1s infinite;
     }
     @keyframes iconBounce {
       0%,100% { transform: translateY(0);}
       50% { transform: translateY(-13px);}
     }
+    .service-label {
+      font-weight: 600;
+      font-size: 1em;
+      color: #bbe6ff;
+      margin-top: 6px;
+      margin-bottom: 0;
+      text-shadow: 0 0 6px #185cb6;
+    }
 
-    /* Booking */
     .booking {
-      background: linear-gradient(90deg,#474747 80%,#b89d62 100%);
-      border: 2px solid #B89D62;
+      background: linear-gradient(90deg,#18233a 80%,#185cb6 100%);
+      border: 2px solid #185cb6;
     }
     .booking h2 {
-      text-shadow: 0 0 14px #C9B98F, 0 0 25px #B89D62;
+      text-shadow: 0 0 14px #185cb6, 0 0 25px #18365a;
+      color: #bbe6ff;
     }
     .booking a {
       margin: 10px;
       padding: 14px 21px;
       border-radius: 13px;
-      background: #B89D62;
-      color: #232a32;
+      background: #185cb6;
+      color: #f9fafc;
       font-weight: 700;
       text-decoration: none;
       transition: box-shadow 0.3s, transform 0.18s;
-      box-shadow: 0 0 17px #c9b98f60;
+      box-shadow: 0 0 17px #185cb688;
     }
     .booking a:hover, .booking a:focus {
-      background: #474747;
-      color: #f3efea;
-      box-shadow: 0 0 24px #B89D6288;
+      background: #152738;
+      color: #bbe6ff;
+      box-shadow: 0 0 24px #185cb6aa;
       transform: scale(1.10);
     }
 
-    /* Payments */
     .payments {
-      background: linear-gradient(75deg,#B89D62 60%, #474747 100%);
-      border-top: 2px solid #C9B98F;
+      background: linear-gradient(75deg,#185cb6 60%, #152738 100%);
+      border-top: 2px solid #18365a;
     }
     .payments h2 {
-      text-shadow: 0 0 11px #ffda7a, 0 0 22px #B89D62;
+      text-shadow: 0 0 11px #86b5ff, 0 0 22px #152738;
+      color: #b9d4fc;
     }
     .pay-btn {
       margin: 10px;
       padding: 12px 22px;
       border-radius: 12px;
-      background: #C9B98F;
-      color: #474747;
+      background: #185cb6;
+      color: #f9fafc;
       font-weight: bold;
       text-decoration: none;
       transition: 0.29s;
-      box-shadow: 0 0 12px #B89D6269;
+      box-shadow: 0 0 12px #185cb6a9;
     }
     .pay-btn:hover {
-      background: #474747;
-      color: #C9B98F;
-      box-shadow: 0 0 19px #C9B98FAB;
+      background: #152738;
+      color: #bbe6ff;
+      box-shadow: 0 0 19px #185cb6;
       transform: scale(1.13);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -164,19 +169,18 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.72);
-      display: flex;
+      background: rgba(19, 32, 55, 0.82);
       align-items: center;
       justify-content: center;
     }
     .modal-content {
-      background: #232a32;
+      background: #152738;
       padding: 30px;
       border-radius: 18px;
       text-align: center;
       width: 295px;
-      box-shadow: 0 0 23px #B89D62, 0 2px 10px #47474777;
-      border: 1px solid #C9B98F;
+      box-shadow: 0 0 23px #18365a, 0 2px 10px #185cb6;
+      border: 1px solid #185cb6;
       animation: modalIn 1.1s cubic-bezier(.22,.61,.36,1.0) forwards;
     }
     @keyframes modalIn {
@@ -185,25 +189,25 @@
     }
     .modal-content h3 {
       margin-bottom: 20px;
-      text-shadow: 0 0 16px #B89D62;
-      color: #B89D62
+      text-shadow: 0 0 16px #185cb6;
+      color: #bbe6ff
     }
     .modal-content a {
       display: block;
       margin: 10px 0;
       padding: 12px;
       border-radius: 10px;
-      background: #B89D62;
-      color: #232a32;
+      background: #185cb6;
+      color: #f9fafc;
       font-weight: bold;
       text-decoration: none;
       transition: 0.3s;
-      box-shadow: 0 0 7px #c9b98f44;
+      box-shadow: 0 0 7px #18365a;
     }
     .modal-content a:hover {
-      background: #474747;
-      color: #B89D62;
-      box-shadow: 0 0 15px #B89D62;
+      background: #152738;
+      color: #bbe6ff;
+      box-shadow: 0 0 15px #185cb6;
       transform: scale(1.07);
     }
     .close {
@@ -214,28 +218,28 @@
       text-shadow: 0 0 14px #ea3636;
     }
 
-    /* Map */
     .map {
-      background: linear-gradient(90deg,#C9B98F 90%,#232a32 100%);
-      border-bottom: 2px solid #B89D62;
+      background: linear-gradient(90deg,#18365a 90%,#185cb6 100%);
+      border-bottom: 2px solid #18365a;
     }
     .map h2 {
-      text-shadow: 0 0 15px #B89D62, 0 0 22px #C9B98F;
+      text-shadow: 0 0 15px #185cb6, 0 0 22px #18365a;
+      color: #b9d4fc;
     }
     .footer {
       text-align: center;
       font-size: 1.2em;
       margin-top: 22px;
-      text-shadow: 0 0 10px #fff, 0 0 20px #B89D62;
-      color: #C9B98F;
+      text-shadow: 0 0 12px #185cb6, 0 0 20px #152738;
+      color: #bbe6ff;
     }
     .developed {
       position: fixed;
       bottom: 10px;
       right: 15px;
       font-size: 1em;
-      text-shadow: 0 0 10px #B89D62, 0 0 20px #474747;
-      color: #b89d62;
+      text-shadow: 0 0 10px #185cb6, 0 0 20px #152738;
+      color: #185cb6;
       font-weight: bold;
     }
   </style>
@@ -247,42 +251,33 @@
       <marquee>Zahoor Auto Spa</marquee>
     </div>
 
-    <!-- Services / Foam Wash, Greasing, Diesel Wash, Polish -->
+    <!-- Services / Bike/Car/Bus/Truck Wash -->
     <div class="box services">
-      <h2>Our Professional Treatments</h2>
+      <h2>Our Professional Washes</h2>
       <p>
-        <b>Foam Wash</b>, 
-        <b>Greasing</b>, 
-        <b>Diesel Wash</b>, 
-        <b>Polish</b>
+        <b>Bike Wash</b>, 
+        <b>Car Wash</b>, 
+        <b>Bus Wash</b>, 
+        <b>Truck Wash</b>
       </p>
       <div class="service-icons">
-        <!-- Add premium animated SVG icons below by pasting SVG code for each -->
+        <!-- Paste animated SVGs or direct SVG code for best visuals -->
         <div class="service-icon">
-          <!-- Animated SVG icon: Bike -->
-          <!-- Paste SVG embed from loading.io/icons or iconscout or similar -->
-          <!-- Example: <img src="..." alt="Bike Icon"> -->
+          <!-- Example SVG img for bike wash, swap URL for animated SVG -->
+          <img src="https://iconscout.com/icon/wash-bike-5819428" alt="Bike Wash" />
+          <div class="service-label">Bike</div>
         </div>
         <div class="service-icon">
-          <!-- Animated SVG icon: Car -->
+          <img src="https://iconscout.com/icon/car-wash-5819430" alt="Car Wash" />
+          <div class="service-label">Car</div>
         </div>
         <div class="service-icon">
-          <!-- Animated SVG icon: Bus -->
+          <img src="https://iconscout.com/icon/bus-wash-5819462" alt="Bus Wash" />
+          <div class="service-label">Bus</div>
         </div>
         <div class="service-icon">
-          <!-- Animated SVG icon: Truck -->
-        </div>
-        <div class="service-icon">
-          <!-- Animated SVG icon: Foam Wash -->
-        </div>
-        <div class="service-icon">
-          <!-- Animated SVG icon: Greasing -->
-        </div>
-        <div class="service-icon">
-          <!-- Animated SVG icon: Diesel Wash -->
-        </div>
-        <div class="service-icon">
-          <!-- Animated SVG icon: Polish -->
+          <img src="https://iconscout.com/icon/truck-wash-5819449" alt="Truck Wash" />
+          <div class="service-label">Truck</div>
         </div>
       </div>
     </div>
@@ -300,14 +295,13 @@
       <a class="pay-btn" href="javascript:void(0)" onclick="openModal()">Pay Online (Cashfree UPI)</a>
     </div>
 
-    <!-- Modal Popup -->
     <div id="paymentModal" class="modal">
       <div class="modal-content">
-        <h3>Select Treatment to Pay</h3>
-        <a href="https://payments.cashfree.com/links?code=b95kmt7h58ug" target="_blank">Foam Wash ₹150</a>
-        <a href="https://payments.cashfree.com/links?code=I95kn0apt8ug" target="_blank">Greasing ₹350</a>
-        <a href="https://payments.cashfree.com/links?code=N95kn1vcd8ug" target="_blank">Diesel Wash ₹650</a>
-        <a href="https://payments.cashfree.com/links?code=p95kn4tfv8ug" target="_blank">Polish ₹850</a>
+        <h3>Select Wash to Pay</h3>
+        <a href="https://payments.cashfree.com/links?code=b95kmt7h58ug" target="_blank">Bike Wash ₹150</a>
+        <a href="https://payments.cashfree.com/links?code=I95kn0apt8ug" target="_blank">Car Wash ₹350</a>
+        <a href="https://payments.cashfree.com/links?code=N95kn1vcd8ug" target="_blank">Bus Wash ₹650</a>
+        <a href="https://payments.cashfree.com/links?code=p95kn4tfv8ug" target="_blank">Truck Wash ₹850</a>
         <div class="close" onclick="closeModal()">Close ✖</div>
       </div>
     </div>
@@ -320,16 +314,11 @@
         width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       Powered by <b>ChatGPT</b>, <b>Perplexity</b>
     </div>
   </div>
-
-  <!-- Developed -->
   <div class="developed">Developed By Tajamul</div>
-
-  <!-- Scripts -->
   <script>
     function openModal() {
       document.getElementById("paymentModal").style.display = "flex";
