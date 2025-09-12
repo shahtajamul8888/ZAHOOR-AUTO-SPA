@@ -4,121 +4,87 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZAHOOR AUTO SPA</title>
-  <link rel="stylesheet" href="style.css"/>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f8f9fa;
-      color: #222;
-    }
-
-    header {
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      background: #111;
-      color: #fff;
+      background: linear-gradient(-45deg, #1E3A8A, #2563EB, #1D4ED8, #3B82F6);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
     }
-
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    header {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px #00eaff, 0 0 20px #00c3ff;
+    }
     nav a {
       margin: 0 12px;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
-      color: #96c93d;
-      transition: 0.3s;
+      text-shadow: 0 0 5px #00aaff;
     }
-
-    nav a:hover {
-      color: #00b09b;
-    }
-
-    h1.glow, h2.glow {
-      color: #00b09b;
-      text-shadow: 0 0 10px rgba(0,176,155,0.7);
-    }
-
     section {
-      padding: 40px 20px;
-      text-align: center;
+      padding: 30px 15px;
     }
-
+    .glow {
+      text-shadow: 0 0 10px #00ffe0, 0 0 20px #00aaff, 0 0 30px #00cfff;
+    }
     .row {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
-
     .card {
-      background: #fff;
+      background: rgba(37, 99, 235, 0.9);
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 150px;
-      transition: transform 0.3s;
+      width: 180px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
     }
-
     .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .icon {
-      font-size: 40px;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 12px;
-    }
-
-    footer {
-      background: #111;
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .brand-badge {
-      display: flex;
-      align-items: center;
-      margin: 0 10px;
-    }
-
-    .badge-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 6px;
-    }
-
-    /* Floating Payment Button */
-    .pay-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #00b09b, #96c93d);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .pay-btn:hover {
-      background: linear-gradient(135deg, #96c93d, #00b09b);
       transform: scale(1.08);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      background: #1D4ED8;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    }
+    .card p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .qr-wrap {
+      margin-top: 30px;
+    }
+    .upi-qr {
+      width: 220px;
+      border: 5px solid #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ffe0;
+    }
+    footer {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 15px;
+      margin-top: 20px;
+      text-shadow: 0 0 8px #00aaff;
+    }
+    marquee {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #fffb00;
+      text-shadow: 0 0 10px #ffae00, 0 0 20px #ffaa00;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -127,75 +93,51 @@
   <!-- Header -->
   <header>
     <h1 class="glow">ZAHOOR AUTO SPA</h1>
-    <p>We wash with love and care</p>
+    <p>We wash with love and care 🚘✨</p>
     <nav>
       <a href="#services">Our Services</a>
-      <a href="#booking">Book Now</a>
-      <a href="#map">Locate Us</a>
+      <a href="#payment">Payment</a>
       <a href="#about"><b>About Us</b></a>
     </nav>
   </header>
+
+  <!-- Marquee Offers -->
+  <marquee behavior="scroll" direction="left">
+    💦 Welcome to Zahoor Auto Spa! | 🚗 Open Daily: 8:00 AM - 8:00 PM | 🎉 Special Care for Every Vehicle | ✨ Shine Guaranteed!
+  </marquee>
 
   <!-- Services -->
   <section id="services">
     <h2 class="glow">OUR SERVICES</h2>
     <div class="row">
-      <div class="card">
-        <span class="icon">🚿</span>
-        <p>Engine Wash</p>
-      </div>
-      <div class="card">
-        <span class="icon">🛞</span>
-        <p>Frame Wash</p>
-      </div>
-      <div class="card">
-        <span class="icon">🧼</span>
-        <p>Foam Wash</p>
-      </div>
-      <div class="card">
-        <span class="icon">🧽</span>
-        <p>Interior Wash</p>
-      </div>
-      <div class="card">
-        <span class="icon">🚘</span>
-        <p>Exterior Wash</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking -->
-  <section id="booking">
-    <h2 class="glow">BOOK YOUR WASH</h2>
-    <div class="row">
-      <div class="card click" onclick="bookWhatsApp('Bike',150)">
-        <span class="icon">🏍️</span>
+      <div class="card" onclick="openPayment('bike')">
+        🏍️
         <p>Bike - ₹150</p>
       </div>
-      <div class="card click" onclick="bookWhatsApp('Car',350)">
-        <span class="icon">🚗</span>
+      <div class="card" onclick="openPayment('car')">
+        🚗
         <p>Car - ₹350</p>
       </div>
-      <div class="card click" onclick="bookWhatsApp('Bus',600)">
-        <span class="icon">🚌</span>
+      <div class="card" onclick="openPayment('bus')">
+        🚌
         <p>Bus - ₹600</p>
       </div>
-      <div class="card click" onclick="bookWhatsApp('Truck',800)">
-        <span class="icon">🚛</span>
+      <div class="card" onclick="openPayment('truck')">
+        🚛
         <p>Truck - ₹800</p>
       </div>
     </div>
   </section>
 
-  <!-- Map -->
-  <section id="map">
-    <h2 class="glow">FIND US</h2>
-    <div class="map-wrap">
-      <iframe
-        title="Zahoor Auto Spa Location"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=34.2439742,74.7119933&z=16&output=embed">
-      </iframe>
+  <!-- Payment -->
+  <section id="payment">
+    <h2 class="glow">PAYMENT OPTIONS</h2>
+    <p>Click your service above or pay directly via UPI QR 👇</p>
+    <div class="qr-wrap">
+      <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Tajamul%20Farooq&cu=INR" target="_blank">
+        <img src="qr.png" alt="Pay via UPI QR" class="upi-qr"/>
+      </a>
+      <p>Scan or Tap QR to Pay with GPay, PhonePe, Paytm, AmazonPay</p>
     </div>
   </section>
 
@@ -208,52 +150,31 @@
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-left" aria-label="Co-powered credits">
-      <span class="glow co-label">CO-POWERED BY</span>
-
-      <!-- ChatGPT -->
-      <span class="brand-badge" role="img" aria-labelledby="cgptTitle">
-        <svg class="badge-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <title id="cgptTitle">ChatGPT</title>
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2 20 7v10l-8 5-8-5V7z"/>
-            <path d="M8 9c2 1 6 1 8 0M8 13c2 1 6 1 8 0M12 5v14"/>
-          </g>
-        </svg>
-        <span class="brand-text">ChatGPT</span>
-      </span>
-
-      <!-- Perplexity -->
-      <span class="brand-badge" role="img" aria-labelledby="pxTitle">
-        <svg class="badge-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <title id="pxTitle">Perplexity</title>
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M8 17V7h6a4 4 0 0 1 0 8H8z"/>
-          </g>
-        </svg>
-        <span class="brand-text">Perplexity</span>
-      </span>
-    </div>
-
-    <div class="footer-right">
-      <p><b>Developed by Tajamul</b></p>
-    </div>
+  <footer>
+    <p><b>Developed by Tajamul</b></p>
   </footer>
-
-  <!-- Floating Cashfree Payment Button -->
-  <a href="https://payments.cashfree.com/links?code=V95inm63hkd0" target="_blank" class="pay-btn">
-    💳 Pay Now
-  </a>
 
   <!-- Script -->
   <script>
-    function bookWhatsApp(vehicle, rate) {
-      const msg = `Hello, I want to book a ${vehicle} wash for ₹${rate}.`;
-      const url = `https://wa.me/919797472650?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank");
+    function openPayment(vehicle) {
+      let link = "";
+      switch(vehicle) {
+        case "bike":
+          link = "https://payments.cashfree.com/links?code=b95kmt7h58ug";
+          break;
+        case "car":
+          link = "https://payments.cashfree.com/links?code=I95kn0apt8ug";
+          break;
+        case "bus":
+          link = "https://payments.cashfree.com/links?code=N95kn1vcd8ug";
+          break;
+        case "truck":
+          link = "https://payments.cashfree.com/links?code=p95kn4tfv8ug";
+          break;
+      }
+      window.open(link, "_blank");
     }
   </script>
+
 </body>
 </html>
