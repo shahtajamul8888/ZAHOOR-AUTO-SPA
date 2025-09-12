@@ -5,6 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZAHOOR AUTO SPA</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #96c93d;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00b09b;
+    }
+
+    h1.glow, h2.glow {
+      color: #00b09b;
+      text-shadow: 0 0 10px rgba(0,176,155,0.7);
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 150px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .badge-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+    }
+
+    /* Floating Payment Button */
+    .pay-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #00b09b, #96c93d);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .pay-btn:hover {
+      background: linear-gradient(135deg, #96c93d, #00b09b);
+      transform: scale(1.08);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +131,6 @@
     <nav>
       <a href="#services">Our Services</a>
       <a href="#booking">Book Now</a>
-      <a href="#payment">Payment</a>
       <a href="#map">Locate Us</a>
       <a href="#about"><b>About Us</b></a>
     </nav>
@@ -26,23 +141,23 @@
     <h2 class="glow">OUR SERVICES</h2>
     <div class="row">
       <div class="card">
-        <span class="icon spin">🚿</span>
+        <span class="icon">🚿</span>
         <p>Engine Wash</p>
       </div>
       <div class="card">
-        <span class="icon float">🛞</span>
+        <span class="icon">🛞</span>
         <p>Frame Wash</p>
       </div>
       <div class="card">
-        <span class="icon bounce">🧼</span>
+        <span class="icon">🧼</span>
         <p>Foam Wash</p>
       </div>
       <div class="card">
-        <span class="icon pulse">🧽</span>
+        <span class="icon">🧽</span>
         <p>Interior Wash</p>
       </div>
       <div class="card">
-        <span class="icon swing">🚘</span>
+        <span class="icon">🚘</span>
         <p>Exterior Wash</p>
       </div>
     </div>
@@ -53,34 +168,21 @@
     <h2 class="glow">BOOK YOUR WASH</h2>
     <div class="row">
       <div class="card click" onclick="bookWhatsApp('Bike',150)">
-        <span class="icon bounce">🏍️</span>
+        <span class="icon">🏍️</span>
         <p>Bike - ₹150</p>
       </div>
       <div class="card click" onclick="bookWhatsApp('Car',350)">
-        <span class="icon pulse">🚗</span>
+        <span class="icon">🚗</span>
         <p>Car - ₹350</p>
       </div>
       <div class="card click" onclick="bookWhatsApp('Bus',600)">
-        <span class="icon swing">🚌</span>
+        <span class="icon">🚌</span>
         <p>Bus - ₹600</p>
       </div>
       <div class="card click" onclick="bookWhatsApp('Truck',800)">
-        <span class="icon float">🚛</span>
+        <span class="icon">🚛</span>
         <p>Truck - ₹800</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Payment -->
-  <section id="payment" class="payment">
-    <h2 class="glow">VIA UPI OPTION</h2>
-
-    <!-- Business QR Code (Direct Payment) -->
-    <div class="qr-wrap">
-      <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Tajamul%20YT&cu=INR" target="_blank">
-        <img src="qr.png" alt="Pay via UPI QR" class="upi-qr"/>
-      </a>
-      <p>Click or Scan the QR to Pay</p>
     </div>
   </section>
 
@@ -139,6 +241,11 @@
       <p><b>Developed by Tajamul</b></p>
     </div>
   </footer>
+
+  <!-- Floating Cashfree Payment Button -->
+  <a href="https://payments.cashfree.com/links?code=V95inm63hkd0" target="_blank" class="pay-btn">
+    💳 Pay Now
+  </a>
 
   <!-- Script -->
   <script>
