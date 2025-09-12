@@ -24,7 +24,7 @@
       width: 100vw;
       max-width: 100%;
       min-height: 100vh;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -72,10 +72,32 @@
       80% {opacity:1; transform: scale(1.05) translateY(5px);}
       100% {opacity:1; transform: scale(1);}
     }
+    .about-box {
+      background: rgba(21, 47, 82, 0.93);
+      border-radius: 14px;
+      padding: 12px 2vw;
+      margin: 0 auto 10px auto;
+      width: 95vw;
+      max-width: 480px;
+      box-shadow: 0 2px 20px #185cb660;
+    }
+    .about-title {
+      font-size: 1.2em;
+      font-weight: 800;
+      color: #85cdfa;
+      margin-bottom: 8px;
+      letter-spacing: .4px;
+    }
+    .about-quote {
+      font-size: 1em;
+      color: #c5e4ff;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
     .select-service {
       display: flex;
       flex-direction: column;
-      gap: 17px;
+      gap: 13px;
       align-items: center;
       justify-content: center;
       margin-top: 10px;
@@ -85,34 +107,45 @@
       background: linear-gradient(145deg,#19336a 60%, #1557b6 100%);
       box-shadow: 0 0 12px #1557b666, 0 2px 8px #000A;
       margin: 0 auto;
-      width: 90vw;
-      max-width: 410px;
-      padding: 16px 2vw;
+      width: 80vw;
+      max-width: 310px;
+      padding: 13px 2vw 7px 2vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
       transition: box-shadow .2s, transform .18s;
+      margin-bottom: 6px;
       position: relative;
-      margin-bottom: 8px;
     }
     .service-choice.selected, .service-choice:hover {
-      box-shadow: 0 0 17px #89c2ffcc, 0 1px 19px #153053d0;
-      transform: scale(1.03);
-      border: 2px solid #1557b6;
+      box-shadow: 0 0 22px 6px #89dfffcc, 0 1px 16px #1557b6e3;
+      transform: scale(1.07);
+      border: 2px solid #d9f7ff;
+      z-index:2;
+      animation: optionGlow 2.2s infinite alternate;
+    }
+    @keyframes optionGlow {
+      0%   { box-shadow: 0 0 22px 7px #89dfffcc, 0 1px 16px #1557b6e3;}
+      100% { box-shadow: 0 0 50px 16px #5ec0ffb0, 0 1px 30px #1557b6d0;}
     }
     .service-title {
-      font-size: 1.33em;
+      font-size: 1.08em;
       font-weight: 800;
       letter-spacing: .6px;
       color: #85cdfa;
       margin-bottom: 7px;
-      text-shadow: 0 0 5px #1557b6;
+      text-shadow: 0 0 18px #89dfff, 0 0 8px #1557b6a0;
       text-transform: uppercase;
+      transition: text-shadow .23s;
+    }
+    .service-choice.selected .service-title, .service-choice:hover .service-title {
+      text-shadow: 0 0 32px #caffff, 0 0 14px #45b9ff;
+      color: #dfffff;
     }
     .service-icon-img {
-      width: 68px;
-      height: 68px;
+      width: 42px;
+      height: 42px;
       display: flex;
       margin: 0 auto;
       justify-content: center;
@@ -120,77 +153,79 @@
     }
     .service-label {
       font-weight: 500;
-      font-size: 1em;
+      font-size: .98em;
       color: #85cdfa;
-      margin-top: 5px;
+      margin-top: 4px;
       margin-bottom: 0;
       text-shadow: 0 0 3px #1557b6;
     }
     .actions {
-      margin-top: 18px;
+      margin-top: 15px;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 9px;
       align-items: center;
       justify-content: center;
     }
     .action-btn, .pay-btn {
       margin: 0;
-      width: 84vw;
-      max-width: 375px;
-      padding: 14px 2vw;
-      border-radius: 13px;
+      width: 64vw;
+      max-width: 210px;
+      padding: 10px 2vw;
+      border-radius: 10px;
       background: #1557b6;
       color: #f9fafc;
       font-weight: 700;
-      font-size: 1.13em;
+      font-size: .98em;
       text-decoration: none;
-      box-shadow: 0 0 19px #1557b6a9;
+      box-shadow: 0 0 13px #1557b6a9;
       border: none;
-      transition: box-shadow 0.26s, transform 0.19s, background .19s;
+      transition: box-shadow 0.21s, transform 0.13s, background .14s;
       display: block;
       cursor: pointer;
     }
     .action-btn:hover, .pay-btn:hover {
       background: #122337;
       color: #aedffd;
-      box-shadow: 0 0 25px #1557b6;
-      transform: scale(1.06);
+      box-shadow: 0 0 18px #1557b6;
+      transform: scale(1.03);
     }
     .map {
       background: linear-gradient(90deg,#18365a 90%,#1557b6 100%);
       border-bottom: 2px solid #153053;
       box-shadow: 0 2px 18px 2px #15305344;
-      margin-top: 10px;
+      margin-top: 7px;
     }
     .map h2 {
       text-shadow: 0 0 15px #1557b6, 0 0 22px #153053;
       color: #b9d4fc;
-      font-size: 1.18em;
+      font-size: 1.12em;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
     .footer {
       text-align: center;
-      font-size: 1.1em;
-      margin-top: 22px;
-      text-shadow: 0 0 10px #1557b6, 0 0 20px #122043;
+      font-size: 1em;
+      margin-top: 18px;
+      text-shadow: 0 0 10px #1557b6, 0 0 18px #122043;
       color: #bbe6ff;
-      margin-bottom: 18px;
+      margin-bottom: 6px;
     }
     .developed {
-      position: fixed;
-      bottom: 6px;
-      right: 9px;
-      font-size: 1em;
-      text-shadow: 0 0 7px #1557b6, 0 0 12px #122043;
-      color: #1557b6;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 1.16em;
+      color: #fff;
       font-weight: bold;
+      text-shadow: 0 0 18px #1557b6, 0 0 30px #153053, 0 0 8px #1557b6, 0 0 2px #18365a;
+      background: none;
+      margin-top: 2px;
     }
     @media (max-width: 600px) {
-      .box, .map {padding: 10px 4vw;}
-      .service-icon-img { width:48px; height:48px;}
-      .action-btn, .pay-btn { font-size: 1em; }
+      .box, .map, .about-box {padding: 8px 3vw;}
+      .service-icon-img { width:31px; height:31px;}
+      .action-btn, .pay-btn { padding: 8px 0; font-size: .93em; }
+      .about-title { font-size: 1.05em;}
     }
   </style>
 </head>
@@ -200,18 +235,25 @@
     <div class="box header">
       <marquee>Zahoor Auto Spa</marquee>
     </div>
-
-    <!-- Service selection (vertical, mobile friendly) -->
+    <!-- About Us/Quote -->
+    <div class="about-box">
+      <div class="about-title">About Us</div>
+      <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>
+    </div>
+    <!-- Service selection (vertical, mobile friendly, glowing selection) -->
     <div class="box">
-      <h2 style="margin-bottom: 16px;">Choose What You Want to Wash</h2>
+      <h2 style="margin-bottom: 12px;">Choose What You Want to Wash</h2>
       <div class="select-service">
         <!-- Bike Wash SVG -->
         <div class="service-choice" onclick="selectService('bike')" id="bike-choice">
           <div class="service-title">Bike</div>
           <div class="service-icon-img">
-            <!-- Inline SVG from iconscout.com/icons/bike-wash, Vecteezy or Flaticon -->
-            <svg width="48" height="48" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#a5e3fc"/>
-              <path d="M10 22a4 4 0 1 1 0-8m12 8a4 4 0 1 0 0-8m-8.5-3.75L17 20m0-9v3.25L15.5 20m-3.5-13a2 2 0 0 1 4 0" stroke="#1557b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Modern, high-contrast bike SVG -->
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <circle cx="9" cy="24" r="5" fill="#87eafd"/>
+              <circle cx="24" cy="24" r="5" fill="#74afd2"/>
+              <rect x="15" y="17" width="6" height="2" rx="1" fill="#1557b6"/>
+              <path d="M9 19 L16 11 L20 19" stroke="#1557b6" stroke-width="2" fill="none"/>
             </svg>
           </div>
         </div>
@@ -219,12 +261,11 @@
         <div class="service-choice" onclick="selectService('car')" id="car-choice">
           <div class="service-title">Car</div>
           <div class="service-icon-img">
-            <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-              <rect x="8" y="14" width="16" height="6" rx="3" fill="#a5e3fc"/>
-              <rect x="6" y="20" width="20" height="5" rx="2.5" fill="#1557b6"/>
-              <circle cx="10" cy="26" r="2" fill="#1557b6"/>
-              <circle cx="22" cy="26" r="2" fill="#1557b6"/>
-              <path d="M10 16v-2a6 6 0 0 1 12 0v2" stroke="#1557b6" stroke-width="1.5"/>
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <rect x="7" y="17" width="18" height="6" rx="3" fill="#cbeffd"/>
+              <rect x="6" y="23" width="20" height="4" rx="2" fill="#1557b6"/>
+              <circle cx="11" cy="27" r="2" fill="#1557b6"/>
+              <circle cx="21" cy="27" r="2" fill="#1557b6"/>
             </svg>
           </div>
         </div>
@@ -232,12 +273,11 @@
         <div class="service-choice" onclick="selectService('bus')" id="bus-choice">
           <div class="service-title">Bus</div>
           <div class="service-icon-img">
-            <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-              <rect x="6" y="11" width="20" height="10" rx="3" fill="#a5e3fc"/>
-              <rect x="8" y="13" width="16" height="6" rx="1.5" fill="#1557b6"/>
-              <rect x="12" y="22" width="8" height="4" rx="1.5" fill="#1557b6"/>
-              <circle cx="10" cy="24" r="2" fill="#1557b6"/>
-              <circle cx="22" cy="24" r="2" fill="#1557b6"/>
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <rect x="5" y="12" width="22" height="10" rx="3" fill="#cbeffd"/>
+              <rect x="8" y="15" width="16" height="5" rx="1.5" fill="#1557b6"/>
+              <circle cx="11" cy="25" r="2" fill="#1557b6"/>
+              <circle cx="21" cy="25" r="2" fill="#1557b6"/>
             </svg>
           </div>
         </div>
@@ -245,28 +285,26 @@
         <div class="service-choice" onclick="selectService('truck')" id="truck-choice">
           <div class="service-title">Truck</div>
           <div class="service-icon-img">
-            <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-              <rect x="4" y="16" width="12" height="7" rx="2" fill="#a5e3fc"/>
-              <rect x="16" y="13" width="12" height="10" rx="3" fill="#1557b6"/>
-              <rect x="8" y="23" width="6" height="4" rx="2" fill="#1557b6"/>
-              <circle cx="8" cy="26" r="2" fill="#1557b6"/>
-              <circle cx="22" cy="26" r="2" fill="#1557b6"/>
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <rect x="3" y="17" width="12" height="7" rx="2" fill="#cbeffd"/>
+              <rect x="16" y="13" width="12" height="11" rx="3" fill="#1557b6"/>
+              <rect x="8" y="24" width="6" height="4" rx="2" fill="#1557b6"/>
+              <circle cx="8" cy="27" r="2" fill="#1557b6"/>
+              <circle cx="22" cy="27" r="2" fill="#1557b6"/>
             </svg>
           </div>
         </div>
       </div>
       <div class="actions" id="action-buttons"></div>
     </div>
-
     <!-- Map -->
     <div class="box map">
       <h2>Find Us</h2>
-      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
     <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>
+    <div class="developed">Developed By Tajamul</div>
   </div>
-  <div class="developed">Developed By Tajamul</div>
 <script>
 const serviceData = {
   bike: {
@@ -305,15 +343,9 @@ function selectService(type) {
   document.getElementById(type+'-choice').classList.add('selected');
   const d = serviceData[type];
   document.getElementById('action-buttons').innerHTML = `
-    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank">
-      Book on WhatsApp
-    </a>
-    <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">
-      Book via SMS
-    </a>
-    <button class="pay-btn" onclick="window.location='${d.payUrl}'">
-      Pay Now (${d.name} ${d.price})
-    </button>
+    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank">WhatsApp</a>
+    <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">SMS</a>
+    <button class="pay-btn" onclick="window.location='${d.payUrl}'">Pay ₹${d.price.substr(1)}</button>
   `;
 }
 </script>
