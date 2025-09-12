@@ -20,7 +20,6 @@
       padding: 30px;
     }
 
-    /* Common box style */
     .box {
       width: 90%;
       max-width: 900px;
@@ -28,35 +27,52 @@
       border-radius: 15px;
       text-align: center;
       box-shadow: 0 0 15px rgba(255,255,255,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .box:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(255,255,255,0.6);
-    }
-
-    /* Header box */
+    /* Header */
     .header {
       background: rgba(255, 0, 0, 0.6);
-      color: white;
       font-size: 2.5em;
       font-weight: bold;
       letter-spacing: 2px;
-      text-shadow: 0 0 10px #ff4444, 0 0 20px #ff6666, 0 0 30px #ff9999;
+      text-shadow: 0 0 10px #ff4444, 0 0 20px #ff6666;
     }
 
-    /* Services box */
+    /* Services */
     .services {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
     }
     .services h2 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
       text-shadow: 0 0 10px cyan, 0 0 20px cyan;
     }
+    .services p {
+      font-size: 1.2em;
+    }
+    .services b {
+      color: #fff;
+      text-shadow: 0 0 5px cyan, 0 0 10px cyan;
+    }
 
-    /* Booking box */
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .icons img {
+      width: 80px;
+      height: 80px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 15px;
+    }
+
+    .icons img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px cyan;
+    }
+
+    /* Booking */
     .booking {
       background: rgba(34, 139, 34, 0.6);
     }
@@ -72,117 +88,73 @@
       color: #000;
       font-weight: bold;
       text-decoration: none;
-      transition: 0.3s;
     }
     .booking a:hover {
       background: #000;
       color: #fff;
       box-shadow: 0 0 15px lime;
+      transform: scale(1.1);
     }
 
-    /* Cashfree payments */
+    /* Payments */
     .payments {
       background: rgba(0, 0, 0, 0.6);
     }
     .payments h2 {
       text-shadow: 0 0 10px orange, 0 0 20px orange;
     }
-    .payments a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: #fff;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .payments a:hover {
-      background: #000;
-      color: #fff;
-      box-shadow: 0 0 15px orange;
-    }
 
-    /* Map box */
+    /* Map */
     .map {
       background: rgba(70, 130, 180, 0.7);
     }
     .map h2 {
-      text-shadow: 0 0 10px yellow, 0 0 20px yellow;
-    }
-
-    /* Footer */
-    .footer {
-      background: rgba(0,0,0,0.8);
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .footer span {
-      color: cyan;
-      text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
-    }
-    .footer strong {
-      color: #ff4444;
-      text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    
     <!-- Header -->
-    <div class="box header">
-      ZAHOOR AUTO SPA
-    </div>
+    <div class="box header">Zahoor Auto Spa</div>
 
-    <!-- Our Services -->
+    <!-- Services -->
     <div class="box services">
       <h2>Our Services</h2>
-      <p>✨ Bike Wash | 🚗 Car Wash | 🚌 Bus Wash | 🚚 Truck Wash</p>
-      <p>We also offer polishing, greasing & diesel wash.</p>
+      <p><b>Bike Wash</b>, <b>Car Wash</b>, <b>Bus Wash</b>, <b>Truck Wash</b></p>
+      <div class="icons">
+        <img src="https://img.icons8.com/ios-filled/100/motorcycle.png" alt="Bike">
+        <img src="https://img.icons8.com/ios-filled/100/car.png" alt="Car">
+        <img src="https://img.icons8.com/ios-filled/100/bus.png" alt="Bus">
+        <img src="https://img.icons8.com/ios-filled/100/truck.png" alt="Truck">
+      </div>
     </div>
 
-    <!-- Booking via WhatsApp -->
+    <!-- Booking -->
     <div class="box booking">
-      <h2>Booking</h2>
-      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bike%20wash">Book Bike</a>
-      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Car%20wash">Book Car</a>
-      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bus%20wash">Book Bus</a>
-      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Truck%20wash">Book Truck</a>
+      <h2>Book Now</h2>
+      <a href="https://wa.me/919797472650" target="_blank">Book on WhatsApp</a>
+      <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20wash">Book via SMS</a>
     </div>
 
-    <!-- Cashfree Payment -->
+    <!-- Payments -->
     <div class="box payments">
-      <h2>Cashfree Payment Options</h2>
-      <a href="https://payments.cashfree.com/links?code=b95kmt7h58ug" target="_blank">Pay for Bike</a>
-      <a href="https://payments.cashfree.com/links?code=I95kn0apt8ug" target="_blank">Pay for Car</a>
-      <a href="https://payments.cashfree.com/links?code=N95kn1vcd8ug" target="_blank">Pay for Bus</a>
-      <a href="https://payments.cashfree.com/links?code=p95kn4tfv8ug" target="_blank">Pay for Truck</a>
+      <h2>Payment Options</h2>
+      <p>Secure Payments powered by Cashfree</p>
+    </div>
+
+    <!-- About -->
+    <div class="box">
+      <h2>About Us</h2>
+      <p>We wash Cars with love and care 🚗❤️</p>
     </div>
 
     <!-- Map -->
     <div class="box map">
       <h2>Find Us</h2>
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d-122.4194!3d37.7749" 
-        width="100%" 
-        height="250" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153..." 
+              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      Powered by <span>ChatGPT</span> & <span>Perplexity</span><br>
-      <strong>Developed by Tajamul</strong>
-    </div>
-
   </div>
 </body>
 </html>
