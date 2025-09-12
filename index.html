@@ -1,180 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZAHOOR AUTO SPA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahoor Auto Spa</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      color: white;
-      text-align: center;
-      background: linear-gradient(-45deg, #1E3A8A, #2563EB, #1D4ED8, #3B82F6);
-      background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
-    }
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-    header {
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 5px;
-      text-shadow: 0 0 10px #00eaff, 0 0 20px #00c3ff;
-    }
-    nav a {
-      margin: 0 12px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
       color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      text-shadow: 0 0 5px #00aaff;
     }
-    section {
-      padding: 30px 15px;
-    }
-    .glow {
-      text-shadow: 0 0 10px #00ffe0, 0 0 20px #00aaff, 0 0 30px #00cfff;
-    }
-    .row {
+
+    .container {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 30px;
     }
-    .card {
-      background: rgba(37, 99, 235, 0.9);
+
+    /* Common box style */
+    .box {
+      width: 90%;
+      max-width: 900px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255,255,255,0.6);
+    }
+
+    /* Header box */
+    .header {
+      background: rgba(255, 0, 0, 0.6);
+      color: white;
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #ff4444, 0 0 20px #ff6666, 0 0 30px #ff9999;
+    }
+
+    /* Services box */
+    .services {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .services h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    }
+
+    /* Booking box */
+    .booking {
+      background: rgba(34, 139, 34, 0.6);
+    }
+    .booking h2 {
+      text-shadow: 0 0 10px lime, 0 0 20px lime;
+    }
+    .booking a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .booking a:hover {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 0 15px lime;
+    }
+
+    /* Cashfree payments */
+    .payments {
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .payments h2 {
+      text-shadow: 0 0 10px orange, 0 0 20px orange;
+    }
+    .payments a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .payments a:hover {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 0 15px orange;
+    }
+
+    /* Map box */
+    .map {
+      background: rgba(70, 130, 180, 0.7);
+    }
+    .map h2 {
+      text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0,0,0,0.8);
       padding: 20px;
       border-radius: 15px;
-      width: 180px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
-    }
-    .card:hover {
-      transform: scale(1.08);
-      background: #1D4ED8;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-    }
-    .card p {
-      margin-top: 10px;
+      text-align: center;
       font-weight: bold;
+      font-size: 1.1em;
     }
-    .qr-wrap {
-      margin-top: 30px;
+    .footer span {
+      color: cyan;
+      text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 30px cyan;
     }
-    .upi-qr {
-      width: 220px;
-      border: 5px solid #fff;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #00ffe0;
-    }
-    footer {
-      background: rgba(15, 23, 42, 0.9);
-      padding: 15px;
-      margin-top: 20px;
-      text-shadow: 0 0 8px #00aaff;
-    }
-    marquee {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #fffb00;
-      text-shadow: 0 0 10px #ffae00, 0 0 20px #ffaa00;
-      margin-bottom: 20px;
+    .footer strong {
+      color: #ff4444;
+      text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <h1 class="glow">ZAHOOR AUTO SPA</h1>
-    <p>We wash with love and care 🚘✨</p>
-    <nav>
-      <a href="#services">Our Services</a>
-      <a href="#payment">Payment</a>
-      <a href="#about"><b>About Us</b></a>
-    </nav>
-  </header>
-
-  <!-- Marquee Offers -->
-  <marquee behavior="scroll" direction="left">
-    💦 Welcome to Zahoor Auto Spa! | 🚗 Open Daily: 8:00 AM - 8:00 PM | 🎉 Special Care for Every Vehicle | ✨ Shine Guaranteed!
-  </marquee>
-
-  <!-- Services -->
-  <section id="services">
-    <h2 class="glow">OUR SERVICES</h2>
-    <div class="row">
-      <div class="card" onclick="openPayment('bike')">
-        🏍️
-        <p>Bike - ₹150</p>
-      </div>
-      <div class="card" onclick="openPayment('car')">
-        🚗
-        <p>Car - ₹350</p>
-      </div>
-      <div class="card" onclick="openPayment('bus')">
-        🚌
-        <p>Bus - ₹600</p>
-      </div>
-      <div class="card" onclick="openPayment('truck')">
-        🚛
-        <p>Truck - ₹800</p>
-      </div>
+  <div class="container">
+    
+    <!-- Header -->
+    <div class="box header">
+      ZAHOOR AUTO SPA
     </div>
-  </section>
 
-  <!-- Payment -->
-  <section id="payment">
-    <h2 class="glow">PAYMENT OPTIONS</h2>
-    <p>Click your service above or pay directly via UPI QR 👇</p>
-    <div class="qr-wrap">
-      <a href="upi://pay?pa=shahtajamul88-2@okicici&pn=Tajamul%20Farooq&cu=INR" target="_blank">
-        <img src="qr.png" alt="Pay via UPI QR" class="upi-qr"/>
-      </a>
-      <p>Scan or Tap QR to Pay with GPay, PhonePe, Paytm, AmazonPay</p>
+    <!-- Our Services -->
+    <div class="box services">
+      <h2>Our Services</h2>
+      <p>✨ Bike Wash | 🚗 Car Wash | 🚌 Bus Wash | 🚚 Truck Wash</p>
+      <p>We also offer polishing, greasing & diesel wash.</p>
     </div>
-  </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2 class="glow"><b>ABOUT US</b></h2>
-    <p>
-      “Every car deserves care, every wash adds shine — at Zahoor Auto Spa, we bring back the sparkle ✨”
-    </p>
-  </section>
+    <!-- Booking via WhatsApp -->
+    <div class="box booking">
+      <h2>Booking</h2>
+      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bike%20wash">Book Bike</a>
+      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Car%20wash">Book Car</a>
+      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Bus%20wash">Book Bus</a>
+      <a href="https://wa.me/9797472650?text=I%20want%20to%20book%20a%20Truck%20wash">Book Truck</a>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <p><b>Developed by Tajamul</b></p>
-  </footer>
+    <!-- Cashfree Payment -->
+    <div class="box payments">
+      <h2>Cashfree Payment Options</h2>
+      <a href="https://payments.cashfree.com/links?code=b95kmt7h58ug" target="_blank">Pay for Bike</a>
+      <a href="https://payments.cashfree.com/links?code=I95kn0apt8ug" target="_blank">Pay for Car</a>
+      <a href="https://payments.cashfree.com/links?code=N95kn1vcd8ug" target="_blank">Pay for Bus</a>
+      <a href="https://payments.cashfree.com/links?code=p95kn4tfv8ug" target="_blank">Pay for Truck</a>
+    </div>
 
-  <!-- Script -->
-  <script>
-    function openPayment(vehicle) {
-      let link = "";
-      switch(vehicle) {
-        case "bike":
-          link = "https://payments.cashfree.com/links?code=b95kmt7h58ug";
-          break;
-        case "car":
-          link = "https://payments.cashfree.com/links?code=I95kn0apt8ug";
-          break;
-        case "bus":
-          link = "https://payments.cashfree.com/links?code=N95kn1vcd8ug";
-          break;
-        case "truck":
-          link = "https://payments.cashfree.com/links?code=p95kn4tfv8ug";
-          break;
-      }
-      window.open(link, "_blank");
-    }
-  </script>
+    <!-- Map -->
+    <div class="box map">
+      <h2>Find Us</h2>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d-122.4194!3d37.7749" 
+        width="100%" 
+        height="250" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
 
+    <!-- Footer -->
+    <div class="footer">
+      Powered by <span>ChatGPT</span> & <span>Perplexity</span><br>
+      <strong>Developed by Tajamul</strong>
+    </div>
+
+  </div>
 </body>
 </html>
