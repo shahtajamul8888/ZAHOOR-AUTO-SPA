@@ -6,10 +6,16 @@
   <title>Zahoor Auto Spa</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #fff;
+      margin: 0;
+      color: #ece7e1;
+      background: linear-gradient(-45deg, #C9B98F, #1e3c72, #474747, #B89D62);
+      background-size: 400% 400%;
+      animation: gradientBG 14s ease-in-out infinite;
+    }
+    @keyframes gradientBG {
+      0%,100% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
     }
 
     .container {
@@ -26,107 +32,258 @@
       padding: 25px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      box-shadow: 0 2px 18px 2px #b89d6255,
+                  0 0 40px 3px #47474750;
+      /* premium floating animation */
+      animation: floatBox 5s cubic-bezier(.4,.53,.59,1.02) infinite;
+    }
+    @keyframes floatBox {
+      0%,100% { transform: translateY(0);}
+      50% { transform: translateY(-8px);}
     }
 
     /* Header */
     .header {
-      background: rgba(255, 0, 0, 0.6);
-      font-size: 2.5em;
+      background: linear-gradient(90deg,#B89D62 70%,#1e3c72 100%);
+      font-size: 2em;
       font-weight: bold;
       letter-spacing: 2px;
-      text-shadow: 0 0 10px #ff4444, 0 0 20px #ff6666;
+      text-shadow: 0 0 12px #b89d62, 0 0 22px #444;
+      border-bottom: 2px solid #C9B98F;
+      animation: headerGlow 3.3s ease-in-out infinite;
+    }
+    @keyframes headerGlow {
+      0%,100% { box-shadow: 0 0 18px #C9B98F; }
+      50% { box-shadow: 0 0 40px #B89D62; }
+    }
+    .header marquee {
+      font-size: 2.4em;
+      font-weight: bold;
+      opacity: 0;
+      animation: textFadeIn 2.5s cubic-bezier(.18,.52,.51,.96) forwards;
+      color: #C9B98F;
+    }
+    @keyframes textFadeIn {
+      0% {opacity:0; transform: scale(0.95) translateY(-30px);}
+      80% {opacity:1; transform: scale(1.05) translateY(5px);}
+      100% {opacity:1; transform: scale(1);}
     }
 
-    /* Services */
+    /* Services (now Foam Wash etc.) */
     .services {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(71, 71, 71, 0.72);
     }
     .services h2 {
-      text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+      text-shadow: 0 0 12px #ffda7a, 0 0 25px #B89D62;
+      color: #fff;
     }
     .services p {
-      font-size: 1.2em;
+      font-size: 1.22em;
     }
-    .services b {
-      color: #fff;
-      text-shadow: 0 0 5px cyan, 0 0 10px cyan;
-    }
-
-    .icons {
+    .service-icons {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
+      gap: 27px;
+      margin-top: 22px;
+      flex-wrap: wrap;
     }
-
-    .icons img {
-      width: 80px;
-      height: 80px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      border-radius: 15px;
+    .service-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 18px;
+      background: linear-gradient(135deg,#fff6 30%, #B89D62 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 23px #C9B98F33, 0 2px 9px #47474755;
+      animation: iconBounce 2.1s infinite;
     }
-
-    .icons img:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 20px cyan;
+    @keyframes iconBounce {
+      0%,100% { transform: translateY(0);}
+      50% { transform: translateY(-13px);}
     }
 
     /* Booking */
     .booking {
-      background: rgba(34, 139, 34, 0.6);
+      background: linear-gradient(90deg,#474747 80%,#b89d62 100%);
+      border: 2px solid #B89D62;
     }
     .booking h2 {
-      text-shadow: 0 0 10px lime, 0 0 20px lime;
+      text-shadow: 0 0 14px #C9B98F, 0 0 25px #B89D62;
     }
     .booking a {
-      display: inline-block;
       margin: 10px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: #fff;
-      color: #000;
-      font-weight: bold;
+      padding: 14px 21px;
+      border-radius: 13px;
+      background: #B89D62;
+      color: #232a32;
+      font-weight: 700;
       text-decoration: none;
+      transition: box-shadow 0.3s, transform 0.18s;
+      box-shadow: 0 0 17px #c9b98f60;
     }
-    .booking a:hover {
-      background: #000;
-      color: #fff;
-      box-shadow: 0 0 15px lime;
-      transform: scale(1.1);
+    .booking a:hover, .booking a:focus {
+      background: #474747;
+      color: #f3efea;
+      box-shadow: 0 0 24px #B89D6288;
+      transform: scale(1.10);
     }
 
     /* Payments */
     .payments {
-      background: rgba(0, 0, 0, 0.6);
+      background: linear-gradient(75deg,#B89D62 60%, #474747 100%);
+      border-top: 2px solid #C9B98F;
     }
     .payments h2 {
-      text-shadow: 0 0 10px orange, 0 0 20px orange;
+      text-shadow: 0 0 11px #ffda7a, 0 0 22px #B89D62;
+    }
+    .pay-btn {
+      margin: 10px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #C9B98F;
+      color: #474747;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.29s;
+      box-shadow: 0 0 12px #B89D6269;
+    }
+    .pay-btn:hover {
+      background: #474747;
+      color: #C9B98F;
+      box-shadow: 0 0 19px #C9B98FAB;
+      transform: scale(1.13);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #232a32;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      width: 295px;
+      box-shadow: 0 0 23px #B89D62, 0 2px 10px #47474777;
+      border: 1px solid #C9B98F;
+      animation: modalIn 1.1s cubic-bezier(.22,.61,.36,1.0) forwards;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.7);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .modal-content h3 {
+      margin-bottom: 20px;
+      text-shadow: 0 0 16px #B89D62;
+      color: #B89D62
+    }
+    .modal-content a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      background: #B89D62;
+      color: #232a32;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 7px #c9b98f44;
+    }
+    .modal-content a:hover {
+      background: #474747;
+      color: #B89D62;
+      box-shadow: 0 0 15px #B89D62;
+      transform: scale(1.07);
+    }
+    .close {
+      margin-top: 20px;
+      color: #ea3636;
+      cursor: pointer;
+      font-weight: bold;
+      text-shadow: 0 0 14px #ea3636;
     }
 
     /* Map */
     .map {
-      background: rgba(70, 130, 180, 0.7);
+      background: linear-gradient(90deg,#C9B98F 90%,#232a32 100%);
+      border-bottom: 2px solid #B89D62;
     }
     .map h2 {
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      text-shadow: 0 0 15px #B89D62, 0 0 22px #C9B98F;
+    }
+    .footer {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 22px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #B89D62;
+      color: #C9B98F;
+    }
+    .developed {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 1em;
+      text-shadow: 0 0 10px #B89D62, 0 0 20px #474747;
+      color: #b89d62;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Header -->
-    <div class="box header">Zahoor Auto Spa</div>
+    <div class="box header">
+      <marquee>Zahoor Auto Spa</marquee>
+    </div>
 
-    <!-- Services -->
+    <!-- Services / Foam Wash, Greasing, Diesel Wash, Polish -->
     <div class="box services">
-      <h2>Our Services</h2>
-      <p><b>Bike Wash</b>, <b>Car Wash</b>, <b>Bus Wash</b>, <b>Truck Wash</b></p>
-      <div class="icons">
-        <img src="https://img.icons8.com/ios-filled/100/motorcycle.png" alt="Bike">
-        <img src="https://img.icons8.com/ios-filled/100/car.png" alt="Car">
-        <img src="https://img.icons8.com/ios-filled/100/bus.png" alt="Bus">
-        <img src="https://img.icons8.com/ios-filled/100/truck.png" alt="Truck">
+      <h2>Our Professional Treatments</h2>
+      <p>
+        <b>Foam Wash</b>, 
+        <b>Greasing</b>, 
+        <b>Diesel Wash</b>, 
+        <b>Polish</b>
+      </p>
+      <div class="service-icons">
+        <!-- Add premium animated SVG icons below by pasting SVG code for each -->
+        <div class="service-icon">
+          <!-- Animated SVG icon: Bike -->
+          <!-- Paste SVG embed from loading.io/icons or iconscout or similar -->
+          <!-- Example: <img src="..." alt="Bike Icon"> -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Car -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Bus -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Truck -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Foam Wash -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Greasing -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Diesel Wash -->
+        </div>
+        <div class="service-icon">
+          <!-- Animated SVG icon: Polish -->
+        </div>
       </div>
     </div>
 
@@ -140,21 +297,46 @@
     <!-- Payments -->
     <div class="box payments">
       <h2>Payment Options</h2>
-      <p>Secure Payments powered by Cashfree</p>
+      <a class="pay-btn" href="javascript:void(0)" onclick="openModal()">Pay Online (Cashfree UPI)</a>
     </div>
 
-    <!-- About -->
-    <div class="box">
-      <h2>About Us</h2>
-      <p>We wash Cars with love and care 🚗❤️</p>
+    <!-- Modal Popup -->
+    <div id="paymentModal" class="modal">
+      <div class="modal-content">
+        <h3>Select Treatment to Pay</h3>
+        <a href="https://payments.cashfree.com/links?code=b95kmt7h58ug" target="_blank">Foam Wash ₹150</a>
+        <a href="https://payments.cashfree.com/links?code=I95kn0apt8ug" target="_blank">Greasing ₹350</a>
+        <a href="https://payments.cashfree.com/links?code=N95kn1vcd8ug" target="_blank">Diesel Wash ₹650</a>
+        <a href="https://payments.cashfree.com/links?code=p95kn4tfv8ug" target="_blank">Polish ₹850</a>
+        <div class="close" onclick="closeModal()">Close ✖</div>
+      </div>
     </div>
 
     <!-- Map -->
     <div class="box map">
       <h2>Find Us</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153..." 
-              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe 
+        src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" 
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Powered by <b>ChatGPT</b>, <b>Perplexity</b>
     </div>
   </div>
+
+  <!-- Developed -->
+  <div class="developed">Developed By Tajamul</div>
+
+  <!-- Scripts -->
+  <script>
+    function openModal() {
+      document.getElementById("paymentModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("paymentModal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
