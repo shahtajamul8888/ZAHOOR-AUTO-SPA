@@ -1,276 +1,375 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZAHOOR AUTO SPA</title>
-  <!-- Lottie Player CDN -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <style>
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #111 60%, #0f468e 100%);
-      font-family: 'Poppins', Arial, sans-serif;
-      color: #e6e8ea;
-      min-height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8"/>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Zahoor Auto Spa</title>  
+  <style>  
+    /* Smooth scroll for whole page */
+    html {
+      scroll-behavior: smooth;
     }
-    .container {
-      width: 100vw;
-      max-width: 450px;
-      margin: 0 auto;
-      padding-bottom: 12px;
-      border: 4px solid #000;
-      border-radius: 24px;
-      background: #181818;
-      box-shadow: 0 0 26px #222;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      background: #0f468e;
-      border-bottom: 3px solid #000;
-      padding: 12px 0;
-      box-shadow: 0 4px 14px #222;
-    }
-    .marquee__inner {
-      display: flex;
-      animation: marquee 16s linear infinite;
-      font-size: 1.7em;
-      color: #fff;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0%);}
-      100% { transform: translateX(-60%);}
-    }
-    .services-title {
-      text-align: center;
-      margin: 36px 0 20px;
-      font-size: 2em;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #08fc5f;
-      text-shadow: 0 2px 8px #222;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 420px;
-      margin: 0 auto 32px;
-      padding: 0 10px;
-      border-radius: 18px;
-      background: rgba(18,28,38,0.66);
-      box-shadow: 0 0 18px #222;
-    }
-    .service-card {
-      background: #1160c2;
-      padding: 18px 10px 18px 10px;
-      border-radius: 16px;
-      box-shadow: 0 6px 24px #022d4f44;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.18s;
-    }
-    .service-card:hover {
-      transform: scale(1.04);
-      box-shadow: 0 12px 28px #075da4;
-    }
-    .animated-logo {
-      width: 68px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #0ce;
-      margin-bottom: 7px;
-    }
-    .service-info h3 {
-      font-size: 1.17em;
-      margin: 0 0 6px;
-      font-weight: 700;
-      letter-spacing: .3px;
-    }
-    .service-info a,
-    .service-info button {
-      display: block;
-      margin: 4px 0;
-      font-size: 1em;
-      padding: 7px 15px;
-      border-radius: 6px;
-      border: none;
-      text-decoration: none;
-      color: #fff;
-      background: #08fc5f;
-      font-weight: bold;
-      transition: background 0.14s;
-      cursor: pointer;
-      box-shadow: 0 2px 8px #1a1;
-      text-align: center;
-    }
-    .service-info a:hover,
-    .service-info button:hover {
-      background: #fca708;
-      color: #222;
-    }
-    .map-section {
-      max-width: 430px;
-      margin: 0 auto 30px;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 0 22px #181;
-      background: #222;
-      text-align: center;
-    }
-    .map-title {
-      color: #08fc5f;
-      letter-spacing:2px;
-      font-size: 1.2em;
-      margin-bottom: 14px;
-      font-weight: bold;
-    }
-    .footer, .developed {
-      text-align: center;
-      font-size: 1em;
-      margin-top: 14px;
-      color: #b6bee6;
-    }
-    .developed {
-      color: #63a9ff;
-      font-weight: bold;
-      background: none;
+    body {  
+      font-family: 'Poppins', sans-serif;  
+      margin: 0;  
+      color: #edf6fc;  
+      background: linear-gradient(120deg, #122043 0%, #1557b6 100%);  
+      background-size: 400% 400%;  
+      animation: gradientBG 16s ease-in-out infinite;  
+      min-height: 100vh;  
+      box-sizing: border-box;  
+      width: 100vw;  
+    }  
+    @keyframes gradientBG {  
+      0%,100% {background-position: 0% 50%;}  
+      50% {background-position: 100% 50%;}  
+    }  
+    .container {  
+      width: 100vw;  
+      max-width: 100%;  
+      min-height: 100vh;  
+      padding-bottom: 10px;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: stretch;  
+      gap: 14px;
+      scroll-padding-top: 60px; 
+    }  
+    .box {  
+      margin: 0 auto;  
+      width: 96vw;  
+      max-width: 420px;  
+      padding: 9px 2vw 9px 2vw;  
+      border-radius: 17px;  
+      text-align: center;  
+      background: rgba(24,37,68,0.5);  
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 30px rgba(21, 47, 82, 0.6);
+      animation: floatBox 6s cubic-bezier(.4,.53,.59,1.02) infinite;  
+      margin-bottom: 0;  
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }  
+    @keyframes floatBox {  
+      0%,100% { transform: translateY(0);}  
+      50% { transform: translateY(-7px);}  
+    }  
+    .header {  
+      background: linear-gradient(90deg, #122043 70%, #1557b6 100%);  
+      font-size: 1.25em;  
+      font-weight: 700;  
+      letter-spacing: 2px;  
+      text-shadow: 0 0 8px #2055b6;  
+      border-bottom: 2px solid #1557b6;  
+      animation: headerGlow 3.3s ease-in-out infinite;  
+      color: #edf6fc;  
+      margin-top: 8px;  
+      padding: 10px 0;  
+      border-radius: 9px;  
+      min-width: 140px;  
+      max-width: 220px;  
+      display: inline-block;  
+      margin-left: auto;  
+      margin-right: auto;  
       font-family: 'Georgia', serif;
-      margin-bottom: 10px;
-      text-shadow: 0 0 12px #47d6ff, 0 0 5px #015aa8;
+    }  
+    @keyframes headerGlow {  
+      0%,100% { box-shadow: 0 0 12px #1557b6;}  
+      50% { box-shadow: 0 0 22px #122043;}  
+    }  
+    .header marquee {  
+      font-size: 1.3em;  
+      font-weight: bold;  
+      opacity: 0;  
+      animation: textFadeIn 2.1s cubic-bezier(.18,.52,.51,.96) forwards;  
+    }  
+    @keyframes textFadeIn {  
+      0% {opacity:0; transform: scale(0.95) translateY(-22px);}  
+      80% {opacity:1; transform: scale(1.05) translateY(4px);}  
+      100% {opacity:1; transform: scale(1);}  
+    }  
+    .about-box {  
+      background: rgba(21, 47, 82, 0.7);  
+      border-radius: 13px;  
+      padding: 12px 2vw;  
+      margin: 0 auto 7px auto;  
+      width: 94vw;  
+      max-width: 370px;  
+      box-shadow: 0 4px 25px #185cb680;  
+      font-family: 'Georgia', serif;
+    }  
+    .about-title {  
+      font-size: 1.1em;  
+      font-weight: 700;  
+      color: #85cdfa;  
+      margin-bottom: 6px;  
+      letter-spacing: .4px;  
+    }  
+    .about-quote {  
+      font-size: 1em;  
+      color: #c5e4ff;  
+      font-style: italic;  
+      margin-bottom: 8px;  
+      line-height: 1.35;  
+    }  
+    .select-service {  
+      display: flex;  
+      flex-direction: column;  
+      gap: 12px;  
+      align-items: center;  
+      justify-content: center;  
+      margin-top: 8px;  
+    }  
+    .service-choice {  
+      border-radius: 13px;  
+      background: rgba(25, 51, 106, 0.6);  
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 8px #1557b666, 0 2px 4px #000A;  
+      margin: 0 auto 3px auto;  
+      width: 66vw;  
+      max-width: 160px;  
+      padding: 10px 3vw 6px 3vw;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      cursor: pointer;  
+      transition: box-shadow .3s, transform .25s;  
+      position: relative;  
+      font-weight: 600;
+      font-size: 1em;
+      color: #ccf3ff;
+    }  
+    .service-choice.selected, .service-choice:hover {  
+      box-shadow: 0 0 28px 6px #37b5ffcc, 0 1px 14px #1557b6e3;  
+      transform: scale(1.1);  
+      border: 2px solid #d9f7ff;  
+      z-index: 2;  
+      animation: optionGlow 2.2s infinite alternate;  
+    }  
+    @keyframes optionGlow {  
+      0%   { box-shadow: 0 0 18px 6px #8bf2ffcc, 0 1px 10px #1557b6e3;}  
+      100% { box-shadow: 0 0 28px 8px #37b5ff80, 0 1px 16px #1557b6d0;}  
+    }  
+    .service-title {  
+      font-size: 1em;  
+      font-weight: 700;  
+      letter-spacing: .6px;  
+      color: #85cdfa;  
+      margin-bottom: 4px;  
+      text-shadow: 0 0 14px #89dfff, 0 0 6px #1557b6a0;  
+      text-transform: uppercase;  
+      transition: text-shadow .3s;  
+      font-family: 'Poppins', sans-serif;
+    }  
+    .service-choice.selected .service-title, .service-choice:hover .service-title {  
+      text-shadow: 0 0 22px #caffff, 0 0 12px #45b9ff;  
+      color: #dfffff;  
+    }  
+    .service-icon-img {  
+      width: 24px;  
+      height: 24px;  
+      display: flex;  
+      margin: 0 auto;  
+      justify-content: center;  
+      align-items: center;  
+      filter: drop-shadow(0 0 2px #1557b6cc);
+    }  
+    .actions {  
+      margin-top: 15px;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 12px;  
+      align-items: center;  
+      justify-content: center;  
+    }  
+    .action-btn, .pay-btn {  
+      margin: 0;  
+      width: 38vw;  
+      max-width: 100px;  
+      padding: 8px 0;  
+      border-radius: 12px;  
+      background: #1557b6;  
+      color: #f9fafc;  
+      font-weight: 700;  
+      font-size: 0.9em;  
+      text-decoration: none;  
+      box-shadow: 0 0 10px #1557b6cc;  
+      border: none;  
+      transition: box-shadow 0.3s, transform 0.2s, background 0.2s;  
+      display: block;  
+      cursor: pointer;  
+      font-family: 'Poppins', sans-serif;
+    }  
+    .action-btn:hover, .pay-btn:hover {  
+      background: #122337;  
+      color: #aedffd;  
+      box-shadow: 0 0 16px #1557b6cc;  
+      transform: scale(1.08);  
+    }  
+    .map {  
+      background: linear-gradient(90deg,#18365a 90%,#1557b6 100%);  
+      border-bottom: 2px solid #153053;  
+      box-shadow: 0 2px 22px 4px #15305355;  
+      margin-top: 6px;  
+      border-radius: 17px;  
+      padding: 6px 0;  
+    }  
+    .map h2 {  
+      text-shadow: 0 0 14px #1557b6, 0 0 22px #153053;  
+      color: #b9d4fc;  
+      font-size: 1.1em;  
+      font-weight: 700;  
+      margin-bottom: 8px;  
+    }  
+    .footer {  
+      text-align: center;  
+      font-size: 1em;  
+      margin-top: 12px;  
+      text-shadow: 0 0 10px #1557b6, 0 0 18px #122043;  
+      color: #bbe6ff;  
+      margin-bottom: 6px;  
+      font-family: 'Georgia', serif;
+      font-weight: 600;
+    }  
+    .developed {  
+      text-align: center;  
+      margin: 0 auto;  
+      font-size: 1.1em;  
+      color: #fff;  
+      font-weight: bold;  
+      text-shadow: 0 0 18px #1557b6, 0 0 26px #153053, 0 0 6px #1557b6, 0 0 4px #18365a;  
+      background: none;  
+      margin-top: 2px;  
+      font-family: 'Georgia', serif;
+    }  
+    /* Testimonials box */
+    .testimonials-box {
+      background: rgba(21, 47, 82, 0.7);
+      border-radius: 13px;
+      padding: 12px 2vw;
+      margin: 0 auto 7px auto;
+      width: 94vw;
+      max-width: 370px;
+      box-shadow: 0 4px 25px #185cb680;
+      font-family: 'Georgia', serif;
+      color: #c5e4ff;
+      font-style: italic;
+      line-height: 1.4;
+      text-align: left;
     }
-    @media (max-width: 600px) {
-      .container {max-width: 98vw;}
-      .services-grid {grid-template-columns: 1fr; grid-template-rows: repeat(6, 1fr);}
-      .service-card {padding: 16px 7px; gap: 7px;}
-      .animated-logo {margin-bottom: 3px;}
-      .marquee__inner {font-size: 1.1em;}
+    .testimonials-box .about-title {
+      font-size: 1.1em;
+      color: #85cdfa;
+      margin-bottom: 8px;
     }
-  </style>
-</head>
-<body>
-<div class="container" role="main" aria-label="Zahoor Auto Spa main interface">
-  <!-- Premium Marquee Heading -->
-  <div class="marquee">
-    <div class="marquee__inner">
-      <span>ZAHOOR AUTO SPA&nbsp;&nbsp;</span>
-      <span>ZAHOOR AUTO SPA&nbsp;&nbsp;</span>
-      <span>ZAHOOR AUTO SPA&nbsp;&nbsp;</span>
+    .testimonials-box p {
+      font-size: 0.95em;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {  
+      .box, .map, .about-box, .testimonials-box {padding: 6px 3vw;}  
+      .service-icon-img { width:18px; height:18px;}  
+      .action-btn, .pay-btn { padding: 6px 0; font-size: 0.85em; max-width: 80px;}  
+      .about-title { font-size: 1em;}  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="container">  
+    <div class="box header">  
+      <marquee>Zahoor Auto Spa</marquee>  
+    </div>  
+    <div class="box">  
+      <h2 style="margin-bottom: 6px; font-size:.99em; padding:4px 0;">Choose What You Want to Wash</h2>  
+      <div class="select-service">  
+        <div class="service-choice" onclick="selectService('bike')" id="bike-choice">  
+          <div class="service-title">Bike</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><circle cx="9" cy="24" r="5" fill="#87eafd"/><circle cx="24" cy="24" r="5" fill="#74afd2"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#1557b6"/><path d="M9 19 L16 11 L20 19" stroke="#1557b6" stroke-width="2" fill="none"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('car')" id="car-choice">  
+          <div class="service-title">Car</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="7" y="17" width="18" height="6" rx="3" fill="#cbeffd"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#1557b6"/><circle cx="11" cy="27" r="2" fill="#1557b6"/><circle cx="21" cy="27" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('bus')" id="bus-choice">  
+          <div class="service-title">Bus</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="10" rx="3" fill="#cbeffd"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#1557b6"/><circle cx="11" cy="25" r="2" fill="#1557b6"/><circle cx="21" cy="25" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+        <div class="service-choice" onclick="selectService('truck')" id="truck-choice">  
+          <div class="service-title">Truck</div>  
+          <div class="service-icon-img">  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="3" y="17" width="12" height="7" rx="2" fill="#cbeffd"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#1557b6"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#1557b6"/><circle cx="8" cy="27" r="2" fill="#1557b6"/><circle cx="22" cy="27" r="2" fill="#1557b6"/></svg>  
+          </div>  
+        </div>  
+      </div>  
+      <div class="actions" id="action-buttons"></div>  
+    </div>  
+    <div class="box map">  
+      <h2>Find Us</h2>  
+      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>  
+    </div>  
+    <div class="about-box">  
+      <div class="about-title">About Us</div>  
+      <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>  
+    </div>  
+    <div class="testimonials-box">
+      <div class="about-title">Testimonials</div>
+      <p>“Excellent service! My car looks brand new.” – Ramesh K.</p>
+      <p>“Prompt and professional. Highly recommend!” – Anita P.</p>
+      <p>“Reliable, quick, and friendly. Zahoor Auto Spa is my go-to!” – Arjun S.</p>
     </div>
-  </div>
-
-  <!-- Service Section -->
-  <h2 class="services-title">OUR SERVICES</h2>
-  <div class="services-grid" id="service-grid">
-
-    <!-- Bike Wash Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_UJNc2t.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Bike Wash</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Bike%20Wash">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=150&cu=INR'">Pay ₹150</button>
-      </div>
-    </div>
-
-    <!-- Car Wash Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_rwh7cczj.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Car Wash</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Car%20Wash">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=350&cu=INR'">Pay ₹350</button>
-      </div>
-    </div>
-
-    <!-- Bus Wash Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_gr6c934p.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Bus Wash</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Bus%20Wash">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=600&cu=INR'">Pay ₹600</button>
-      </div>
-    </div>
-
-    <!-- Truck Wash Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_My3lbX.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Truck Wash</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20a%20Truck%20Wash">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=700&cu=INR'">Pay ₹700</button>
-      </div>
-    </div>
-
-    <!-- Wax Polishing Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_nzpkqlxt.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Wax Polishing</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20Wax%20Polishing" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20Wax%20Polishing">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=550&cu=INR'">Pay ₹550</button>
-      </div>
-    </div>
-
-    <!-- Greasing Service -->
-    <div class="service-card">
-      <div class="animated-logo">
-        <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_pwyntehl.json" background="transparent" speed="1" style="width: 68px; height: 68px;" loop autoplay></lottie-player>
-      </div>
-      <div class="service-info">
-        <h3>Greasing</h3>
-        <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20Greasing" target="_blank">WhatsApp Booking</a>
-        <a href="sms:+919797472650?body=I%20want%20to%20book%20Greasing">SMS Booking</a>
-        <button onclick="window.location.href='upi://pay?pa=shahtajamul88-2@okicici&am=300&cu=INR'">Pay ₹300</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Real-Time Satellite Map -->
-  <div class="map-section">
-    <div class="map-title">OUR LOCATION (Satellite View)</div>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13154.655673014701!2d74.7118901!3d34.2441219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1633358248921!5m2!1sen!2sin&maptype=satellite"
-      width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-
-  <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>
-  <div class="developed">Developed By Tajamul</div>
-</div>
-</body>
+    <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>  
+    <div class="developed">Developed By Tajamul</div>  
+  </div>  
+<script>  
+const serviceData = {  
+  bike: {  
+    name: "Bike Wash",  
+    price: "₹150",  
+    payUrl: "https://payments.cashfree.com/links?code=b95kmt7h58ug",  
+    whatsappMsg: "I want to book a Bike Wash",  
+    smsMsg: "I want to book a Bike Wash"  
+  },  
+  car: {  
+    name: "Car Wash",  
+    price: "₹350",  
+    payUrl: "https://payments.cashfree.com/links?code=I95kn0apt8ug",  
+    whatsappMsg: "I want to book a Car Wash",  
+    smsMsg: "I want to book a Car Wash"  
+  },  
+  bus: {  
+    name: "Bus Wash",  
+    price: "₹650",  
+    payUrl: "https://payments.cashfree.com/links?code=N95kn1vcd8ug",  
+    whatsappMsg: "I want to book a Bus Wash",  
+    smsMsg: "I want to book a Bus Wash"  
+  },  
+  truck: {  
+    name: "Truck Wash",  
+    price: "₹850",  
+    payUrl: "https://payments.cashfree.com/links?code=p95kn4tfv8ug",  
+    whatsappMsg: "I want to book a Truck Wash",  
+    smsMsg: "I want to book a Truck Wash"  
+  }  
+};  
+function selectService(type) {  
+  for (const s of ['bike','car','bus','truck']) {  
+    document.getElementById(s+'-choice').classList.remove('selected');  
+  }  
+  document.getElementById(type+'-choice').classList.add('selected');  
+  const d = serviceData[type];  
+  document.getElementById('action-buttons').innerHTML = `  
+    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank">WhatsApp</a>  
+    <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">SMS</a>  
+    <button class="pay-btn" onclick="window.location='${d.payUrl}'">Pay ₹${d.price.substr(1)}</button>  
+  `;  
+}  
+</script>  
+</body>  
 </html>
