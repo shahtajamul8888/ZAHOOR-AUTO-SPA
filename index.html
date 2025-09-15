@@ -12,21 +12,20 @@
       font-family: 'Poppins', sans-serif;  
       margin: 0;  
       color: #edf6fc;  
-      background: linear-gradient(45deg, #00796b, #4a148c, #006064, #1a237e, #004d40);
-      background-size: 1500% 1500%;
-      animation: gradientBG 15s ease-in-out infinite;
+      background: #000000; /* pure black background */
       min-height: 100vh;  
       box-sizing: border-box;  
       width: 100vw;  
       transition: background 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
     }  
-    @keyframes gradientBG {  
-      0%,100% {background-position: 0% 50%;}  
-      50% {background-position: 100% 50%;}  
-    }  
+
     .container {  
       width: 100vw;  
-      max-width: 100%;  
+      max-width: 420px;  
       min-height: 100vh;  
       padding-bottom: 10px;  
       display: flex;  
@@ -34,7 +33,12 @@
       align-items: stretch;  
       gap: 14px;
       scroll-padding-top: 60px; 
+      border: 4px solid black; /* black border around entire container */
+      border-radius: 24px;
+      background: #111111; /* very dark grey background inside border */
+      box-shadow: 0 0 20px #222; /* subtle shadow for depth */
     }  
+
     .box {  
       margin: 0 auto;  
       width: 96vw;  
@@ -42,26 +46,22 @@
       padding: 9px 2vw;  
       border-radius: 17px;  
       text-align: center;  
-      background: rgba(45,15,40,0.5);  
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 4px 30px rgba(60, 15, 60, 0.7);
-      animation: floatBox 6s cubic-bezier(.4,.53,.59,1.02) infinite;  
       transition: box-shadow 0.3s ease, transform 0.2s ease;
+      background: transparent; /* keep box backgrounds transparent to show container background */
     }  
-    @keyframes floatBox {  
-      0%,100% { transform: translateY(0);}  
-      50% { transform: translateY(-7px);}  
-    }  
+
+    /* Heading box in orange color */
     .header {  
-      background: linear-gradient(90deg, #004d40 70%, #1a237e 100%);  
+      background: #ff6700;  /* strong orange */
       font-size: 1.25em;  
       font-weight: 700;  
       letter-spacing: 2px;  
-      text-shadow: 0 0 8px #00796b;  
-      border-bottom: 2px solid #004d40;  
-      animation: headerGlow 3.3s ease-in-out infinite;  
-      color: #edf6fc;  
+      text-shadow: 0 0 8px #cc5200;  
+      border-bottom: 2px solid #cc5200;  
+      color: #fff;  
       margin: 8px auto 0 auto;  
       padding: 10px 0;  
       border-radius: 9px;  
@@ -70,46 +70,19 @@
       display: inline-block;  
       font-family: 'Georgia', serif;
     }  
-    @keyframes headerGlow {  
-      0%,100% { box-shadow: 0 0 12px #004d40;}  
-      50% { box-shadow: 0 0 22px #1a237e;}  
-    }  
     .header marquee {  
       font-size: 1.3em;  
       font-weight: bold;  
-      opacity: 0;  
-      animation: textFadeIn 2.1s cubic-bezier(.18,.52,.51,.96) forwards;  
+      opacity: 1;  
     }  
-    @keyframes textFadeIn {  
-      0% {opacity:0; transform: scale(0.95) translateY(-22px);}  
-      80% {opacity:1; transform: scale(1.05) translateY(4px);}  
-      100% {opacity:1; transform: scale(1);}  
+
+    /* Middle box background blue */
+    .box.middle {  
+      background: #004080; /* medium blue */
+      color: #fffaea;
     }  
-    .about-box {  
-      background: rgba(0, 77, 64, 0.7);  
-      border-radius: 13px;  
-      padding: 12px 2vw;  
-      margin: 0 auto 7px auto;  
-      width: 94vw;  
-      max-width: 370px;  
-      box-shadow: 0 4px 25px #004d4050;  
-      font-family: 'Georgia', serif;
-      color: #b2dfdb;
-    }  
-    .about-title {  
-      font-size: 1.1em;  
-      font-weight: 700;  
-      color: #4db6ac;  
-      margin-bottom: 6px;  
-      letter-spacing: .4px;  
-    }  
-    .about-quote {  
-      font-size: 1em;  
-      color: #b2dfdb;  
-      font-style: italic;  
-      margin-bottom: 8px;  
-      line-height: 1.35;  
-    }  
+
+    /* The container holding service options - yellow background */
     .select-service {  
       display: flex;  
       flex-direction: column;  
@@ -117,13 +90,18 @@
       align-items: center;  
       justify-content: center;  
       margin-top: 8px;  
+      background: #fff9c4; /* pale yellow */
+      border-radius: 13px;
+      padding: 15px 10px;
+      box-shadow: 0 0 15px #f5f5a9;
     }  
+
+    /* individual service option in bright yellow box */
     .service-choice {  
       border-radius: 13px;  
-      background: rgba(0,77,64,0.6);  
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 12px #00796baa, 0 2px 6px #000a;  
+      background: #ffeb3b; /* bright yellow */
+      border: 1px solid #fbc02d;  
+      box-shadow: 0 0 8px #fbc02d;
       margin: 0 auto 3px auto;  
       width: 66vw;  
       max-width: 160px;  
@@ -134,45 +112,38 @@
       cursor: pointer;  
       transition: box-shadow .3s, transform .25s;  
       position: relative;  
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1em;
-      color: #ffffff; /* white text */
-    }  
-    .service-choice.selected, .service-choice:hover {  
-      box-shadow: 0 0 28px 8px #26a69a, 0 1px 14px #00796b;  
-      transform: scale(1.1);  
-      border: 2px solid #4db6ac;  
-      z-index: 2;  
-      animation: optionGlow 2.2s infinite alternate;  
-    }  
-    @keyframes optionGlow {  
-      0%   { box-shadow: 0 0 18px 6px #4db6accc, 0 1px 10px #00796b;}  
-      100% { box-shadow: 0 0 28px 8px #26a69a80, 0 1px 16px #004d4060;}  
-    }  
-    .service-title {  
-      font-size: 1em;  
-      font-weight: 700;  
-      letter-spacing: .6px;  
-      color: #80cbc4;  
-      margin-bottom: 4px;  
-      text-shadow: 0 0 14px #26a69a, 0 0 6px #004d4060;  
-      text-transform: uppercase;  
-      transition: text-shadow .3s;  
+      color: #3e2723; /* dark brown text */
+      text-transform: uppercase;
       font-family: 'Poppins', sans-serif;
     }  
-    .service-choice.selected .service-title, .service-choice:hover .service-title {  
-      text-shadow: 0 0 22px #4db6ac, 0 0 12px #00796b;  
-      color: #e0f2f1;  
+
+    .service-choice.selected, .service-choice:hover {  
+      box-shadow: 0 0 20px 6px #f9a825, 0 4px 18px #c17900;  
+      transform: scale(1.1);  
+      border: 2px solid #fbc02d;  
+      z-index: 2;  
+      animation: optionGlow 2.2s infinite alternate;  
+      color: #4e342e;
     }  
+
+    @keyframes optionGlow {  
+      0%   { box-shadow: 0 0 18px 6px #fbc02dcc, 0 1px 10px #f9a825;}  
+      100% { box-shadow: 0 0 28px 8px #fbc02d80, 0 1px 16px #c1790050;}  
+    }  
+
     .service-icon-img {  
       width: 24px;  
       height: 24px;  
       display: flex;  
-      margin: 0 auto;  
+      margin: 0 auto 4px auto;  
       justify-content: center;  
       align-items: center;  
-      filter: drop-shadow(0 0 3px #00796baa);
+      filter: drop-shadow(0 0 3px #c1790077);
     }  
+
+    /* Action buttons area */
     .actions {  
       margin-top: 15px;  
       display: flex;  
@@ -181,70 +152,107 @@
       align-items: center;  
       justify-content: center;  
     }  
+
     .action-btn, .pay-btn {  
       margin: 0;  
       width: 38vw;  
-      max-width: 100px;  
+      max-width: 120px;  
       padding: 8px 0;  
       border-radius: 12px;  
-      background: #00796b;  
-      color: #f9fafc;  
+      background: #ffb300; /* amber */
+      color: #3e2723;  
       font-weight: 700;  
       font-size: 0.9em;  
       text-decoration: none;  
-      box-shadow: 0 0 12px #26a69a;  
+      box-shadow: 0 0 12px #ffca28;  
       border: none;  
       transition: box-shadow 0.3s, transform 0.2s, background 0.2s;  
       display: block;  
       cursor: pointer;  
       font-family: 'Poppins', sans-serif;
+      text-transform: none;
     }  
+
     .action-btn:hover, .pay-btn:hover {  
-      background: #004d40;  
-      color: #b2dfdb;  
-      box-shadow: 0 0 20px #00796bcc;  
+      background: #ffa000;  
+      color: #2e1b16;  
+      box-shadow: 0 0 20px #ff8f00cc;  
       transform: scale(1.08);  
     }  
+
     .map {  
-      background: linear-gradient(90deg,#004d40 90%,#26a69a 100%);  
-      border-bottom: 2px solid #004d40;  
-      box-shadow: 0 2px 22px 4px #004d4055;  
+      background: linear-gradient(90deg, #ffa000 90%, #ffb300 100%);  
+      border-bottom: 2px solid #ff6f00;  
+      box-shadow: 0 2px 22px 4px #ff6f0055;  
       margin-top: 6px;  
       border-radius: 17px;  
       padding: 6px 0;  
+      color: #3e2723;
     }  
+
     .map h2 {  
-      text-shadow: 0 0 14px #26a69a, 0 0 22px #004d40;  
-      color: #b2dfdb;  
+      text-shadow: 0 0 10px #ffb300;  
+      color: #3e2723;  
       font-size: 1.1em;  
       font-weight: 700;  
       margin-bottom: 8px;  
     }  
+
+    .about-box {  
+      background: rgba(255, 235, 59, 0.15);  
+      border-radius: 13px;  
+      padding: 12px 2vw;  
+      margin: 0 auto 7px auto;  
+      width: 94vw;  
+      max-width: 370px;  
+      box-shadow: 0 4px 18px #fbc02d80;  
+      font-family: 'Georgia', serif;
+      color: #3e2723;
+    }  
+
+    .about-title {  
+      font-size: 1.1em;  
+      font-weight: 700;  
+      color: #fbc02d;  
+      margin-bottom: 6px;  
+      letter-spacing: .4px;  
+    }  
+
+    .about-quote {  
+      font-size: 1em;  
+      color: #6d4c41;  
+      font-style: italic;  
+      margin-bottom: 8px;  
+      line-height: 1.35;  
+    }  
+
     .footer {  
       text-align: center;  
       font-size: 1em;  
       margin-top: 12px;  
-      text-shadow: 0 0 10px #00796b, 0 0 18px #1a237e;  
-      color: #b2dfdb;  
+      text-shadow: 0 0 10px #ffb300;  
+      color: #3e2723;  
       margin-bottom: 6px;  
       font-family: 'Georgia', serif;
       font-weight: 600;
     }  
+
     .developed {  
       text-align: center;  
       margin: 0 auto;  
       font-size: 1.1em;  
-      color: #e0f2f1;  
+      color: #5d4037;  
       font-weight: bold;  
-      text-shadow: 0 0 18px #26a69a, 0 0 26px #004d40, 0 0 6px #26a69a, 0 0 4px #00796b;  
+      text-shadow: 0 0 6px #ffb300, 0 0 4px #cc8400;  
       background: none;  
       margin-top: 2px;  
       font-family: 'Georgia', serif;
     }  
+
     @media (max-width: 600px) {  
       .box, .map, .about-box {padding: 6px 3vw;}  
       .service-icon-img { width:18px; height:18px;}  
-      .action-btn, .pay-btn { padding: 6px 0; font-size: 0.85em; max-width: 80px;}  
+      .action-btn, .pay-btn { padding: 6px 0; font-size: 0.85em; max-width: 100px;}  
       .about-title { font-size: 1em;}  
     }  
   </style>  
@@ -254,47 +262,54 @@
     <div class="box header">  
       <marquee>Zahoor Auto Spa</marquee>  
     </div>  
-    <div class="box">  
-      <h2 style="margin-bottom: 6px; font-size:.99em; padding:4px 0;">Choose What You Want to Wash</h2>  
+    <div class="box middle">  
+      <h2 style="margin-bottom: 6px; font-size:.99em; padding:4px 0; font-weight: 700;">Choose What You Want to Wash</h2>  
       <div class="select-service">  
         <div class="service-choice" onclick="selectService('bike')" id="bike-choice">  
           <div class="service-title">Bike</div>  
-          <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><circle cx="9" cy="24" r="5" fill="#4db6ac"/><circle cx="24" cy="24" r="5" fill="#00796b"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#004d40"/><path d="M9 19 L16 11 L20 19" stroke="#004d40" stroke-width="2" fill="none"/></svg>  
+          <div class="service-icon-img" aria-hidden="true">  
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="24" r="5" fill="#fbc02d"/><circle cx="24" cy="24" r="5" fill="#f9a825"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#f57f17"/><path d="M9 19 L16 11 L20 19" stroke="#f57f17" stroke-width="2" fill="none"/></svg>  
           </div>  
         </div>  
+
         <div class="service-choice" onclick="selectService('car')" id="car-choice">  
           <div class="service-title">Car</div>  
-          <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="7" y="17" width="18" height="6" rx="3" fill="#80cbc4"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#004d40"/><circle cx="11" cy="27" r="2" fill="#004d40"/><circle cx="21" cy="27" r="2" fill="#004d40"/></svg>  
+          <div class="service-icon-img" aria-hidden="true">  
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="17" width="18" height="6" rx="3" fill="#fbc02d"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#f9a825"/><circle cx="11" cy="27" r="2" fill="#f57f17"/><circle cx="21" cy="27" r="2" fill="#f57f17"/></svg>  
           </div>  
         </div>  
+
         <div class="service-choice" onclick="selectService('bus')" id="bus-choice">  
           <div class="service-title">Bus</div>  
-          <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="10" rx="3" fill="#80cbc4"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#004d40"/><circle cx="11" cy="25" r="2" fill="#004d40"/><circle cx="21" cy="25" r="2" fill="#004d40"/></svg>  
+          <div class="service-icon-img" aria-hidden="true">  
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="12" width="22" height="10" rx="3" fill="#fbc02d"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#f9a825"/><circle cx="11" cy="25" r="2" fill="#f57f17"/><circle cx="21" cy="25" r="2" fill="#f57f17"/></svg>  
           </div>  
         </div>  
+
         <div class="service-choice" onclick="selectService('truck')" id="truck-choice">  
           <div class="service-title">Truck</div>  
-          <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="3" y="17" width="12" height="7" rx="2" fill="#80cbc4"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#004d40"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#004d40"/><circle cx="8" cy="27" r="2" fill="#004d40"/><circle cx="22" cy="27" r="2" fill="#004d40"/></svg>  
+          <div class="service-icon-img" aria-hidden="true">  
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="17" width="12" height="7" rx="2" fill="#fbc02d"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#f9a825"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#f57f17"/><circle cx="8" cy="27" r="2" fill="#f57f17"/><circle cx="22" cy="27" r="2" fill="#f57f17"/></svg>  
           </div>  
         </div>  
       </div>  
-      <div class="actions" id="action-buttons"></div>  
+      <div class="actions" id="action-buttons" aria-live="polite"></div>  
     </div>  
+
     <div class="box map">  
       <h2>Find Us</h2>  
-      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>  
+      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Map location"></iframe>  
     </div>  
+
     <div class="about-box">  
       <div class="about-title">About Us</div>  
       <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>  
     </div>  
+
     <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>  
     <div class="developed">Developed By Tajamul</div>  
   </div>  
+
 <script>  
 const serviceData = {  
   bike: {  
@@ -333,18 +348,19 @@ function selectService(type) {
   }  
   document.getElementById(type+'-choice').classList.add('selected');  
   const d = serviceData[type];  
-  const payButton = `<button class="pay-btn" onclick="payViaUPI('${d.payeeVPA}', ${d.price}, '${d.name}')">Pay ₹${d.price}</button>`;
-  document.getElementById('action-buttons').innerHTML = `  
-    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank" rel="noopener">WhatsApp</a>  
-    <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">SMS</a>  
-    ${payButton}
-  `;  
+
+  const payButton = `<button class="pay-btn" aria-label="Pay ₹${d.price} for ${d.name}" onclick="payViaUPI('${d.payeeVPA}', ${d.price}, '${d.name}')">Pay ₹${d.price}</button>`;
+  const whatsappLink = `<a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">${"WhatsApp"}</a>`;  
+  const smsLink = `<a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}" aria-label="Contact via SMS">${"SMS"}</a>`;  
+
+  document.getElementById('action-buttons').innerHTML = whatsappLink + smsLink + payButton;  
 }  
 
 function payViaUPI(vpa, amount, note) {
-  const upiUrl = `upi://pay?pa=${encodeURIComponent(vpa)}&pn=Zahoor%20Auto%20Spa&am=${amount}&tn=${encodeURIComponent(note)}`;
+  const upiUrl = `upi://pay?pa=${encodeURIComponent(vpa)}&pn=Zahoor%20Auto%20Spa&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
   window.location.href = upiUrl;
 }  
 </script>  
+
 </body>  
 </html>
