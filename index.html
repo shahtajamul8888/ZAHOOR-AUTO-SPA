@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZAHOORAUTOSPA</title>
+  <title>ZAHOOR AUTO SPA</title>
   <style>
     body {
       margin: 0;
@@ -13,7 +13,6 @@
       text-align: center;
     }
 
-    /* Main heading marquee */
     marquee {
       font-size: 2.5em;
       color: orange;
@@ -22,7 +21,6 @@
       font-weight: bold;
     }
 
-    /* Section boxes */
     .box {
       margin: 20px;
       padding: 20px;
@@ -31,7 +29,6 @@
       box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
     }
 
-    /* Section titles */
     .glow-title {
       font-size: 1.6em;
       color: orange;
@@ -43,7 +40,6 @@
       gap: 8px;
     }
 
-    /* Option buttons */
     .wash-grid, .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -62,25 +58,6 @@
       box-shadow: 0 0 20px orange, 0 0 30px #ff6600;
     }
 
-    /* Footer */
-    footer {
-      margin-top: 25px;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      font-size: 0.9em;
-    }
-    footer div {
-      color: orange;
-      cursor: pointer;
-      transition: transform 0.3s, text-shadow 0.3s;
-    }
-    footer div:hover {
-      transform: scale(1.1);
-      text-shadow: 0 0 20px orange, 0 0 40px #ff6600;
-    }
-
-    /* Thank you text */
     .thanks {
       margin-top: 15px;
       font-size: 1.2em;
@@ -88,15 +65,30 @@
       text-shadow: 0 0 10px orange;
     }
 
-    /* Find Us section */
-    .find-us {
-      margin: 10px 0 0 0;
-      font-size: 1em;
-      color: #ffcc66;
-      text-shadow: 0 0 8px orange;
+    .map-box {
+      margin: 20px;
+      padding: 0;
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
     }
 
-    /* Popup styling */
+    footer {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 0 8px 0;
+      background: #111;
+      border-top: 2px solid orange;
+      color: #ffcc66;
+      font-size: 1em;
+      gap: 8px;
+    }
+    .footer-line { color: orange; }
+    .footer-coord { color: #ffcc66; }
+    .footer-address { color: orange; }
+
     .popup {
       position: fixed;
       top: 0; left: 0;
@@ -105,6 +97,7 @@
       display: none;
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
     .popup-content {
       background: #111;
@@ -149,7 +142,7 @@
 <body>
 
   <!-- Heading -->
-  <marquee>ZAHOORAUTOSPA</marquee>
+  <marquee>ZAHOOR AUTO SPA</marquee>
 
   <!-- Book Online Section -->
   <div class="box">
@@ -175,13 +168,19 @@
     </div>
   </div>
 
-  <!-- Find Us -->
-  <div class="find-us">
-    Find Us: 34.2439281, 74.7119008<br/>
-    Nearby Address: Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504
+  <!-- Google Maps -->
+  <div class="map-box">
+    <iframe
+      width="100%"
+      height="250"
+      frameborder="0"
+      style="border:0; border-radius:15px;"
+      src="https://www.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed"
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <!-- About Us -->
+  <!-- About Us Section -->
   <div class="box">
     <h2 class="glow-title">ℹ️ About Us</h2>
     <p>We provide premium quality washing services with modern equipment and professional care for your vehicles.</p>
@@ -190,8 +189,10 @@
 
   <!-- Footer -->
   <footer>
-    <div>Powered by ChatGPT, Perplexity</div>
-    <div>Developed by Tajamul</div>
+    <div class="footer-line">Powered by ChatGPT, Perplexity</div>
+    <div class="footer-coord">Find Us: 34.2439281, 74.7119008</div>
+    <div class="footer-address">Nearby Address: Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</div>
+    <div class="footer-line">Developed by Tajamul</div>
   </footer>
 
   <!-- Popup -->
@@ -200,7 +201,6 @@
       <h3 id="popup-title"></h3>
       <button onclick="whatsappBooking()">📲 WhatsApp Booking</button>
       <button onclick="smsBooking()">✉️ SMS Booking</button>
-      <button onclick="showPrices()">💰 Show Prices</button>
       <button onclick="payNow()">💳 Pay Now</button>
       <button class="close-btn" onclick="closePopup()">Close</button>
     </div>
@@ -217,15 +217,11 @@
     function closePopup() {
       document.getElementById("popup").style.display = "none";
     }
-
     function whatsappBooking() {
       window.open("https://wa.me/919596516880?text=Hello, I want to book " + currentService, "_blank");
     }
     function smsBooking() {
       window.open("sms:9596516880?body=Hello, I want to book " + currentService, "_self");
-    }
-    function showPrices() {
-      alert("💰 Price List:\n🏍️ Bike Wash: ₹100\n🚗 Car Wash: ₹250\n🚌 Bus Wash: ₹500\n🚚 Truck Wash: ₹600");
     }
     function payNow() {
       let paymentLink = "";
