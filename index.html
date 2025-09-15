@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -13,12 +15,14 @@
       font-family: 'Poppins', sans-serif;  
       margin: 0;  
       color: #edf6fc;  
-      background: linear-gradient(120deg, #122043 0%, #1557b6 100%);  
-      background-size: 400% 400%;  
-      animation: gradientBG 16s ease-in-out infinite;  
+      /* Instagram-like background gradient colors */
+      background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
+      background-size: 1500% 1500%;
+      animation: gradientBG 0.3s ease-in-out forwards; /* fast transition */
       min-height: 100vh;  
       box-sizing: border-box;  
       width: 100vw;  
+      transition: background 0.3s ease-in-out;
     }  
     @keyframes gradientBG {  
       0%,100% {background-position: 0% 50%;}  
@@ -373,3 +377,4 @@ function selectService(type) {
 </script>  
 </body>  
 </html>
+
