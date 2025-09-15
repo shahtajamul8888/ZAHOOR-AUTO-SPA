@@ -12,9 +12,9 @@
       font-family: 'Poppins', sans-serif;  
       margin: 0;  
       color: #edf6fc;  
-      background: linear-gradient(45deg, #8b0000, #551a8b, #3a0ca3, #023e8a, #0077b6);
+      background: linear-gradient(45deg, #00796b, #4a148c, #006064, #1a237e, #004d40);
       background-size: 1500% 1500%;
-      animation: gradientBG 10s ease-in-out infinite;
+      animation: gradientBG 15s ease-in-out infinite;
       min-height: 100vh;  
       box-sizing: border-box;  
       width: 100vw;  
@@ -54,12 +54,12 @@
       50% { transform: translateY(-7px);}  
     }  
     .header {  
-      background: linear-gradient(90deg, #4b0000 70%, #69004e 100%);  
+      background: linear-gradient(90deg, #004d40 70%, #1a237e 100%);  
       font-size: 1.25em;  
       font-weight: 700;  
       letter-spacing: 2px;  
-      text-shadow: 0 0 8px #90002f;  
-      border-bottom: 2px solid #69004e;  
+      text-shadow: 0 0 8px #00796b;  
+      border-bottom: 2px solid #004d40;  
       animation: headerGlow 3.3s ease-in-out infinite;  
       color: #edf6fc;  
       margin: 8px auto 0 auto;  
@@ -71,8 +71,8 @@
       font-family: 'Georgia', serif;
     }  
     @keyframes headerGlow {  
-      0%,100% { box-shadow: 0 0 12px #69004e;}  
-      50% { box-shadow: 0 0 22px #4b0000;}  
+      0%,100% { box-shadow: 0 0 12px #004d40;}  
+      50% { box-shadow: 0 0 22px #1a237e;}  
     }  
     .header marquee {  
       font-size: 1.3em;  
@@ -86,26 +86,26 @@
       100% {opacity:1; transform: scale(1);}  
     }  
     .about-box {  
-      background: rgba(75, 0, 34, 0.7);  
+      background: rgba(0, 77, 64, 0.7);  
       border-radius: 13px;  
       padding: 12px 2vw;  
       margin: 0 auto 7px auto;  
       width: 94vw;  
       max-width: 370px;  
-      box-shadow: 0 4px 25px #69004ea0;  
+      box-shadow: 0 4px 25px #004d4050;  
       font-family: 'Georgia', serif;
-      color: #f6d7e3;
+      color: #b2dfdb;
     }  
     .about-title {  
       font-size: 1.1em;  
       font-weight: 700;  
-      color: #ffb3c1;  
+      color: #4db6ac;  
       margin-bottom: 6px;  
       letter-spacing: .4px;  
     }  
     .about-quote {  
       font-size: 1em;  
-      color: #ffd1dc;  
+      color: #b2dfdb;  
       font-style: italic;  
       margin-bottom: 8px;  
       line-height: 1.35;  
@@ -120,10 +120,10 @@
     }  
     .service-choice {  
       border-radius: 13px;  
-      background: rgba(80, 20, 40, 0.6);  
+      background: rgba(0,77,64,0.6);  
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 12px #90002faa, 0 2px 6px #000a;  
+      box-shadow: 0 0 12px #00796baa, 0 2px 6px #000a;  
       margin: 0 auto 3px auto;  
       width: 66vw;  
       max-width: 160px;  
@@ -139,30 +139,30 @@
       color: #ffffff; /* white text */
     }  
     .service-choice.selected, .service-choice:hover {  
-      box-shadow: 0 0 28px 8px #ff5e78cc, 0 1px 14px #d90429e3;  
+      box-shadow: 0 0 28px 8px #26a69a, 0 1px 14px #00796b;  
       transform: scale(1.1);  
-      border: 2px solid #ff758f;  
+      border: 2px solid #4db6ac;  
       z-index: 2;  
       animation: optionGlow 2.2s infinite alternate;  
     }  
     @keyframes optionGlow {  
-      0%   { box-shadow: 0 0 18px 6px #ff758fcc, 0 1px 10px #d90429e3;}  
-      100% { box-shadow: 0 0 28px 8px #ff355e80, 0 1px 16px #9b1b1bd0;}  
+      0%   { box-shadow: 0 0 18px 6px #4db6accc, 0 1px 10px #00796b;}  
+      100% { box-shadow: 0 0 28px 8px #26a69a80, 0 1px 16px #004d4060;}  
     }  
     .service-title {  
       font-size: 1em;  
       font-weight: 700;  
       letter-spacing: .6px;  
-      color: #ff8fa3;  
+      color: #80cbc4;  
       margin-bottom: 4px;  
-      text-shadow: 0 0 14px #ff7380, 0 0 6px #d90429a0;  
+      text-shadow: 0 0 14px #26a69a, 0 0 6px #004d4060;  
       text-transform: uppercase;  
       transition: text-shadow .3s;  
       font-family: 'Poppins', sans-serif;
     }  
     .service-choice.selected .service-title, .service-choice:hover .service-title {  
-      text-shadow: 0 0 22px #ffafbd, 0 0 12px #ff3f4b;  
-      color: #ffe6eb;  
+      text-shadow: 0 0 22px #4db6ac, 0 0 12px #00796b;  
+      color: #e0f2f1;  
     }  
     .service-icon-img {  
       width: 24px;  
@@ -171,7 +171,7 @@
       margin: 0 auto;  
       justify-content: center;  
       align-items: center;  
-      filter: drop-shadow(0 0 3px #d90429cc);
+      filter: drop-shadow(0 0 3px #00796baa);
     }  
     .actions {  
       margin-top: 15px;  
@@ -187,12 +187,12 @@
       max-width: 100px;  
       padding: 8px 0;  
       border-radius: 12px;  
-      background: #d90429;  
+      background: #00796b;  
       color: #f9fafc;  
       font-weight: 700;  
       font-size: 0.9em;  
       text-decoration: none;  
-      box-shadow: 0 0 12px #ff4a60;  
+      box-shadow: 0 0 12px #26a69a;  
       border: none;  
       transition: box-shadow 0.3s, transform 0.2s, background 0.2s;  
       display: block;  
@@ -200,22 +200,22 @@
       font-family: 'Poppins', sans-serif;
     }  
     .action-btn:hover, .pay-btn:hover {  
-      background: #a30016;  
-      color: #ffd6dc;  
-      box-shadow: 0 0 20px #ff355ecc;  
+      background: #004d40;  
+      color: #b2dfdb;  
+      box-shadow: 0 0 20px #00796bcc;  
       transform: scale(1.08);  
     }  
     .map {  
-      background: linear-gradient(90deg,#69004e 90%,#d90429 100%);  
-      border-bottom: 2px solid #660038;  
-      box-shadow: 0 2px 22px 4px #66003855;  
+      background: linear-gradient(90deg,#004d40 90%,#26a69a 100%);  
+      border-bottom: 2px solid #004d40;  
+      box-shadow: 0 2px 22px 4px #004d4055;  
       margin-top: 6px;  
       border-radius: 17px;  
       padding: 6px 0;  
     }  
     .map h2 {  
-      text-shadow: 0 0 14px #d90429, 0 0 22px #660038;  
-      color: #ffd6dc;  
+      text-shadow: 0 0 14px #26a69a, 0 0 22px #004d40;  
+      color: #b2dfdb;  
       font-size: 1.1em;  
       font-weight: 700;  
       margin-bottom: 8px;  
@@ -224,8 +224,8 @@
       text-align: center;  
       font-size: 1em;  
       margin-top: 12px;  
-      text-shadow: 0 0 10px #d90429, 0 0 18px #69004e;  
-      color: #ffd6dc;  
+      text-shadow: 0 0 10px #00796b, 0 0 18px #1a237e;  
+      color: #b2dfdb;  
       margin-bottom: 6px;  
       font-family: 'Georgia', serif;
       font-weight: 600;
@@ -234,9 +234,9 @@
       text-align: center;  
       margin: 0 auto;  
       font-size: 1.1em;  
-      color: #ffe6eb;  
+      color: #e0f2f1;  
       font-weight: bold;  
-      text-shadow: 0 0 18px #d90429, 0 0 26px #660038, 0 0 6px #d90429, 0 0 4px #69004e;  
+      text-shadow: 0 0 18px #26a69a, 0 0 26px #004d40, 0 0 6px #26a69a, 0 0 4px #00796b;  
       background: none;  
       margin-top: 2px;  
       font-family: 'Georgia', serif;
@@ -260,25 +260,25 @@
         <div class="service-choice" onclick="selectService('bike')" id="bike-choice">  
           <div class="service-title">Bike</div>  
           <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><circle cx="9" cy="24" r="5" fill="#ff758f"/><circle cx="24" cy="24" r="5" fill="#ba2d55"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#a30016"/><path d="M9 19 L16 11 L20 19" stroke="#a30016" stroke-width="2" fill="none"/></svg>  
+            <svg width="18" height="18" viewBox="0 0 32 32"><circle cx="9" cy="24" r="5" fill="#4db6ac"/><circle cx="24" cy="24" r="5" fill="#00796b"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#004d40"/><path d="M9 19 L16 11 L20 19" stroke="#004d40" stroke-width="2" fill="none"/></svg>  
           </div>  
         </div>  
         <div class="service-choice" onclick="selectService('car')" id="car-choice">  
           <div class="service-title">Car</div>  
           <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="7" y="17" width="18" height="6" rx="3" fill="#ffbbc1"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#a30016"/><circle cx="11" cy="27" r="2" fill="#a30016"/><circle cx="21" cy="27" r="2" fill="#a30016"/></svg>  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="7" y="17" width="18" height="6" rx="3" fill="#80cbc4"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#004d40"/><circle cx="11" cy="27" r="2" fill="#004d40"/><circle cx="21" cy="27" r="2" fill="#004d40"/></svg>  
           </div>  
         </div>  
         <div class="service-choice" onclick="selectService('bus')" id="bus-choice">  
           <div class="service-title">Bus</div>  
           <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="10" rx="3" fill="#ffbbc1"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#a30016"/><circle cx="11" cy="25" r="2" fill="#a30016"/><circle cx="21" cy="25" r="2" fill="#a30016"/></svg>  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="5" y="12" width="22" height="10" rx="3" fill="#80cbc4"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#004d40"/><circle cx="11" cy="25" r="2" fill="#004d40"/><circle cx="21" cy="25" r="2" fill="#004d40"/></svg>  
           </div>  
         </div>  
         <div class="service-choice" onclick="selectService('truck')" id="truck-choice">  
           <div class="service-title">Truck</div>  
           <div class="service-icon-img">  
-            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="3" y="17" width="12" height="7" rx="2" fill="#ffbbc1"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#a30016"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#a30016"/><circle cx="8" cy="27" r="2" fill="#a30016"/><circle cx="22" cy="27" r="2" fill="#a30016"/></svg>  
+            <svg width="18" height="18" viewBox="0 0 32 32"><rect x="3" y="17" width="12" height="7" rx="2" fill="#80cbc4"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#004d40"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#004d40"/><circle cx="8" cy="27" r="2" fill="#004d40"/><circle cx="22" cy="27" r="2" fill="#004d40"/></svg>  
           </div>  
         </div>  
       </div>  
@@ -299,44 +299,51 @@
 const serviceData = {  
   bike: {  
     name: "Bike Wash",  
-    price: "₹150",  
-    payUrl: "https://payments.cashfree.com/links?code=b95kmt7h58ug",  
+    price: 150,  
+    payeeVPA: "shahtajamul88-2@okicici",  
     whatsappMsg: "I want to book a Bike Wash",  
     smsMsg: "I want to book a Bike Wash"  
   },  
   car: {  
     name: "Car Wash",  
-    price: "₹350",  
-    payUrl: "https://payments.cashfree.com/links?code=I95kn0apt8ug",  
+    price: 350,  
+    payeeVPA: "shahtajamul88-2@okicici",  
     whatsappMsg: "I want to book a Car Wash",  
     smsMsg: "I want to book a Car Wash"  
   },  
   bus: {  
     name: "Bus Wash",  
-    price: "₹650",  
-    payUrl: "https://payments.cashfree.com/links?code=N95kn1vcd8ug",  
+    price: 650,  
+    payeeVPA: "shahtajamul88-2@okicici",  
     whatsappMsg: "I want to book a Bus Wash",  
     smsMsg: "I want to book a Bus Wash"  
   },  
   truck: {  
     name: "Truck Wash",  
-    price: "₹850",  
-    payUrl: "https://payments.cashfree.com/links?code=p95kn4tfv8ug",  
+    price: 850,  
+    payeeVPA: "shahtajamul88-2@okicici",  
     whatsappMsg: "I want to book a Truck Wash",  
     smsMsg: "I want to book a Truck Wash"  
   }  
 };  
+
 function selectService(type) {  
   for (const s of ['bike','car','bus','truck']) {  
     document.getElementById(s+'-choice').classList.remove('selected');  
   }  
   document.getElementById(type+'-choice').classList.add('selected');  
   const d = serviceData[type];  
+  const payButton = `<button class="pay-btn" onclick="payViaUPI('${d.payeeVPA}', ${d.price}, '${d.name}')">Pay ₹${d.price}</button>`;
   document.getElementById('action-buttons').innerHTML = `  
-    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank">WhatsApp</a>  
+    <a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank" rel="noopener">WhatsApp</a>  
     <a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}">SMS</a>  
-    <button class="pay-btn" onclick="window.location='${d.payUrl}'">Pay ₹${d.price.substr(1)}</button>  
+    ${payButton}
   `;  
+}  
+
+function payViaUPI(vpa, amount, note) {
+  const upiUrl = `upi://pay?pa=${encodeURIComponent(vpa)}&pn=Zahoor%20Auto%20Spa&am=${amount}&tn=${encodeURIComponent(note)}`;
+  window.location.href = upiUrl;
 }  
 </script>  
 </body>  
