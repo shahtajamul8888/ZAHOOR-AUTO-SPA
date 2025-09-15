@@ -1,231 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZAHOOR AUTO SPA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahoor Auto Spa</title>
   <style>
-    body {
+    /* General Reset */
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    marquee {
-      font-size: 2.5em;
-      color: orange;
-      text-shadow: 0 0 20px orange, 0 0 40px #ff6600;
-      margin: 20px 0;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
       font-weight: bold;
-    }
-
-    .box {
-      margin: 20px;
-      padding: 20px;
-      background: #111;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
-    }
-
-    .glow-title {
-      font-size: 1.6em;
-      color: orange;
       margin-bottom: 15px;
-      text-shadow: 0 0 15px orange, 0 0 30px #ff6600;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
     }
 
-    .wash-grid, .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    p {
+      margin-bottom: 10px;
     }
-    .wash-choice, .service-choice {
-      background: #222;
-      padding: 12px;
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Marquee Box */
+    .header-marquee {
+      background: blue;
+      color: white;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 8px;
+      border-radius: 8px;
+      margin: 10px auto;
+      width: 95%;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,255,0.6);
+    }
+
+    /* Hero Section */
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+
+    /* Booking Section */
+    .booking {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .booking h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .booking button {
+      background: #ff9800;
+      border: none;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .booking button:hover {
+      background: #e68900;
+      transform: scale(1.05);
+    }
+
+    /* Payment Section */
+    .payment {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .payment h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .payment img {
+      margin: 15px 0;
       border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    .payment button {
+      background: #4caf50;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      color: white;
       font-size: 1.1em;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .wash-choice:hover, .service-choice:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px orange, 0 0 30px #ff6600;
+      transition: 0.3s;
     }
 
-    .thanks {
-      margin-top: 15px;
-      font-size: 1.2em;
-      color: #ffcc66;
-      text-shadow: 0 0 10px orange;
+    .payment button:hover {
+      background: #43a047;
+      transform: scale(1.05);
     }
 
-    .map-box {
-      margin: 20px;
-      padding: 0;
-      background: #111;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
-    }
-    .map-box iframe {
-      border-radius: 15px;
-      width: 100%;
-      height: 300px;
-    }
-
-    footer {
-      margin-top: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: #111;
-      border-top: 2px solid orange;
-      font-size: 1em;
-    }
-    .footer-left {
-      color: orange;
-    }
-    .footer-right {
-      color: orange;
-      font-weight: bold;
-      text-shadow: 0 0 8px orange, 0 0 15px #ff6600, 0 0 25px #ff6600;
-      animation: glow 1.5s infinite alternate;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 8px orange, 0 0 15px #ff6600; }
-      to { text-shadow: 0 0 20px orange, 0 0 35px #ff6600; }
-    }
-
-    .popup {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup-content {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 25px orange;
+    /* Services Section */
+    .services {
+      padding: 50px 20px;
       text-align: center;
-      width: 280px;
-      animation: zoomIn 0.3s ease-in-out;
     }
-    @keyframes zoomIn {
-      from { transform: scale(0.7); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+
+    .services h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
     }
-    .popup h3 {
-      color: orange;
-      margin-bottom: 15px;
-      text-shadow: 0 0 15px orange, 0 0 30px #ff6600;
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
-    .popup button {
-      background: #222;
-      color: orange;
-      padding: 10px 15px;
-      margin: 8px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: transform 0.3s, box-shadow 0.3s;
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
-    .popup button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 15px orange, 0 0 25px #ff6600;
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
     }
-    .close-btn {
-      margin-top: 12px;
-      background: crimson !important;
-      color: white !important;
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 50px 20px;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .gallery h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.3s;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Map Section */
+    .map {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .map h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .footer-address {
+      color: #00ffcc;
+      font-weight: bold;
+      text-shadow: 0 0 8px #00ffcc, 0 0 12px #00ffcc;
+    }
+
+    .footer-left {
+      position: absolute;
+      left: 15px;
+      bottom: 10px;
+      font-size: 0.9em;
+    }
+
+    .footer-right {
+      position: absolute;
+      right: 15px;
+      bottom: 10px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <!-- Heading -->
-  <marquee>ZAHOOR AUTO SPA</marquee>
-
-  <!-- Book Online Section -->
-  <div class="box">
-    <h2 class="glow-title">✨ Book Online</h2>
-    <div class="wash-grid">
-      <div class="wash-choice" onclick="bookService('Bike')">Bike Wash - ₹150</div>
-      <div class="wash-choice" onclick="bookService('Car')">Car Wash - ₹400</div>
-      <div class="wash-choice" onclick="bookService('Bus')">Bus Wash - ₹700</div>
-      <div class="wash-choice" onclick="bookService('Truck')">Truck Wash - ₹1000</div>
-    </div>
-    <p class="thanks">Thank you for choosing Zahoor Auto Spa 🚗✨</p>
+  <!-- Marquee Box -->
+  <div class="header-marquee">
+    <marquee behavior="scroll" direction="left">
+      🚗 Welcome to Zahoor Auto Spa – Premium Car, Bike, Bus & Truck Wash Services 🚿✨
+    </marquee>
   </div>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Zahoor Auto Spa</h1>
+    <p>Your one-stop solution for vehicle cleaning & detailing</p>
+  </header>
+
+  <!-- Booking Section -->
+  <section class="booking">
+    <h2>Book via WhatsApp</h2>
+    <button onclick="window.location.href='https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash'">Bike</button>
+    <button onclick="window.location.href='https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash'">Car</button>
+    <button onclick="window.location.href='https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash'">Bus</button>
+    <button onclick="window.location.href='https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash'">Truck</button>
+  </section>
+
+  <!-- Payment Section -->
+  <section class="payment">
+    <h2>Complete Your Payment</h2>
+    <p>Scan the QR code below or pay online</p>
+    <img src="your-qr-code.png" alt="UPI QR Code" width="200">
+    <br><br>
+    <button onclick="window.location.href='upi://pay?pa=9797472650@upi&pn=ZahoorAutoSpa&mc=0000&tid=123456&tr=654321&tn=Service%20Payment&am=150&cu=INR'">
+      Pay ₹150 Now
+    </button>
+  </section>
 
   <!-- Services Section -->
-  <div class="box">
-    <h2 class="glow-title">🛠 Our Services</h2>
-    <div class="services-grid">
-      <div class="service-choice">Interior Cleaning</div>
-      <div class="service-choice">Polishing</div>
-      <div class="service-choice">Vacuum</div>
-      <div class="service-choice">Foam Wash</div>
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Bike Wash</h3>
+        <p>Quick and affordable bike cleaning with premium shampoo & polish.</p>
+      </div>
+      <div class="card">
+        <h3>Car Wash</h3>
+        <p>Interior + exterior detailing for a shiny & spotless car.</p>
+      </div>
+      <div class="card">
+        <h3>Bus Wash</h3>
+        <p>Professional large vehicle wash service at best price.</p>
+      </div>
+      <div class="card">
+        <h3>Truck Wash</h3>
+        <p>Heavy-duty cleaning for trucks with advanced equipment.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="gallery1.jpg" alt="Service Image 1">
+      <img src="gallery2.jpg" alt="Service Image 2">
+      <img src="gallery3.jpg" alt="Service Image 3">
+      <img src="gallery4.jpg" alt="Service Image 4">
+    </div>
+  </section>
 
   <!-- Google Map -->
-  <div class="map-box">
-    <h2 class="glow-title">📍 Find Us</h2>
-    <iframe 
-      src="https://www.google.com/maps?q=34.2439281,74.7119008&hl=es;z=14&output=embed" 
-      allowfullscreen="" loading="lazy">
-    </iframe>
-  </div>
+  <section class="map">
+    <h2>Find Us</h2>
+    <iframe
+      src="https://www.google.com/maps?q=34.2439281,74.7119008&hl=es;z=14&output=embed"
+      allowfullscreen="" loading="lazy"></iframe>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-left">Powered by ChatGPT, Perplexity</div>
-    <div class="footer-right">✨ Developed by Tajamul ✨</div>
+    <p>📍 <span class="footer-address">Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</span></p>
+    <div class="footer-left">Powered by ChatGPT Perplexity</div>
+    <div class="footer-right">Developed by Tajamul</div>
   </footer>
-
-  <!-- Popup -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <h3>Complete your booking</h3>
-      <button onclick="redirectWhatsApp()">WhatsApp</button>
-      <button onclick="redirectSMS()">SMS</button>
-      <button onclick="redirectPayment()">Pay Now</button>
-      <button class="close-btn" onclick="closePopup()">Close</button>
-    </div>
-  </div>
-
-  <script>
-    let selectedService = "";
-
-    function bookService(service) {
-      selectedService = service;
-      document.getElementById("popup").style.display = "flex";
-    }
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-    function redirectWhatsApp() {
-      window.open(`https://wa.me/9797472650?text=Hello, I want to book a ${selectedService} wash.`, "_blank");
-    }
-    function redirectSMS() {
-      window.location.href = `sms:9797472650?body=I want to book a ${selectedService} wash.`;
-    }
-    function redirectPayment() {
-      window.open("upi://pay?pa=shahtajamul88-2@okicici&pn=ZahoorAutoSpa&am=100&cu=INR", "_blank");
-    }
-  </script>
 
 </body>
 </html>
