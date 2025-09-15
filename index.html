@@ -5,74 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zahoor Auto Spa</title>
   <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    button {
-      cursor: pointer;
+      text-align: center;
     }
 
     /* Marquee Box */
     .header-marquee {
       background: blue;
       color: white;
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: bold;
       padding: 8px;
       border-radius: 8px;
       margin: 10px auto;
-      width: 95%;
-      text-align: center;
+      width: 90%;
       box-shadow: 0 0 15px rgba(0,0,255,0.6);
     }
 
-    /* Hero Section */
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: rgba(0,0,0,0.4);
-    }
-
     header h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
+      margin: 20px 0 10px;
+      font-size: 2.5em;
     }
 
     header p {
-      font-size: 1.3em;
       margin-bottom: 20px;
+      font-size: 1.2em;
     }
 
-    /* Booking Section */
-    .booking {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .booking h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+    section {
+      padding: 20px;
     }
 
     .booking button {
@@ -89,31 +54,16 @@
 
     .booking button:hover {
       background: #e68900;
-      transform: scale(1.05);
     }
 
-    /* Payment Section */
     .payment {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .payment h2 {
-      font-size: 2em;
-      margin-bottom: 15px;
-    }
-
-    .payment img {
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      margin-top: 20px;
     }
 
     .payment button {
       background: #4caf50;
       border: none;
-      padding: 12px 30px;
+      padding: 12px 25px;
       border-radius: 8px;
       color: white;
       font-size: 1.1em;
@@ -123,100 +73,20 @@
 
     .payment button:hover {
       background: #43a047;
-      transform: scale(1.05);
     }
 
-    /* Services Section */
-    .services {
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .services h2 {
-      font-size: 2em;
-      margin-bottom: 30px;
-    }
-
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(255,255,255,0.6);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    /* Gallery */
-    .gallery {
-      padding: 50px 20px;
-      background: rgba(0,0,0,0.3);
-    }
-
-    .gallery h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 2em;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 10px;
-      transition: 0.3s;
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Map Section */
-    .map {
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .map h2 {
-      margin-bottom: 20px;
-      font-size: 2em;
-    }
-
-    .map iframe {
-      width: 100%;
-      height: 350px;
-      border: 0;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
-
-    /* Footer */
     footer {
       background: #111;
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
+      padding: 20px;
       position: relative;
       bottom: 0;
       width: 100%;
+    }
+
+    footer p {
+      margin: 5px 0;
     }
 
     .footer-address {
@@ -249,7 +119,7 @@
     </marquee>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Header -->
   <header>
     <h1>Zahoor Auto Spa</h1>
     <p>Your one-stop solution for vehicle cleaning & detailing</p>
@@ -275,46 +145,13 @@
     </button>
   </section>
 
-  <!-- Services Section -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="card">
-        <h3>Bike Wash</h3>
-        <p>Quick and affordable bike cleaning with premium shampoo & polish.</p>
-      </div>
-      <div class="card">
-        <h3>Car Wash</h3>
-        <p>Interior + exterior detailing for a shiny & spotless car.</p>
-      </div>
-      <div class="card">
-        <h3>Bus Wash</h3>
-        <p>Professional large vehicle wash service at best price.</p>
-      </div>
-      <div class="card">
-        <h3>Truck Wash</h3>
-        <p>Heavy-duty cleaning for trucks with advanced equipment.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="gallery1.jpg" alt="Service Image 1">
-      <img src="gallery2.jpg" alt="Service Image 2">
-      <img src="gallery3.jpg" alt="Service Image 3">
-      <img src="gallery4.jpg" alt="Service Image 4">
-    </div>
-  </section>
-
   <!-- Google Map -->
   <section class="map">
     <h2>Find Us</h2>
     <iframe
       src="https://www.google.com/maps?q=34.2439281,74.7119008&hl=es;z=14&output=embed"
-      allowfullscreen="" loading="lazy"></iframe>
+      width="100%" height="300" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
   </section>
 
   <!-- Footer -->
