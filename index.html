@@ -1,448 +1,447 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8"/>  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-  <title>Zahoor Auto Spa</title>  
-  <style>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zahoor Auto Spa</title>
+  <style>
     html {
       scroll-behavior: smooth;
     }
-    body {  
-      font-family: 'Poppins', sans-serif;  
-      margin: 0;  
-      color: #edf6fc;  
-      background: #000000; /* pure black background */
-      min-height: 100vh;  
-      box-sizing: border-box;  
-      width: 100vw;  
-      transition: background 0.3s ease-in-out;
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #e6e8ea;
+      background: #000;
+      box-sizing: border-box;
+      width: 100vw;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-    }  
-
-    .container {  
-      width: 100vw;  
-      max-width: 420px;  
-      min-height: 100vh;  
-      padding-bottom: 10px;  
-      display: flex;  
-      flex-direction: column;  
-      align-items: stretch;  
-      gap: 14px;
-      scroll-padding-top: 60px; 
-      border: 4px solid black; /* black border */
+      align-items: flex-start;
+    }
+    .container {
+      width: 100vw;
+      max-width: 420px;
+      margin: 0 auto;
+      padding-bottom: 12px;
+      border: 4px solid black;
       border-radius: 24px;
-      background: #111111; /* very dark grey inside */
-      box-shadow: 0 0 20px #222;
-    }  
+      background: #181818;
+      box-shadow: 0 0 26px #222;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: stretch;
+    }
 
-    .box {  
-      margin: 0 auto;  
-      width: 96vw;  
-      max-width: 420px;  
-      padding: 9px 2vw;  
-      border-radius: 17px;  
-      text-align: center;  
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 4px 30px rgba(60, 15, 60, 0.7);
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-      background: transparent; 
-    }  
-
-    /* Heading box orange */
-    .header {  
-      background: #ff6700; 
-      font-size: 1.25em;  
-      font-weight: 700;  
-      letter-spacing: 2px;  
-      text-shadow: 0 0 8px #cc5200;  
-      border-bottom: 2px solid #cc5200;  
-      color: #fff;  
-      margin: 8px auto 0 auto;  
-      padding: 10px 0;  
-      border-radius: 9px;  
-      min-width: 140px;  
-      max-width: 220px;  
-      display: inline-block;  
-      font-family: 'Georgia', serif;
+    /* Heading */
+    .header {
+      background: linear-gradient(90deg, #047bfd 35%, #0160c7 100%);
+      box-shadow: 0 0 16px #0b8cff;
+      color: #fff;
+      font-size: 1.55em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border-radius: 0 0 16px 16px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 12px 0 10px 0;
+      margin-bottom: 2px;
       position: relative;
-      overflow: visible;
-    }  
-    .header marquee {  
-      font-size: 1.3em;  
-      font-weight: bold;  
-      opacity: 1;  
-    }  
-
-    /* Navigation below header */
+    }
     .nav-menu {
       display: flex;
       justify-content: space-evenly;
+      padding: 10px 6px;
       gap: 6px;
-      background: rgba(255, 103, 0, 0.85);
-      padding: 6px 10px;
-      border-radius: 8px;
-      margin: 6px auto 12px auto;
+      background: #012542;
+      border-radius: 15px;
+      margin: 0 auto 10px auto;
       max-width: 420px;
-      box-shadow: 0 0 14px #ff6700cc;
-      font-weight: 700;
-      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 10px #048cf899;
     }
-
     .nav-menu button {
-      background: transparent;
-      border: none;
+      background: #048cf8;
       color: #fff;
-      font-size: 0.9em;
+      border: none;
+      font-size: 1em;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 8px;
       cursor: pointer;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      text-shadow: 0 0 6px #ffbb58;
+      margin: 0;
+      box-shadow: 0 0 8px #0154a8;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
     }
     .nav-menu button:hover {
-      color: #000000;
-      background: #ffbb58;
-      box-shadow: 0 0 12px #ffbb58;
-      transform: scale(1.1);
-      text-shadow: none;
+      background: #01c7ab;
+      box-shadow: 0 0 14px #01c7ab;
+      transform: scale(1.08);
     }
 
-    /* Main middle box - blue background */
-    .box.middle {  
-      background: #004080; 
-      color: #fffaea;
-      border-radius: 17px;
-      box-shadow: 0 0 25px #2050a0dd;
-    }  
+    .box.middle {
+      background: #0d0d0d;
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 0 26px #222, 0 0 6px #047bfd;
+      padding-bottom: 10px;
+      margin-bottom: 8px;
+      margin-top: 4px;
+    }
+    .box.middle h2 {
+      margin-top: 18px;
+      font-size: 1.1em;
+      letter-spacing: 0.5px;
+      color: #00e6c1;
+      font-weight: bold;
+    }
 
-    /* Service options container - slightly lighter blue */
-    .select-service {  
-      display: flex;  
-      flex-direction: column;  
-      gap: 14px;  
-      align-items: center;  
-      justify-content: center;  
-      margin-top: 8px;  
-      background: #1a3e7d; /* blue shade */
+    /* Vehicle Service Options */
+    .select-service {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 16px auto;
+      background: #181818;
       border-radius: 13px;
-      padding: 18px 12px;
-      box-shadow: 0 0 25px #3071c0aa;
-    }  
-
-    /* individual service option in blue box */
-    .service-choice {  
-      border-radius: 13px;  
-      background: #2a56a8; /* bright blue */
-      border: 1px solid #0c2d6e;  
-      box-shadow: 0 0 16px #4e7bc7;
-      margin: 0 auto 6px auto;  
-      width: 68vw;  
-      max-width: 160px;  
-      padding: 12px 6vw 8px 6vw;  
-      display: flex;  
-      flex-direction: column;  
-      align-items: center;  
-      cursor: pointer;  
-      transition: box-shadow .4s, transform .35s;  
-      position: relative;  
+      padding: 16px 8px;
+      box-shadow: 0 0 15px #166a45cc;
+    }
+    .service-choice {
+      width: 88%;
+      max-width: 245px;
+      min-width: 110px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #17b958 60%, #0aa223 100%);
+      color: #fff;
+      margin: 0 auto;
+      padding: 13px 3vw 10px 3vw;
+      font-size: 1.08em;
       font-weight: 600;
-      font-size: 1.05em;
-      color: #e0e7fb;
-      text-transform: uppercase;
-      font-family: 'Poppins', sans-serif;
-      filter: drop-shadow(0 0 6px #3d66a0);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: flex-start;
+      box-shadow: 0 0 16px #009e25, 0 0 6px #17b958;
+      cursor: pointer;
+      border: 2px solid #0d472a;
+      transition: transform 0.23s, box-shadow 0.25s;
       will-change: transform, box-shadow;
-    }  
-
-    /* Hover and selected: scale up and stronger glow */
-    .service-choice.selected, .service-choice:hover {  
-      box-shadow: 0 0 30px 8px #5288c2, 0 0 18px 4px #2a56a8cc;  
-      transform: scale(1.15);  
-      border: 2px solid #3d66a0;  
-      z-index: 2;  
-      animation: optionGlow 2.5s infinite alternate ease-in-out;  
-      color: #f0f5ff;
-      filter: drop-shadow(0 0 16px #4a7dda);
-    }  
-
-    @keyframes optionGlow {  
-      0%   { box-shadow: 0 0 22px 7px #4a7dda88, 0 1px 12px #5288c288;}  
-      100% { box-shadow: 0 0 42px 12px #5288c2aa, 0 1px 19px #3d66a0cc;}  
-    }  
-
-    /* icon size and glow */
-    .service-icon-img {  
-      width: 26px;  
-      height: 26px;  
-      display: flex;  
-      margin: 0 auto 6px auto;  
-      justify-content: center;  
-      align-items: center;  
-      filter: drop-shadow(0 0 7px #3d66a0cc);
-      transition: transform 0.35s ease;
-    }  
+      position: relative;
+    }
+    .service-choice:hover, .service-choice.selected {
+      transform: scale(1.08);
+      box-shadow: 0 0 40px #17e67a, 0 0 22px #009e25;
+      z-index: 2;
+      background: linear-gradient(90deg, #32f595 60%, #01dd63 100%);
+    }
+    .service-icon-img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 0 15px #17b958;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.22s;
+    }
     .service-choice:hover .service-icon-img, .service-choice.selected .service-icon-img {
-      transform: scale(1.3);
-      filter: drop-shadow(0 0 24px #4a7dda);
+      transform: scale(1.17);
+      box-shadow: 0 0 26px #32f595;
+    }
+    .service-title {
+      flex: 1;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.05em;
+      letter-spacing: 0.3px;
     }
 
-    /* Action buttons below */
-    .actions {  
-      margin-top: 16px;  
-      display: flex;  
-      flex-direction: column;  
-      gap: 14px;  
-      align-items: center;  
-      justify-content: center;  
-    }  
+    /* Other Wash Services Options */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      background: #181818;
+      border-radius: 13px;
+      margin: 12px auto 20px auto;
+      padding: 18px 8px;
+      box-shadow: 0 0 14px #3660b5bb;
+    }
+    .wash-service-choice {
+      width: 88%;
+      max-width: 245px;
+      min-width: 110px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #047bfd 60%, #0160c7 100%);
+      color: #fff;
+      margin: 0 auto;
+      padding: 13px 3vw 10px 3vw;
+      font-size: 1.07em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: flex-start;
+      box-shadow: 0 0 18px #047bfd;
+      cursor: pointer;
+      border: 2px solid #014078;
+      transition: transform 0.22s, box-shadow 0.22s;
+      will-change: transform, box-shadow;
+      position: relative;
+    }
+    .wash-service-choice:hover, .wash-service-choice.selected {
+      transform: scale(1.10);
+      box-shadow: 0 0 36px #47d6ff, 0 0 18px #014078;
+      background: linear-gradient(90deg, #54c9ff 60%, #3899ff 100%);
+    }
+    .service-icon-wash {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 0 12px #047bfd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.22s;
+    }
+    .wash-service-choice:hover .service-icon-wash, .wash-service-choice.selected .service-icon-wash {
+      transform: scale(1.16);
+      box-shadow: 0 0 24px #54c9ff;
+    }
+    .wash-service-title {
+      flex: 1;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.03em;
+    }
 
-    .action-btn, .pay-btn {  
-      margin: 0;  
-      width: 38vw;  
-      max-width: 120px;  
-      padding: 10px 0;  
-      border-radius: 12px;  
-      background: #2050a0; /* dark blue */
-      color: #d6e4ff;  
-      font-weight: 700;  
-      font-size: 0.95em;  
-      text-decoration: none;  
-      box-shadow: 0 0 14px #3071c0;  
-      border: none;  
-      transition: box-shadow 0.3s, transform 0.2s, background 0.2s;  
-      display: block;  
-      cursor: pointer;  
+    /* Responsive Map, Glowing Find Us */
+    .box.map {
+      background: linear-gradient(90deg, #047bfd 75%, #54c9ff 100%);
+      box-shadow: 0 0 30px #54c9ff;
+      border-radius: 18px;
+      color: #fff;
+      text-shadow: 0 0 22px #54c9ff;
       font-family: 'Poppins', sans-serif;
-      text-transform: none;
-    }  
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .box.map h2 {
+      color: #fff;
+      font-size: 1.08em;
+      text-shadow: 0 0 25px #108dda, 0 0 12px #3899ff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-    .action-btn:hover, .pay-btn:hover {  
-      background: #3080ff;  
-      color: #f0f9ff;  
-      box-shadow: 0 0 22px #5599ffcc;  
-      transform: scale(1.1);  
-    }  
-
-    /* glowy Find Us box */
-    .map {  
-      background: linear-gradient(90deg, #3c6ddd 90%, #5387ff 100%);  
-      border-bottom: 2px solid #1c3f90;  
-      box-shadow: 0 0 32px 3px #5387ffcc;  
-      margin-top: 6px;  
-      border-radius: 17px;  
-      padding: 10px 0;  
-      color: #dbe9ff;
-      text-shadow: 0 0 15px #7ba8ff;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-    }  
-
-    .map h2 {  
-      text-shadow: 0 0 20px #91b0ff, 0 0 32px #5285e1;  
-      color: #cadeff;  
-      font-size: 1.12em;  
-      font-weight: 700;  
-      margin-bottom: 10px;  
-    }  
-
-    /* About box style */
-    .about-box {  
-      background: rgba(64, 88, 163, 0.15);  
-      border-radius: 13px;  
-      padding: 12px 2vw;  
-      margin: 0 auto 7px auto;  
-      width: 94vw;  
-      max-width: 370px;  
-      box-shadow: 0 0 18px #4158a3cc;  
+    .about-box {
+      background: #171b2a;
+      border-radius: 13px;
+      padding: 14px 2vw;
+      margin: 0 auto 8px auto;
+      max-width: 370px;
+      box-shadow: 0 0 20px #7689bf99;
       font-family: 'Georgia', serif;
-      color: #d0dbff;
+      color: #b6bee6;
       font-weight: 600;
-    }  
+    }
+    .about-title {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #3e89e6;
+      margin-bottom: 6px;
+      letter-spacing: .4px;
+    }
+    .about-quote {
+      font-size: 1em;
+      color: #a5b7f5;
+      font-style: italic;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
 
-    .about-title {  
-      font-size: 1.1em;  
-      font-weight: 700;  
-      color: #a3acec;  
-      margin-bottom: 6px;  
-      letter-spacing: .4px;  
-    }  
-
-    .about-quote {  
-      font-size: 1em;  
-      color: #b9c2f4;  
-      font-style: italic;  
-      margin-bottom: 8px;  
-      line-height: 1.35;  
-    }  
-
-    .footer {  
-      text-align: center;  
-      font-size: 1em;  
-      margin-top: 18px;  
-      text-shadow: 0 0 16px #4a76ff;  
-      color: #d0dbff;  
-      margin-bottom: 6px;  
+    .footer {
+      text-align: center;
+      font-size: 1em;
+      margin-top: 14px;
+      text-shadow: 0 0 13px #048cf899;
+      color: #b6bee6;
+    }
+    .developed {
+      text-align: center;
+      margin: 0 auto 11px auto;
+      font-size: 1.1em;
+      color: #63a9ff;
+      font-weight: bold;
+      text-shadow: 0 0 12px #47d6ff, 0 0 5px #015aa8;
+      background: none;
       font-family: 'Georgia', serif;
-      font-weight: 600;
-    }  
-
-    .developed {  
-      text-align: center;  
-      margin: 0 auto 14px auto;  
-      font-size: 1.1em;  
-      color: #7a8edb;  
-      font-weight: bold;  
-      text-shadow: 0 0 12px #6385ff, 0 0 10px #2346a5;  
-      background: none;  
-      font-family: 'Georgia', serif;
-    }  
-
-    @media (max-width: 600px) {  
-      .box, .map, .about-box {padding: 8px 3vw;}  
-      .service-icon-img { width:22px; height:22px;}  
-      .action-btn, .pay-btn { padding: 7px 0; font-size: 0.9em; max-width: 110px;}  
-      .about-title { font-size: 1em;}  
+    }
+    @media (max-width: 600px) {
+      .container {
+        max-width: 98vw;
+        border-radius: 15px;
+        padding-bottom: 7px;
+        gap: 10px;
+      }
+      .header {
+        font-size: 1.13em;
+        border-radius: 0 0 12px 12px;
+      }
       .nav-menu {
-        font-size: 0.85em;
+        font-size: 0.95em;
+        padding: 7px 3px;
       }
-      .nav-menu button {
-        padding: 5px 7px;
+      .nav-menu button { 
+        font-size: 0.94em;
+        padding: 6px 7px;
       }
-    }  
-  </style>  
-</head>  
-<body>  
-  <div class="container" role="main" aria-label="Zahoor Auto Spa main interface">  
-    <div class="box header" role="banner">  
-      <marquee aria-hidden="true">Zahoor Auto Spa</marquee>  
-    </div>  
-    <nav class="nav-menu" role="navigation" aria-label="Main navigation links">
-      <button type="button" onclick="scrollToSection('top')">Home</button>
-      <button type="button" onclick="scrollToSection('booking')">Online Booking</button>
-      <button type="button" onclick="scrollToSection('services')">Services</button>
-      <button type="button" onclick="scrollToSection('findus')">Find Us</button>
-      <button type="button" onclick="scrollToSection('aboutus')">About Us</button>
-    </nav>
+      .service-icon-img, .service-icon-wash {
+        width: 38px; height: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container" role="main" aria-label="Zahoor Auto Spa main interface">
+  <div class="header" role="banner">
+    Zahoor Auto Spa
+  </div>
+  <nav class="nav-menu" role="navigation" aria-label="Main navigation links">
+    <button type="button" onclick="scrollToSection('home')">Home</button>
+    <button type="button" onclick="scrollToSection('booking')">Online Booking</button>
+    <button type="button" onclick="scrollToSection('services')">Services</button>
+    <button type="button" onclick="scrollToSection('findus')">Find Us</button>
+    <button type="button" onclick="scrollToSection('aboutus')">About Us</button>
+  </nav>
+  <div class="box middle" id="home" tabindex="-1">
+    <h2>Choose What You Want to Wash</h2>
+    <div class="select-service" id="booking">
+      <div class="service-choice" onclick="selectService('bike')" id="bike-choice" aria-label="Select Bike Wash" role="button" tabindex="0">
+        <div class="service-icon-img"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/cefb97fb-22d7-499b-b565-d9d4dcacfd12.png" alt="Bike Wash Cartoon" style="width:100%;height:100%;border-radius:50%;"></div>
+        <span class="service-title">Bike Wash</span>
+      </div>
+      <div class="service-choice" onclick="selectService('car')" id="car-choice" aria-label="Select Car Wash" role="button" tabindex="0">
+        <div class="service-icon-img"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/b21e2a1c-3720-4087-890b-c4b926268535.png" alt="Car Wash Cartoon" style="width:100%;height:100%;border-radius:50%;"></div>
+        <span class="service-title">Car Wash</span>
+      </div>
+      <div class="service-choice" onclick="selectService('bus')" id="bus-choice" aria-label="Select Bus Wash" role="button" tabindex="0">
+        <div class="service-icon-img"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/86ddf92b-9f6f-41bb-b9b5-9b087a53d097.png" alt="Bus Wash Cartoon" style="width:100%;height:100%;border-radius:50%;"></div>
+        <span class="service-title">Bus Wash</span>
+      </div>
+      <div class="service-choice" onclick="selectService('truck')" id="truck-choice" aria-label="Select Truck Wash" role="button" tabindex="0">
+        <div class="service-icon-img"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/b21e2a1c-3720-4087-890b-c4b926268535.png" alt="Truck Wash Cartoon (reusing car logo for demo)" style="width:100%;height:100%;border-radius:50%;"></div>
+        <span class="service-title">Truck Wash</span>
+      </div>
+    </div>
+    <div class="actions" id="action-buttons"></div>
+  </div>
 
-    <div class="box middle" id="booking" tabindex="-1">  
-      <h2 style="margin-bottom: 6px; font-size:.99em; padding:4px 0; font-weight: 700;">Choose What You Want to Wash</h2>  
-      <div class="select-service" id="services">  
-        <div class="service-choice" onclick="selectService('bike')" id="bike-choice" role="button" tabindex="0" aria-pressed="false" aria-label="Select Bike Wash">  
-          <div class="service-title">Bike</div>  
-          <div class="service-icon-img" aria-hidden="true">  
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="24" r="5" fill="#4e7dda"/><circle cx="24" cy="24" r="5" fill="#2050a0"/><rect x="15" y="17" width="6" height="2" rx="1" fill="#103466"/><path d="M9 19 L16 11 L20 19" stroke="#103466" stroke-width="2" fill="none"/></svg>  
-          </div>  
-        </div>  
+  <!-- Wash Services -->
+  <div class="services-list" id="services">
+    <div class="wash-service-choice" aria-label="Foam Wash" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/b21e2a1c-3720-4087-890b-c4b926268535.png" alt="Foam Wash Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Foam Wash</span>
+    </div>
+    <div class="wash-service-choice" aria-label="Tire Wash" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/cefb97fb-22d7-499b-b565-d9d4dcacfd12.png" alt="Tire Wash Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Tire Wash</span>
+    </div>
+    <div class="wash-service-choice" aria-label="Interior Wash" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/b21e2a1c-3720-4087-890b-c4b926268535.png" alt="Interior Wash Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Interior Wash</span>
+    </div>
+    <div class="wash-service-choice" aria-label="Engine Wash" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/b21e2a1c-3720-4087-890b-c4b926268535.png" alt="Engine Wash Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Engine Wash</span>
+    </div>
+    <div class="wash-service-choice" aria-label="Wax Polishing" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/cefb97fb-22d7-499b-b565-d9d4dcacfd12.png" alt="Wax Polishing Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Wax Polishing</span>
+    </div>
+    <div class="wash-service-choice" aria-label="Greasing" role="button" tabindex="0">
+      <div class="service-icon-wash"><img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/86ddf92b-9f6f-41bb-b9b5-9b087a53d097.png" alt="Greasing Cartoon Logo" style="width:100%;height:100%;border-radius:50%;"></div>
+      <span class="wash-service-title">Greasing</span>
+    </div>
+  </div>
 
-        <div class="service-choice" onclick="selectService('car')" id="car-choice" role="button" tabindex="0" aria-pressed="false" aria-label="Select Car Wash">  
-          <div class="service-title">Car</div>  
-          <div class="service-icon-img" aria-hidden="true">  
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="17" width="18" height="6" rx="3" fill="#4e7dda"/><rect x="6" y="23" width="20" height="4" rx="2" fill="#2050a0"/><circle cx="11" cy="27" r="2" fill="#103466"/><circle cx="21" cy="27" r="2" fill="#103466"/></svg>  
-          </div>  
-        </div>  
+  <div class="box map" id="findus" tabindex="-1">
+    <h2>Find Us</h2>
+    <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+  <div class="about-box" id="aboutus" tabindex="-1">
+    <div class="about-title">About Us</div>
+    <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>
+  </div>
+  <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>
+  <div class="developed">Developed By Tajamul</div>
+</div>
+<script>
+const serviceData = {
+  bike: {
+    name: "Bike Wash",
+    price: 150,
+    payeeVPA: "shahtajamul88-2@okicici",
+    whatsappMsg: "I want to book a Bike Wash",
+    smsMsg: "I want to book a Bike Wash"
+  },
+  car: {
+    name: "Car Wash",
+    price: 350,
+    payeeVPA: "shahtajamul88-2@okicici",
+    whatsappMsg: "I want to book a Car Wash",
+    smsMsg: "I want to book a Car Wash"
+  },
+  bus: {
+    name: "Bus Wash",
+    price: 650,
+    payeeVPA: "shahtajamul88-2@okicici",
+    whatsappMsg: "I want to book a Bus Wash",
+    smsMsg: "I want to book a Bus Wash"
+  },
+  truck: {
+    name: "Truck Wash",
+    price: 850,
+    payeeVPA: "shahtajamul88-2@okicici",
+    whatsappMsg: "I want to book a Truck Wash",
+    smsMsg: "I want to book a Truck Wash"
+  }
+};
 
-        <div class="service-choice" onclick="selectService('bus')" id="bus-choice" role="button" tabindex="0" aria-pressed="false" aria-label="Select Bus Wash">  
-          <div class="service-title">Bus</div>  
-          <div class="service-icon-img" aria-hidden="true">  
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="12" width="22" height="10" rx="3" fill="#4e7dda"/><rect x="8" y="15" width="16" height="5" rx="1.5" fill="#2050a0"/><circle cx="11" cy="25" r="2" fill="#103466"/><circle cx="21" cy="25" r="2" fill="#103466"/></svg>  
-          </div>  
-        </div>  
-
-        <div class="service-choice" onclick="selectService('truck')" id="truck-choice" role="button" tabindex="0" aria-pressed="false" aria-label="Select Truck Wash">  
-          <div class="service-title">Truck</div>  
-          <div class="service-icon-img" aria-hidden="true">  
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="17" width="12" height="7" rx="2" fill="#4e7dda"/><rect x="16" y="13" width="12" height="11" rx="3" fill="#2050a0"/><rect x="8" y="24" width="6" height="4" rx="2" fill="#103466"/><circle cx="8" cy="27" r="2" fill="#103466"/><circle cx="22" cy="27" r="2" fill="#103466"/></svg>  
-          </div>  
-        </div>  
-      </div>  
-      <div class="actions" id="action-buttons" aria-live="polite"></div>  
-    </div>  
-
-    <div class="box map" id="findus" tabindex="-1" aria-label="Find Us section">  
-      <h2>Find Us</h2>  
-      <iframe src="https://www.google.com/maps?q=34.2439295,74.7120071&hl=es;z=14&amp;output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Zahoor Auto Spa location map"></iframe>  
-    </div>  
-
-    <div class="about-box" id="aboutus" tabindex="-1">  
-      <div class="about-title">About Us</div>  
-      <div class="about-quote">"Make every journey shine—whether bike, car, bus, or truck, we bring brilliance back to your ride."</div>  
-    </div>  
-
-    <div class="footer">Powered by <b>ChatGPT</b>, <b>Perplexity</b></div>  
-    <div class="developed">Developed By Tajamul</div>  
-  </div>  
-
-<script>  
-const serviceData = {  
-  bike: {  
-    name: "Bike Wash",  
-    price: 150,  
-    payeeVPA: "shahtajamul88-2@okicici",  
-    whatsappMsg: "I want to book a Bike Wash",  
-    smsMsg: "I want to book a Bike Wash"  
-  },  
-  car: {  
-    name: "Car Wash",  
-    price: 350,  
-    payeeVPA: "shahtajamul88-2@okicici",  
-    whatsappMsg: "I want to book a Car Wash",  
-    smsMsg: "I want to book a Car Wash"  
-  },  
-  bus: {  
-    name: "Bus Wash",  
-    price: 650,  
-    payeeVPA: "shahtajamul88-2@okicici",  
-    whatsappMsg: "I want to book a Bus Wash",  
-    smsMsg: "I want to book a Bus Wash"  
-  },  
-  truck: {  
-    name: "Truck Wash",  
-    price: 850,  
-    payeeVPA: "shahtajamul88-2@okicici",  
-    whatsappMsg: "I want to book a Truck Wash",  
-    smsMsg: "I want to book a Truck Wash"  
-  }  
-};  
-
-function selectService(type) {  
-  for (const s of ['bike','car','bus','truck']) {  
-    document.getElementById(s+'-choice').classList.remove('selected');  
-    document.getElementById(s+'-choice').setAttribute('aria-pressed', 'false');
-  }  
-  document.getElementById(type+'-choice').classList.add('selected');  
-  document.getElementById(type+'-choice').setAttribute('aria-pressed', 'true');
-  const d = serviceData[type];  
-
+function selectService(type) {
+  for (const s of ['bike', 'car', 'bus', 'truck']) {
+    document.getElementById(s + '-choice').classList.remove('selected');
+  }
+  document.getElementById(type + '-choice').classList.add('selected');
+  const d = serviceData[type];
   const payButton = `<button class="pay-btn" aria-label="Pay ₹${d.price} for ${d.name}" onclick="payViaUPI('${d.payeeVPA}', ${d.price}, '${d.name}')">Pay ₹${d.price}</button>`;
-  const whatsappLink = `<a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">${"WhatsApp"}</a>`;  
-  const smsLink = `<a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}" aria-label="Contact via SMS">${"SMS"}</a>`;  
-
-  document.getElementById('action-buttons').innerHTML = whatsappLink + smsLink + payButton;  
-}  
+  const whatsappLink = `<a class="action-btn" href="https://wa.me/919797472650?text=${encodeURIComponent(d.whatsappMsg)}" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">${"WhatsApp"}</a>`;
+  const smsLink = `<a class="action-btn" href="sms:+919797472650?body=${encodeURIComponent(d.smsMsg)}" aria-label="Contact via SMS">${"SMS"}</a>`;
+  document.getElementById('action-buttons').innerHTML = whatsappLink + smsLink + payButton;
+}
 
 function payViaUPI(vpa, amount, note) {
   const upiUrl = `upi://pay?pa=${encodeURIComponent(vpa)}&pn=Zahoor%20Auto%20Spa&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
   window.location.href = upiUrl;
-}  
+}
 
-// Navigation scroll function
 function scrollToSection(sectionId) {
-  if(sectionId === 'top') {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    return;
-  }
   const section = document.getElementById(sectionId);
-  if(section) {
-    section.focus(); // Set keyboard focus for a11y
-    section.scrollIntoView({behavior: 'smooth', block: 'start'});
+  if (section) {
+    section.focus();
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
-</script>  
-
-</body>  
+</script>
+</body>
 </html>
