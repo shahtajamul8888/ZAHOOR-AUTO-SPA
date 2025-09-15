@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zahoor Auto Spa</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #000;
       color: #fff;
       text-align: center;
+    }
+    
+    /* Top marquee box style */
+    .top-marquee {
+      background: #0047ab; /* premium blue */
+      border-radius: 20px;
+      margin: 15px auto;
+      max-width: 600px;
+      padding: 15px 0;
+      box-shadow: 0 0 10px #0047abcc;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .top-marquee marquee {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 3px;
     }
 
     h2 {
@@ -63,16 +84,47 @@
       box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
     }
 
+    a {
+      color: #ff9800;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       margin-top: 30px;
       padding: 15px;
       font-size: 14px;
       background: #111;
       color: #ccc;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+
+    /* Glow effect */
+    .glow-text {
+      color: #ff9800;
+      text-shadow:
+        0 0 5px #ff9800,
+        0 0 10px #ff9800,
+        0 0 20px #ff9800,
+        0 0 40px #ff9800;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
+
+  <!-- Top marquee box -->
+  <div class="top-marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="10">ZAHOOR AUTO SPA</marquee>
+  </div>
 
   <!-- Book Online -->
   <div class="section">
@@ -98,6 +150,14 @@
     </div>
   </div>
 
+  <!-- Find Us Section -->
+  <div class="section">
+    <h2>📍 Find Us</h2>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008" target="_blank">
+      Navigate to Zahoor Auto Spa
+    </a>
+  </div>
+
   <!-- About Us -->
   <div class="about">
     <h2>ℹ️ About Us</h2>
@@ -109,7 +169,9 @@
 
   <!-- Footer -->
   <footer>
-    📍 Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504
+    <div class="glow-text">Powered by ChatGPT Perplexity</div>
+    <div class="glow-text">Developed by Tajamul</div>
+    <div>📍 Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</div>
   </footer>
 
 </body>
