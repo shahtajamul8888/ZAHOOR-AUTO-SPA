@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZAHOOR AUTO SPA</title>
+  <title>ZAHOORAUTOSPA</title>
   <style>
     body {
       margin: 0;
@@ -13,17 +13,13 @@
       text-align: center;
     }
 
-    /* Main heading */
-    h1 {
+    /* Main heading marquee */
+    marquee {
       font-size: 2.5em;
       color: orange;
       text-shadow: 0 0 20px orange, 0 0 40px #ff6600;
-      animation: glow 2s infinite alternate;
       margin: 20px 0;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px orange, 0 0 20px #ff6600; }
-      to { text-shadow: 0 0 25px orange, 0 0 60px #ff3300; }
+      font-weight: bold;
     }
 
     /* Section boxes */
@@ -92,6 +88,14 @@
       text-shadow: 0 0 10px orange;
     }
 
+    /* Find Us section */
+    .find-us {
+      margin: 10px 0 0 0;
+      font-size: 1em;
+      color: #ffcc66;
+      text-shadow: 0 0 8px orange;
+    }
+
     /* Popup styling */
     .popup {
       position: fixed;
@@ -145,7 +149,7 @@
 <body>
 
   <!-- Heading -->
-  <h1>ZAHOOR AUTO SPA</h1>
+  <marquee>ZAHOORAUTOSPA</marquee>
 
   <!-- Book Online Section -->
   <div class="box">
@@ -169,6 +173,12 @@
       <div class="service-choice">🛢️ Greasing</div>
       <div class="service-choice">💨 Foam Wash</div>
     </div>
+  </div>
+
+  <!-- Find Us -->
+  <div class="find-us">
+    Find Us: 34.2439281, 74.7119008<br/>
+    Nearby Address: Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504
   </div>
 
   <!-- About Us -->
@@ -218,7 +228,25 @@
       alert("💰 Price List:\n🏍️ Bike Wash: ₹100\n🚗 Car Wash: ₹250\n🚌 Bus Wash: ₹500\n🚚 Truck Wash: ₹600");
     }
     function payNow() {
-      window.location.href = "upi://pay?pa=yourupiid@upi&pn=ZahoorAutoSpa&am=250&cu=INR";
+      let paymentLink = "";
+      switch(currentService) {
+        case "Bike Wash":
+          paymentLink = "https://payments.cashfree.com/links?code=b95kmt7h58ug";
+          break;
+        case "Car Wash":
+          paymentLink = "https://payments.cashfree.com/links?code=I95kn0apt8ug";
+          break;
+        case "Bus Wash":
+          paymentLink = "https://payments.cashfree.com/links?code=N95kn1vcd8ug";
+          break;
+        case "Truck Wash":
+          paymentLink = "https://payments.cashfree.com/links?code=p95kn4tfv8ug";
+          break;
+        default:
+          alert("Please select a valid service for payment.");
+          return;
+      }
+      window.open(paymentLink, "_blank");
     }
   </script>
 
