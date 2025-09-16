@@ -161,22 +161,29 @@
       <div class="box" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>
       <div class="box" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>
     </div>
+    <!-- Bike Wash Popup -->
     <div class="service-options" id="bike-options">
       <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>
       <button onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug', '_blank')" class="pay-btn">💳 Pay ₹</button>
       <button onclick="closeServiceOption('bike-options')" class="close-btn">❌ Close Tab</button>
     </div>
+    <!-- Car Wash Popup -->
     <div class="service-options" id="car-options">
-      <button onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug', '_blank')" class="pay-btn">💳 Pay Now</button>
-      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash%20service" target="_blank" class="whatsapp-btn">📱 WhatsApp Booking</a>
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>
+      <button onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug', '_blank')" class="pay-btn">💳 Pay ₹</button>
+      <button onclick="closeServiceOption('car-options')" class="close-btn">❌ Close Tab</button>
     </div>
+    <!-- Bus Wash Popup -->
     <div class="service-options" id="bus-options">
-      <button onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug', '_blank')" class="pay-btn">💳 Pay Now</button>
-      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash%20service" target="_blank" class="whatsapp-btn">📱 WhatsApp Booking</a>
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>
+      <button onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug', '_blank')" class="pay-btn">💳 Pay ₹</button>
+      <button onclick="closeServiceOption('bus-options')" class="close-btn">❌ Close Tab</button>
     </div>
+    <!-- Truck Wash Popup -->
     <div class="service-options" id="truck-options">
-      <button onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug', '_blank')" class="pay-btn">💳 Pay Now</button>
-      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash%20service" target="_blank" class="whatsapp-btn">📱 WhatsApp Booking</a>
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>
+      <button onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug', '_blank')" class="pay-btn">💳 Pay ₹</button>
+      <button onclick="closeServiceOption('truck-options')" class="close-btn">❌ Close Tab</button>
     </div>
   </div>
   <!-- Our Services -->
@@ -226,7 +233,6 @@
     function closeServiceOption(serviceId) {
       document.getElementById(serviceId).style.display = 'none';
     }
-    // Hide all menus on page load
     hideAllServiceOptions();
   </script>
 </body>
