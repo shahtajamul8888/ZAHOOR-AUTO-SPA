@@ -139,23 +139,44 @@
     }
     footer {
       margin-top: 30px;
-      padding: 15px;
-      font-size: 14px;
+      padding: 15px 40px;
+      font-size: 16px;
       background: #111;
-      color: #ccc;
       display: flex;
-      flex-direction: column;
-      gap: 6px;
+      justify-content: space-between;
       align-items: center;
     }
     .glow-text {
+      color: #fff;
+      font-weight: bold;
+      text-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .glow-text:hover {
+      transform: scale(1.1);
       color: #ff9800;
       text-shadow:
-        0 0 5px #ff9800,
         0 0 10px #ff9800,
         0 0 20px #ff9800,
-        0 0 40px #ff9800;
-      font-weight: 600;
+        0 0 30px #ff9800,
+        0 0 50px #ff9800;
+    }
+    .logo {
+      height: 28px;
+      filter: brightness(0) invert(1); /* make logos white */
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .glow-text:hover .logo {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px #ff9800);
     }
   </style>
 </head>
@@ -232,10 +253,17 @@
   </div>
   <!-- Footer -->
   <footer>
-    <div class="glow-text">Powered by ChatGPT Perplexity</div>
-    <div class="glow-text">Developed by Tajamul</div>
-    <div>📍 Ganderbal - Mansbal Rd, Gulshan Mohalla, Yangoora, 193504</div>
+    <!-- Left: Logos -->
+    <div class="footer-left glow-text">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="logo">
+      <img src="https://seeklogo.com/images/P/perplexity-ai-logo-1CC03E22A1-seeklogo.com.png" alt="Perplexity" class="logo">
+    </div>
+    <!-- Right: Developed by Tajamul -->
+    <div class="footer-right glow-text">
+      🖥️ Developed by Tajamul
+    </div>
   </footer>
+
   <script>
     function hideAllServiceOptions() {
       document.getElementById('bike-options').style.display = 'none';
