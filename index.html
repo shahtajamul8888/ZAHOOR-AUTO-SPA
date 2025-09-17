@@ -50,7 +50,6 @@
       margin-top: 10px;
     }
     .box {
-      background: #222;
       padding: 12px;
       border-radius: 12px;
       font-size: 14px;
@@ -63,11 +62,25 @@
       transition: 0.3s;
       cursor: pointer;
       user-select: none;
+      color: #fff;
     }
-    .box:hover {
-      background: #333;
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(255,165,0,0.5);
+    /* Book Online buttons - Blue */
+    .blue-box {
+      background: #0771f7;
+    }
+    .blue-box:hover {
+      background: #0051b8;
+      box-shadow: 0 0 12px #0771f7;
+      color: #fff;
+    }
+    /* Our Services buttons - Red */
+    .red-box {
+      background: #d32f2f;
+    }
+    .red-box:hover {
+      background: #b71c1c;
+      box-shadow: 0 0 12px #d32f2f;
+      color: #fff;
     }
     .about {
       margin: 20px;
@@ -158,41 +171,8 @@
       padding: 15px 40px;
       font-size: 16px;
       background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .glow-text {
-      color: #fff;
+      text-align: center;
       font-weight: bold;
-      text-shadow:
-        0 0 5px #ffffff,
-        0 0 10px #ffffff,
-        0 0 20px #ffffff,
-        0 0 40px #ffffff;
-      transition: transform 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .glow-text:hover {
-      transform: scale(1.1);
-      color: #ff9800;
-      text-shadow:
-        0 0 10px #ff9800,
-        0 0 20px #ff9800,
-        0 0 30px #ff9800,
-        0 0 50px #ff9800;
-    }
-    .logo {
-      height: 28px;
-      filter: brightness(0) invert(1); /* make logos white */
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .glow-text:hover .logo {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 8px #ff9800);
     }
   </style>
 </head>
@@ -201,15 +181,14 @@
   <div class="top-marquee">
     <marquee behavior="scroll" direction="left" scrollamount="8">ZAHOOR AUTO SPA</marquee>
   </div>
-
   <!-- Book Online -->
   <div class="section">
     <h2>✨ Book Online</h2>
     <div class="grid">
-      <div class="box" onclick="showServiceOptions('bike-options')">🏍️ Bike Wash</div>
-      <div class="box" onclick="showServiceOptions('car-options')">🚗 Car Wash</div>
-      <div class="box" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>
-      <div class="box" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>
+      <div class="box blue-box" onclick="showServiceOptions('bike-options')">🏍️ Bike Wash</div>
+      <div class="box blue-box" onclick="showServiceOptions('car-options')">🚗 Car Wash</div>
+      <div class="box blue-box" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>
+      <div class="box blue-box" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>
     </div>
     <!-- Service Popups -->
     <div class="service-options" id="bike-options">
@@ -237,12 +216,12 @@
   <div class="section">
     <h2>✨ Our Services</h2>
     <div class="grid">
-      <div class="box">🔧 Engine Wash</div>
-      <div class="box">🛞 Tire Wash</div>
-      <div class="box">🪑 Interior Wash</div>
-      <div class="box">🚙 Exterior Wash</div>
-      <div class="box">🛢️ Greasing</div>
-      <div class="box">💨 Foam Wash</div>
+      <div class="box red-box">🔧 Engine Wash</div>
+      <div class="box red-box">🛞 Tire Wash</div>
+      <div class="box red-box">🪑 Interior Wash</div>
+      <div class="box red-box">🚙 Exterior Wash</div>
+      <div class="box red-box">🛢️ Greasing</div>
+      <div class="box red-box">💨 Foam Wash</div>
     </div>
   </div>
   <!-- Find Us Section -->
@@ -269,17 +248,8 @@
   </div>
   <!-- Footer -->
   <footer>
-    <!-- Left: Logos -->
-    <div class="footer-left glow-text">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="logo">
-      <img src="https://seeklogo.com/images/P/perplexity-ai-logo-1CC03E22A1-seeklogo.com.png" alt="Perplexity" class="logo">
-    </div>
-    <!-- Right: Developed by Tajamul -->
-    <div class="footer-right glow-text">
-      🖥️ Developed by Tajamul
-    </div>
+    🖥️ <span style="font-weight:bold;">Developed by Tajamul</span>
   </footer>
-
   <script>
     function hideAllServiceOptions() {
       document.getElementById('bike-options').style.display = 'none';
