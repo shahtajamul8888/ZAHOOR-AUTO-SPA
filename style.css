@@ -1,0 +1,56 @@
+body{
+  margin:0;
+  padding:20px;
+  font-family:system-ui, Arial, sans-serif;
+  background:linear-gradient(135deg,#0b1a33,#000);
+  color:#fff;
+  text-align:center;
+}
+
+h1{
+  color:#ff9800;
+}
+
+input, select, button{
+  padding:10px;
+  margin:6px;
+  border-radius:8px;
+  border:none;
+  width:90%;
+  max-width:300px;
+}
+
+button{
+  background:#0047ab;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#ff9800;
+  color:#222;
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-box{
+  background:#111;
+  padding:20px;
+  border-radius:12px;
+  width:80%;
+  max-width:300px;
+}
+
+a{
+  color:#ff9800;
+  font-weight:600;
+  cursor:pointer;
+}
