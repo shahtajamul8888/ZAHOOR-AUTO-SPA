@@ -1,98 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zahoor Auto Spa</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-  <!-- Top animated marquee -->
-  <div class="top-marquee" id="topMarquee">
-    <div class="marquee-track">
-      <span id="marqueeText">
-        ZAHOOR AUTO SPA • ZAHOOR AUTO SPA • ZAHOOR AUTO SPA •
-      </span>
-    </div>
-  </div>
-
-  <!-- Book Online -->
-  <div class="section">
-    <h2>✨ Book Online</h2>
-
-    <div class="grid">
-      <div class="box blue-box" onclick="showServiceOptions('bike-options')">🏍️ Bike Wash</div>
-      <div class="box blue-box" onclick="showServiceOptions('car-options')">🚗 Car Wash</div>
-      <div class="box blue-box" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>
-      <div class="box blue-box" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>
-    </div>
-
-    <!-- Service options (unchanged) -->
-    <div class="service-options" id="bike-options">
-      <a class="whatsapp-btn" target="_blank"
-         href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash">
-        🟢 WhatsApp Booking
-      </a>
-      <button class="pay-btn"
-        onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug','_blank')">
-        💳 Pay ₹150
-      </button>
-      <button class="close-btn" onclick="closeServiceOption('bike-options')">Close</button>
-    </div>
-
-    <div class="service-options" id="car-options">
-      <a class="whatsapp-btn" target="_blank"
-         href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash">
-        🟢 WhatsApp Booking
-      </a>
-      <button class="pay-btn"
-        onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug','_blank')">
-        💳 Pay ₹350
-      </button>
-      <button class="close-btn" onclick="closeServiceOption('car-options')">Close</button>
-    </div>
-
-    <div class="service-options" id="bus-options">
-      <a class="whatsapp-btn" target="_blank"
-         href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash">
-        🟢 WhatsApp Booking
-      </a>
-      <button class="pay-btn"
-        onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug','_blank')">
-        💳 Pay ₹650
-      </button>
-      <button class="close-btn" onclick="closeServiceOption('bus-options')">Close</button>
-    </div>
-
-    <div class="service-options" id="truck-options">
-      <a class="whatsapp-btn" target="_blank"
-         href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash">
-        🟢 WhatsApp Booking
-      </a>
-      <button class="pay-btn"
-        onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug','_blank')">
-        💳 Pay ₹750
-      </button>
-      <button class="close-btn" onclick="closeServiceOption('truck-options')">Close</button>
-    </div>
-  </div>
-
-  <div class="about">
-    <h2>ℹ️ About Us</h2>
-    <p>
-      We provide premium quality washing services with modern equipment
-      and professional care for your vehicles.
-    </p>
-  </div>
-
-  <footer>
-    🖥️ Developed by Tajamul
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Zahoor Auto Spa</title>  
+  <style>  
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');  
+    body {  
+      margin: 0;  
+      font-family: 'Poppins', sans-serif;  
+      background: #000;  
+      color: #fff;  
+      text-align: center;  
+    }  
+    .top-marquee {  
+      background: #0047ab;  
+      border-radius: 20px;  
+      margin: 12px auto 0 auto;  
+      max-width: 600px;  
+      padding: 8px 0;  
+      box-shadow: 0 0 8px #0047abcc;  
+      overflow: hidden;  
+      position: relative;  
+    }  
+    .top-marquee marquee {  
+      font-size: 20px;  
+      font-weight: 700;  
+      color: #fff;  
+      letter-spacing: 2px;  
+      padding-left: 8px;  
+    }  
+    h2 {  
+      font-size: 24px;  
+      margin: 30px 0 20px;  
+      color: #ff9800;  
+      text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800;  
+    }  
+    .section {  
+      background: #111;  
+      margin: 20px;  
+      border-radius: 15px;  
+      padding: 20px;  
+      box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);  
+    }  
+    .grid {  
+      display: grid;  
+      grid-template-columns: repeat(2, 1fr);  
+      gap: 12px;  
+      margin-top: 10px;  
+    }  
+    .box {  
+      padding: 12px;  
+      border-radius: 12px;  
+      font-size: 14px;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      gap: 6px;  
+      border: 1px solid #444;  
+      box-shadow: 0 0 8px rgba(255,255,255,0.1);  
+      transition: 0.3s;  
+      cursor: pointer;  
+      user-select: none;  
+      color: #fff;  
+    }  
+    /* Book Online buttons - Blue */  
+    .blue-box {  
+      background: #0771f7;  
+    }  
+    .blue-box:hover {  
+      background: #0051b8;  
+      box-shadow: 0 0 12px #0771f7;  
+      color: #fff;  
+    }  
+    /* Our Services buttons - Red */  
+    .red-box {  
+      background: #d32f2f;  
+    }  
+    .red-box:hover {  
+      background: #b71c1c;  
+      box-shadow: 0 0 12px #d32f2f;  
+      color: #fff;  
+    }  
+    .about {  
+      margin: 20px;  
+      padding: 20px;  
+      background: #111;  
+      border-radius: 15px;  
+      box-shadow: 0 0 15px rgba(255,165,0,0.3);  
+    }  
+    .service-options {  
+      display: none;  
+      flex-direction: column;  
+      gap: 8px;  
+      align-items: center;  
+      background: #222;  
+      border-radius: 12px;  
+      box-shadow: 0 0 10px rgba(255,165,0,0.4);  
+      margin: 10px auto 20px;  
+      padding: 12px 0;  
+      width: 60%;  
+      position: relative;  
+      z-index: 2;  
+      font-size: 15px;  
+    }  
+    .pay-btn, .whatsapp-btn, .close-btn {  
+      background: #0047ab;  
+      color: #fff;  
+      border: none;  
+      border-radius: 8px;  
+      padding: 8px 14px;  
+      font-size: 15px;  
+      font-weight: 600;  
+      cursor: pointer;  
+      transition: box-shadow 0.2s, background 0.2s, color 0.2s;  
+      box-shadow: 0 0 8px #1e90ff60;  
+      text-decoration: none;  
+      margin-bottom: 6px;  
+      display: inline-block;  
+      width: 80%;  
+      max-width: 280px;  
+      text-align: center;  
+      user-select: none;  
+    }  
+    .pay-btn:hover, .whatsapp-btn:hover, .close-btn:hover {  
+      background: #ff9800;  
+      box-shadow: 0 0 12px #ff9800;  
+      color: #222;  
+    }  
+    .whatsapp-btn {  
+      display: flex;  
+      align-items: center;  
+      gap: 6px;  
+      justify-content: center;  
+      font-size: 16px;  
+      font-weight: 700;  
+    }  
+    .close-btn {  
+      color: #fff;  
+    }  
+    .close-btn:before {  
+      content: "❌ ";  
+      font-size: 16px;  
+    }  
+    a {  
+      color: #ff9800;  
+      font-weight: 600;  
+      text-decoration: none;  
+      font-size: 18px;  
+    }  
+    a:hover {  
+      text-decoration: underline;  
+    }  
+    .gmap-container {  
+      margin: 18px auto 12px auto;  
+      border-radius: 16px;  
+      overflow: hidden;  
+      max-width: 420px;  
+      box-shadow: 0 0 10px #0047abaa;  
+      border: 2px solid #0047ab;  
+    }  
+    iframe {  
+      display: block;  
+      width: 100%;  
+      height: 250px;  
+      border: 0;  
+    }  
+    footer {  
+      margin-top: 30px;  
+      padding: 15px 40px;  
+      font-size: 16px;  
+      background: #111;  
+      text-align: center;  
+      font-weight: bold;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <!-- Top marquee box -->  
+  <div class="top-marquee">  
+    <marquee behavior="scroll" direction="left" scrollamount="8">ZAHOOR AUTO SPA</marquee>  
+  </div>  
+  <!-- Book Online -->  
+  <div class="section">  
+    <h2>✨ Book Online</h2>  
+    <div class="grid">  
+      <div class="box blue-box" onclick="showServiceOptions('bike-options')">🏍️ Bike Wash</div>  
+      <div class="box blue-box" onclick="showServiceOptions('car-options')">🚗 Car Wash</div>  
+      <div class="box blue-box" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>  
+      <div class="box blue-box" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>  
+    </div>  
+    <!-- Service Popups -->  
+    <div class="service-options" id="bike-options">  
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>  
+      <button onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug', '_blank')" class="pay-btn">💳 Pay ₹150</button>  
+      <button onclick="closeServiceOption('bike-options')" class="close-btn">Close Tab</button>  
+    </div>  
+    <div class="service-options" id="car-options">  
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>  
+      <button onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug', '_blank')" class="pay-btn">💳 Pay ₹350</button>  
+      <button onclick="closeServiceOption('car-options')" class="close-btn">Close Tab</button>  
+    </div>  
+    <div class="service-options" id="bus-options">  
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>  
+      <button onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug', '_blank')" class="pay-btn">💳 Pay ₹650</button>  
+      <button onclick="closeServiceOption('bus-options')" class="close-btn">Close Tab</button>  
+    </div>  
+    <div class="service-options" id="truck-options">  
+      <a href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash%20service" target="_blank" class="whatsapp-btn">🟢 WhatsApp Booking</a>  
+      <button onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug', '_blank')" class="pay-btn">💳 Pay ₹750</button>  
+      <button onclick="closeServiceOption('truck-options')" class="close-btn">Close Tab</button>  
+    </div>  
+  </div>  
+  <!-- Our Services -->  
+  <div class="section">  
+    <h2>✨ Our Services</h2>  
+    <div class="grid">  
+      <div class="box red-box">🔧 Engine Wash</div>  
+      <div class="box red-box">🛞 Tire Wash</div>  
+      <div class="box red-box">🪑 Interior Wash</div>  
+      <div class="box red-box">🚙 Exterior Wash</div>  
+      <div class="box red-box">🛢️ Greasing</div>  
+      <div class="box red-box">💨 Foam Wash</div>  
+    </div>  
+  </div>  
+  <!-- Find Us Section -->  
+  <div class="section">  
+    <h2>📍 Find Us</h2>  
+    <a href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008" target="_blank">  
+      Navigate to Zahoor Auto Spa  
+    </a>  
+    <div class="gmap-container">  
+      <iframe  
+        loading="lazy"  
+        allowfullscreen  
+        src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed">  
+      </iframe>  
+    </div>  
+  </div>  
+  <!-- About Us -->  
+  <div class="about">  
+    <h2>ℹ️ About Us</h2>  
+    <p>  
+      We provide premium quality washing services with modern equipment   
+      and professional care for your vehicles.  
+    </p>  
+  </div>  
+  <!-- Footer -->  
+  <footer>  
+    🖥️ <span style="font-weight:bold;">Developed by Tajamul</span>  
+  </footer>  
+  <script>  
+    function hideAllServiceOptions() {  
+      document.getElementById('bike-options').style.display = 'none';  
+      document.getElementById('car-options').style.display = 'none';  
+      document.getElementById('bus-options').style.display = 'none';  
+      document.getElementById('truck-options').style.display = 'none';  
+    }  
+    function showServiceOptions(serviceId) {  
+      hideAllServiceOptions();  
+      document.getElementById(serviceId).style.display = 'flex';  
+    }  
+    function closeServiceOption(serviceId) {  
+      document.getElementById(serviceId).style.display = 'none';  
+    }  
+    hideAllServiceOptions();  
+  </script>  
+</body>  
 </html>
