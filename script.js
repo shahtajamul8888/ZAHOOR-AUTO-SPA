@@ -1,54 +1,37 @@
-function handleBooking(e) {
-  e.preventDefault();
+function hideAllServiceOptions() {
+  document.getElementById("bike-options").style.display = "none";
+  document.getElementById("car-options").style.display = "none";
+  document.getElementById("bus-options").style.display = "none";
+  document.getElementById("truck-options").style.display = "none";
+}
 
-  let name = document.getElementById("name").value;
-  let contact = document.getElementById("contact").value;
-  let service = document.getElementById("service").value;
+function showServiceOptions(id) {
+  hideAllServiceOptions();
+  document.getElementById(id).style.display = "flex";
+}
 
-  let amount = 0;
-  if (service === "Bike") amount = 160;
-  else if (service === "Car") amount = 360;
-  else if (service === "Bus") amount = 800;
-  else if (service === "Truck") amount = 800;
+function closeServiceOption(id) {
+  document.getElementById(id).style.display = "none";
+}
 
-  let message =
-    `Booking Request:%0A` +
-    `Name: ${name}%0A` +
-    `Phone: ${contact}%0A` +
-    `Service: ${service}%0A` +
-    `Amount: ₹${amount}`;
+hideAllServiceOptions();
 
-  // 1️⃣ WhatsApp
-  window.open(
-    `https://wa.me/919797472650?text=${message}`,
-    "_blank"
-  );
+/* ===== Marquee behavior ===== */
+(function () {
+  const marquee = document.getElementById("topMarquee");
+  const text = document.getElementById("marqueeText");
 
-  // 2️⃣ Cashfree Payment Link (UNCHANGED)
+  // Different text at night (8 PM – 6 AM)
+  const hour = new Date().getHours();
+  if (hour >= 20 || hour < 6) {
+    text.textContent =
+      "🌙 NIGHT SERVICE AVAILABLE • ZAHOOR AUTO SPA •";
+  }
+
+  // Auto-hide after 5 seconds (only per refresh)
   setTimeout(() => {
-    window.location.href =
-      "https://payments.cashfree.com/links?code=YOUR_CASHFREE_LINK_CODE";
-  }, 1000);
-}
-
-// Manual payment
-function openPayment() {
-  window.location.href =
-    "https://payments.cashfree.com/links?code=YOUR_CASHFREE_LINK_CODE";
-}
-
-// About popup
-function openAbout() {
-  document.getElementById("about-popup").style.display = "flex";
-}
-function closeAbout() {
-  document.getElementById("about-popup").style.display = "none";
-}
-
-// Contact popup
-function openContact() {
-  document.getElementById("contact-popup").style.display = "flex";
-}
-function closeContact() {
-  document.getElementById("contact-popup").style.display = "none";
-}
+    marquee.style.opacity = "0";
+    marquee.style.transform = "translateY(-10px)";
+    setTimeout(() => marquee.style.display = "none", 1000);
+  }, 5000);
+})();
