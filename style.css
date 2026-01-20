@@ -1,28 +1,105 @@
-/* Background - Natural Blue */
-body {
+/* =========================
+   GLOBAL / PWA BASICS
+========================= */
+html, body {
   margin: 0;
+  height: 100%;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #fff;
   text-align: center;
-  background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+  overscroll-behavior: none;
+  background: linear-gradient(135deg, #0b3c8a, #1565c0, #1e88e5);
   background-attachment: fixed;
 }
 
-/* Header */
-header {
-  background: rgba(0,0,50,0.6);
-  padding: 22px 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(4px);
+* {
+  -webkit-tap-highlight-color: transparent;
 }
-header h1 { margin: 0 0 6px 0; letter-spacing: 2px; text-transform: uppercase; }
-header p { margin: 0 0 10px 0; opacity: 0.9; }
-header nav a { margin: 0 12px; text-decoration: none; color: #fff; font-weight: 700; }
 
-/* Sections */
-section { padding: 28px 16px; }
+/* =========================
+   TOP SMOOTH MARQUEE
+========================= */
+.top-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0,0.45);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
 
-/* Horizontal row for services & booking */
+.marquee-inner {
+  display: inline-flex;
+  gap: 40px;
+  padding: 10px 0;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: marqueeScroll 22s linear infinite;
+}
+
+.marquee-inner::after {
+  content: " 🚗 Premium Car Wash   🧼 Interior Cleaning   ✨ Foam Wash   🚘 Detailing   💦 Underbody Wash ";
+  padding-left: 40px;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-50%); }
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background: rgba(0,0,40,0.55);
+  padding: 22px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  padding-top: env(safe-area-inset-top);
+}
+
+header h1 {
+  margin: 0 0 6px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeDown 1.2s ease;
+}
+
+header p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+header nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  padding: 28px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   CARDS
+========================= */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -30,49 +107,141 @@ section { padding: 28px 16px; }
   gap: 18px;
   margin-top: 18px;
 }
+
 .card {
   background: rgba(0,0,0,0.35);
   padding: 20px 16px;
   border-radius: 14px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
   min-width: 140px;
+  max-width: 220px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
-.card.click { cursor: pointer; transition: transform .25s, box-shadow .25s; }
-.card.click:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 22px rgba(0,0,0,0.45); }
 
-/* Emoji animations */
-.icon { font-size: 48px; display: inline-block; margin-bottom: 8px; }
-.spin { animation: spin 4s linear infinite; }
+.card.click {
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.card.click:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   ICON ANIMATIONS (SOFT)
+========================= */
+.icon {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.spin, .bounce, .swing {
+  animation-duration: 6s;
+}
+
+.spin { animation: spin 6s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.float { animation: float 3.5s ease-in-out infinite; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.bounce { animation: bounce 1.6s ease-in-out infinite; }
-@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10%); } }
-.pulse { animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
-.swing { animation: swing 2.8s ease-in-out infinite; transform-origin: top center; }
-@keyframes swing { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
-/* Payment */
+.float { animation: float 3.5s ease-in-out infinite; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.bounce { animation: bounce 6s ease-in-out infinite; }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10%); }
+}
+
+.swing {
+  animation: swing 6s ease-in-out infinite;
+  transform-origin: top center;
+}
+@keyframes swing {
+  0%,100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  transition: transform .2s, box-shadow .2s;
+  will-change: transform;
+}
+
+.btn.blue {
+  background: #0d6efd;
+  box-shadow: 0 0 14px rgba(13,110,253,0.6);
+}
+
+.btn.upi {
+  background: #198754;
+  box-shadow: 0 0 16px rgba(25,135,84,0.6);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  margin: 12px 0 18px;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   PAYMENT
+========================= */
 .payment {
   background: rgba(0,0,0,0.45);
   margin: 30px auto;
   max-width: 560px;
   border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
   box-shadow: 0 10px 24px rgba(0,0,0,0.5);
 }
-.copy-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; }
-.copy-row code { background: rgba(255,255,255,0.08); padding: 3px 6px; border-radius: 6px; }
-.btn { border: none; color: #fff; cursor: pointer; padding: 10px 18px; border-radius: 10px; font-weight: 800; transition: transform .2s, box-shadow .2s; }
-.btn.blue { background: #0d6efd; box-shadow: 0 0 14px rgba(13,110,253,0.6); }
-.btn.upi  { background: #198754; box-shadow: 0 0 16px rgba(25,135,84,0.6); margin: 12px 0 18px; }
-.btn:hover { transform: translateY(-2px); }
 
-/* Map */
-.map-wrap { max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 24px rgba(0,0,0,0.45); }
-.map-wrap iframe { width: 100%; height: 420px; border: 0; }
+.copy-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+}
 
-/* About */
+.copy-row code {
+  background: rgba(255,255,255,0.08);
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+/* =========================
+   MAP
+========================= */
+.map-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+/* =========================
+   ABOUT
+========================= */
 #about {
   background: rgba(255,255,255,0.14);
   padding: 24px;
@@ -82,7 +251,9 @@ section { padding: 28px 16px; }
   line-height: 1.6;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -91,21 +262,65 @@ section { padding: 28px 16px; }
   padding: 18px 16px;
   background: rgba(0,0,0,0.35);
   box-shadow: 0 -6px 16px rgba(0,0,0,0.35);
-  text-align: left;
+  font-size: 14px;
+  opacity: 0.9;
 }
-.footer-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.co-label { opacity: .9; font-weight: 700; margin-right: 6px; }
-.brand-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); }
-.badge-icon { width: 16px; height: 16px; display: inline-block; }
-.brand-text { font-weight: 600; }
-.footer-right { margin-left: auto; }
 
-/* Glow + zoom animation for headings */
-.glow {
-  animation: glowZoom 3s infinite alternate;
-  text-shadow: 0 0 10px #fff, 0 0 20px #42a5f5, 0 0 30px #2196f3;
+.brand-badge {
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 8px;
+  border-radius: 999px;
 }
+
+/* =========================
+   GLOW (HEADINGS ONLY)
+========================= */
+.glow {
+  animation: glowZoom 4s ease-in-out infinite;
+  text-shadow: 0 0 10px #fff, 0 0 20px #42a5f5;
+}
+
 @keyframes glowZoom {
   0% { transform: scale(1); opacity: 0.9; }
-  100% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1.06); opacity: 1; }
+}
+
+/* =========================
+   PWA INSTALL BANNER
+========================= */
+.pwa-install {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 999;
+}
+
+.pwa-install button {
+  background: #0d6efd;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+@media (hover: none) {
+  .card.click:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 20px; }
+  .map-wrap iframe { height: 300px; }
 }
