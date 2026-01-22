@@ -5,7 +5,7 @@ const payLink = document.getElementById("payLink");
 const bookLink = document.getElementById("bookLink");
 const vehicleIcon = document.getElementById("vehicleIcon");
 
-const WHATSAPP_NUMBER = "919XXXXXXXXX";
+const WHATSAPP_NUMBER = "919797472650";
 
 function openOptions(type, price, paymentUrl, icon) {
   optTitle.innerText = type + " Wash";
