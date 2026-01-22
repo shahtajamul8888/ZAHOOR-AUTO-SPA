@@ -30,42 +30,22 @@
 
   <div class="card-grid">
     <div class="card blue reveal-card"
-         onclick="openOptions(
-           'Bike',
-           150,
-           'https://payments.cashfree.com/links?code=b95kmt7h58ug',
-           'bike'
-         )">
+      onclick="openOptions('Bike',150,'https://payments.cashfree.com/links?code=b95kmt7h58ug','bike')">
       🏍 Bike Wash<br>₹150
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions(
-           'Car',
-           350,
-           'https://payments.cashfree.com/links?code=I95kn0apt8ug',
-           'car'
-         )">
+      onclick="openOptions('Car',350,'https://payments.cashfree.com/links?code=I95kn0apt8ug','car')">
       🚗 Car Wash<br>₹350
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions(
-           'Bus',
-           650,
-           'https://payments.cashfree.com/links?code=N95kn1vcd8ug',
-           'bus'
-         )">
+      onclick="openOptions('Bus',650,'https://payments.cashfree.com/links?code=N95kn1vcd8ug','bus')">
       🚌 Bus Wash<br>₹650
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions(
-           'Truck',
-           750,
-           'https://payments.cashfree.com/links?code=p95kn4tfv8ug',
-           'truck'
-         )">
+      onclick="openOptions('Truck',750,'https://payments.cashfree.com/links?code=p95kn4tfv8ug','truck')">
       🚚 Truck Wash<br>₹750
     </div>
   </div>
@@ -74,69 +54,15 @@
 <!-- OPTION MODAL -->
 <div class="option-modal" id="optionModal">
   <div class="option-box">
+    <img id="serviceImg" class="service-img" src="" alt="service">
     <h3 id="optTitle"></h3>
     <p id="optPrice"></p>
 
-    <!-- REAL-TIME CASHFREE PAYMENT -->
-    <a id="payLink" class="opt-btn pay" target="_blank">
-      Pay
-    </a>
-
-    <!-- BOOK (WHATSAPP INSIDE SAME FLOW) -->
-    <a id="bookLink" class="opt-btn wa" target="_blank">
-      Book
-    </a>
-
+    <a id="payLink" class="opt-btn pay" target="_blank">Pay Now</a>
+    <a id="bookLink" class="opt-btn wa" target="_blank">WhatsApp Booking</a>
     <button class="opt-btn cancel" onclick="closeOptions()">Cancel</button>
   </div>
 </div>
-
-<!-- MIDDLE IMAGE -->
-<section class="image-break mid-bg reveal-right">
-  <div class="image-text">Trusted • Professional • Confidential Vehicle Care</div>
-</section>
-
-<!-- SERVICES -->
-<section class="section dark reveal-left">
-  <h2 class="section-title">Our Services</h2>
-  <div class="card-grid">
-    <div class="card red reveal-card">Engine Wash</div>
-    <div class="card red reveal-card">Interior Wash</div>
-    <div class="card red reveal-card">Exterior Wash</div>
-    <div class="card red reveal-card">Foam Wash</div>
-    <div class="card red reveal-card">Tire Wash</div>
-    <div class="card red reveal-card">Greasing</div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section reveal-right">
-  <h2 class="section-title">About Us</h2>
-  <p class="about-text">
-    Zahoor Auto Spa is a professional vehicle care workshop built on trust,
-    quality, and confidentiality. Every vehicle is treated with modern
-    equipment and trained care. Customer and vehicle information is kept
-    strictly confidential, ensuring safe and reliable service every time.
-  </p>
-</section>
-
-<!-- END IMAGE -->
-<section class="image-break end-bg reveal-left">
-  <div class="image-text">Your Vehicle Deserves Professional Care</div>
-</section>
-
-<!-- MAP -->
-<section class="section reveal-right">
-  <h2 class="section-title">Find Us</h2>
-  <a class="map-link" target="_blank"
-     href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008">
-    Navigate to Zahoor Auto Spa
-  </a>
-
-  <div class="map-box">
-    <iframe src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed"></iframe>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="footer">
