@@ -2,9 +2,24 @@
 body{margin:0;background:#0b0b0b;color:#fff}
 
 /* MARQUEE */
-.marquee-wrap{overflow:hidden;background:linear-gradient(90deg,#0d47a1,#1976d2,#0d47a1);padding:12px}
-.marquee{white-space:nowrap;animation:move 12s linear infinite;font-weight:700}
-@keyframes move{to{transform:translateX(-100%)}}
+.marquee-wrap{
+  overflow:hidden;
+  background:linear-gradient(90deg,#0d47a1,#1976d2,#0d47a1);
+  padding:12px 0;
+}
+
+.marquee{
+  display:inline-block;
+  white-space:nowrap;
+  padding-left:100%;
+  animation:move 12s linear infinite;
+  font-weight:700;
+}
+
+@keyframes move{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
 
 /* HERO */
 .hero{
@@ -27,24 +42,44 @@ padding:20px;
 .section-title{font-size:2rem;margin-bottom:30px}
 
 /* CARDS */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;max-width:900px;margin:auto}
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto
+}
 .card{padding:20px;border-radius:16px;cursor:pointer}
 .card.blue{background:#0d6efd}
 .card.red{background:#d32f2f}
 
 /* MODAL */
 .option-modal{
-position:fixed;inset:0;background:rgba(0,0,0,.8);
-display:none;align-items:center;justify-content:center;z-index:999
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999
 }
 .option-box{
-background:#111;padding:25px;border-radius:18px;
-width:90%;max-width:320px;text-align:center
+background:#111;
+padding:25px;
+border-radius:18px;
+width:90%;
+max-width:320px;
+text-align:center
 }
 .vehicle-icon{font-size:64px;margin-bottom:10px}
 .opt-btn{
-display:block;margin:10px 0;padding:12px;border-radius:12px;
-text-decoration:none;color:#fff;font-weight:600
+display:block;
+margin:10px 0;
+padding:12px;
+border-radius:12px;
+text-decoration:none;
+color:#fff;
+font-weight:600
 }
 .pay{background:#0d6efd}
 .wa{background:#25d366}
@@ -74,7 +109,10 @@ background:url("https://images.unsplash.com/photo-1605164599894-ca98960d41b6") c
 /* FOOTER */
 .footer{padding:20px;background:#111;text-align:center}
 .glow{animation:glow 2.5s infinite alternate}
-@keyframes glow{from{text-shadow:0 0 5px #4fc3f7}to{text-shadow:0 0 18px #4fc3f7}}
+@keyframes glow{
+from{text-shadow:0 0 5px #4fc3f7}
+to{text-shadow:0 0 18px #4fc3f7}
+}
 
 @media(max-width:600px){
 .hero{height:65vh}
