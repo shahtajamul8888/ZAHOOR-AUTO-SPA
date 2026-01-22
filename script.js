@@ -1,15 +1,24 @@
-function hideAllServiceOptions() {
-  document.querySelectorAll('.service-options')
-    .forEach(el => el.style.display = 'none');
+// REVEAL + STAGGER
+function revealOnScroll() {
+  const trigger = window.innerHeight - 100;
+
+  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+    if (el.getBoundingClientRect().top < trigger) {
+      el.classList.add('active');
+    }
+  });
+
+  const cards = document.querySelectorAll('.reveal-card');
+  cards.forEach((card, i) => {
+    if (card.getBoundingClientRect().top < trigger) {
+      setTimeout(() => card.classList.add('active'), i * 120);
+    }
+  });
 }
 
-function showServiceOptions(id) {
-  hideAllServiceOptions();
-  document.getElementById(id).style.display = 'flex';
-}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-function closeServiceOption(id) {
-  document.getElementById(id).style.display = 'none';
+function openOptions(type) {
+  alert("Booking options: Pay / WhatsApp / Cancel");
 }
-
-hideAllServiceOptions();
