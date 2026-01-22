@@ -30,42 +30,61 @@
 
   <div class="card-grid">
     <div class="card blue reveal-card"
-         onclick="openOptions('Bike',150,'https://payments.cashfree.com/links?code=b95kmt7h58ug','bike')">
+         onclick="openOptions(
+           'Bike',
+           150,
+           'https://payments.cashfree.com/links?code=b95kmt7h58ug',
+           'bike'
+         )">
       🏍 Bike Wash<br>₹150
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions('Car',350,'https://payments.cashfree.com/links?code=I95kn0apt8ug','car')">
+         onclick="openOptions(
+           'Car',
+           350,
+           'https://payments.cashfree.com/links?code=I95kn0apt8ug',
+           'car'
+         )">
       🚗 Car Wash<br>₹350
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions('Bus',650,'https://payments.cashfree.com/links?code=N95kn1vcd8ug','bus')">
+         onclick="openOptions(
+           'Bus',
+           650,
+           'https://payments.cashfree.com/links?code=N95kn1vcd8ug',
+           'bus'
+         )">
       🚌 Bus Wash<br>₹650
     </div>
 
     <div class="card blue reveal-card"
-         onclick="openOptions('Truck',750,'https://payments.cashfree.com/links?code=p95kn4tfv8ug','truck')">
+         onclick="openOptions(
+           'Truck',
+           750,
+           'https://payments.cashfree.com/links?code=p95kn4tfv8ug',
+           'truck'
+         )">
       🚚 Truck Wash<br>₹750
     </div>
   </div>
 </section>
 
-<!-- OPTION POPUP -->
+<!-- OPTION MODAL -->
 <div class="option-modal" id="optionModal">
   <div class="option-box">
     <h3 id="optTitle"></h3>
     <p id="optPrice"></p>
 
-    <!-- OLD CASHFREE PAYMENT -->
+    <!-- REAL-TIME CASHFREE PAYMENT -->
     <a id="payLink" class="opt-btn pay" target="_blank">
-      Pay Now
+      Pay
     </a>
 
-    <!-- WHATSAPP BOOKING -->
-    <a id="waLink" class="opt-btn wa" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="wa-icon">
-      Book on WhatsApp
+    <!-- BOOK (WHATSAPP INSIDE SAME FLOW) -->
+    <a id="bookLink" class="opt-btn wa" target="_blank">
+      Book
     </a>
 
     <button class="opt-btn cancel" onclick="closeOptions()">Cancel</button>
