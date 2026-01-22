@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zahoor Auto Spa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahoor Auto Spa</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -17,44 +17,28 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-content hero-animate">
-    <p class="hero-sub">Premium Vehicle Care</p>
+  <div class="hero-content">
     <h1>Zahoor Auto Spa</h1>
-    <p class="hero-tagline">Professional Washing • Detailing • Care</p>
+    <p>Professional Vehicle Washing & Detailing</p>
   </div>
 </header>
 
 <!-- BOOK ONLINE -->
-<section class="section reveal-left">
-  <h2 class="section-title">Book Online</h2>
+<section class="section">
+<h2 class="section-title">Book Online</h2>
 
-  <div class="card-grid">
-    <div class="card blue reveal-card"
-      onclick="openOptions('Bike',150,'https://payments.cashfree.com/links?code=b95kmt7h58ug','bike')">
-      🏍 Bike Wash<br>₹150
-    </div>
-
-    <div class="card blue reveal-card"
-      onclick="openOptions('Car',350,'https://payments.cashfree.com/links?code=I95kn0apt8ug','car')">
-      🚗 Car Wash<br>₹350
-    </div>
-
-    <div class="card blue reveal-card"
-      onclick="openOptions('Bus',650,'https://payments.cashfree.com/links?code=N95kn1vcd8ug','bus')">
-      🚌 Bus Wash<br>₹650
-    </div>
-
-    <div class="card blue reveal-card"
-      onclick="openOptions('Truck',750,'https://payments.cashfree.com/links?code=p95kn4tfv8ug','truck')">
-      🚚 Truck Wash<br>₹750
-    </div>
-  </div>
+<div class="card-grid">
+  <div class="card blue" onclick="openOptions('Bike',150,'https://payments.cashfree.com/links?code=b95kmt7h58ug','🏍')">🏍 Bike Wash<br>₹150</div>
+  <div class="card blue" onclick="openOptions('Car',350,'https://payments.cashfree.com/links?code=I95kn0apt8ug','🚗')">🚗 Car Wash<br>₹350</div>
+  <div class="card blue" onclick="openOptions('Bus',650,'https://payments.cashfree.com/links?code=N95kn1vcd8ug','🚌')">🚌 Bus Wash<br>₹650</div>
+  <div class="card blue" onclick="openOptions('Truck',750,'https://payments.cashfree.com/links?code=p95kn4tfv8ug','🚚')">🚚 Truck Wash<br>₹750</div>
+</div>
 </section>
 
 <!-- OPTION MODAL -->
 <div class="option-modal" id="optionModal">
   <div class="option-box">
-    <img id="serviceImg" class="service-img" src="" alt="service">
+    <div id="vehicleIcon" class="vehicle-icon"></div>
     <h3 id="optTitle"></h3>
     <p id="optPrice"></p>
 
@@ -64,9 +48,56 @@
   </div>
 </div>
 
+<!-- MIDDLE IMAGE -->
+<section class="image-break mid-bg">
+  <div class="image-text">Trusted • Professional • Confidential Care</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section dark">
+<h2 class="section-title">Our Services</h2>
+<div class="card-grid">
+  <div class="card red">Engine Wash</div>
+  <div class="card red">Interior Wash</div>
+  <div class="card red">Exterior Wash</div>
+  <div class="card red">Foam Wash</div>
+  <div class="card red">Tire Wash</div>
+  <div class="card red">Greasing</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+<h2 class="section-title">About Us</h2>
+<p class="about-text">
+Zahoor Auto Spa is a professional vehicle care workshop built on trust,
+quality, and confidentiality. Every vehicle is handled with modern
+equipment and trained expertise.
+</p>
+</section>
+
+<!-- END IMAGE -->
+<section class="image-break end-bg">
+  <div class="image-text">Your Vehicle Deserves Professional Care</div>
+</section>
+
+<!-- LOCATION -->
+<section class="section">
+<h2 class="section-title">Find Us</h2>
+
+<a class="map-link" target="_blank"
+href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008">
+Navigate to Zahoor Auto Spa
+</a>
+
+<div class="map-box">
+<iframe src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed"></iframe>
+</div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
-  <span class="glow">Developed by Tajamul</span>
+<span class="glow">Developed by Tajamul</span>
 </footer>
 
 <script src="script.js"></script>
