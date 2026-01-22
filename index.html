@@ -13,18 +13,15 @@
 </head>
 <body>
 
-  <!-- MODERN CSS MARQUEE -->
+  <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee">
-      <span>
-        ZAHOOR AUTO SPA 🚛 
-      </span>
+      <span>ZAHOOR AUTO SPA 🚛</span>
     </div>
   </div>
 
   <!-- HERO -->
   <header class="hero">
-  <img src="" alt="">
     <div class="hero-content">
       <p class="hero-sub">Premium Vehicle Care</p>
       <h1>Zahoor Auto Spa</h1>
@@ -35,7 +32,7 @@
   <!-- PORTFOLIO -->
   <section class="portfolio">
     <div class="portfolio-item">
-      <img src="https://plus.unsplash.com/premium_photo-1661501041641-3e731115e687?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Heavy Vehicle Wash">
+      <img src="https://plus.unsplash.com/premium_photo-1661501041641-3e731115e687?q=80&w=1470&auto=format&fit=crop" alt="Heavy Vehicle Wash">
       <div class="portfolio-overlay">
         <h3>Heavy Vehicle Care</h3>
         <p>Professional Truck & Bus Washing</p>
@@ -54,48 +51,24 @@
       <div class="card blue" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>
     </div>
 
-    <!-- SERVICE OPTIONS (UNCHANGED LOGIC) -->
+    <!-- SERVICE OPTIONS (NO WHATSAPP HERE) -->
     <div class="service-options" id="bike-options">
-      <a class="whatsapp-btn" target="_blank"
-        href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash%20service">
-        WhatsApp Booking
-      </a>
-      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug')">
-        Pay ₹150
-      </button>
+      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug')">Pay ₹150</button>
       <button class="close-btn" onclick="closeServiceOption('bike-options')">Close</button>
     </div>
 
     <div class="service-options" id="car-options">
-      <a class="whatsapp-btn" target="_blank"
-        href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash%20service">
-        WhatsApp Booking
-      </a>
-      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug')">
-        Pay ₹350
-      </button>
+      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug')">Pay ₹350</button>
       <button class="close-btn" onclick="closeServiceOption('car-options')">Close</button>
     </div>
 
     <div class="service-options" id="bus-options">
-      <a class="whatsapp-btn" target="_blank"
-        href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash%20service">
-        WhatsApp Booking
-      </a>
-      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug')">
-        Pay ₹650
-      </button>
+      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug')">Pay ₹650</button>
       <button class="close-btn" onclick="closeServiceOption('bus-options')">Close</button>
     </div>
 
     <div class="service-options" id="truck-options">
-      <a class="whatsapp-btn" target="_blank"
-        href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash%20service">
-        WhatsApp Booking
-      </a>
-      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug')">
-        Pay ₹750
-      </button>
+      <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug')">Pay ₹750</button>
       <button class="close-btn" onclick="closeServiceOption('truck-options')">Close</button>
     </div>
   </section>
@@ -123,8 +96,7 @@
 
     <div class="map-box">
       <iframe loading="lazy"
-        src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed">
-      </iframe>
+        src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed"></iframe>
     </div>
   </section>
 
@@ -138,9 +110,15 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    Developed by Tajamul
-  </footer>
+  <footer class="footer">Developed by Tajamul</footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/919797472650"
+     class="whatsapp-float"
+     target="_blank"
+     aria-label="WhatsApp Booking">
+    <span class="wa-icon">🟢</span> WhatsApp
+  </a>
 
   <script src="script.js"></script>
 </body>
