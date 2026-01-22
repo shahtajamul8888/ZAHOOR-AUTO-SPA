@@ -1,30 +1,32 @@
-// REVEAL + STAGGER
-function revealOnScroll(){
-  const trigger=window.innerHeight-100;
-  document.querySelectorAll('.reveal-left,.reveal-card').forEach((el,i)=>{
-    if(el.getBoundingClientRect().top<trigger){
-      setTimeout(()=>el.classList.add('active'),i*120);
+// REVEAL + STAGGER (UNCHANGED)
+function revealOnScroll() {
+  const trigger = window.innerHeight - 100;
+
+  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+    if (el.getBoundingClientRect().top < trigger) {
+      el.classList.add('active');
+    }
+  });
+
+  const cards = document.querySelectorAll('.reveal-card');
+  cards.forEach((card, i) => {
+    if (card.getBoundingClientRect().top < trigger) {
+      setTimeout(() => card.classList.add('active'), i * 120);
     }
   });
 }
-window.addEventListener('scroll',revealOnScroll);
-window.addEventListener('load',revealOnScroll);
 
-// SERVICE MODAL
-function openService(name,rate,link){
-  document.getElementById('serviceTitle').innerText=name+" Wash";
-  document.getElementById('serviceRate').innerText="Rate: ₹"+rate;
-  document.getElementById('payNow').href=link;
-  document.getElementById('serviceModal').style.display='flex';
-}
-function closeModal(){
-  document.getElementById('serviceModal').style.display='none';
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// OPTIONS LOGIC
+function openOptions(name, price, link) {
+  document.getElementById('optTitle').innerText = name + " Wash";
+  document.getElementById('optPrice').innerText = "Rate: ₹" + price;
+  document.getElementById('payLink').href = link;
+  document.getElementById('optionModal').style.display = "flex";
 }
 
-// WHATSAPP POPUP
-function openWhatsApp(){
-  document.getElementById('whatsappModal').style.display='flex';
-}
-function closeWhatsApp(){
-  document.getElementById('whatsappModal').style.display='none';
+function closeOptions() {
+  document.getElementById('optionModal').style.display = "none";
 }
