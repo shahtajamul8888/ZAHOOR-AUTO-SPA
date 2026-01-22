@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zahoor Auto Spa</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -27,61 +26,38 @@
 <!-- BOOK ONLINE -->
 <section class="section reveal-left">
   <h2 class="section-title">Book Online</h2>
-
   <div class="card-grid">
-    <div class="card blue reveal-card" onclick="openOptions('bike')">🏍 Bike Wash<br>₹150</div>
-    <div class="card blue reveal-card" onclick="openOptions('car')">🚗 Car Wash<br>₹350</div>
-    <div class="card blue reveal-card" onclick="openOptions('bus')">🚌 Bus Wash<br>₹650</div>
-    <div class="card blue reveal-card" onclick="openOptions('truck')">🚚 Truck Wash<br>₹750</div>
+    <div class="card blue reveal-card" onclick="openService('Bike',150,'https://payments.cashfree.com/links?code=b95kmt7h58ug')">🏍 Bike</div>
+    <div class="card blue reveal-card" onclick="openService('Car',350,'https://payments.cashfree.com/links?code=I95kn0apt8ug')">🚗 Car</div>
+    <div class="card blue reveal-card" onclick="openService('Bus',650,'https://payments.cashfree.com/links?code=N95kn1vcd8ug')">🚌 Bus</div>
+    <div class="card blue reveal-card" onclick="openService('Truck',750,'https://payments.cashfree.com/links?code=p95kn4tfv8ug')">🚚 Truck</div>
   </div>
 </section>
 
-<!-- MIDDLE IMAGE -->
-<section class="image-break mid-bg reveal-right">
-  <div class="image-text">Trusted • Professional • Confidential Vehicle Care</div>
-</section>
-
-<!-- SERVICES -->
-<section class="section dark reveal-left">
-  <h2 class="section-title">Our Services</h2>
-  <div class="card-grid">
-    <div class="card red reveal-card">Engine Wash</div>
-    <div class="card red reveal-card">Interior Wash</div>
-    <div class="card red reveal-card">Exterior Wash</div>
-    <div class="card red reveal-card">Foam Wash</div>
-    <div class="card red reveal-card">Tire Wash</div>
-    <div class="card red reveal-card">Greasing</div>
+<!-- SERVICE POPUP -->
+<div class="modal" id="serviceModal">
+  <div class="modal-box">
+    <h3 id="serviceTitle"></h3>
+    <p id="serviceRate"></p>
+    <a id="payNow" class="btn small pay" target="_blank">Pay Now</a>
+    <button class="btn small cancel" onclick="closeModal()">Cancel</button>
   </div>
-</section>
+</div>
 
-<!-- ABOUT -->
-<section class="section reveal-right">
-  <h2 class="section-title">About Us</h2>
-  <p class="about-text">
-    Zahoor Auto Spa is a professional vehicle care workshop built on trust,
-    quality, and confidentiality. Every vehicle is treated with modern
-    equipment and trained care. Customer and vehicle information is kept
-    strictly confidential, ensuring safe and reliable service every time.
-  </p>
-</section>
-
-<!-- END IMAGE -->
-<section class="image-break end-bg reveal-left">
-  <div class="image-text">Your Vehicle Deserves Professional Care</div>
-</section>
-
-<!-- MAP -->
-<section class="section reveal-right">
-  <h2 class="section-title">Find Us</h2>
-  <a class="map-link" target="_blank"
-     href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008">
-    Navigate to Zahoor Auto Spa
-  </a>
-
-  <div class="map-box">
-    <iframe src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed"></iframe>
+<!-- WHATSAPP POPUP -->
+<div class="modal" id="whatsappModal">
+  <div class="modal-box">
+    <p>Book via WhatsApp</p>
+    <a class="btn small wa" target="_blank"
+       href="https://wa.me/919797472650?text=Hello%20Zahoor%20Auto%20Spa%20I%20want%20to%20wash%20bike%20car%20bus%20truck">
+       Open WhatsApp
+    </a>
+    <button class="btn small cancel" onclick="closeWhatsApp()">Cancel</button>
   </div>
-</section>
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<button class="whatsapp-float" onclick="openWhatsApp()">💬</button>
 
 <!-- FOOTER -->
 <footer class="footer">
