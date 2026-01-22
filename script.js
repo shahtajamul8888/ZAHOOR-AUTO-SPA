@@ -1,4 +1,4 @@
-// REVEAL + STAGGER (UNCHANGED)
+// REVEAL + STAGGER
 function revealOnScroll() {
   const trigger = window.innerHeight - 100;
 
@@ -19,14 +19,6 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// OPTIONS LOGIC
-function openOptions(name, price, link) {
-  document.getElementById('optTitle').innerText = name + " Wash";
-  document.getElementById('optPrice').innerText = "Rate: ₹" + price;
-  document.getElementById('payLink').href = link;
-  document.getElementById('optionModal').style.display = "flex";
-}
-
-function closeOptions() {
-  document.getElementById('optionModal').style.display = "none";
+function openOptions(type) {
+  alert("Booking options: Pay / WhatsApp / Cancel");
 }
