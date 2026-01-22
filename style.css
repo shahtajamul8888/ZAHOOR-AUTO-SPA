@@ -1,3 +1,4 @@
+/* style.css */
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -9,21 +10,18 @@ body {
   color: #fff;
 }
 
-/* MARQUEE */
+/* SINGLE LINE TOP BAR */
 .marquee-wrap {
-  overflow: hidden;
+  width: 100%;
   background: #0d47a1;
   padding: 12px 0;
+  text-align: center;
 }
-.marquee span {
-  display: inline-block;
-  padding-left: 100%;
-  font-weight: 700;
+
+.marquee {
+  white-space: nowrap;
   font-size: 18px;
-  animation: marqueeMove 14s linear infinite;
-}
-@keyframes marqueeMove {
-  to { transform: translateX(-100%); }
+  font-weight: 700;
 }
 
 /* HERO */
@@ -36,81 +34,51 @@ body {
   justify-content: center;
   text-align: center;
 }
-.hero h1 { font-size: 3rem; }
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  opacity: 0.9;
+}
 
 /* PORTFOLIO */
-.portfolio { padding: 80px 20px; }
+.portfolio {
+  padding: 80px 20px;
+}
+
 .portfolio-item {
   max-width: 900px;
   margin: auto;
-  position: relative;
-  overflow: hidden;
   border-radius: 20px;
+  overflow: hidden;
 }
-.portfolio-item img { width: 100%; }
 
-/* SECTIONS */
-.section { padding: 60px 20px; text-align: center; }
-.section.dark { background: #111; }
-.section-title { font-size: 2rem; }
-
-/* CARDS */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: auto;
+.portfolio-item img {
+  width: 100%;
+  display: block;
 }
-.card {
-  padding: 18px;
-  border-radius: 14px;
-  font-weight: 600;
-}
-.card.blue { background: #0d6efd; cursor: pointer; }
-.card.red { background: #d32f2f; }
-
-/* SERVICE OPTIONS */
-.service-options {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  margin: 25px auto 0;
-  max-width: 300px;
-}
-.pay-btn { background: #ff9800; padding: 12px; border-radius: 10px; border: none; }
-.close-btn { background: #444; padding: 12px; border-radius: 10px; color: #fff; border: none; }
-
-/* MAP */
-.map-box { max-width: 420px; margin: auto; border-radius: 16px; overflow: hidden; }
-.map-box iframe { width: 100%; height: 250px; border: 0; }
 
 /* FOOTER */
-.footer { padding: 18px; background: #111; text-align: center; }
-
-/* FLOATING WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #25d366;
-  color: #000;
-  font-weight: 700;
-  padding: 14px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  animation: pulse 1.6s infinite;
-}
-@keyframes pulse {
-  50% { box-shadow: 0 0 18px rgba(37,211,102,.6); }
+.footer {
+  padding: 18px;
+  background: #111;
+  text-align: center;
 }
 
 /* MOBILE */
-@media (max-width:600px){
-  .hero h1 { font-size: 2.2rem; }
-  .hero { height: 75vh; }
+@media (max-width: 600px) {
+  .hero {
+    height: 75vh;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 }
