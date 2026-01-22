@@ -1,112 +1,44 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Zahoor Auto Spa</title>    <!-- Font -->    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">    <!-- CSS -->    <link rel="stylesheet" href="style.css">  
-</head>  
-<body>    <!-- MODERN CSS MARQUEE -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahoor Auto Spa</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP SINGLE LINE -->
 <div class="marquee-wrap">
-  <div class="marquee">
-    <span>ZAHOOR AUTO SPA 🚛</span>
+  <div class="marquee">ZAHOOR AUTO SPA</div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <p class="hero-sub">Premium Vehicle Care</p>
+    <h1>Zahoor Auto Spa</h1>
+    <p class="hero-tagline">Professional Washing • Detailing • Care</p>
   </div>
-</div>
-    </div>  
-  </div>    <!-- HERO -->    <header class="hero">  
-  <img src="" alt="">  
-    <div class="hero-content">  
-      <p class="hero-sub">Premium Vehicle Care</p>  
-      <h1>Zahoor Auto Spa</h1>  
-      <p class="hero-tagline">Professional Washing • Detailing • Care</p>  
-    </div>  
-  </header>    <!-- PORTFOLIO -->    <section class="portfolio">  
-    <div class="portfolio-item">  
-      <img src="https://plus.unsplash.com/premium_photo-1661501041641-3e731115e687?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Heavy Vehicle Wash">  
-      <div class="portfolio-overlay">  
-        <h3>Heavy Vehicle Care</h3>  
-        <p>Professional Truck & Bus Washing</p>  
-      </div>  
-    </div>  
-  </section>    <!-- BOOK ONLINE -->    <section class="section">  
-    <h2 class="section-title">Book Online</h2>  <div class="card-grid">  
-  <div class="card blue" onclick="showServiceOptions('bike-options')">🏍 Bike Wash</div>  
-  <div class="card blue" onclick="showServiceOptions('car-options')">🚗 Car Wash</div>  
-  <div class="card blue" onclick="showServiceOptions('bus-options')">🚌 Bus Wash</div>  
-  <div class="card blue" onclick="showServiceOptions('truck-options')">🚚 Truck Wash</div>  
-</div>  
+</header>
 
-<!-- SERVICE OPTIONS (UNCHANGED LOGIC) -->  
-<div class="service-options" id="bike-options">  
-  <a class="whatsapp-btn" target="_blank"  
-    href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bike%20Wash%20service">  
-    WhatsApp Booking  
-  </a>  
-  <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=b95kmt7h58ug')">  
-    Pay ₹150  
-  </button>  
-  <button class="close-btn" onclick="closeServiceOption('bike-options')">Close</button>  
-</div>  
+<!-- PORTFOLIO -->
+<section class="portfolio">
+  <div class="portfolio-item">
+    <img src="https://plus.unsplash.com/premium_photo-1661501041641-3e731115e687?q=80&w=1470&auto=format&fit=crop" alt="Heavy Vehicle Wash">
+  </div>
+</section>
 
-<div class="service-options" id="car-options">  
-  <a class="whatsapp-btn" target="_blank"  
-    href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Car%20Wash%20service">  
-    WhatsApp Booking  
-  </a>  
-  <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=I95kn0apt8ug')">  
-    Pay ₹350  
-  </button>  
-  <button class="close-btn" onclick="closeServiceOption('car-options')">Close</button>  
-</div>  
+<!-- FOOTER -->
+<footer class="footer">
+  Developed by Tajamul
+</footer>
 
-<div class="service-options" id="bus-options">  
-  <a class="whatsapp-btn" target="_blank"  
-    href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Bus%20Wash%20service">  
-    WhatsApp Booking  
-  </a>  
-  <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=N95kn1vcd8ug')">  
-    Pay ₹650  
-  </button>  
-  <button class="close-btn" onclick="closeServiceOption('bus-options')">Close</button>  
-</div>  
-
-<div class="service-options" id="truck-options">  
-  <a class="whatsapp-btn" target="_blank"  
-    href="https://wa.me/919797472650?text=I%20want%20to%20book%20a%20Truck%20Wash%20service">  
-    WhatsApp Booking  
-  </a>  
-  <button class="pay-btn" onclick="window.open('https://payments.cashfree.com/links?code=p95kn4tfv8ug')">  
-    Pay ₹750  
-  </button>  
-  <button class="close-btn" onclick="closeServiceOption('truck-options')">Close</button>  
-</div>
-
-  </section>    <!-- SERVICES -->    <section class="section dark">  
-    <h2 class="section-title">Our Services</h2>  
-    <div class="card-grid">  
-      <div class="card red">Engine Wash</div>  
-      <div class="card red">Tire Wash</div>  
-      <div class="card red">Interior Wash</div>  
-      <div class="card red">Exterior Wash</div>  
-      <div class="card red">Greasing</div>  
-      <div class="card red">Foam Wash</div>  
-    </div>  
-  </section>    <!-- MAP -->    <section class="section">  
-    <h2 class="section-title">Find Us</h2>  
-    <a class="map-link" target="_blank"  
-      href="https://www.google.com/maps/dir/?api=1&destination=34.2439281,74.7119008">  
-      Navigate to Zahoor Auto Spa  
-    </a>  <div class="map-box">  
-  <iframe loading="lazy"  
-    src="https://maps.google.com/maps?q=34.2439281,74.7119008&z=15&output=embed">  
-  </iframe>  
-</div>
-
-  </section>    <!-- ABOUT -->    <section class="section dark">  
-    <h2 class="section-title">About Us</h2>  
-    <p class="about-text">  
-      We provide premium quality washing services with modern equipment  
-      and professional care for your vehicles.  
-    </p>  
-  </section>    <!-- FOOTER -->    <footer class="footer">  
-    Developed by Tajamul  
-  </footer>    <script src="script.js"></script>  </body>  
+</body>
 </html>
